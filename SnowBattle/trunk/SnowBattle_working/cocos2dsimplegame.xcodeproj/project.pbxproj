@@ -13,6 +13,8 @@
 		BA3949D717F2EC450072E0C9 /* move.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3949D317F2EC450072E0C9 /* move.caf */; };
 		BA3949D817F2EC450072E0C9 /* pickup.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3949D417F2EC450072E0C9 /* pickup.caf */; };
 		BA3949D917F2EC450072E0C9 /* TileMap.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3949D517F2EC450072E0C9 /* TileMap.caf */; };
+		BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */; };
+		BA5ED74017FA409000F7DB42 /* 2916.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA5ED73F17FA409000F7DB42 /* 2916.jpg */; };
 		F55302C217E646CD00D1FD31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55302C117E646CD00D1FD31 /* QuartzCore.framework */; };
 		F55302C417E646CD00D1FD31 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55302C317E646CD00D1FD31 /* OpenGLES.framework */; };
 		F55302C617E646CD00D1FD31 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55302C517E646CD00D1FD31 /* OpenAL.framework */; };
@@ -147,8 +149,6 @@
 		F553046817E646CF00D1FD31 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F553046717E646CF00D1FD31 /* AppDelegate.m */; };
 		F553046B17E646CF00D1FD31 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F553046A17E646CF00D1FD31 /* HelloWorldLayer.m */; };
 		F553046E17E646CF00D1FD31 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F553046D17E646CF00D1FD31 /* IntroLayer.m */; };
-		F585EA2717F956610062AD9C /* 2916.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F585EA2517F956610062AD9C /* 2916.jpg */; };
-		F585EA2817F956610062AD9C /* TileMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F585EA2617F956610062AD9C /* TileMap.tmx */; };
 		F5CCB29117E6859300D56915 /* Tiled_Map_Snow.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F5CCB29017E6859300D56915 /* Tiled_Map_Snow.tmx */; };
 		F5CCB29317E685A000D56915 /* new_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5CCB29217E685A000D56915 /* new_image.jpg */; };
 		F5CCB29717E6965000D56915 /* player.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5CCB29617E6965000D56915 /* player.jpg */; };
@@ -163,6 +163,8 @@
 		BA3949D317F2EC450072E0C9 /* move.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = move.caf; path = Resources/Sounds/move.caf; sourceTree = "<group>"; };
 		BA3949D417F2EC450072E0C9 /* pickup.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = pickup.caf; path = Resources/Sounds/pickup.caf; sourceTree = "<group>"; };
 		BA3949D517F2EC450072E0C9 /* TileMap.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = TileMap.caf; path = Resources/Sounds/TileMap.caf; sourceTree = "<group>"; };
+		BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TileMap.tmx; sourceTree = "<group>"; };
+		BA5ED73F17FA409000F7DB42 /* 2916.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2916.jpg; sourceTree = "<group>"; };
 		F55302BE17E646CD00D1FD31 /* cocos2dsimplegame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cocos2dsimplegame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55302C117E646CD00D1FD31 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F55302C317E646CD00D1FD31 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -444,8 +446,6 @@
 		F553046A17E646CF00D1FD31 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		F553046C17E646CF00D1FD31 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		F553046D17E646CF00D1FD31 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
-		F585EA2517F956610062AD9C /* 2916.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2916.jpg; path = ../../../../../../../Users/gpadmin/Desktop/2916.jpg; sourceTree = "<group>"; };
-		F585EA2617F956610062AD9C /* TileMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TileMap.tmx; path = ../../../../../../../Users/gpadmin/Desktop/TileMap.tmx; sourceTree = "<group>"; };
 		F5CCB29017E6859300D56915 /* Tiled_Map_Snow.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tiled_Map_Snow.tmx; sourceTree = "<group>"; };
 		F5CCB29217E685A000D56915 /* new_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = new_image.jpg; sourceTree = "<group>"; };
 		F5CCB29617E6965000D56915 /* player.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = player.jpg; sourceTree = "<group>"; };
@@ -526,11 +526,11 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F585EA2517F956610062AD9C /* 2916.jpg */,
-				F585EA2617F956610062AD9C /* TileMap.tmx */,
 				BA3949D217F2EC450072E0C9 /* hit.caf */,
 				BA3949D317F2EC450072E0C9 /* move.caf */,
 				BA3949D417F2EC450072E0C9 /* pickup.caf */,
+				BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */,
+				BA5ED73F17FA409000F7DB42 /* 2916.jpg */,
 				BA3949D517F2EC450072E0C9 /* TileMap.caf */,
 				F5CCB29217E685A000D56915 /* new_image.jpg */,
 				F5CCB29017E6859300D56915 /* Tiled_Map_Snow.tmx */,
@@ -990,8 +990,8 @@
 				BA3949CF17F2B80B0072E0C9 /* background-music-aac.caf in Resources */,
 				F5CCB29717E6965000D56915 /* player.jpg in Resources */,
 				F5CCB29917E6970D00D56915 /* monster.jpg in Resources */,
-				F585EA2717F956610062AD9C /* 2916.jpg in Resources */,
-				F585EA2817F956610062AD9C /* TileMap.tmx in Resources */,
+				BA5ED74017FA409000F7DB42 /* 2916.jpg in Resources */,
+				BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
