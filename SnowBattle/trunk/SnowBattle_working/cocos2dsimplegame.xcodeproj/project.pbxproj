@@ -147,6 +147,8 @@
 		F553046817E646CF00D1FD31 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F553046717E646CF00D1FD31 /* AppDelegate.m */; };
 		F553046B17E646CF00D1FD31 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F553046A17E646CF00D1FD31 /* HelloWorldLayer.m */; };
 		F553046E17E646CF00D1FD31 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F553046D17E646CF00D1FD31 /* IntroLayer.m */; };
+		F585EA2717F956610062AD9C /* 2916.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F585EA2517F956610062AD9C /* 2916.jpg */; };
+		F585EA2817F956610062AD9C /* TileMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F585EA2617F956610062AD9C /* TileMap.tmx */; };
 		F5CCB29117E6859300D56915 /* Tiled_Map_Snow.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F5CCB29017E6859300D56915 /* Tiled_Map_Snow.tmx */; };
 		F5CCB29317E685A000D56915 /* new_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5CCB29217E685A000D56915 /* new_image.jpg */; };
 		F5CCB29717E6965000D56915 /* player.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5CCB29617E6965000D56915 /* player.jpg */; };
@@ -442,6 +444,8 @@
 		F553046A17E646CF00D1FD31 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		F553046C17E646CF00D1FD31 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		F553046D17E646CF00D1FD31 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		F585EA2517F956610062AD9C /* 2916.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2916.jpg; path = ../../../../../../../Users/gpadmin/Desktop/2916.jpg; sourceTree = "<group>"; };
+		F585EA2617F956610062AD9C /* TileMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TileMap.tmx; path = ../../../../../../../Users/gpadmin/Desktop/TileMap.tmx; sourceTree = "<group>"; };
 		F5CCB29017E6859300D56915 /* Tiled_Map_Snow.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tiled_Map_Snow.tmx; sourceTree = "<group>"; };
 		F5CCB29217E685A000D56915 /* new_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = new_image.jpg; sourceTree = "<group>"; };
 		F5CCB29617E6965000D56915 /* player.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = player.jpg; sourceTree = "<group>"; };
@@ -522,6 +526,8 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F585EA2517F956610062AD9C /* 2916.jpg */,
+				F585EA2617F956610062AD9C /* TileMap.tmx */,
 				BA3949D217F2EC450072E0C9 /* hit.caf */,
 				BA3949D317F2EC450072E0C9 /* move.caf */,
 				BA3949D417F2EC450072E0C9 /* pickup.caf */,
@@ -984,6 +990,8 @@
 				BA3949CF17F2B80B0072E0C9 /* background-music-aac.caf in Resources */,
 				F5CCB29717E6965000D56915 /* player.jpg in Resources */,
 				F5CCB29917E6970D00D56915 /* monster.jpg in Resources */,
+				F585EA2717F956610062AD9C /* 2916.jpg in Resources */,
+				F585EA2817F956610062AD9C /* TileMap.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

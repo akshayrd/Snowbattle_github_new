@@ -16,7 +16,9 @@
 {
     CCTMXTiledMap *_tileMap;
     CCTMXLayer *bgLayer;
+    CCTMXLayer *background;
     CCSprite *player;
+    CCTMXLayer *meta;
 }
 
 
