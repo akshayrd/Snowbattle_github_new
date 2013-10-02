@@ -7,10 +7,16 @@
     <property name="Collidable" value="True"/>
    </properties>
   </tile>
+  <tile id="40">
+   <properties>
+    <property name="Collectable" value="True"/>
+   </properties>
+  </tile>
  </tileset>
+ <objectgroup name="Objects" width="20" height="20"/>
  <layer name="Background" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJwzYWBgMBnFo3gUj+JRPIpJxACfolFB
+   eJzTZGBg0ARiEySsiUeMWExt80i1l1hxappHih3EqCXHPErDl5B+fPL44pza9tEjPkkJc1LMJyWeqG0eufFIr/igdvlAbh6ihrnUNo8SO0h1B7HmAQB2/kRo
   </data>
  </layer>
  <layer name="Meta" width="20" height="20">
@@ -18,5 +24,4 @@
    eJxjYIAAZiTMgEeMWEBt80i1l1hxappHih3EqKW2edQwB588vjintn30iE9izSLGv8jipOQDaptHyFxC5tE6PqhdPpCThyiJF1qaR4kdpLqDWPMAqA0BKg==
   </data>
  </layer>
- <objectgroup name="Objects" width="20" height="20"/>
 </map>

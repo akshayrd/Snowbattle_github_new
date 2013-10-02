@@ -25,6 +25,11 @@
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
+    
+    
+//    HudLayer *hud = [HudLayer node];
+//    [scene addChild:hud];
+//    layer->hud = hud;
 	
 	// return the scene
 	return scene;
@@ -84,6 +89,9 @@
      [CCSequence actions: actionRotate180,actionMove,actionRotate90,actionMove1,actionRotate360,actionMove2,actionRotate180,actionMove3,actionRotate,actionMove4,actionRotate,actionMove5,nil]];
     
     
+    
+  
+    
 }
 
 - (void) Monster2move:(ccTime)dt
@@ -130,6 +138,7 @@
     [monster2 runAction:
      [CCSequence actions: actionRotate90,actionMove,actionRotate360,actionMove1,actionRotate270,actionMove2,actionRotate180,actionMove3,actionRotate90,nil]];
     
+   
     
 }
 - (void) Monster1Freeze
@@ -330,7 +339,7 @@ int playerDirection = 1;
         }
     }
     
-    CCLOG(@"playerPos %@",CGPointCreateDictionaryRepresentation(playerPos));
+    //CCLOG(@"playerPos %@",CGPointCreateDictionaryRepresentation(playerPos));
     
     // safety check on the bounds of the map
     if (playerPos.x <= (_tileMap.mapSize.width * _tileMap.tileSize.width) &&
@@ -375,6 +384,37 @@ int playerDirection = 1;
             if (collision && [collision isEqualToString:@"True"]) {
                 return;
             }
+            NSString *collectible = properties[@"Collectable"];
+            if (collectible && [collectible isEqualToString:@"True"]) {
+                [meta removeTileAt:tileCoord];
+                //[_foreground removeTileAt:tileCoord];
+                //numCollected++;
+                
+                //[_hud numCollectedChanged:_numCollected];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"pickup.caf"];
+            }
+
+        }
+    }
+    
+    tileGid = [background tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collision = properties[@"Collidable"];
+            if (collision && [collision isEqualToString:@"True"]) {
+                return;
+            }
+            NSString *collectible = properties[@"Collectable"];
+            if (collectible && [collectible isEqualToString:@"True"]) {
+                [background removeTileAt:tileCoord];
+                //[_foreground removeTileAt:tileCoord];
+                //self.numCollected++;
+                
+                //[_hud numCollectedChanged:_numCollected];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"pickup.caf"];
+            }
+            
         }
     }
     
@@ -470,8 +510,9 @@ int playerDirection = 1;
             }
         }
         CGSize winSize = [CCDirector sharedDirector].winSize;
-        player = [CCSprite spriteWithFile:@"player.jpg"];
+        player = [CCSprite spriteWithFile:@"player2.jpg"];
         player.position = ccp(10,580);
+        
         if(player == nil)
         {
             printf("this is an error");
@@ -524,12 +565,43 @@ int playerDirection = 1;
 //         [CCSequence actions: actionRotate,actionMove,actionRotate,actionMove1,nil]];
 //        
         
-        
+        [self schedule:@selector(checkCollisionWithMonster)];
         
         
 	}
     
     return self;
+}
+
+- (void) checkCollisionWithMonster
+{
+    if(CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]))
+    {
+        //playerVelocity=ccp(-playerVelocity.x,-playerVelocity.y);
+        player.position = ccp(10,580);
+        return;
+    }
+    
+    if(CGRectIntersectsRect([monster3 boundingBox], [player boundingBox]))
+    {
+        //playerVelocity=ccp(-playerVelocity.x,-playerVelocity.y);
+        player.position = ccp(10,580);
+        return;
+    }
+    
+    if(CGRectIntersectsRect([monster1 boundingBox], [player boundingBox]))
+    {
+        //playerVelocity=ccp(-playerVelocity.x,-playerVelocity.y);
+        player.position = ccp(10,580);
+        return;
+    }
+    
+    if(CGRectIntersectsRect([monster3 boundingBox], [player boundingBox]))
+    {
+        //playerVelocity=ccp(-playerVelocity.x,-playerVelocity.y);
+        player.position = ccp(10,580);
+        return;
+    }
 }
 
 // on "dealloc" you need to release all your retained objects

@@ -15,6 +15,8 @@
 		BA3949D917F2EC450072E0C9 /* TileMap.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3949D517F2EC450072E0C9 /* TileMap.caf */; };
 		BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */; };
 		BA5ED74017FA409000F7DB42 /* 2916.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA5ED73F17FA409000F7DB42 /* 2916.jpg */; };
+		BAEB785017FC8E1E00B9663A /* grasstutorial.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEB784F17FC8E1E00B9663A /* grasstutorial.png */; };
+		BAEB785417FC93A300B9663A /* player2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAEB785317FC93A300B9663A /* player2.jpg */; };
 		F55302C217E646CD00D1FD31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55302C117E646CD00D1FD31 /* QuartzCore.framework */; };
 		F55302C417E646CD00D1FD31 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55302C317E646CD00D1FD31 /* OpenGLES.framework */; };
 		F55302C617E646CD00D1FD31 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55302C517E646CD00D1FD31 /* OpenAL.framework */; };
@@ -165,6 +167,8 @@
 		BA3949D517F2EC450072E0C9 /* TileMap.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = TileMap.caf; path = Resources/Sounds/TileMap.caf; sourceTree = "<group>"; };
 		BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TileMap.tmx; sourceTree = "<group>"; };
 		BA5ED73F17FA409000F7DB42 /* 2916.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2916.jpg; sourceTree = "<group>"; };
+		BAEB784F17FC8E1E00B9663A /* grasstutorial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grasstutorial.png; path = Resources/grasstutorial.png; sourceTree = "<group>"; };
+		BAEB785317FC93A300B9663A /* player2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = player2.jpg; sourceTree = "<group>"; };
 		F55302BE17E646CD00D1FD31 /* cocos2dsimplegame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cocos2dsimplegame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55302C117E646CD00D1FD31 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F55302C317E646CD00D1FD31 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -526,6 +530,8 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BAEB785317FC93A300B9663A /* player2.jpg */,
+				BAEB784F17FC8E1E00B9663A /* grasstutorial.png */,
 				BA3949D217F2EC450072E0C9 /* hit.caf */,
 				BA3949D317F2EC450072E0C9 /* move.caf */,
 				BA3949D417F2EC450072E0C9 /* pickup.caf */,
@@ -979,9 +985,11 @@
 				F55302E017E646CD00D1FD31 /* Icon-72.png in Resources */,
 				F55302E217E646CD00D1FD31 /* Icon-Small-50.png in Resources */,
 				F55302E417E646CD00D1FD31 /* Icon-Small.png in Resources */,
+				BAEB785417FC93A300B9663A /* player2.jpg in Resources */,
 				F55302E617E646CD00D1FD31 /* Icon-Small@2x.png in Resources */,
 				F55302E817E646CD00D1FD31 /* Icon.png in Resources */,
 				F55302EA17E646CD00D1FD31 /* Icon@2x.png in Resources */,
+				BAEB785017FC8E1E00B9663A /* grasstutorial.png in Resources */,
 				F55302ED17E646CD00D1FD31 /* iTunesArtwork in Resources */,
 				F553044617E646CF00D1FD31 /* ChangeLog in Resources */,
 				F5CCB29117E6859300D56915 /* Tiled_Map_Snow.tmx in Resources */,

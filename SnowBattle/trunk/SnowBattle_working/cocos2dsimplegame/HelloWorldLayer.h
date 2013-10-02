@@ -8,9 +8,16 @@
 
 
 #import <GameKit/GameKit.h>
+#import "AppDelegate.h"
 
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
+
+//
+//@interface HudLayer : CCLayer
+//- (void)numCollectedChanged:(int)numCollected;
+//@end
+
 
 @interface HelloWorldLayer : CCLayer
 {
@@ -19,6 +26,10 @@
     CCTMXLayer *background;
     CCSprite *player;
     CCTMXLayer *meta;
+    //int numCollected;
+    
+    //HudLayer *hud;
+ 
 }
 
 
