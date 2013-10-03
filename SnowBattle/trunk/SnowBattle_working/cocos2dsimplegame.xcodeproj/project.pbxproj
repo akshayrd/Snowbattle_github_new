@@ -15,6 +15,7 @@
 		BA3949D917F2EC450072E0C9 /* TileMap.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3949D517F2EC450072E0C9 /* TileMap.caf */; };
 		BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */; };
 		BA5ED74017FA409000F7DB42 /* 2916.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA5ED73F17FA409000F7DB42 /* 2916.jpg */; };
+		BAEB6EE517FCC832000F3DAE /* snowmover1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAEB6EE417FCC832000F3DAE /* snowmover1.jpg */; };
 		BAEB785017FC8E1E00B9663A /* grasstutorial.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEB784F17FC8E1E00B9663A /* grasstutorial.png */; };
 		BAEB785417FC93A300B9663A /* player2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAEB785317FC93A300B9663A /* player2.jpg */; };
 		F55302C217E646CD00D1FD31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55302C117E646CD00D1FD31 /* QuartzCore.framework */; };
@@ -167,6 +168,7 @@
 		BA3949D517F2EC450072E0C9 /* TileMap.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = TileMap.caf; path = Resources/Sounds/TileMap.caf; sourceTree = "<group>"; };
 		BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TileMap.tmx; sourceTree = "<group>"; };
 		BA5ED73F17FA409000F7DB42 /* 2916.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2916.jpg; sourceTree = "<group>"; };
+		BAEB6EE417FCC832000F3DAE /* snowmover1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snowmover1.jpg; sourceTree = "<group>"; };
 		BAEB784F17FC8E1E00B9663A /* grasstutorial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grasstutorial.png; path = Resources/grasstutorial.png; sourceTree = "<group>"; };
 		BAEB785317FC93A300B9663A /* player2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = player2.jpg; sourceTree = "<group>"; };
 		F55302BE17E646CD00D1FD31 /* cocos2dsimplegame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cocos2dsimplegame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -530,6 +532,7 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BAEB6EE417FCC832000F3DAE /* snowmover1.jpg */,
 				BAEB785317FC93A300B9663A /* player2.jpg */,
 				BAEB784F17FC8E1E00B9663A /* grasstutorial.png */,
 				BA3949D217F2EC450072E0C9 /* hit.caf */,
@@ -977,6 +980,7 @@
 				F55302D817E646CD00D1FD31 /* Default.png in Resources */,
 				BA3949D817F2EC450072E0C9 /* pickup.caf in Resources */,
 				BA3949D117F2B8890072E0C9 /* backmusic.mp3 in Resources */,
+				BAEB6EE517FCC832000F3DAE /* snowmover1.jpg in Resources */,
 				F55302DA17E646CD00D1FD31 /* Default@2x.png in Resources */,
 				BA3949D717F2EC450072E0C9 /* move.caf in Resources */,
 				F55302DC17E646CD00D1FD31 /* Default-568h@2x.png in Resources */,

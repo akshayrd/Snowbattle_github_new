@@ -1,15 +1,38 @@
-//
-//  HelloWorldLayer.m
-//  cocos2dsimplegame
-//
-//  Created by Student on 9/15/13.
-//  Copyright gpadmin 2013. All rights reserved.
-//
-// Import the interfaces
 #import "HelloWorldLayer.h"
-// Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
 #import "SimpleAudioEngine.h"
+
+@implementation HudLayer
+{
+    CCLabelTTF *_label;
+}
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        _label = [CCLabelTTF labelWithString:@"0" fontName:@"Verdana-Bold" fontSize:18.0];
+        _label.color = ccc3(0,0,0);
+        int margin = 10;
+        _label.position = ccp(winSize.width - (_label.contentSize.width/2) - margin, _label.contentSize.height/2 + margin);
+        [self addChild:_label];
+    }
+    return self;
+}
+
+-(void)numCollectedChanged:(int)numCollected
+{
+    _label.string = [NSString stringWithFormat:@"%d",numCollected];
+}
+@end
+
+@interface HelloWorldLayer ()
+@property (assign) int numCollected;
+
+@end
+
+
 
 #pragma mark - HelloWorldLayer
 // HelloWorldLayer implementation
@@ -27,9 +50,9 @@
 	[scene addChild: layer];
     
     
-//    HudLayer *hud = [HudLayer node];
-//    [scene addChild:hud];
-//    layer->hud = hud;
+    HudLayer *hud = [HudLayer node];
+    [scene addChild:hud];
+    layer->hud = hud;
 	
 	// return the scene
 	return scene;
@@ -284,7 +307,6 @@ int playerDirection = 1;
     } else {
         if (diff.y > 0) {
             
-            //player.flipY = YES;
             
             if (playerDirection != 1) {
                 if ( playerDirection==2)
@@ -310,9 +332,7 @@ int playerDirection = 1;
             
             playerPos.y += _tileMap.tileSize.height;
         } else {
-            //ßplayer.flipY = YES;
-            //player.flipY = YES;
-            //player.flipY = YES;
+          
             
             if (playerDirection != 3) {
                 if ( playerDirection==1)
@@ -384,16 +404,6 @@ int playerDirection = 1;
             if (collision && [collision isEqualToString:@"True"]) {
                 return;
             }
-            NSString *collectible = properties[@"Collectable"];
-            if (collectible && [collectible isEqualToString:@"True"]) {
-                [meta removeTileAt:tileCoord];
-                //[_foreground removeTileAt:tileCoord];
-                //numCollected++;
-                
-                //[_hud numCollectedChanged:_numCollected];
-                [[SimpleAudioEngine sharedEngine] playEffect:@"pickup.caf"];
-            }
-
         }
     }
     
@@ -408,13 +418,13 @@ int playerDirection = 1;
             NSString *collectible = properties[@"Collectable"];
             if (collectible && [collectible isEqualToString:@"True"]) {
                 [background removeTileAt:tileCoord];
-                //[_foreground removeTileAt:tileCoord];
-                //self.numCollected++;
                 
-                //[_hud numCollectedChanged:_numCollected];
+                //[_foreground removeTileAt:tileCoord];
+                _numCollected++;
+                
+                [hud numCollectedChanged:_numCollected];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"pickup.caf"];
             }
-            
         }
     }
     
@@ -510,8 +520,9 @@ int playerDirection = 1;
             }
         }
         CGSize winSize = [CCDirector sharedDirector].winSize;
-        player = [CCSprite spriteWithFile:@"player2.jpg"];
-        player.position = ccp(10,580);
+        player = [CCSprite spriteWithFile:@"player2.jpg"] ;
+        //player.contentSize = CGSizeMake(60, 60);
+        player.position = ccp(30,570);
         
         if(player == nil)
         {
@@ -578,28 +589,28 @@ int playerDirection = 1;
     if(CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]))
     {
         //playerVelocity=ccp(-playerVelocity.x,-playerVelocity.y);
-        player.position = ccp(10,580);
+        player.position = ccp(30,570);
         return;
     }
     
     if(CGRectIntersectsRect([monster3 boundingBox], [player boundingBox]))
     {
         //playerVelocity=ccp(-playerVelocity.x,-playerVelocity.y);
-        player.position = ccp(10,580);
+        player.position = ccp(30,570);
         return;
     }
     
     if(CGRectIntersectsRect([monster1 boundingBox], [player boundingBox]))
     {
         //playerVelocity=ccp(-playerVelocity.x,-playerVelocity.y);
-        player.position = ccp(10,580);
+        player.position = ccp(30,570);
         return;
     }
     
     if(CGRectIntersectsRect([monster3 boundingBox], [player boundingBox]))
     {
         //playerVelocity=ccp(-playerVelocity.x,-playerVelocity.y);
-        player.position = ccp(10,580);
+        player.position = ccp(30,570);
         return;
     }
 }
