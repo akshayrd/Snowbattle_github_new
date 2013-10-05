@@ -13,9 +13,11 @@
 {
     CCTMXTiledMap *_tileMap;
     CCTMXLayer *bgLayer;
-    CCTMXLayer *background;
+    CCTMXLayer *snow;
     CCSprite *player;
     CCTMXLayer *meta;
+    CCTMXLayer *border;
+    CCTMXLayer *street;
     
     HudLayer *hud;
  

@@ -13,8 +13,30 @@
 		BA3949D717F2EC450072E0C9 /* move.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3949D317F2EC450072E0C9 /* move.caf */; };
 		BA3949D817F2EC450072E0C9 /* pickup.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3949D417F2EC450072E0C9 /* pickup.caf */; };
 		BA3949D917F2EC450072E0C9 /* TileMap.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3949D517F2EC450072E0C9 /* TileMap.caf */; };
+		BA3FEDD617FE893800DD2E17 /* Raycast.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDD517FE893800DD2E17 /* Raycast.m4a */; };
+		BA3FEDD817FE8DA300DD2E17 /* tileMap1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDD717FE8DA300DD2E17 /* tileMap1.tmx */; };
+		BA3FEDDA17FE8DCE00DD2E17 /* street.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDD917FE8DCE00DD2E17 /* street.jpg */; };
+		BA3FEDDC17FE986800DD2E17 /* grey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDDB17FE986800DD2E17 /* grey.jpg */; };
+		BA3FEDE017FE98A000DD2E17 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDDD17FE98A000DD2E17 /* 1.jpg */; };
+		BA3FEDE117FE98A000DD2E17 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDDE17FE98A000DD2E17 /* 2.jpg */; };
+		BA3FEDE217FE98A000DD2E17 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDDF17FE98A000DD2E17 /* 3.jpg */; };
+		BA3FEDF317FEA36100DD2E17 /* h1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDE317FEA36100DD2E17 /* h1.jpg */; };
+		BA3FEDF417FEA36100DD2E17 /* h2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDE417FEA36100DD2E17 /* h2.jpg */; };
+		BA3FEDF517FEA36100DD2E17 /* h3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDE517FEA36100DD2E17 /* h3.jpg */; };
+		BA3FEDF617FEA36100DD2E17 /* h4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDE617FEA36100DD2E17 /* h4.jpg */; };
+		BA3FEDF717FEA36100DD2E17 /* h6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDE717FEA36100DD2E17 /* h6.jpg */; };
+		BA3FEDF817FEA36100DD2E17 /* h7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDE817FEA36100DD2E17 /* h7.jpg */; };
+		BA3FEDF917FEA36100DD2E17 /* h8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDE917FEA36100DD2E17 /* h8.jpg */; };
+		BA3FEDFA17FEA36100DD2E17 /* background-music-aac.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDEB17FEA36100DD2E17 /* background-music-aac.caf */; };
+		BA3FEDFB17FEA36100DD2E17 /* hit.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDEC17FEA36100DD2E17 /* hit.caf */; };
+		BA3FEDFC17FEA36100DD2E17 /* move.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDED17FEA36100DD2E17 /* move.caf */; };
+		BA3FEDFD17FEA36100DD2E17 /* pew-pew-lei.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDEE17FEA36100DD2E17 /* pew-pew-lei.caf */; };
+		BA3FEDFE17FEA36100DD2E17 /* pickup.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDEF17FEA36100DD2E17 /* pickup.caf */; };
+		BA3FEDFF17FEA36100DD2E17 /* TileMap.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDF017FEA36100DD2E17 /* TileMap.caf */; };
+		BA3FEE0017FEA36100DD2E17 /* TileMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDF117FEA36100DD2E17 /* TileMap.tmx */; };
+		BA3FEE0117FEA36100DD2E17 /* tileMap2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDF217FEA36100DD2E17 /* tileMap2.tmx */; };
+		BA3FEE5E17FEA3D400DD2E17 /* wall2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEE5D17FEA3D400DD2E17 /* wall2.jpg */; };
 		BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */; };
-		BA5ED74017FA409000F7DB42 /* 2916.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA5ED73F17FA409000F7DB42 /* 2916.jpg */; };
 		BAEB6EE517FCC832000F3DAE /* snowmover1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAEB6EE417FCC832000F3DAE /* snowmover1.jpg */; };
 		BAEB785017FC8E1E00B9663A /* grasstutorial.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEB784F17FC8E1E00B9663A /* grasstutorial.png */; };
 		BAEB785417FC93A300B9663A /* player2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAEB785317FC93A300B9663A /* player2.jpg */; };
@@ -166,8 +188,30 @@
 		BA3949D317F2EC450072E0C9 /* move.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = move.caf; path = Resources/Sounds/move.caf; sourceTree = "<group>"; };
 		BA3949D417F2EC450072E0C9 /* pickup.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = pickup.caf; path = Resources/Sounds/pickup.caf; sourceTree = "<group>"; };
 		BA3949D517F2EC450072E0C9 /* TileMap.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = TileMap.caf; path = Resources/Sounds/TileMap.caf; sourceTree = "<group>"; };
+		BA3FEDD517FE893800DD2E17 /* Raycast.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = Raycast.m4a; path = Resources/Raycast.m4a; sourceTree = "<group>"; };
+		BA3FEDD717FE8DA300DD2E17 /* tileMap1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = tileMap1.tmx; path = Resources/tileMap1.tmx; sourceTree = "<group>"; };
+		BA3FEDD917FE8DCE00DD2E17 /* street.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = street.jpg; sourceTree = "<group>"; };
+		BA3FEDDB17FE986800DD2E17 /* grey.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = grey.jpg; path = Resources/grey.jpg; sourceTree = "<group>"; };
+		BA3FEDDD17FE98A000DD2E17 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.jpg; path = Resources/1.jpg; sourceTree = "<group>"; };
+		BA3FEDDE17FE98A000DD2E17 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpg; path = Resources/2.jpg; sourceTree = "<group>"; };
+		BA3FEDDF17FE98A000DD2E17 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3.jpg; path = Resources/3.jpg; sourceTree = "<group>"; };
+		BA3FEDE317FEA36100DD2E17 /* h1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = h1.jpg; path = Resources/h1.jpg; sourceTree = "<group>"; };
+		BA3FEDE417FEA36100DD2E17 /* h2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = h2.jpg; path = Resources/h2.jpg; sourceTree = "<group>"; };
+		BA3FEDE517FEA36100DD2E17 /* h3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = h3.jpg; path = Resources/h3.jpg; sourceTree = "<group>"; };
+		BA3FEDE617FEA36100DD2E17 /* h4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = h4.jpg; path = Resources/h4.jpg; sourceTree = "<group>"; };
+		BA3FEDE717FEA36100DD2E17 /* h6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = h6.jpg; path = Resources/h6.jpg; sourceTree = "<group>"; };
+		BA3FEDE817FEA36100DD2E17 /* h7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = h7.jpg; path = Resources/h7.jpg; sourceTree = "<group>"; };
+		BA3FEDE917FEA36100DD2E17 /* h8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = h8.jpg; path = Resources/h8.jpg; sourceTree = "<group>"; };
+		BA3FEDEB17FEA36100DD2E17 /* background-music-aac.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "background-music-aac.caf"; sourceTree = "<group>"; };
+		BA3FEDEC17FEA36100DD2E17 /* hit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hit.caf; sourceTree = "<group>"; };
+		BA3FEDED17FEA36100DD2E17 /* move.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = move.caf; sourceTree = "<group>"; };
+		BA3FEDEE17FEA36100DD2E17 /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pew-pew-lei.caf"; sourceTree = "<group>"; };
+		BA3FEDEF17FEA36100DD2E17 /* pickup.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pickup.caf; sourceTree = "<group>"; };
+		BA3FEDF017FEA36100DD2E17 /* TileMap.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TileMap.caf; sourceTree = "<group>"; };
+		BA3FEDF117FEA36100DD2E17 /* TileMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TileMap.tmx; path = Resources/TileMap.tmx; sourceTree = "<group>"; };
+		BA3FEDF217FEA36100DD2E17 /* tileMap2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = tileMap2.tmx; path = Resources/tileMap2.tmx; sourceTree = "<group>"; };
+		BA3FEE5D17FEA3D400DD2E17 /* wall2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = wall2.jpg; path = Resources/wall2.jpg; sourceTree = "<group>"; };
 		BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TileMap.tmx; sourceTree = "<group>"; };
-		BA5ED73F17FA409000F7DB42 /* 2916.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2916.jpg; sourceTree = "<group>"; };
 		BAEB6EE417FCC832000F3DAE /* snowmover1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snowmover1.jpg; sourceTree = "<group>"; };
 		BAEB784F17FC8E1E00B9663A /* grasstutorial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grasstutorial.png; path = Resources/grasstutorial.png; sourceTree = "<group>"; };
 		BAEB785317FC93A300B9663A /* player2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = player2.jpg; sourceTree = "<group>"; };
@@ -479,6 +523,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA3FEDEA17FEA36100DD2E17 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				BA3FEDEB17FEA36100DD2E17 /* background-music-aac.caf */,
+				BA3FEDEC17FEA36100DD2E17 /* hit.caf */,
+				BA3FEDED17FEA36100DD2E17 /* move.caf */,
+				BA3FEDEE17FEA36100DD2E17 /* pew-pew-lei.caf */,
+				BA3FEDEF17FEA36100DD2E17 /* pickup.caf */,
+				BA3FEDF017FEA36100DD2E17 /* TileMap.caf */,
+			);
+			name = Sounds;
+			path = Resources/Sounds;
+			sourceTree = "<group>";
+		};
 		F55302B517E646CD00D1FD31 = {
 			isa = PBXGroup;
 			children = (
@@ -532,6 +590,24 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA3FEE5D17FEA3D400DD2E17 /* wall2.jpg */,
+				BA3FEDE317FEA36100DD2E17 /* h1.jpg */,
+				BA3FEDE417FEA36100DD2E17 /* h2.jpg */,
+				BA3FEDE517FEA36100DD2E17 /* h3.jpg */,
+				BA3FEDE617FEA36100DD2E17 /* h4.jpg */,
+				BA3FEDE717FEA36100DD2E17 /* h6.jpg */,
+				BA3FEDE817FEA36100DD2E17 /* h7.jpg */,
+				BA3FEDE917FEA36100DD2E17 /* h8.jpg */,
+				BA3FEDEA17FEA36100DD2E17 /* Sounds */,
+				BA3FEDF117FEA36100DD2E17 /* TileMap.tmx */,
+				BA3FEDF217FEA36100DD2E17 /* tileMap2.tmx */,
+				BA3FEDDD17FE98A000DD2E17 /* 1.jpg */,
+				BA3FEDDE17FE98A000DD2E17 /* 2.jpg */,
+				BA3FEDDF17FE98A000DD2E17 /* 3.jpg */,
+				BA3FEDDB17FE986800DD2E17 /* grey.jpg */,
+				BA3FEDD917FE8DCE00DD2E17 /* street.jpg */,
+				BA3FEDD717FE8DA300DD2E17 /* tileMap1.tmx */,
+				BA3FEDD517FE893800DD2E17 /* Raycast.m4a */,
 				BAEB6EE417FCC832000F3DAE /* snowmover1.jpg */,
 				BAEB785317FC93A300B9663A /* player2.jpg */,
 				BAEB784F17FC8E1E00B9663A /* grasstutorial.png */,
@@ -539,7 +615,6 @@
 				BA3949D317F2EC450072E0C9 /* move.caf */,
 				BA3949D417F2EC450072E0C9 /* pickup.caf */,
 				BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */,
-				BA5ED73F17FA409000F7DB42 /* 2916.jpg */,
 				BA3949D517F2EC450072E0C9 /* TileMap.caf */,
 				F5CCB29217E685A000D56915 /* new_image.jpg */,
 				F5CCB29017E6859300D56915 /* Tiled_Map_Snow.tmx */,
@@ -977,32 +1052,54 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA3FEDE217FE98A000DD2E17 /* 3.jpg in Resources */,
+				BA3FEE0117FEA36100DD2E17 /* tileMap2.tmx in Resources */,
 				F55302D817E646CD00D1FD31 /* Default.png in Resources */,
 				BA3949D817F2EC450072E0C9 /* pickup.caf in Resources */,
 				BA3949D117F2B8890072E0C9 /* backmusic.mp3 in Resources */,
 				BAEB6EE517FCC832000F3DAE /* snowmover1.jpg in Resources */,
+				BA3FEDF917FEA36100DD2E17 /* h8.jpg in Resources */,
+				BA3FEDD817FE8DA300DD2E17 /* tileMap1.tmx in Resources */,
+				BA3FEDF317FEA36100DD2E17 /* h1.jpg in Resources */,
 				F55302DA17E646CD00D1FD31 /* Default@2x.png in Resources */,
+				BA3FEDE117FE98A000DD2E17 /* 2.jpg in Resources */,
+				BA3FEDFE17FEA36100DD2E17 /* pickup.caf in Resources */,
 				BA3949D717F2EC450072E0C9 /* move.caf in Resources */,
+				BA3FEDF417FEA36100DD2E17 /* h2.jpg in Resources */,
 				F55302DC17E646CD00D1FD31 /* Default-568h@2x.png in Resources */,
 				BA3949D617F2EC450072E0C9 /* hit.caf in Resources */,
+				BA3FEDF817FEA36100DD2E17 /* h7.jpg in Resources */,
+				BA3FEDFD17FEA36100DD2E17 /* pew-pew-lei.caf in Resources */,
 				F55302DE17E646CD00D1FD31 /* Default-Landscape~ipad.png in Resources */,
 				F55302E017E646CD00D1FD31 /* Icon-72.png in Resources */,
+				BA3FEDF617FEA36100DD2E17 /* h4.jpg in Resources */,
+				BA3FEDFB17FEA36100DD2E17 /* hit.caf in Resources */,
 				F55302E217E646CD00D1FD31 /* Icon-Small-50.png in Resources */,
 				F55302E417E646CD00D1FD31 /* Icon-Small.png in Resources */,
 				BAEB785417FC93A300B9663A /* player2.jpg in Resources */,
 				F55302E617E646CD00D1FD31 /* Icon-Small@2x.png in Resources */,
+				BA3FEDD617FE893800DD2E17 /* Raycast.m4a in Resources */,
+				BA3FEDDC17FE986800DD2E17 /* grey.jpg in Resources */,
 				F55302E817E646CD00D1FD31 /* Icon.png in Resources */,
 				F55302EA17E646CD00D1FD31 /* Icon@2x.png in Resources */,
 				BAEB785017FC8E1E00B9663A /* grasstutorial.png in Resources */,
+				BA3FEDFC17FEA36100DD2E17 /* move.caf in Resources */,
+				BA3FEE0017FEA36100DD2E17 /* TileMap.tmx in Resources */,
+				BA3FEDF717FEA36100DD2E17 /* h6.jpg in Resources */,
 				F55302ED17E646CD00D1FD31 /* iTunesArtwork in Resources */,
 				F553044617E646CF00D1FD31 /* ChangeLog in Resources */,
 				F5CCB29117E6859300D56915 /* Tiled_Map_Snow.tmx in Resources */,
 				BA3949D917F2EC450072E0C9 /* TileMap.caf in Resources */,
+				BA3FEDE017FE98A000DD2E17 /* 1.jpg in Resources */,
+				BA3FEE5E17FEA3D400DD2E17 /* wall2.jpg in Resources */,
+				BA3FEDFF17FEA36100DD2E17 /* TileMap.caf in Resources */,
 				F5CCB29317E685A000D56915 /* new_image.jpg in Resources */,
+				BA3FEDFA17FEA36100DD2E17 /* background-music-aac.caf in Resources */,
 				BA3949CF17F2B80B0072E0C9 /* background-music-aac.caf in Resources */,
 				F5CCB29717E6965000D56915 /* player.jpg in Resources */,
+				BA3FEDF517FEA36100DD2E17 /* h3.jpg in Resources */,
 				F5CCB29917E6970D00D56915 /* monster.jpg in Resources */,
-				BA5ED74017FA409000F7DB42 /* 2916.jpg in Resources */,
+				BA3FEDDA17FE8DCE00DD2E17 /* street.jpg in Resources */,
 				BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -407,7 +407,19 @@ int playerDirection = 1;
         }
     }
     
-    tileGid = [background tileGIDAt:tileCoord];
+    tileCoord = [self tileCoordForPosition:position];
+    tileGid = [border tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collision = properties[@"Collidable"];
+            if (collision && [collision isEqualToString:@"True"]) {
+                return;
+            }
+        }
+    }
+    
+    tileGid = [snow tileGIDAt:tileCoord];
     if (tileGid) {
         NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         if (properties) {
@@ -417,7 +429,7 @@ int playerDirection = 1;
             }
             NSString *collectible = properties[@"Collectable"];
             if (collectible && [collectible isEqualToString:@"True"]) {
-                [background removeTileAt:tileCoord];
+                [snow removeTileAt:tileCoord];
                 
                 //[_foreground removeTileAt:tileCoord];
                 _numCollected++;
@@ -483,7 +495,8 @@ int playerDirection = 1;
         
         self.isTouchEnabled = YES;
         
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"background-music-aac.caf"];
+        //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"background-music-aac.caf"];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"Raycast.m4a"];
         //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"backmusic.mp3"];
 //        
 //        UISwipeGestureRecognizer *swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handlePushSceneGestureRecognizer:)];
@@ -493,8 +506,10 @@ int playerDirection = 1;
 //        [swipeGestureRecognizer release];
 //        
         
-        _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"TileMap.tmx"];
-        background = [_tileMap layerNamed:@"Background"];
+        _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"tileMap2.tmx"];
+        snow = [_tileMap layerNamed:@"Snow"];
+        border = [_tileMap layerNamed:@"Border"];
+        street  = [_tileMap layerNamed:@"Street"];
         for(CCTMXLayer *child in [_tileMap children])
         {
             [[child texture] setAliasTexParameters];
@@ -503,6 +518,8 @@ int playerDirection = 1;
         
         meta = [_tileMap layerNamed:@"Meta"];
         meta.visible = YES;
+        
+        street.visible = YES;
         
         CCLabelTTF *label;
         NSString * xystring;
@@ -522,7 +539,7 @@ int playerDirection = 1;
         CGSize winSize = [CCDirector sharedDirector].winSize;
         player = [CCSprite spriteWithFile:@"player2.jpg"] ;
         //player.contentSize = CGSizeMake(60, 60);
-        player.position = ccp(30,570);
+        player.position = ccp(80,570);
         
         if(player == nil)
         {
@@ -561,12 +578,7 @@ int playerDirection = 1;
         CGPoint realDest1 = ccp(realX1, realY1);
         
         float realMoveDuration = 10;
-        id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
-        id actionRotate = [CCRotateBy actionWithDuration:realMoveDuration/10 angle:90];
-        id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest1];
-        
-        id actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(finishedMoving:)];
-        
+      
         [self performSelectorInBackground:@selector(actionmonster1) withObject:self];
         [self performSelectorInBackground:@selector(actionmonster2) withObject:self];
         [self performSelectorInBackground:@selector(actionmonster3) withObject:self];
