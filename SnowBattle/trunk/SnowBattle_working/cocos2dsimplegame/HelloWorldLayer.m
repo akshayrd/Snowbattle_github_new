@@ -228,8 +228,6 @@ CCSprite *monster4;
 
 
 
-
-
 #pragma mark - handle touches
 -(void)registerWithTouchDispatcher
 {
@@ -374,29 +372,9 @@ int playerDirection = 1;
 }
 
 -(void)setPlayerPosition:(CGPoint)position {
-//    CGPoint tileCoord = [self tileCoordForPosition:position];
-//    int tileGid = [_meta tileGIDAt:tileCoord];
-//    if (tileGid) {
-//        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
-//        if (properties) {
-//            NSString *collision = properties[@"Collidable"];
-//            if (collision && [collision isEqualToString:@"True"]) {
-//                [[SimpleAudioEngine sharedEngine] playEffect:@"hit.caf"];
-//                return;
-//            }
-//            NSString *collectible = properties[@"Collectable"];
-//            if (collectible && [collectible isEqualToString:@"True"]) {
-//                //[_meta removeTileAt:tileCoord];
-//                //[_foreground removeTileAt:tileCoord];
-//                //self.numCollected++;
-//                //[_hud numCollectedChanged:_numCollected];
-//                //[[SimpleAudioEngine sharedEngine] playEffect:@"pickup.caf"];
-//            }
-//        }
-//    }
-    
+
     CGPoint tileCoord = [self tileCoordForPosition:position];
-    int tileGid = [meta tileGIDAt:tileCoord];
+    int tileGid = [building tileGIDAt:tileCoord];
     if (tileGid) {
         NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         if (properties) {
@@ -418,6 +396,18 @@ int playerDirection = 1;
             }
         }
     }
+    
+//    tileCoord = [self tileCoordForPosition:position];
+//    tileGid = [border tileGIDAt:tileCoord];
+//    if (tileGid) {
+//        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+//        if (properties) {
+//            NSString *collision = properties[@"Collidable"];
+//            if (collision && [collision isEqualToString:@"True"]) {
+//                return;
+//            }
+//        }
+//    }
     
     tileGid = [snow tileGIDAt:tileCoord];
     if (tileGid) {
@@ -497,27 +487,20 @@ int playerDirection = 1;
         
         //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"background-music-aac.caf"];
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"Raycast.m4a"];
-        //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"backmusic.mp3"];
-//        
-//        UISwipeGestureRecognizer *swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handlePushSceneGestureRecognizer:)];
-//        [self addGestureRecognizer:swipeGestureRecognizer];
-//        swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionLeft;
-//        swipeGestureRecognizer.delegate = self;
-//        [swipeGestureRecognizer release];
-//        
         
         _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"tileMap2.tmx"];
         snow = [_tileMap layerNamed:@"Snow"];
         border = [_tileMap layerNamed:@"Border"];
         street  = [_tileMap layerNamed:@"Street"];
+        building = [_tileMap layerNamed:@"Building"];
+        building.visible = YES;
         for(CCTMXLayer *child in [_tileMap children])
         {
             [[child texture] setAliasTexParameters];
         }
-        [self addChild: _tileMap z:-1];
+        [self addChild: _tileMap];
         
-        meta = [_tileMap layerNamed:@"Meta"];
-        meta.visible = YES;
+        
         
         street.visible = YES;
         

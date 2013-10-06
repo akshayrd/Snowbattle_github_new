@@ -15,7 +15,7 @@
     CCTMXLayer *bgLayer;
     CCTMXLayer *snow;
     CCSprite *player;
-    CCTMXLayer *meta;
+    CCTMXLayer *building;
     CCTMXLayer *border;
     CCTMXLayer *street;
     

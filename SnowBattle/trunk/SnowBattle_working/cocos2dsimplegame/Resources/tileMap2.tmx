@@ -19,6 +19,29 @@
  <tileset firstgid="6" name="grey" tilewidth="50" tileheight="50" spacing="1" margin="1">
   <image source="grey.jpg" width="376" height="373"/>
  </tileset>
+ <tileset firstgid="55" name="h1" tilewidth="50" tileheight="50">
+  <image source="h1.jpg" width="111" height="100"/>
+  <tile id="0">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
  <layer name="Street" width="21" height="16">
   <data encoding="base64" compression="zlib">
    eJyTZWBgkB3Fo3gUj+JRTDIGAEE8JhE=
@@ -34,9 +57,9 @@
    eJxjZWBgYKUBpiYYNXPUzFEzR82khpnUxgCe6QFf
   </data>
  </layer>
- <layer name="Meta" width="21" height="16">
+ <layer name="Building" width="21" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRQA4AAAVAAAE=
+   eJxjYBgFIGAOxBYU8LEBSyC2ooBPintJlccGCNlPjvtIpYlxH6k0Ke4lVx6fe8mVx2f/YE+fIwUAAEXoEMc=
   </data>
  </layer>
 </map>
