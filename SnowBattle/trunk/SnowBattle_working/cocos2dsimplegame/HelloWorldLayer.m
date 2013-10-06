@@ -397,6 +397,21 @@ int playerDirection = 1;
         }
     }
     
+    tileCoord = [self tileCoordForPosition:position];
+    tileGid = [border tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collision = properties[@"Power_blue"];
+            if (collision && [collision isEqualToString:@"True"]) {
+                powerBlue = 1;
+            }
+        }
+    }
+    
+    
+    
+    
 //    tileCoord = [self tileCoordForPosition:position];
 //    tileGid = [border tileGIDAt:tileCoord];
 //    if (tileGid) {
@@ -520,7 +535,7 @@ int playerDirection = 1;
             }
         }
         CGSize winSize = [CCDirector sharedDirector].winSize;
-        player = [CCSprite spriteWithFile:@"player2.jpg"] ;
+        player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
         //player.contentSize = CGSizeMake(60, 60);
         player.position = ccp(80,570);
         
@@ -533,22 +548,22 @@ int playerDirection = 1;
         
         
         
-        monster1 = [CCSprite spriteWithFile:@"monster.jpg"];
+        monster1 = [CCSprite spriteWithFile:@"bug_51x51.png"];
         monster1.position = ccp(winSize.width/1.5, winSize.height-28);
         
         
         [self addChild:monster1];
         
                
-        monster2 = [CCSprite spriteWithFile:@"monster.jpg"];
+        monster2 = [CCSprite spriteWithFile:@"bug_51x51.png"];
         monster2.position = ccp(20, winSize.height/6-30);
         [self addChild:monster2];
         
-        monster3 = [CCSprite spriteWithFile:@"monster.jpg"];
+        monster3 = [CCSprite spriteWithFile:@"bug_51x51.png"];
         monster3.position = ccp(winSize.width-50, winSize.height-40);
         [self addChild:monster3];
         
-        monster4 = [CCSprite spriteWithFile:@"monster.jpg"];
+        monster4 = [CCSprite spriteWithFile:@"bug_51x51.png"];
         monster4.position = ccp(winSize.width-20, winSize.height/3);
         [self addChild:monster4];
         

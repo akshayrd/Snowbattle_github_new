@@ -18,6 +18,7 @@
     CCTMXLayer *building;
     CCTMXLayer *border;
     CCTMXLayer *street;
+    int powerBlue ;
     
     HudLayer *hud;
  
