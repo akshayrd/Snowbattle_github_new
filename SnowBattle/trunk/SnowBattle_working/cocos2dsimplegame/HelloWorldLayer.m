@@ -454,31 +454,9 @@ int playerDirection = 1;
     }
     
     
-    if(CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]))
+    if(CGRectIntersectsRect([monster1 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster3 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster4 boundingBox], [player boundingBox]))
     {
-        //playerVelocity=ccp(-playerVelocity.x,-playerVelocity.y);
-        player.position = ccp(10,580);
-        return;
-    }
-    
-    if(CGRectIntersectsRect([monster3 boundingBox], [player boundingBox]))
-    {
-        //playerVelocity=ccp(-playerVelocity.x,-playerVelocity.y);
-        player.position = ccp(10,580);
-        return;
-    }
-    
-    if(CGRectIntersectsRect([monster1 boundingBox], [player boundingBox]))
-    {
-        //playerVelocity=ccp(-playerVelocity.x,-playerVelocity.y);
-                player.position = ccp(10,580);
-        return;
-    }
-    
-    if(CGRectIntersectsRect([monster3 boundingBox], [player boundingBox]))
-    {
-        //playerVelocity=ccp(-playerVelocity.x,-playerVelocity.y);
-                player.position = ccp(10,580);
+        [self spawnPlayer];
         return;
     }
     
@@ -486,7 +464,17 @@ int playerDirection = 1;
     player.position = position;
 }
 
-
+-(void) spawnPlayer
+{
+    CCTMXObjectGroup *objectGroup = [_tileMap objectGroupNamed:@"Objects"];
+    NSAssert(objectGroup != nil, @"tile map has no objects object layer");
+    NSDictionary *spawnPoint = [objectGroup objectNamed:@"SpawnPoint"];
+    int x_spawn = [spawnPoint[@"x"] integerValue];
+    int y_spawn = [spawnPoint[@"y"] integerValue];
+    
+    player.position = ccp(x_spawn, y_spawn);
+    
+}
 
 
 // on "init" you need to initialize your instance
@@ -515,12 +503,8 @@ int playerDirection = 1;
         darkBlue = [_tileMap layerNamed:@"DarkBlueTiles"];
         powerBlueLayer = [_tileMap layerNamed:@"power_blue"];
         
-        CCTMXObjectGroup *objectGroup = [_tileMap objectGroupNamed:@"Objects"];
-        NSAssert(objectGroup != nil, @"tile map has no objects object layer");
         
-        NSDictionary *spawnPoint = [objectGroup objectNamed:@"SpawnPoint"];
-        int x = [spawnPoint[@"x"] integerValue];
-        int y = [spawnPoint[@"y"] integerValue];
+        
         
         for(CCTMXLayer *child in [_tileMap children])
         {
@@ -529,27 +513,17 @@ int playerDirection = 1;
         [self addChild: _tileMap];
         
         
-        
-        street.visible = YES;
-        
         CGSize winSize = [CCDirector sharedDirector].winSize;
         player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
-        player.position = ccp(x, y);
-        //player.position = ccp(80,570);
-        
+        [self spawnPlayer];
         if(player == nil)
         {
             printf("this is an error");
         }
         [self addChild:player];
-        
-        
-        
-        
+    
         monster1 = [CCSprite spriteWithFile:@"bug_51x51.png"];
         monster1.position = ccp(winSize.width/1.5, winSize.height-28);
-        
-        
         [self addChild:monster1];
         
                
@@ -594,31 +568,9 @@ int playerDirection = 1;
 
 - (void) checkCollisionWithMonster
 {
-    if(CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]))
+    if(CGRectIntersectsRect([monster1 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster3 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster4 boundingBox], [player boundingBox]))
     {
-        //playerVelocity=ccp(-playerVelocity.x,-playerVelocity.y);
-        player.position = ccp(30,570);
-        return;
-    }
-    
-    if(CGRectIntersectsRect([monster3 boundingBox], [player boundingBox]))
-    {
-        //playerVelocity=ccp(-playerVelocity.x,-playerVelocity.y);
-        player.position = ccp(30,570);
-        return;
-    }
-    
-    if(CGRectIntersectsRect([monster1 boundingBox], [player boundingBox]))
-    {
-        //playerVelocity=ccp(-playerVelocity.x,-playerVelocity.y);
-        player.position = ccp(30,570);
-        return;
-    }
-    
-    if(CGRectIntersectsRect([monster3 boundingBox], [player boundingBox]))
-    {
-        //playerVelocity=ccp(-playerVelocity.x,-playerVelocity.y);
-        player.position = ccp(30,570);
+        [self spawnPlayer];
         return;
     }
 }
