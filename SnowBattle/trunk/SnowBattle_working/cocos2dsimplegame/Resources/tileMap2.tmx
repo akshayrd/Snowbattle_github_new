@@ -54,6 +54,11 @@
  <tileset firstgid="132" name="dark-blue" tilewidth="50" tileheight="50">
   <tileoffset x="0" y="2"/>
   <image source="dark-blue.jpg" width="800" height="600"/>
+  <tile id="0">
+   <properties>
+    <property name="collectible2x" value="True"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="Street" width="21" height="16">
   <data encoding="base64" compression="zlib">
@@ -62,7 +67,7 @@
  </layer>
  <layer name="Snow" width="21" height="16">
   <data encoding="base64" compression="zlib">
-   eJyrZmBgqB7Fo3gUj+JRTDIGACcHoXE=
+   eJyrZmBgqB7Fo3gUgzEuMNjMHMWDAwMAtWObrQ==
   </data>
  </layer>
  <layer name="Border" width="21" height="16">
@@ -75,7 +80,7 @@
    eJxjYBgFIFAPxA0U8LGBRiBuooCPDxCynxj3oQNC9pPjPlJpYtxHKk2Ke8mVx+decuXx2T/Y0+dIAQC6sCYn
   </data>
  </layer>
- <layer name="power" width="21" height="16">
+ <layer name="power_blue" width="21" height="16">
   <data encoding="base64" compression="zlib">
    eJxjYBgFowA7aB5oB4yCUTDIAQCguwCE
   </data>
@@ -85,4 +90,7 @@
    eJxjYBgFo2AUwEALDjzYzBwFgwMAAE00BjE=
   </data>
  </layer>
+ <objectgroup name="Objects" width="21" height="16">
+  <object name="SpawnPoint" x="74" y="274"/>
+ </objectgroup>
 </map>

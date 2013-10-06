@@ -409,34 +409,13 @@ int playerDirection = 1;
         }
     }
     
-    
-    
-    
-//    tileCoord = [self tileCoordForPosition:position];
-//    tileGid = [border tileGIDAt:tileCoord];
-//    if (tileGid) {
-//        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
-//        if (properties) {
-//            NSString *collision = properties[@"Collidable"];
-//            if (collision && [collision isEqualToString:@"True"]) {
-//                return;
-//            }
-//        }
-//    }
-    
     tileGid = [snow tileGIDAt:tileCoord];
     if (tileGid) {
         NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         if (properties) {
-            NSString *collision = properties[@"Collidable"];
-            if (collision && [collision isEqualToString:@"True"]) {
-                return;
-            }
             NSString *collectible = properties[@"Collectable"];
             if (collectible && [collectible isEqualToString:@"True"]) {
                 [snow removeTileAt:tileCoord];
-                
-                //[_foreground removeTileAt:tileCoord];
                 _numCollected++;
                 
                 [hud numCollectedChanged:_numCollected];
@@ -444,6 +423,36 @@ int playerDirection = 1;
             }
         }
     }
+    
+    tileGid = [powerBlueLayer tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collision = properties[@"Power_blue"];
+            if (collision && [collision isEqualToString:@"True"]) {
+                [powerBlueLayer removeTileAt:tileCoord];
+                powerBlue = 1;
+                // Start timer
+            }
+            
+        }
+    }
+    tileGid = [darkBlue tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collectible = properties[@"collectible2x"];
+            if (collectible && [collectible isEqualToString:@"True"] && powerBlue == 1) {
+                [darkBlue removeTileAt:tileCoord];
+                _numCollected++;
+                
+                [hud numCollectedChanged:_numCollected];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"pickup.caf"];
+
+            }
+        }
+    }
+    
     
     if(CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]))
     {
@@ -490,17 +499,12 @@ int playerDirection = 1;
      {
      */
     if( (self=[super init]) ) {
-        // self.theMap = [CCTMXTiledMap tiledMapWithTMXFile:@"Tiled_Map_Snow.tmx"];
-        // self.bgLayer = [theMap layerNamed:@"bg"];
-        
-        
-        
+                
         
         //[self setTouchEnabled:YES];
         
         self.isTouchEnabled = YES;
         
-        //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"background-music-aac.caf"];
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"Raycast.m4a"];
         
         _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"tileMap2.tmx"];
@@ -508,7 +512,16 @@ int playerDirection = 1;
         border = [_tileMap layerNamed:@"Border"];
         street  = [_tileMap layerNamed:@"Street"];
         building = [_tileMap layerNamed:@"Building"];
-        building.visible = YES;
+        darkBlue = [_tileMap layerNamed:@"DarkBlueTiles"];
+        powerBlueLayer = [_tileMap layerNamed:@"power_blue"];
+        
+        CCTMXObjectGroup *objectGroup = [_tileMap objectGroupNamed:@"Objects"];
+        NSAssert(objectGroup != nil, @"tile map has no objects object layer");
+        
+        NSDictionary *spawnPoint = [objectGroup objectNamed:@"SpawnPoint"];
+        int x = [spawnPoint[@"x"] integerValue];
+        int y = [spawnPoint[@"y"] integerValue];
+        
         for(CCTMXLayer *child in [_tileMap children])
         {
             [[child texture] setAliasTexParameters];
@@ -519,25 +532,10 @@ int playerDirection = 1;
         
         street.visible = YES;
         
-        CCLabelTTF *label;
-        NSString * xystring;
-        
-        for( int x=0; x<_tileMap.mapSize.width;x++) {
-            for( int y=0; y< _tileMap.mapSize.height; y++ ) {
-                int tileX = x * _tileMap.tileSize.width + _tileMap.tileSize.width/2;
-                int tileY = (_tileMap.mapSize.height - y) * (_tileMap.tileSize.height) -_tileMap.tileSize.height/2;
-                
-                xystring = [NSString stringWithFormat:@"(%i,%i)",x,y];
-                label = [CCLabelTTF labelWithString:xystring fontName:@"Helvetica" fontSize:10];
-                label.color=ccBLACK;
-                label.position =  ccp(tileX,tileY);
-                //[self addChild: label z:1];
-            }
-        }
         CGSize winSize = [CCDirector sharedDirector].winSize;
         player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
-        //player.contentSize = CGSizeMake(60, 60);
-        player.position = ccp(80,570);
+        player.position = ccp(x, y);
+        //player.position = ccp(80,570);
         
         if(player == nil)
         {
