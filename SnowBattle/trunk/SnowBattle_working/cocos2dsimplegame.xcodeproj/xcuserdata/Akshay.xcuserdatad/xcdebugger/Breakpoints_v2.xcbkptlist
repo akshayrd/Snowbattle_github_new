@@ -111,8 +111,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "494"
             endingLineNumber = "494"
-            landmarkName = "-init"
-            landmarkType = "5">
+            landmarkName = "@implementation HelloWorldLayer"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -127,7 +127,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "489"
             endingLineNumber = "489"
-            landmarkName = "-init"
+            landmarkName = "-ResumeGame:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -205,7 +205,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "570"
             endingLineNumber = "570"
-            landmarkName = "-checkCollisionWithMonster"
+            landmarkName = "-init"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -221,7 +221,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "571"
             endingLineNumber = "571"
-            landmarkName = "-checkCollisionWithMonster"
+            landmarkName = "-init"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
