@@ -348,8 +348,6 @@ int playerDirection = 1;
                 playerDirection = 3;
                 
             }
-
-            
             playerPos.y -= _tileMap.tileSize.height;
         }
     }
@@ -417,7 +415,7 @@ int playerDirection = 1;
                 
                 [hud numCollectedChanged:_numCollected];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"pickup.caf"];
-                if (_numCollected > 30) {
+                if (_numCollected > winScore) {
                     CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES];
                     [[CCDirector sharedDirector] replaceScene:gameOverScene];
                 }
@@ -450,7 +448,7 @@ int playerDirection = 1;
                 
                 [hud numCollectedChanged:_numCollected];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"pickup.caf"];
-                if (_numCollected > 15) {
+                if (_numCollected > winScore) {
                     CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES];
                     [[CCDirector sharedDirector] replaceScene:gameOverScene];
                 }
@@ -472,11 +470,8 @@ int playerDirection = 1;
     int x_spawn = [spawnPoint[@"x"] integerValue];
     int y_spawn = [spawnPoint[@"y"] integerValue];
     
-    //playerDirection = 1;
-    
     CGPoint actualPos = [self tileCoordForPosition:ccp(x_spawn, y_spawn)];
     player.position = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
-    
     
 }
 
@@ -519,6 +514,8 @@ int playerDirection = 1;
         powerBlueLayer = [_tileMap layerNamed:@"power_blue"];
         
         playerDirection = 1;
+        winScore = 188;
+        totalLives = 2;
         
         
         for(CCTMXLayer *child in [_tileMap children])
@@ -600,16 +597,11 @@ int playerDirection = 1;
     if(CGRectIntersectsRect([monster1 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster3 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster4 boundingBox], [player boundingBox]))
     {
         lifeCount++;
-        if (lifeCount > 2) {
+        if (lifeCount > totalLives) {
             lifeCount = 0;
             CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO];
             [[CCDirector sharedDirector] replaceScene:gameOverScene];
         }
-        [player runAction:
-         [CCSequence actions:
-          [CCDelayTime actionWithDuration:5],
-          nil]];
-        
         [self spawnPlayer];
         return;
     }

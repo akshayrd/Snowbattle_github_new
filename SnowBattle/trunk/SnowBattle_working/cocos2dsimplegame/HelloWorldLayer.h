@@ -23,6 +23,8 @@
 
     int powerBlue;
     int lifeCount;
+    int winScore;
+    int totalLives;
     
     HudLayer *hud;
  
