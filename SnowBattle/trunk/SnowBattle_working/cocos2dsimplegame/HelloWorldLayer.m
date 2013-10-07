@@ -416,7 +416,7 @@ int playerDirection = 1;
                 [hud numCollectedChanged:_numCollected];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"pickup.caf"];
                 if (_numCollected > winScore) {
-                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES];
+                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:_numCollected ];
                     [[CCDirector sharedDirector] replaceScene:gameOverScene];
                 }
 
@@ -449,11 +449,9 @@ int playerDirection = 1;
                 [hud numCollectedChanged:_numCollected];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"pickup.caf"];
                 if (_numCollected > winScore) {
-                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES];
+                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:_numCollected];
                     [[CCDirector sharedDirector] replaceScene:gameOverScene];
                 }
-                
-
             }
         }
     }
@@ -599,7 +597,7 @@ int playerDirection = 1;
         lifeCount++;
         if (lifeCount > totalLives) {
             lifeCount = 0;
-            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO];
+            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected ];
             [[CCDirector sharedDirector] replaceScene:gameOverScene];
         }
         [self spawnPlayer];
