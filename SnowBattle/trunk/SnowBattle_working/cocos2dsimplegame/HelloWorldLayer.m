@@ -24,7 +24,7 @@
 
 -(void)numCollectedChanged:(int)numCollected
 {
-    _label.string = [NSString stringWithFormat:@"%d",numCollected];
+    _label.string = [NSString stringWithFormat:@"Score : %d",numCollected];
 }
 @end
 
@@ -472,10 +472,11 @@ int playerDirection = 1;
     int x_spawn = [spawnPoint[@"x"] integerValue];
     int y_spawn = [spawnPoint[@"y"] integerValue];
     
-    
+    //playerDirection = 1;
     
     CGPoint actualPos = [self tileCoordForPosition:ccp(x_spawn, y_spawn)];
     player.position = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    
     
 }
 
@@ -501,7 +502,7 @@ int playerDirection = 1;
         darkBlue = [_tileMap layerNamed:@"DarkBlueTiles"];
         powerBlueLayer = [_tileMap layerNamed:@"power_blue"];
         
-        
+        playerDirection = 1;
         
         
         for(CCTMXLayer *child in [_tileMap children])
