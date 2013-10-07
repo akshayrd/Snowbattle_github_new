@@ -480,6 +480,22 @@ int playerDirection = 1;
     
 }
 
+- (void) PauseGame:(id)sender
+{
+    [[CCDirector sharedDirector] stopAnimation];
+    [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
+    [[CCDirector sharedDirector] pause];
+}
+
+- (void)ResumeGame:(id)sender
+
+{
+    [[CCDirector sharedDirector] stopAnimation];
+    [[CCDirector sharedDirector] resume];
+    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+    [[CCDirector sharedDirector] startAnimation];
+}
+
 
 // on "init" you need to initialize your instance
 -(id) init
@@ -556,6 +572,20 @@ int playerDirection = 1;
 //        [player runAction:
 //         [CCSequence actions: actionRotate,actionMove,actionRotate,actionMove1,nil]];
 //        
+        
+        // Standard method to pause the game
+        CCMenuItem *starMenuItem = [CCMenuItemImage itemFromNormalImage:@"pause.png" selectedImage:@"pause.png" target:self selector:@selector(PauseGame:)];
+        starMenuItem.position = ccp(870, 25);
+        CCMenu *starMenu = [CCMenu menuWithItems:starMenuItem, nil];
+        starMenu.position = CGPointZero;
+        [self addChild:starMenu];
+        
+        // Standard method to resume the game
+        CCMenuItem *resumeMenuItem = [CCMenuItemImage itemFromNormalImage:@"resume.jpg" selectedImage:@"resume.jpg" target:self selector:@selector(ResumeGame:)];
+        resumeMenuItem.position = ccp(820, 25);
+        CCMenu *resumeMenu = [CCMenu menuWithItems:resumeMenuItem, nil];
+        resumeMenu.position = CGPointZero;
+        [self addChild:resumeMenu];
         
         [self schedule:@selector(checkCollisionWithMonster)];
         
