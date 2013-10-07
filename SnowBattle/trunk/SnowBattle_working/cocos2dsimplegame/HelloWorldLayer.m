@@ -2,6 +2,7 @@
 #import "AppDelegate.h"
 #import "SimpleAudioEngine.h"
 #import "GameOverLayer.h"
+#import "GameStartLayer.h"
 
 @implementation HudLayer
 {
@@ -583,7 +584,6 @@ int playerDirection = 1;
         [self addChild:resumeMenu];
         
         [self schedule:@selector(checkCollisionWithMonster)];
-        
         
 	}
     
