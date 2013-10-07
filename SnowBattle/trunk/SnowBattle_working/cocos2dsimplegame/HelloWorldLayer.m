@@ -1,6 +1,7 @@
 #import "HelloWorldLayer.h"
 #import "AppDelegate.h"
 #import "SimpleAudioEngine.h"
+#import "GameOverLayer.h"
 
 @implementation HudLayer
 {
@@ -110,11 +111,7 @@
     
     [monster1 runAction:
      [CCSequence actions: actionRotate180,actionMove,actionRotate90,actionMove1,actionRotate360,actionMove2,actionRotate180,actionMove3,actionRotate,actionMove4,actionRotate,actionMove5,nil]];
-    
-    
-    
-  
-    
+        
 }
 
 - (void) Monster2move:(ccTime)dt
@@ -204,12 +201,12 @@
     
     [self Monster1Freeze];
         
-    [self schedule:@selector(Monster1move: ) interval:9.5 repeat:25 delay:0];
+    [self schedule:@selector(Monster1move: ) interval:9.5 repeat:250 delay:0];
 }
 - (void) actionmonster2
 {
     [self Monster2Freeze];
-    [self schedule:@selector(Monster2move: ) interval:6 repeat:25 delay:0 ];
+    [self schedule:@selector(Monster2move: ) interval:6 repeat:250 delay:0 ];
 }
 - (void) actionmonster3
 {
@@ -420,6 +417,11 @@ int playerDirection = 1;
                 
                 [hud numCollectedChanged:_numCollected];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"pickup.caf"];
+                if (_numCollected > 30) {
+                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES];
+                    [[CCDirector sharedDirector] replaceScene:gameOverScene];
+                }
+
             }
         }
     }
@@ -448,16 +450,14 @@ int playerDirection = 1;
                 
                 [hud numCollectedChanged:_numCollected];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"pickup.caf"];
+                if (_numCollected > 15) {
+                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES];
+                    [[CCDirector sharedDirector] replaceScene:gameOverScene];
+                }
+                
 
             }
         }
-    }
-    
-    
-    if(CGRectIntersectsRect([monster1 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster3 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster4 boundingBox], [player boundingBox]))
-    {
-        [self spawnPlayer];
-        return;
     }
     
     [[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
@@ -472,7 +472,10 @@ int playerDirection = 1;
     int x_spawn = [spawnPoint[@"x"] integerValue];
     int y_spawn = [spawnPoint[@"y"] integerValue];
     
-    player.position = ccp(x_spawn, y_spawn);
+    
+    
+    CGPoint actualPos = [self tileCoordForPosition:ccp(x_spawn, y_spawn)];
+    player.position = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
     
 }
 
@@ -480,12 +483,7 @@ int playerDirection = 1;
 // on "init" you need to initialize your instance
 -(id) init
 {
-	// always call "super" init
-	// Apple recommends to re-assign "self" with the "super's" return value
-    /*	if ((self = [super initWithColor:ccc4(255,255,255,255)]))
-     
-     {
-     */
+	
     if( (self=[super init]) ) {
                 
         
@@ -570,6 +568,17 @@ int playerDirection = 1;
 {
     if(CGRectIntersectsRect([monster1 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster3 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster4 boundingBox], [player boundingBox]))
     {
+        lifeCount++;
+        if (lifeCount > 2) {
+            lifeCount = 0;
+            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO];
+            [[CCDirector sharedDirector] replaceScene:gameOverScene];
+        }
+        [player runAction:
+         [CCSequence actions:
+          [CCDelayTime actionWithDuration:5],
+          nil]];
+        
         [self spawnPlayer];
         return;
     }

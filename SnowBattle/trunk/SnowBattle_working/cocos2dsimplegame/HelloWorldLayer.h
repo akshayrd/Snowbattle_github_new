@@ -21,7 +21,8 @@
     CCTMXLayer *darkBlue;
     CCTMXLayer *powerBlueLayer;
 
-    int powerBlue ;
+    int powerBlue;
+    int lifeCount;
     
     HudLayer *hud;
  

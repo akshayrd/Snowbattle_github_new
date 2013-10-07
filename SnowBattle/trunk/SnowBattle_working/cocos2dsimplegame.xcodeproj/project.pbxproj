@@ -36,6 +36,7 @@
 		BA3FEE0017FEA36100DD2E17 /* TileMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDF117FEA36100DD2E17 /* TileMap.tmx */; };
 		BA3FEE0117FEA36100DD2E17 /* tileMap2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDF217FEA36100DD2E17 /* tileMap2.tmx */; };
 		BA3FEE5E17FEA3D400DD2E17 /* wall2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEE5D17FEA3D400DD2E17 /* wall2.jpg */; };
+		BA586D1D18027E7500984F13 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BA586D1C18027E7500984F13 /* GameOverLayer.m */; };
 		BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */; };
 		BA6131EC1801046500ECF6D6 /* grassTexture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA6131EB1801046500ECF6D6 /* grassTexture.jpg */; };
 		BAB655E8180112BD0062BE70 /* FinalOne.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAB655E7180112BD0062BE70 /* FinalOne.jpg */; };
@@ -216,6 +217,8 @@
 		BA3FEDF117FEA36100DD2E17 /* TileMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TileMap.tmx; path = Resources/TileMap.tmx; sourceTree = "<group>"; };
 		BA3FEDF217FEA36100DD2E17 /* tileMap2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = tileMap2.tmx; path = Resources/tileMap2.tmx; sourceTree = "<group>"; };
 		BA3FEE5D17FEA3D400DD2E17 /* wall2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = wall2.jpg; path = Resources/wall2.jpg; sourceTree = "<group>"; };
+		BA586D1B18027E7500984F13 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOverLayer.h; path = ../GameOverLayer.h; sourceTree = "<group>"; };
+		BA586D1C18027E7500984F13 /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameOverLayer.m; path = ../GameOverLayer.m; sourceTree = "<group>"; };
 		BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TileMap.tmx; sourceTree = "<group>"; };
 		BA6131EB1801046500ECF6D6 /* grassTexture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = grassTexture.jpg; path = Resources/grassTexture.jpg; sourceTree = "<group>"; };
 		BAB655E7180112BD0062BE70 /* FinalOne.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = FinalOne.jpg; path = Resources/FinalOne.jpg; sourceTree = "<group>"; };
@@ -585,6 +588,8 @@
 		F55302D517E646CD00D1FD31 /* cocos2dsimplegame */ = {
 			isa = PBXGroup;
 			children = (
+				BA586D1B18027E7500984F13 /* GameOverLayer.h */,
+				BA586D1C18027E7500984F13 /* GameOverLayer.m */,
 				F553046617E646CF00D1FD31 /* AppDelegate.h */,
 				F553046717E646CF00D1FD31 /* AppDelegate.m */,
 				F553046917E646CF00D1FD31 /* HelloWorldLayer.h */,
@@ -1166,6 +1171,7 @@
 				F553035317E646CE00D1FD31 /* CCLayer.m in Sources */,
 				F553035717E646CE00D1FD31 /* CCMenu.m in Sources */,
 				F553035A17E646CE00D1FD31 /* CCMenuItem.m in Sources */,
+				BA586D1D18027E7500984F13 /* GameOverLayer.m in Sources */,
 				F553035D17E646CE00D1FD31 /* CCMotionStreak.m in Sources */,
 				F553036017E646CE00D1FD31 /* CCNode+Debug.m in Sources */,
 				F553036317E646CE00D1FD31 /* CCNode.m in Sources */,

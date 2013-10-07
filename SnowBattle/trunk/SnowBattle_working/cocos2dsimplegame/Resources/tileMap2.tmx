@@ -67,7 +67,7 @@
  </layer>
  <layer name="Snow" width="21" height="16">
   <data encoding="base64" compression="zlib">
-   eJyrZmBgqB7Fgx4zDAI3jASMCww2M0fx4MAA+z2bMg==
+   eJyrZmBgqB7Fo5hKmGEQuIFS92MDg83MUTw4MABMBJsy
   </data>
  </layer>
  <layer name="Border" width="21" height="16">
@@ -91,6 +91,6 @@
   </data>
  </layer>
  <objectgroup name="Objects" width="21" height="16">
-  <object name="SpawnPoint" x="74" y="274"/>
+  <object name="SpawnPoint" x="58" y="361" width="32" height="35"/>
  </objectgroup>
 </map>
