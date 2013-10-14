@@ -82,7 +82,7 @@
  </layer>
  <layer name="power_blue" width="21" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFowA7aB5oB4yCUTDIAQCguwCE
+   eJxjYBgFowAVNA+0A0bBKBgiAACk0wCE
   </data>
  </layer>
  <layer name="DarkBlueTiles" width="21" height="16">
