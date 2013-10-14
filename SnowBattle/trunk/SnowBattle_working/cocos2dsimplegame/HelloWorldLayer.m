@@ -1174,9 +1174,7 @@ int playerDirection = 1;
                     [[CCDirector sharedDirector] replaceScene:gameOverScene];
                     
                 }
-                
-                
-                
+               
             }
             
         }
@@ -1325,11 +1323,7 @@ int playerDirection = 1;
     
     
     if( (self=[super init]) ) {
-        
-        
-        
-        
-        
+       
         //[self setTouchEnabled:YES];
         
         
@@ -1338,7 +1332,7 @@ int playerDirection = 1;
         
         
         
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"Raycast.m4a"];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"backmusic.mp3"];
         
         
         
@@ -1560,13 +1554,5 @@ int playerDirection = 1;
     return ccp(x, y);
     
 }
-
-
-
-
-
-
-
-
 
 @end
