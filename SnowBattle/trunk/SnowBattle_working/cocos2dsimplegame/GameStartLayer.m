@@ -8,6 +8,7 @@
 
 #import "GameStartLayer.h"
 #import "HelloWorldLayer.h"
+#import "LevelSelectLayer.h"
 
 @implementation GameStartLayer
 
@@ -43,7 +44,7 @@ menu.position=ccp(440,300);
 
 -(void) startGame: (id) sender {
 [[CCDirector sharedDirector]
- replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer node]]];
+ replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LevelSelectLayer firstScene:YES]]];
 }
 
 @end
