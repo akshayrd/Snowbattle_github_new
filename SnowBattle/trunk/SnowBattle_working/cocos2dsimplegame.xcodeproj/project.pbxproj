@@ -46,13 +46,9 @@
 		BAB655EE180117DE0062BE70 /* bug_51x51.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB655ED180117DE0062BE70 /* bug_51x51.png */; };
 		BAB655F218011B2D0062BE70 /* powerup12.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB655F118011B2D0062BE70 /* powerup12.png */; };
 		BAB655F418011D5D0062BE70 /* dark-blue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAB655F318011D5D0062BE70 /* dark-blue.jpg */; };
-		BAE6E984180E45E100D13F75 /* life.png in Resources */ = {isa = PBXBuildFile; fileRef = BAE6E983180E45E100D13F75 /* life.png */; };
 		BAEB6EE517FCC832000F3DAE /* snowmover1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAEB6EE417FCC832000F3DAE /* snowmover1.jpg */; };
 		BAEB785017FC8E1E00B9663A /* grasstutorial.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEB784F17FC8E1E00B9663A /* grasstutorial.png */; };
 		BAEB785417FC93A300B9663A /* player2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAEB785317FC93A300B9663A /* player2.jpg */; };
-		F52F674D180E41250081074E /* LevelSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F52F674C180E41250081074E /* LevelSelectLayer.m */; };
-		F52F6753180E44EB0081074E /* levelscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = F52F6752180E44EA0081074E /* levelscreen.png */; };
-		F52F6755180E45360081074E /* level.png in Resources */ = {isa = PBXBuildFile; fileRef = F52F6754180E45360081074E /* level.png */; };
 		F54BA66A1802986400FCDA16 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = F54BA6681802986400FCDA16 /* pause.png */; };
 		F54BA66B1802986400FCDA16 /* resume.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F54BA6691802986400FCDA16 /* resume.jpg */; };
 		F54BA66E18029D3B00FCDA16 /* GameStartLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F54BA66D18029D3B00FCDA16 /* GameStartLayer.m */; };
@@ -241,14 +237,9 @@
 		BAB655ED180117DE0062BE70 /* bug_51x51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bug_51x51.png; path = Resources/bug_51x51.png; sourceTree = "<group>"; };
 		BAB655F118011B2D0062BE70 /* powerup12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = powerup12.png; path = Resources/powerup12.png; sourceTree = "<group>"; };
 		BAB655F318011D5D0062BE70 /* dark-blue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "dark-blue.jpg"; path = "Resources/dark-blue.jpg"; sourceTree = "<group>"; };
-		BAE6E983180E45E100D13F75 /* life.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = life.png; path = Resources/life.png; sourceTree = "<group>"; };
 		BAEB6EE417FCC832000F3DAE /* snowmover1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snowmover1.jpg; sourceTree = "<group>"; };
 		BAEB784F17FC8E1E00B9663A /* grasstutorial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grasstutorial.png; path = Resources/grasstutorial.png; sourceTree = "<group>"; };
 		BAEB785317FC93A300B9663A /* player2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = player2.jpg; sourceTree = "<group>"; };
-		F52F674B180E41250081074E /* LevelSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectLayer.h; sourceTree = "<group>"; };
-		F52F674C180E41250081074E /* LevelSelectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectLayer.m; sourceTree = "<group>"; };
-		F52F6752180E44EA0081074E /* levelscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = levelscreen.png; sourceTree = "<group>"; };
-		F52F6754180E45360081074E /* level.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level.png; sourceTree = "<group>"; };
 		F54BA6681802986400FCDA16 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		F54BA6691802986400FCDA16 /* resume.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = resume.jpg; sourceTree = "<group>"; };
 		F54BA66C18029D3B00FCDA16 /* GameStartLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStartLayer.h; sourceTree = "<group>"; };
@@ -620,8 +611,6 @@
 				BA508744180BAAB60097C021 /* GameOverLayer.m */,
 				F54BA66D18029D3B00FCDA16 /* GameStartLayer.m */,
 				F54BA66C18029D3B00FCDA16 /* GameStartLayer.h */,
-				F52F674B180E41250081074E /* LevelSelectLayer.h */,
-				F52F674C180E41250081074E /* LevelSelectLayer.m */,
 				F553046617E646CF00D1FD31 /* AppDelegate.h */,
 				F553046717E646CF00D1FD31 /* AppDelegate.m */,
 				F553046917E646CF00D1FD31 /* HelloWorldLayer.h */,
@@ -638,12 +627,6 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				BAE6E983180E45E100D13F75 /* life.png */,
-=======
-				F52F6754180E45360081074E /* level.png */,
-				F52F6752180E44EA0081074E /* levelscreen.png */,
->>>>>>> d6c7a5e57a7a7ab26f916787d637a167283988a7
 				BA50874A180BAF4B0097C021 /* backmusic.mp3 */,
 				BA508746180BAD970097C021 /* POSTER.jpg */,
 				BA508747180BAD970097C021 /* powerup1.jpg */,
@@ -1120,7 +1103,6 @@
 			files = (
 				BA3FEDE217FE98A000DD2E17 /* 3.jpg in Resources */,
 				BA3FEE0117FEA36100DD2E17 /* tileMap2.tmx in Resources */,
-				BAE6E984180E45E100D13F75 /* life.png in Resources */,
 				F55302D817E646CD00D1FD31 /* Default.png in Resources */,
 				BA3949D817F2EC450072E0C9 /* pickup.caf in Resources */,
 				BAEB6EE517FCC832000F3DAE /* snowmover1.jpg in Resources */,
@@ -1181,8 +1163,6 @@
 				F54BA6721802A41A00FCDA16 /* bg_backup.jpeg in Resources */,
 				F54BA6741802A47A00FCDA16 /* bg_backup2.jpg in Resources */,
 				F54BA6761802A4DD00FCDA16 /* start_screen.jpg in Resources */,
-				F52F6753180E44EB0081074E /* levelscreen.png in Resources */,
-				F52F6755180E45360081074E /* level.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1307,7 +1287,6 @@
 				F553046B17E646CF00D1FD31 /* HelloWorldLayer.m in Sources */,
 				F553046E17E646CF00D1FD31 /* IntroLayer.m in Sources */,
 				F54BA66E18029D3B00FCDA16 /* GameStartLayer.m in Sources */,
-				F52F674D180E41250081074E /* LevelSelectLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

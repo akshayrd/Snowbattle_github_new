@@ -11,10 +11,10 @@
 
 
 @implementation HudLayer
+
 {
     
     CCLabelTTF *_label;
-    CCLabelTTF *_livesLabel;
     
 }
 
@@ -38,16 +38,7 @@
         
         _label.position = ccp(winSize.width - (_label.contentSize.width/2) - 30, _label.contentSize.height/2 + margin);
         
-        _livesLabel = [CCLabelTTF labelWithString:@"Lives:" fontName:@"Verdana-Bold" fontSize:18.0];
-        
-        _livesLabel.color = ccc3(0,0,0);
-        
-        
-        _livesLabel.position = ccp(winSize.width - (_livesLabel.contentSize.width/2) - 480, _livesLabel.contentSize.height/2 + margin);
-        
         [self addChild:_label];
-
-        [self addChild:_livesLabel];
         
     }
     
@@ -77,6 +68,12 @@
 
 @end
 
+
+
+
+
+
+
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
@@ -102,6 +99,9 @@
     // add layer as a child to scene
     
     [scene addChild: layer];
+    
+    
+    
     
     
     HudLayer *hud = [HudLayer node];
@@ -164,27 +164,56 @@
     
     
     id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+    
     id actionRotate90 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:90];
+    
     id actionRotate360 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:360];
+    
     id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:180];
+    
     id actionRotate270 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:270];
+    
     id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest1];
+    
     id actionMove2 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest2];
+    
     id actionMove3 = [CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest3];
-   [monster1 runAction:
+    
+    
+    
+    
+    
+    [monster1 runAction:
+     
      [CCSequence actions: actionRotate90,actionMove,actionRotate360,actionMove1,actionRotate270,actionMove2,actionRotate180,actionMove3,nil]];
+    
+    
     
 }
 
+
+
 - (void) Monster2move:(ccTime)dt
+
 {
+    
+    
+    
     CGSize winSize = [CCDirector sharedDirector].winSize;
+    
     int realX = winSize.width/3+35+260;
+    
     int realY = winSize.height/2-65;
+    
     CGPoint realDest = ccp(realX, realY);
     
+    
+    
     int realX1 = winSize.width/3+35+260;
+    
     int realY1 = winSize.height/2-65-50;
+    
+    
     
     int realX2 = winSize.width/3+35;
     
@@ -1090,6 +1119,32 @@ int playerDirection = 1;
         
     }
     
+    
+    
+    tileCoord = [self tileCoordForPosition:position];
+    
+    tileGid = [border tileGIDAt:tileCoord];
+    
+    if (tileGid) {
+        
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        
+        if (properties) {
+            
+            NSString *collision = properties[@"Power_blue"];
+            
+            if (collision && [collision isEqualToString:@"True"]) {
+                
+                powerBlue = 1;
+                
+            }
+            
+        }
+        
+    }
+    
+    
+    
     tileGid = [snow tileGIDAt:tileCoord];
     
     if (tileGid) {
@@ -1106,6 +1161,8 @@ int playerDirection = 1;
                 
                 _numCollected++;
                 
+                
+                
                 [hud numCollectedChanged:_numCollected];
                 
                 [[SimpleAudioEngine sharedEngine] playEffect:@"pickup.caf"];
@@ -1117,9 +1174,14 @@ int playerDirection = 1;
                     [[CCDirector sharedDirector] replaceScene:gameOverScene];
                     
                 }
+               
             }
+            
         }
+        
     }
+    
+    
     
     tileGid = [powerBlueLayer tileGIDAt:tileCoord];
     
@@ -1128,34 +1190,24 @@ int playerDirection = 1;
         NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         
         if (properties) {
+            
             NSString *collision = properties[@"Power_blue"];
+            
             if (collision && [collision isEqualToString:@"True"]) {
+                
                 [powerBlueLayer removeTileAt:tileCoord];
+                
                 powerBlue = 1;
                 
-            }
-        }
-    }
-    
-    tileGid = [powerLivesLayer tileGIDAt:tileCoord];
-    
-    if (tileGid) {
-        
-        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
-        
-        if (properties) {
-            NSString *collision = properties[@"lives"];
-            if (collision && [collision isEqualToString:@"True"]) {
-                [powerLivesLayer removeTileAt:tileCoord];
-                if (lifeCount<4)
-                    lifeCount++;
-                lifeItem[lifeCount].visible = true;
+                // Start timer
                 
             }
+            
+            
+            
         }
+        
     }
-    
-    
     
     tileGid = [darkBlue tileGIDAt:tileCoord];
     
@@ -1269,67 +1321,150 @@ int playerDirection = 1;
 
 {
     
+    
     if( (self=[super init]) ) {
+       
+        //[self setTouchEnabled:YES];
+        
+        
         
         self.isTouchEnabled = YES;
         
+        
+        
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"backmusic.mp3"];
+        
+        
+        
         _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"tileMap2.tmx"];
         
         snow = [_tileMap layerNamed:@"Snow"];
+        
         border = [_tileMap layerNamed:@"Border"];
+        
         street  = [_tileMap layerNamed:@"Street"];
+        
         building = [_tileMap layerNamed:@"Building"];
+        
         darkBlue = [_tileMap layerNamed:@"DarkBlueTiles"];
+        
         powerBlueLayer = [_tileMap layerNamed:@"power_blue"];
-        powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
+        
+        
+        
         playerDirection = 1;
+        
         winScore = 188;
+        
         totalLives = 2;
-        lifeCount = 2;
- 
+        
+        
+        
+        
+        
         for(CCTMXLayer *child in [_tileMap children])
+            
         {
+            
             [[child texture] setAliasTexParameters];
+            
         }
+        
         [self addChild: _tileMap];
+        
+        
+        
+        
+        
         CGSize winSize = [CCDirector sharedDirector].winSize;
         
         player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
+        
         [self spawnPlayer];
+        
         if(player == nil)
+            
         {
+            
             printf("this is an error");
+            
         }
+        
         [self addChild:player];
         
+        
+        
         monster1 = [CCSprite spriteWithFile:@"bug_51x51.png"];
+        
         monster1.position = ccp(winSize.width/3+35, winSize.height/2+90);
+        
         [self addChild:monster1];
         
+        
+        
+        
+        
         monster2 = [CCSprite spriteWithFile:@"bug_51x51.png"];
+        
         monster2.position = ccp(winSize.width/3+35, winSize.height/2-65);
+        
         [self addChild:monster2];
         
+        
+        
         monster3 = [CCSprite spriteWithFile:@"bug_51x51.png"];
+        
         monster3.position = ccp(winSize.width-45, winSize.height-50);
+        
         [self addChild:monster3];
+        
+        
+        
         monster4 = [CCSprite spriteWithFile:@"bug_51x51.png"];
+        
         monster4.position = ccp(75, 75);
+        
         [self addChild:monster4];
         
+        
+        
+        
+        
         [self performSelectorInBackground:@selector(actionmonster1) withObject:self];
+        
         [self performSelectorInBackground:@selector(actionmonster2) withObject:self];
+        
+        
+        
+        
+        
         [self performSelectorInBackground:@selector(actionmonster3) withObject:self];
+        
         [self performSelectorInBackground:@selector(actionmonster4) withObject:self];
+        
+        
+        
+        //        [player runAction:
+        
+        //         [CCSequence actions: actionRotate,actionMove,actionRotate,actionMove1,nil]];
+        
+        //        
+        
+        
         
         // Standard method to pause the game
         
         CCMenuItem *starMenuItem = [CCMenuItemImage itemFromNormalImage:@"pause.png" selectedImage:@"pause.png" target:self selector:@selector(PauseGame:)];
+        
         starMenuItem.position = ccp(870, 25);
+        
         CCMenu *starMenu = [CCMenu menuWithItems:starMenuItem, nil];
+        
         starMenu.position = CGPointZero;
+        
         [self addChild:starMenu];
+        
+        
         
         // Standard method to resume the game
         
@@ -1343,21 +1478,7 @@ int playerDirection = 1;
         
         [self addChild:resumeMenu];
         
-        for (int i=0; i<5; i++) {
         
-            lifeItem[i] = [CCMenuItemImage itemFromNormalImage:@"life.png" selectedImage:@"life.png" target:self selector:Nil];
-        
-            lifeItem[i].position = ccp(570+i*40, 25);
-            lifeItem[i].visible = true;
-        }
-        lifeItem[3].visible = false;
-        lifeItem[4].visible = false;
-        CCMenu *life = [CCMenu menuWithItems:lifeItem[0],lifeItem[1],lifeItem[2],lifeItem[3],lifeItem[4], nil];
-        
-        
-        life.position = CGPointZero;
-        
-        [self addChild:life];
         
         [self schedule:@selector(checkCollisionWithMonster)];
         
@@ -1380,13 +1501,12 @@ int playerDirection = 1;
     if(CGRectIntersectsRect([monster1 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster3 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster4 boundingBox], [player boundingBox]))
         
     {
-        lifeItem[lifeCount].visible = false;
         
-        lifeCount--;
+        lifeCount++;
         
-        if (lifeCount < 0) {
+        if (lifeCount > totalLives) {
             
-            lifeCount = 2;
+            lifeCount = 0;
             
             CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected ];
             
