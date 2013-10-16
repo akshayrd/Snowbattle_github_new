@@ -20,11 +20,13 @@
     CCTMXLayer *street;
     CCTMXLayer *darkBlue;
     CCTMXLayer *powerBlueLayer;
+    CCTMXLayer *powerLivesLayer;
 
     int powerBlue;
     int lifeCount;
     int winScore;
     int totalLives;
+    CCMenuItem *lifeItem[5];
     
     HudLayer *hud;
  
