@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9401C2B1-4AB6-4F7F-81CA-9A19607FBD6B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>cocos2dsimplegame</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B5CA6B7F-213E-41D4-8A91-75E253E7C0FA</key>
+		<string>https://github.com/akshayrd/Snowbattle_github_new.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SnowBattle/trunk/SnowBattle_working/cocos2dsimplegame.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B5CA6B7F-213E-41D4-8A91-75E253E7C0FA</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/akshayrd/Snowbattle_github_new.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B5CA6B7F-213E-41D4-8A91-75E253E7C0FA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B5CA6B7F-213E-41D4-8A91-75E253E7C0FA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Snowbattle_github_new</string>
+		</dict>
+	</array>
+</dict>
+</plist>
