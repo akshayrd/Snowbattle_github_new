@@ -54,7 +54,6 @@
 		F54BA66E18029D3B00FCDA16 /* GameStartLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F54BA66D18029D3B00FCDA16 /* GameStartLayer.m */; };
 		F54BA67018029EB100FCDA16 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F54BA66F18029EB100FCDA16 /* background.jpg */; };
 		F54BA6721802A41A00FCDA16 /* bg_backup.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F54BA6711802A41A00FCDA16 /* bg_backup.jpeg */; };
-		F54BA6741802A47A00FCDA16 /* bg_backup2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F54BA6731802A47A00FCDA16 /* bg_backup2.jpg */; };
 		F54BA6761802A4DD00FCDA16 /* start_screen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F54BA6751802A4DD00FCDA16 /* start_screen.jpg */; };
 		F55302C217E646CD00D1FD31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55302C117E646CD00D1FD31 /* QuartzCore.framework */; };
 		F55302C417E646CD00D1FD31 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55302C317E646CD00D1FD31 /* OpenGLES.framework */; };
@@ -246,7 +245,6 @@
 		F54BA66D18029D3B00FCDA16 /* GameStartLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStartLayer.m; sourceTree = "<group>"; };
 		F54BA66F18029EB100FCDA16 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		F54BA6711802A41A00FCDA16 /* bg_backup.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_backup.jpeg; sourceTree = "<group>"; };
-		F54BA6731802A47A00FCDA16 /* bg_backup2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_backup2.jpg; sourceTree = "<group>"; };
 		F54BA6751802A4DD00FCDA16 /* start_screen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = start_screen.jpg; sourceTree = "<group>"; };
 		F55302BE17E646CD00D1FD31 /* cocos2dsimplegame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cocos2dsimplegame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55302C117E646CD00D1FD31 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -631,7 +629,6 @@
 				BA508746180BAD970097C021 /* POSTER.jpg */,
 				BA508747180BAD970097C021 /* powerup1.jpg */,
 				F54BA6751802A4DD00FCDA16 /* start_screen.jpg */,
-				F54BA6731802A47A00FCDA16 /* bg_backup2.jpg */,
 				F54BA6711802A41A00FCDA16 /* bg_backup.jpeg */,
 				F54BA66F18029EB100FCDA16 /* background.jpg */,
 				F54BA6681802986400FCDA16 /* pause.png */,
@@ -1161,7 +1158,6 @@
 				F54BA66B1802986400FCDA16 /* resume.jpg in Resources */,
 				F54BA67018029EB100FCDA16 /* background.jpg in Resources */,
 				F54BA6721802A41A00FCDA16 /* bg_backup.jpeg in Resources */,
-				F54BA6741802A47A00FCDA16 /* bg_backup2.jpg in Resources */,
 				F54BA6761802A4DD00FCDA16 /* start_screen.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

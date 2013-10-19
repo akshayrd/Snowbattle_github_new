@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="20" height="20" tilewidth="60" tileheight="60">
+ <tileset firstgid="1" name="2916" tilewidth="60" tileheight="60" spacing="2" margin="2">
+  <image source="2916.jpg" width="640" height="446"/>
+  <tile id="2">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="40">
+   <properties>
+    <property name="Collectable" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <objectgroup name="Objects" width="20" height="20"/>
+ <layer name="Background" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzTZGBg0ARiEySsiUeMWExt80i1l1hxappHih3EqCXHPErDl5B+fPL44pza9tEjPkkJc1LMJyWeqG0eufFIr/igdvlAbh6ihrnUNo8SO0h1B7HmAQB2/kRo
+  </data>
+ </layer>
+ <layer name="Meta" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYIAAZiTMgEeMWEBt80i1l1hxappHih3EqKW2edQwB588vjintn30iE9izSLGv8jipOQDaptHyFxC5tE6PqhdPpCThyiJF1qaR4kdpLqDWPMAqA0BKg==
+  </data>
+ </layer>
+</map>
