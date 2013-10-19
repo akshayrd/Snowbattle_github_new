@@ -14,7 +14,7 @@
     
 }
 
-
+int count1 = 0;
 
 - (id)init
 
@@ -1215,6 +1215,12 @@ int playerDirection = 1;
     
     tileGid = [powerLivesLayer tileGIDAt:tileCoord];
     
+    
+    CCBlink* blink1 = [CCBlink actionWithDuration:10 blinks:40];
+    [powerLivesLayer runAction:blink1];
+    count1++;
+    NSLog(@"count %d",count1);
+    
     if (tileGid) {
         
         NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
@@ -1354,7 +1360,7 @@ int playerDirection = 1;
         
         
         self.isTouchEnabled = YES;
-        
+        count = 100;
         
         
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"backmusic.mp3"];
@@ -1538,12 +1544,14 @@ int playerDirection = 1;
 
 {
     
-    if(CGRectIntersectsRect([monster1 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster3 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster4 boundingBox], [player boundingBox]))
+    CCBlink* blink = [CCBlink actionWithDuration:2 blinks:40];
+    if((CGRectIntersectsRect([monster1 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster3 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster4 boundingBox], [player boundingBox])) && count == 100)
         
     {
         lifeItem[lifeCount].visible = false;
         
         lifeCount--;
+        count = 0;
         
         if (lifeCount < 0) {
             
@@ -1555,11 +1563,15 @@ int playerDirection = 1;
             
         }
         
-        [self spawnPlayer];
         
-        return;
+        [player runAction:blink];
+        //[self spawnPlayer];
+        
+        //return;
         
     }
+    else if (count < 100)
+        count++;
     
 }
 

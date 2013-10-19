@@ -92,6 +92,10 @@
 		BAEB6EE517FCC832000F3DAE /* snowmover1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAEB6EE417FCC832000F3DAE /* snowmover1.jpg */; };
 		BAEB785417FC93A300B9663A /* player2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAEB785317FC93A300B9663A /* player2.jpg */; };
 		F52F674D180E41250081074E /* LevelSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F52F674C180E41250081074E /* LevelSelectLayer.m */; };
+		F53576DD181338500003E30F /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576D9181338500003E30F /* background.jpg */; };
+		F53576DE181338500003E30F /* grassTexture2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576DA181338500003E30F /* grassTexture2.jpg */; };
+		F53576DF181338500003E30F /* level.png in Resources */ = {isa = PBXBuildFile; fileRef = F53576DB181338500003E30F /* level.png */; };
+		F53576E0181338500003E30F /* life.png in Resources */ = {isa = PBXBuildFile; fileRef = F53576DC181338500003E30F /* life.png */; };
 		F54BA66A1802986400FCDA16 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = F54BA6681802986400FCDA16 /* pause.png */; };
 		F54BA66B1802986400FCDA16 /* resume.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F54BA6691802986400FCDA16 /* resume.jpg */; };
 		F54BA66E18029D3B00FCDA16 /* GameStartLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F54BA66D18029D3B00FCDA16 /* GameStartLayer.m */; };
@@ -477,6 +481,10 @@
 		BAEB785317FC93A300B9663A /* player2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = player2.jpg; sourceTree = "<group>"; };
 		F52F674B180E41250081074E /* LevelSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectLayer.h; sourceTree = "<group>"; };
 		F52F674C180E41250081074E /* LevelSelectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectLayer.m; sourceTree = "<group>"; };
+		F53576D9181338500003E30F /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = Resources/background.jpg; sourceTree = "<group>"; };
+		F53576DA181338500003E30F /* grassTexture2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = grassTexture2.jpg; path = Resources/grassTexture2.jpg; sourceTree = "<group>"; };
+		F53576DB181338500003E30F /* level.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = level.png; path = Resources/level.png; sourceTree = "<group>"; };
+		F53576DC181338500003E30F /* life.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = life.png; path = Resources/life.png; sourceTree = "<group>"; };
 		F54BA6681802986400FCDA16 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		F54BA6691802986400FCDA16 /* resume.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = resume.jpg; sourceTree = "<group>"; };
 		F54BA66C18029D3B00FCDA16 /* GameStartLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStartLayer.h; sourceTree = "<group>"; };
@@ -1217,6 +1225,10 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F53576D9181338500003E30F /* background.jpg */,
+				F53576DA181338500003E30F /* grassTexture2.jpg */,
+				F53576DB181338500003E30F /* level.png */,
+				F53576DC181338500003E30F /* life.png */,
 				BA9910BD180F0DD0001C5562 /* libs */,
 				BA508746180BAD970097C021 /* POSTER.jpg */,
 				BA508747180BAD970097C021 /* powerup1.jpg */,
@@ -1734,6 +1746,10 @@
 				BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */,
 				F54BA66A1802986400FCDA16 /* pause.png in Resources */,
 				F54BA66B1802986400FCDA16 /* resume.jpg in Resources */,
+				F53576DD181338500003E30F /* background.jpg in Resources */,
+				F53576DE181338500003E30F /* grassTexture2.jpg in Resources */,
+				F53576DF181338500003E30F /* level.png in Resources */,
+				F53576E0181338500003E30F /* life.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

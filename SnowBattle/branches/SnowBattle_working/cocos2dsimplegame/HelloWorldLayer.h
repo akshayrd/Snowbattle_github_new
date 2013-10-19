@@ -23,6 +23,7 @@
     CCTMXLayer *powerLivesLayer;
     
     int powerBlue;
+    int count;
     int lifeCount;
     int winScore;
     int totalLives;
