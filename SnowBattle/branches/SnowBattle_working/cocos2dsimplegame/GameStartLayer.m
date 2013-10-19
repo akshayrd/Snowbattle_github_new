@@ -22,7 +22,7 @@ return firstScene;
 -(id) initW:(BOOL)start
 {
 if( (self=[super init] )) {
-CCSprite *bg =[CCSprite spriteWithFile:@"POSTER.jpg"];
+CCSprite *bg =[CCSprite spriteWithFile:@"POSTER_1.jpg"];
 bg.position=ccp(0,0);
 bg.anchorPoint = ccp(0, 0);
 [self addChild:bg z:0];

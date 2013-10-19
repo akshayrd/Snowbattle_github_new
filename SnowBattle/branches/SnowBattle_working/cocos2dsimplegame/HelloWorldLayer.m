@@ -1206,8 +1206,10 @@ int playerDirection = 1;
                 
                 powerBlue = 1;
                 
-                // Start timer
-                
+                [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"bug_51x51.png"]];
+
+               
+    
             }
         }
     }
@@ -1255,8 +1257,11 @@ int playerDirection = 1;
                 [darkBlue removeTileAt:tileCoord];
                 
                 _numCollected++;
-                
-                
+                darkBlueCount++;
+                if(darkBlueCount == 12)
+                {
+                    [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"FinalTwo_51x51x.png"]];
+                }
                 
                 [hud numCollectedChanged:_numCollected];
                 
@@ -1362,7 +1367,7 @@ int playerDirection = 1;
         self.isTouchEnabled = YES;
         count = 100;
         
-        
+        darkBlueCount = 0;
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"backmusic.mp3"];
         
         

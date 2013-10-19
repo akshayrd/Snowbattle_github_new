@@ -21,7 +21,7 @@
     CCTMXLayer *darkBlue;
     CCTMXLayer *powerBlueLayer;
     CCTMXLayer *powerLivesLayer;
-    
+    int darkBlueCount;
     int powerBlue;
     int count;
     int lifeCount;

@@ -96,6 +96,8 @@
 		F53576DE181338500003E30F /* grassTexture2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576DA181338500003E30F /* grassTexture2.jpg */; };
 		F53576DF181338500003E30F /* level.png in Resources */ = {isa = PBXBuildFile; fileRef = F53576DB181338500003E30F /* level.png */; };
 		F53576E0181338500003E30F /* life.png in Resources */ = {isa = PBXBuildFile; fileRef = F53576DC181338500003E30F /* life.png */; };
+		F53576E518134C360003E30F /* levelscreen_final.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576E318134C360003E30F /* levelscreen_final.jpg */; };
+		F53576E618134C360003E30F /* POSTER_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576E418134C360003E30F /* POSTER_1.jpg */; };
 		F54BA66A1802986400FCDA16 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = F54BA6681802986400FCDA16 /* pause.png */; };
 		F54BA66B1802986400FCDA16 /* resume.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F54BA6691802986400FCDA16 /* resume.jpg */; };
 		F54BA66E18029D3B00FCDA16 /* GameStartLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F54BA66D18029D3B00FCDA16 /* GameStartLayer.m */; };
@@ -485,6 +487,8 @@
 		F53576DA181338500003E30F /* grassTexture2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = grassTexture2.jpg; path = Resources/grassTexture2.jpg; sourceTree = "<group>"; };
 		F53576DB181338500003E30F /* level.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = level.png; path = Resources/level.png; sourceTree = "<group>"; };
 		F53576DC181338500003E30F /* life.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = life.png; path = Resources/life.png; sourceTree = "<group>"; };
+		F53576E318134C360003E30F /* levelscreen_final.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = levelscreen_final.jpg; sourceTree = "<group>"; };
+		F53576E418134C360003E30F /* POSTER_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = POSTER_1.jpg; sourceTree = "<group>"; };
 		F54BA6681802986400FCDA16 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		F54BA6691802986400FCDA16 /* resume.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = resume.jpg; sourceTree = "<group>"; };
 		F54BA66C18029D3B00FCDA16 /* GameStartLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStartLayer.h; sourceTree = "<group>"; };
@@ -1225,6 +1229,8 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F53576E318134C360003E30F /* levelscreen_final.jpg */,
+				F53576E418134C360003E30F /* POSTER_1.jpg */,
 				F53576D9181338500003E30F /* background.jpg */,
 				F53576DA181338500003E30F /* grassTexture2.jpg */,
 				F53576DB181338500003E30F /* level.png */,
@@ -1750,6 +1756,8 @@
 				F53576DE181338500003E30F /* grassTexture2.jpg in Resources */,
 				F53576DF181338500003E30F /* level.png in Resources */,
 				F53576E0181338500003E30F /* life.png in Resources */,
+				F53576E518134C360003E30F /* levelscreen_final.jpg in Resources */,
+				F53576E618134C360003E30F /* POSTER_1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

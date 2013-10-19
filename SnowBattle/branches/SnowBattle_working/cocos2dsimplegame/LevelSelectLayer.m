@@ -23,7 +23,7 @@
 -(id) initW:(BOOL)start
 {
     if( (self=[super init] )) {
-        CCSprite *bg =[CCSprite spriteWithFile:@"level.png"];
+        CCSprite *bg =[CCSprite spriteWithFile:@"levelscreen_final.jpg"];
         bg.position=ccp(0,0);
         bg.anchorPoint = ccp(0, 0);
         [self addChild:bg z:0];
