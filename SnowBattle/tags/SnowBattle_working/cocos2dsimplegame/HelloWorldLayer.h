@@ -21,14 +21,26 @@
     CCTMXLayer *darkBlue;
     CCTMXLayer *powerBlueLayer;
     CCTMXLayer *powerLivesLayer;
-    
+    int darkBlueCount;
     int powerBlue;
+    int count;
     int lifeCount;
     int winScore;
     int totalLives;
     CCMenuItem *lifeItem[5];
     
     HudLayer *hud;
+    
+    
+    // Level timer
+    CCLabelTTF *timeLabel;
+    ccTime totalTime;
+    int levelTimeLimit;
+    int myTime;
+    
+    int currentTime;
+
+    
     
 }
 

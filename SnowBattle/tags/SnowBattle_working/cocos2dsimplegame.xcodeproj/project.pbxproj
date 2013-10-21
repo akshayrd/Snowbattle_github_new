@@ -31,6 +31,16 @@
 		BA508749180BAD970097C021 /* powerup1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA508747180BAD970097C021 /* powerup1.jpg */; };
 		BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */; };
 		BA6131EC1801046500ECF6D6 /* grassTexture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA6131EB1801046500ECF6D6 /* grassTexture.jpg */; };
+		BA68E5351814A9EF00F3F937 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E5331814A9EF00F3F937 /* pause.png */; };
+		BA68E5361814A9EF00F3F937 /* Play.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E5341814A9EF00F3F937 /* Play.png */; };
+		BA68E5391814AC3000F3F937 /* Play40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E5371814AC3000F3F937 /* Play40x40.png */; };
+		BA68E53A1814AC3000F3F937 /* player_pause40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E5381814AC3000F3F937 /* player_pause40x40.png */; };
+		BA68E53D1814AEDC00F3F937 /* HyperPlayer_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E53B1814AEDC00F3F937 /* HyperPlayer_40x40.png */; };
+		BA68E53E1814AEDC00F3F937 /* NormalPlayer_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E53C1814AEDC00F3F937 /* NormalPlayer_40x40.png */; };
+		BA68E5401814AFC700F3F937 /* PowerUpMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA68E53F1814AFC700F3F937 /* PowerUpMusic.mp3 */; };
+		BA68E54F1814B7D900F3F937 /* GameLostPng.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E5411814B7D900F3F937 /* GameLostPng.png */; };
+		BA68E5501814B7D900F3F937 /* GameWonPng.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E5421814B7D900F3F937 /* GameWonPng.png */; };
+		BA68E5581814B7D900F3F937 /* shoveling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA68E54E1814B7D900F3F937 /* shoveling.mp3 */; };
 		BA9911CD180F0DD1001C5562 /* CCActionPageTurn3D.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9910D2180F0DD1001C5562 /* CCActionPageTurn3D.m */; };
 		BA9911CF180F0DD1001C5562 /* CCActionTiledGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9910D6180F0DD1001C5562 /* CCActionTiledGrid.m */; };
 		BA9911D3180F0DD1001C5562 /* CCAtlasNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9910DE180F0DD1001C5562 /* CCAtlasNode.m */; };
@@ -92,8 +102,14 @@
 		BAEB6EE517FCC832000F3DAE /* snowmover1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAEB6EE417FCC832000F3DAE /* snowmover1.jpg */; };
 		BAEB785417FC93A300B9663A /* player2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAEB785317FC93A300B9663A /* player2.jpg */; };
 		F52F674D180E41250081074E /* LevelSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F52F674C180E41250081074E /* LevelSelectLayer.m */; };
-		F54BA66A1802986400FCDA16 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = F54BA6681802986400FCDA16 /* pause.png */; };
-		F54BA66B1802986400FCDA16 /* resume.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F54BA6691802986400FCDA16 /* resume.jpg */; };
+		F53576DD181338500003E30F /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576D9181338500003E30F /* background.jpg */; };
+		F53576DE181338500003E30F /* grassTexture2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576DA181338500003E30F /* grassTexture2.jpg */; };
+		F53576DF181338500003E30F /* level.png in Resources */ = {isa = PBXBuildFile; fileRef = F53576DB181338500003E30F /* level.png */; };
+		F53576E0181338500003E30F /* life.png in Resources */ = {isa = PBXBuildFile; fileRef = F53576DC181338500003E30F /* life.png */; };
+		F53576E518134C360003E30F /* levelscreen_final.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576E318134C360003E30F /* levelscreen_final.jpg */; };
+		F53576E618134C360003E30F /* POSTER_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576E418134C360003E30F /* POSTER_1.jpg */; };
+		F54BA66A1802986400FCDA16 /* pause1.png in Resources */ = {isa = PBXBuildFile; fileRef = F54BA6681802986400FCDA16 /* pause1.png */; };
+		F54BA66B1802986400FCDA16 /* resume1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F54BA6691802986400FCDA16 /* resume1.jpg */; };
 		F54BA66E18029D3B00FCDA16 /* GameStartLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F54BA66D18029D3B00FCDA16 /* GameStartLayer.m */; };
 		F55302C217E646CD00D1FD31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55302C117E646CD00D1FD31 /* QuartzCore.framework */; };
 		F55302C417E646CD00D1FD31 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55302C317E646CD00D1FD31 /* OpenGLES.framework */; };
@@ -218,6 +234,16 @@
 		BA508747180BAD970097C021 /* powerup1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = powerup1.jpg; path = Resources/powerup1.jpg; sourceTree = "<group>"; };
 		BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TileMap.tmx; sourceTree = "<group>"; };
 		BA6131EB1801046500ECF6D6 /* grassTexture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = grassTexture.jpg; path = Resources/grassTexture.jpg; sourceTree = "<group>"; };
+		BA68E5331814A9EF00F3F937 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/pause.png; sourceTree = "<group>"; };
+		BA68E5341814A9EF00F3F937 /* Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Play.png; path = Resources/Play.png; sourceTree = "<group>"; };
+		BA68E5371814AC3000F3F937 /* Play40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Play40x40.png; path = Resources/Play40x40.png; sourceTree = "<group>"; };
+		BA68E5381814AC3000F3F937 /* player_pause40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = player_pause40x40.png; path = Resources/player_pause40x40.png; sourceTree = "<group>"; };
+		BA68E53B1814AEDC00F3F937 /* HyperPlayer_40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HyperPlayer_40x40.png; path = Resources/HyperPlayer_40x40.png; sourceTree = "<group>"; };
+		BA68E53C1814AEDC00F3F937 /* NormalPlayer_40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NormalPlayer_40x40.png; path = Resources/NormalPlayer_40x40.png; sourceTree = "<group>"; };
+		BA68E53F1814AFC700F3F937 /* PowerUpMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = PowerUpMusic.mp3; path = Resources/PowerUpMusic.mp3; sourceTree = "<group>"; };
+		BA68E5411814B7D900F3F937 /* GameLostPng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GameLostPng.png; path = Resources/GameLostPng.png; sourceTree = "<group>"; };
+		BA68E5421814B7D900F3F937 /* GameWonPng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GameWonPng.png; path = Resources/GameWonPng.png; sourceTree = "<group>"; };
+		BA68E54E1814B7D900F3F937 /* shoveling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = shoveling.mp3; path = Resources/shoveling.mp3; sourceTree = "<group>"; };
 		BA9910BF180F0DD0001C5562 /* CCAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAction.h; sourceTree = "<group>"; };
 		BA9910C0180F0DD0001C5562 /* CCAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAction.m; sourceTree = "<group>"; };
 		BA9910C1180F0DD0001C5562 /* CCActionCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCActionCamera.h; sourceTree = "<group>"; };
@@ -477,8 +503,14 @@
 		BAEB785317FC93A300B9663A /* player2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = player2.jpg; sourceTree = "<group>"; };
 		F52F674B180E41250081074E /* LevelSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectLayer.h; sourceTree = "<group>"; };
 		F52F674C180E41250081074E /* LevelSelectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectLayer.m; sourceTree = "<group>"; };
-		F54BA6681802986400FCDA16 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
-		F54BA6691802986400FCDA16 /* resume.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = resume.jpg; sourceTree = "<group>"; };
+		F53576D9181338500003E30F /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = Resources/background.jpg; sourceTree = "<group>"; };
+		F53576DA181338500003E30F /* grassTexture2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = grassTexture2.jpg; path = Resources/grassTexture2.jpg; sourceTree = "<group>"; };
+		F53576DB181338500003E30F /* level.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = level.png; path = Resources/level.png; sourceTree = "<group>"; };
+		F53576DC181338500003E30F /* life.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = life.png; path = Resources/life.png; sourceTree = "<group>"; };
+		F53576E318134C360003E30F /* levelscreen_final.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = levelscreen_final.jpg; sourceTree = "<group>"; };
+		F53576E418134C360003E30F /* POSTER_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = POSTER_1.jpg; sourceTree = "<group>"; };
+		F54BA6681802986400FCDA16 /* pause1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause1.png; sourceTree = "<group>"; };
+		F54BA6691802986400FCDA16 /* resume1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = resume1.jpg; sourceTree = "<group>"; };
 		F54BA66C18029D3B00FCDA16 /* GameStartLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStartLayer.h; sourceTree = "<group>"; };
 		F54BA66D18029D3B00FCDA16 /* GameStartLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStartLayer.m; sourceTree = "<group>"; };
 		F55302BE17E646CD00D1FD31 /* cocos2dsimplegame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cocos2dsimplegame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1217,11 +1249,27 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA68E5411814B7D900F3F937 /* GameLostPng.png */,
+				BA68E5421814B7D900F3F937 /* GameWonPng.png */,
+				BA68E54E1814B7D900F3F937 /* shoveling.mp3 */,
+				BA68E53F1814AFC700F3F937 /* PowerUpMusic.mp3 */,
+				BA68E53B1814AEDC00F3F937 /* HyperPlayer_40x40.png */,
+				BA68E53C1814AEDC00F3F937 /* NormalPlayer_40x40.png */,
+				BA68E5371814AC3000F3F937 /* Play40x40.png */,
+				BA68E5381814AC3000F3F937 /* player_pause40x40.png */,
+				BA68E5331814A9EF00F3F937 /* pause.png */,
+				BA68E5341814A9EF00F3F937 /* Play.png */,
+				F53576E318134C360003E30F /* levelscreen_final.jpg */,
+				F53576E418134C360003E30F /* POSTER_1.jpg */,
+				F53576D9181338500003E30F /* background.jpg */,
+				F53576DA181338500003E30F /* grassTexture2.jpg */,
+				F53576DB181338500003E30F /* level.png */,
+				F53576DC181338500003E30F /* life.png */,
 				BA9910BD180F0DD0001C5562 /* libs */,
 				BA508746180BAD970097C021 /* POSTER.jpg */,
 				BA508747180BAD970097C021 /* powerup1.jpg */,
-				F54BA6681802986400FCDA16 /* pause.png */,
-				F54BA6691802986400FCDA16 /* resume.jpg */,
+				F54BA6681802986400FCDA16 /* pause1.png */,
+				F54BA6691802986400FCDA16 /* resume1.jpg */,
 				BAB655F318011D5D0062BE70 /* dark-blue.jpg */,
 				BAB655F118011B2D0062BE70 /* powerup12.png */,
 				BAB655ED180117DE0062BE70 /* bug_51x51.png */,
@@ -1687,15 +1735,18 @@
 				F55302D817E646CD00D1FD31 /* Default.png in Resources */,
 				BAEB6EE517FCC832000F3DAE /* snowmover1.jpg in Resources */,
 				BA3FEDF917FEA36100DD2E17 /* h8.jpg in Resources */,
+				BA68E5351814A9EF00F3F937 /* pause.png in Resources */,
 				BA991234180F0DD1001C5562 /* LICENSE_CocosDenshion.txt in Resources */,
 				BAB655F218011B2D0062BE70 /* powerup12.png in Resources */,
 				BA3FEDF317FEA36100DD2E17 /* h1.jpg in Resources */,
 				F55302DA17E646CD00D1FD31 /* Default@2x.png in Resources */,
 				BA3FEDE117FE98A000DD2E17 /* 2.jpg in Resources */,
+				BA68E5391814AC3000F3F937 /* Play40x40.png in Resources */,
 				BA3FEDFE17FEA36100DD2E17 /* pickup.caf in Resources */,
 				BA991235180F0DD1001C5562 /* LICENSE_Kazmath.txt in Resources */,
 				BA3FEDF417FEA36100DD2E17 /* h2.jpg in Resources */,
 				F55302DC17E646CD00D1FD31 /* Default-568h@2x.png in Resources */,
+				BA68E5581814B7D900F3F937 /* shoveling.mp3 in Resources */,
 				BA508748180BAD970097C021 /* POSTER.jpg in Resources */,
 				BA3949D617F2EC450072E0C9 /* hit.caf in Resources */,
 				BA3FEDF817FEA36100DD2E17 /* h7.jpg in Resources */,
@@ -1718,9 +1769,12 @@
 				BA508749180BAD970097C021 /* powerup1.jpg in Resources */,
 				BA3FEDF717FEA36100DD2E17 /* h6.jpg in Resources */,
 				F55302ED17E646CD00D1FD31 /* iTunesArtwork in Resources */,
+				BA68E53D1814AEDC00F3F937 /* HyperPlayer_40x40.png in Resources */,
+				BA68E54F1814B7D900F3F937 /* GameLostPng.png in Resources */,
 				F5CCB29117E6859300D56915 /* Tiled_Map_Snow.tmx in Resources */,
 				BA991222180F0DD1001C5562 /* README.md in Resources */,
 				BAB655EC180116C50062BE70 /* FinalTwo_51x51x.png in Resources */,
+				BA68E5401814AFC700F3F937 /* PowerUpMusic.mp3 in Resources */,
 				BA3FEE5E17FEA3D400DD2E17 /* wall2.jpg in Resources */,
 				BA6131EC1801046500ECF6D6 /* grassTexture.jpg in Resources */,
 				BA3FEDFA17FEA36100DD2E17 /* background-music-aac.caf in Resources */,
@@ -1732,8 +1786,18 @@
 				BAB655F418011D5D0062BE70 /* dark-blue.jpg in Resources */,
 				BA3FEDDA17FE8DCE00DD2E17 /* street.jpg in Resources */,
 				BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */,
-				F54BA66A1802986400FCDA16 /* pause.png in Resources */,
-				F54BA66B1802986400FCDA16 /* resume.jpg in Resources */,
+				BA68E53A1814AC3000F3F937 /* player_pause40x40.png in Resources */,
+				F54BA66A1802986400FCDA16 /* pause1.png in Resources */,
+				F54BA66B1802986400FCDA16 /* resume1.jpg in Resources */,
+				F53576DD181338500003E30F /* background.jpg in Resources */,
+				F53576DE181338500003E30F /* grassTexture2.jpg in Resources */,
+				F53576DF181338500003E30F /* level.png in Resources */,
+				BA68E5501814B7D900F3F937 /* GameWonPng.png in Resources */,
+				F53576E0181338500003E30F /* life.png in Resources */,
+				BA68E5361814A9EF00F3F937 /* Play.png in Resources */,
+				F53576E518134C360003E30F /* levelscreen_final.jpg in Resources */,
+				BA68E53E1814AEDC00F3F937 /* NormalPlayer_40x40.png in Resources */,
+				F53576E618134C360003E30F /* POSTER_1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

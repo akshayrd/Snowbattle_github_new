@@ -17,17 +17,30 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "cocos2dsimplegame/HelloWorldLayer.m"
+         timestampString = "403916151.400858"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1143"
+         endingLineNumber = "1143"
+         landmarkName = "-setPlayerPosition:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "cocos2dsimplegame/HelloWorldLayer.m"
-         timestampString = "403633571.974846"
+         timestampString = "403916273.734701"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "69"
-         endingLineNumber = "69"
-         landmarkName = "@interface UISwipeGestureRecognizer()"
-         landmarkType = "2">
+         startingLineNumber = "1139"
+         endingLineNumber = "1139"
+         landmarkName = "-setPlayerPosition:"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

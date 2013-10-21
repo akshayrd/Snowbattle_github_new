@@ -14,7 +14,7 @@
     
 }
 
-
+int count1 = 0;
 
 - (id)init
 
@@ -38,11 +38,9 @@
         
         _livesLabel.color = ccc3(0,0,0);
         
-        
         _livesLabel.position = ccp(winSize.width - (_livesLabel.contentSize.width/2) - 480, _livesLabel.contentSize.height/2 + margin);
         
         [self addChild:_label];
-        
         [self addChild:_livesLabel];
         
     }
@@ -1126,27 +1124,29 @@ int playerDirection = 1;
     
     
     
-    tileCoord = [self tileCoordForPosition:position];
-    
-    tileGid = [border tileGIDAt:tileCoord];
-    
-    if (tileGid) {
-        
-        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
-        
-        if (properties) {
-            
-            NSString *collision = properties[@"Power_blue"];
-            
-            if (collision && [collision isEqualToString:@"True"]) {
-                
-                powerBlue = 1;
-                
-            }
-            
-        }
-        
-    }
+//    tileCoord = [self tileCoordForPosition:position];
+//    
+//    tileGid = [border tileGIDAt:tileCoord];
+//    
+//    if (tileGid) {
+//        
+//        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+//        
+//        if (properties) {
+//            
+//            NSString *collision = properties[@"Power_blue"];
+//            
+//            if (collision && [collision isEqualToString:@"True"]) {
+//                
+//                powerBlue = 1;
+//                [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
+//                
+//                
+//            }
+//            
+//        }
+//        
+//    }
     
     
     
@@ -1167,21 +1167,18 @@ int playerDirection = 1;
                 [snow removeTileAt:tileCoord];
                 
                 _numCollected++;
-                
-                
-                
                 [hud numCollectedChanged:_numCollected];
-                
-                [[SimpleAudioEngine sharedEngine] playEffect:@"pickup.caf"];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"shoveling.mp3"];
                 
                 if (_numCollected > winScore) {
                     
-                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:_numCollected ];
+                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES
+                                            withscoreValue:_numCollected timeBonus:levelTimeLimit-myTime];
                     
                     [[CCDirector sharedDirector] replaceScene:gameOverScene];
                     
                 }
-               
+                
             }
             
         }
@@ -1203,10 +1200,9 @@ int playerDirection = 1;
             if (collision && [collision isEqualToString:@"True"]) {
                 
                 [powerBlueLayer removeTileAt:tileCoord];
-                
                 powerBlue = 1;
-                
-                // Start timer
+                [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
+                [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"HyperPlayer_40x40.png"]];
                 
             }
         }
@@ -1215,6 +1211,12 @@ int playerDirection = 1;
     
     tileGid = [powerLivesLayer tileGIDAt:tileCoord];
     
+    
+    CCBlink* blink1 = [CCBlink actionWithDuration:10 blinks:40];
+    [powerLivesLayer runAction:blink1];
+    count1++;
+    //NSLog(@"count %d",count1);
+    
     if (tileGid) {
         
         NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
@@ -1222,6 +1224,7 @@ int playerDirection = 1;
         if (properties) {
             NSString *collision = properties[@"lives"];
             if (collision && [collision isEqualToString:@"True"]) {
+                [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
                 [powerLivesLayer removeTileAt:tileCoord];
                 if (lifeCount<4)
                     lifeCount++;
@@ -1249,16 +1252,20 @@ int playerDirection = 1;
                 [darkBlue removeTileAt:tileCoord];
                 
                 _numCollected++;
-                
-                
+                darkBlueCount++;
+                if(darkBlueCount == 12)
+                {
+                    //[player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"FinalTwo_51x51x.png"]];
+                    [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"NormalPlayer_40x40.png"]];
+                }
                 
                 [hud numCollectedChanged:_numCollected];
                 
-                [[SimpleAudioEngine sharedEngine] playEffect:@"pickup.caf"];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"shoveling.mp3"];
                 
                 if (_numCollected > winScore) {
                     
-                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:_numCollected];
+                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:_numCollected timeBonus:levelTimeLimit-myTime];
                     
                     [[CCDirector sharedDirector] replaceScene:gameOverScene];
                     
@@ -1348,15 +1355,15 @@ int playerDirection = 1;
     
     
     if( (self=[super init]) ) {
-       
+        
         //[self setTouchEnabled:YES];
         
         
         
         self.isTouchEnabled = YES;
+        count = 100;
         
-        
-        
+        darkBlueCount = 0;
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"backmusic.mp3"];
         
         
@@ -1375,18 +1382,17 @@ int playerDirection = 1;
         
         powerBlueLayer = [_tileMap layerNamed:@"power_blue"];
         
-         powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
+        powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
         
         playerDirection = 1;
         
         winScore = 188;
+        //winScore = 30;
         
         totalLives = 2;
         lifeCount = 2;
         
-        
-        
-        
+        levelTimeLimit = 300;
         
         for(CCTMXLayer *child in [_tileMap children])
             
@@ -1398,13 +1404,10 @@ int playerDirection = 1;
         
         [self addChild: _tileMap];
         
-        
-        
-        
-        
         CGSize winSize = [CCDirector sharedDirector].winSize;
         
-        player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
+        //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
+        player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"] ;
         
         [self spawnPlayer];
         
@@ -1417,9 +1420,6 @@ int playerDirection = 1;
         }
         
         [self addChild:player];
-        
-        
-        
         monster1 = [CCSprite spriteWithFile:@"bug_51x51.png"];
         
         monster1.position = ccp(winSize.width/3+35, winSize.height/2+90);
@@ -1468,19 +1468,9 @@ int playerDirection = 1;
         
         [self performSelectorInBackground:@selector(actionmonster4) withObject:self];
         
-        
-        
-        //        [player runAction:
-        
-        //         [CCSequence actions: actionRotate,actionMove,actionRotate,actionMove1,nil]];
-        
-        //        
-        
-        
-        
         // Standard method to pause the game
         
-        CCMenuItem *starMenuItem = [CCMenuItemImage itemFromNormalImage:@"pause.png" selectedImage:@"pause.png" target:self selector:@selector(PauseGame:)];
+        CCMenuItem *starMenuItem = [CCMenuItemImage itemFromNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseGame:)];
         
         starMenuItem.position = ccp(870, 25);
         
@@ -1494,20 +1484,14 @@ int playerDirection = 1;
         
         // Standard method to resume the game
         
-        CCMenuItem *resumeMenuItem = [CCMenuItemImage itemFromNormalImage:@"resume.jpg" selectedImage:@"resume.jpg" target:self selector:@selector(ResumeGame:)];
+        CCMenuItem *resumeMenuItem = [CCMenuItemImage itemFromNormalImage:@"Play40x40.png" selectedImage:@"Play40x40.png" target:self selector:@selector(ResumeGame:)];
         
         resumeMenuItem.position = ccp(820, 25);
-        
         CCMenu *resumeMenu = [CCMenu menuWithItems:resumeMenuItem, nil];
-        
         resumeMenu.position = CGPointZero;
-        
         [self addChild:resumeMenu];
-        
         for (int i=0; i<5; i++) {
-            
             lifeItem[i] = [CCMenuItemImage itemFromNormalImage:@"life.png" selectedImage:@"life.png" target:self selector:Nil];
-            
             lifeItem[i].position = ccp(570+i*40, 25);
             lifeItem[i].visible = true;
         }
@@ -1521,14 +1505,43 @@ int playerDirection = 1;
         [self addChild:life];
         
         [self schedule:@selector(checkCollisionWithMonster)];
+        myTime = 0;
+        
+        timeLabel = [CCLabelTTF labelWithString:@"0" fontName:@"Arial" fontSize:30];
+        timeLabel.position = CGPointMake(winSize.width / 2, winSize.height);
+        // Adjust the label's anchorPoint's y position to make it align with the top.
+        timeLabel.anchorPoint = CGPointMake(0.5f, 1.0f);
+        // Add the time label
+        [self addChild:timeLabel];
+        
+        //update
         
         
+        [self schedule:@selector(LevelTimer:)];
         
     }
     
     
     
     return self;
+    
+}
+-(void)LevelTimer:(ccTime)dt{
+    
+    totalTime += dt;
+    currentTime = (int)totalTime;
+    if (myTime < currentTime)
+    {
+        myTime = currentTime;
+        
+        [timeLabel setString:[NSString stringWithFormat:@"%02d:%02d", (levelTimeLimit - myTime)/60, (levelTimeLimit-myTime)%60]];
+    }
+    if (levelTimeLimit < myTime)
+    {
+        CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:0];
+        
+        [[CCDirector sharedDirector] replaceScene:gameOverScene];
+    }
     
 }
 
@@ -1538,28 +1551,34 @@ int playerDirection = 1;
 
 {
     
-    if(CGRectIntersectsRect([monster1 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster3 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster4 boundingBox], [player boundingBox]))
+    CCBlink* blink = [CCBlink actionWithDuration:2 blinks:40];
+    if((CGRectIntersectsRect([monster1 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster3 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster4 boundingBox], [player boundingBox])) && count == 100)
         
     {
         lifeItem[lifeCount].visible = false;
         
         lifeCount--;
+        count = 0;
         
         if (lifeCount < 0) {
             
             lifeCount = 2;
             
-            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected ];
+            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:0];
             
             [[CCDirector sharedDirector] replaceScene:gameOverScene];
             
         }
         
-        [self spawnPlayer];
         
-        return;
+        [player runAction:blink];
+        //[self spawnPlayer];
+        
+        //return;
         
     }
+    else if (count < 100)
+        count++;
     
 }
 
