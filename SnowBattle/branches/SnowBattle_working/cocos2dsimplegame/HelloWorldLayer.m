@@ -1478,7 +1478,7 @@ int playerDirection = 1;
         
         // Standard method to pause the game
         
-        CCMenuItem *starMenuItem = [CCMenuItemImage itemFromNormalImage:@"pause.png" selectedImage:@"pause.png" target:self selector:@selector(PauseGame:)];
+        CCMenuItem *starMenuItem = [CCMenuItemImage itemFromNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseGame:)];
         
         starMenuItem.position = ccp(870, 25);
         
@@ -1492,20 +1492,14 @@ int playerDirection = 1;
         
         // Standard method to resume the game
         
-        CCMenuItem *resumeMenuItem = [CCMenuItemImage itemFromNormalImage:@"resume.jpg" selectedImage:@"resume.jpg" target:self selector:@selector(ResumeGame:)];
+        CCMenuItem *resumeMenuItem = [CCMenuItemImage itemFromNormalImage:@"Play40x40.png" selectedImage:@"Play40x40.png" target:self selector:@selector(ResumeGame:)];
         
         resumeMenuItem.position = ccp(820, 25);
-        
         CCMenu *resumeMenu = [CCMenu menuWithItems:resumeMenuItem, nil];
-        
         resumeMenu.position = CGPointZero;
-        
         [self addChild:resumeMenu];
-        
         for (int i=0; i<5; i++) {
-            
             lifeItem[i] = [CCMenuItemImage itemFromNormalImage:@"life.png" selectedImage:@"life.png" target:self selector:Nil];
-            
             lifeItem[i].position = ccp(570+i*40, 25);
             lifeItem[i].visible = true;
         }
@@ -1519,8 +1513,6 @@ int playerDirection = 1;
         [self addChild:life];
         
         [self schedule:@selector(checkCollisionWithMonster)];
-        
-        
         myTime = 0;
         
         timeLabel = [CCLabelTTF labelWithString:@"0" fontName:@"Arial" fontSize:30];
