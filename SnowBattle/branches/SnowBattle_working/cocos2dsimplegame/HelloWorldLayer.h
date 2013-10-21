@@ -31,6 +31,17 @@
     
     HudLayer *hud;
     
+    
+    // Level timer
+    CCLabelTTF *timeLabel;
+    ccTime totalTime;
+    int levelTimeLimit;
+    int myTime;
+    
+    int currentTime;
+
+    
+    
 }
 
 +(CCScene *) scene;

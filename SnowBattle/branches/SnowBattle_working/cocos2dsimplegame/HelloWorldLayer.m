@@ -38,11 +38,9 @@ int count1 = 0;
         
         _livesLabel.color = ccc3(0,0,0);
         
-        
         _livesLabel.position = ccp(winSize.width - (_livesLabel.contentSize.width/2) - 480, _livesLabel.contentSize.height/2 + margin);
         
         [self addChild:_label];
-        
         [self addChild:_livesLabel];
         
     }
@@ -1176,12 +1174,12 @@ int playerDirection = 1;
                 
                 if (_numCollected > winScore) {
                     
-                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:_numCollected ];
+                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:_numCollected timeBonus:levelTimeLimit-myTime];
                     
                     [[CCDirector sharedDirector] replaceScene:gameOverScene];
                     
                 }
-               
+                
             }
             
         }
@@ -1207,9 +1205,9 @@ int playerDirection = 1;
                 powerBlue = 1;
                 
                 [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"bug_51x51.png"]];
-
-               
-    
+                
+                
+                
             }
         }
     }
@@ -1269,7 +1267,7 @@ int playerDirection = 1;
                 
                 if (_numCollected > winScore) {
                     
-                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:_numCollected];
+                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:_numCollected timeBonus:levelTimeLimit-myTime];
                     
                     [[CCDirector sharedDirector] replaceScene:gameOverScene];
                     
@@ -1359,7 +1357,7 @@ int playerDirection = 1;
     
     
     if( (self=[super init]) ) {
-       
+        
         //[self setTouchEnabled:YES];
         
         
@@ -1386,18 +1384,17 @@ int playerDirection = 1;
         
         powerBlueLayer = [_tileMap layerNamed:@"power_blue"];
         
-         powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
+        powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
         
         playerDirection = 1;
         
         winScore = 188;
+        //winScore = 30;
         
         totalLives = 2;
         lifeCount = 2;
         
-        
-        
-        
+        levelTimeLimit = 300;
         
         for(CCTMXLayer *child in [_tileMap children])
             
@@ -1479,16 +1476,6 @@ int playerDirection = 1;
         
         [self performSelectorInBackground:@selector(actionmonster4) withObject:self];
         
-        
-        
-        //        [player runAction:
-        
-        //         [CCSequence actions: actionRotate,actionMove,actionRotate,actionMove1,nil]];
-        
-        //        
-        
-        
-        
         // Standard method to pause the game
         
         CCMenuItem *starMenuItem = [CCMenuItemImage itemFromNormalImage:@"pause.png" selectedImage:@"pause.png" target:self selector:@selector(PauseGame:)];
@@ -1534,12 +1521,43 @@ int playerDirection = 1;
         [self schedule:@selector(checkCollisionWithMonster)];
         
         
+        myTime = 0;
+        
+        timeLabel = [CCLabelTTF labelWithString:@"0" fontName:@"Arial" fontSize:30];
+        timeLabel.position = CGPointMake(winSize.width / 2, winSize.height);
+        // Adjust the label's anchorPoint's y position to make it align with the top.
+        timeLabel.anchorPoint = CGPointMake(0.5f, 1.0f);
+        // Add the time label
+        [self addChild:timeLabel];
+        
+        //update
+        
+        
+        [self schedule:@selector(LevelTimer:)];
         
     }
     
     
     
     return self;
+    
+}
+-(void)LevelTimer:(ccTime)dt{
+    
+    totalTime += dt;
+    currentTime = (int)totalTime;
+    if (myTime < currentTime)
+    {
+        myTime = currentTime;
+        
+        [timeLabel setString:[NSString stringWithFormat:@"%02d:%02d", (levelTimeLimit - myTime)/60, (levelTimeLimit-myTime)%60]];
+    }
+    if (levelTimeLimit < myTime)
+    {
+        CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:levelTimeLimit-myTime];
+        
+        [[CCDirector sharedDirector] replaceScene:gameOverScene];
+    }
     
 }
 
@@ -1562,7 +1580,7 @@ int playerDirection = 1;
             
             lifeCount = 2;
             
-            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected ];
+            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:levelTimeLimit-myTime];
             
             [[CCDirector sharedDirector] replaceScene:gameOverScene];
             
