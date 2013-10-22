@@ -8,6 +8,7 @@
     
     GameOverLayer *layer = [[[GameOverLayer alloc] initWithWon:won withscoreValue:scoreValue
                                                      timeBonus:timeRemaining] autorelease];
+  //  layer.color = ccGRAY;
     [scene addChild: layer];
     //NSLog(@"score %d", scoreValue);
     return scene;
@@ -19,21 +20,21 @@
         CCSprite *bg =[CCSprite spriteWithFile:@"levelscreen_final.jpg"];
         bg.position=ccp(0,0);
         bg.anchorPoint = ccp(0, 0);
-        [self addChild:bg z:0];
+        //[self addChild:bg z:0];
         
         NSString * message;
         NSString * timeBonus;
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         
         if (won) {
-            message = @"You Won!";
+            message = @"Level Completed!";
             timeBonus = [NSString stringWithFormat:@"Time Bonus: %d", timeRemaining];
             CCSprite *bg =[CCSprite spriteWithFile:@"GameWonPng.png"];
             bg.position=ccp(winSize.width/2,winSize.height/2-300);
             bg.anchorPoint = ccp(0, 0);
             [self addChild:bg z:0];
         } else {
-            message = @"You Lose :[";
+            message = @"Game Over!";
             timeBonus = [NSString stringWithFormat:@"Time Bonus: %d", timeRemaining];
             CCSprite *bg =[CCSprite spriteWithFile:@"GameLostPng.png"];
             bg.position=ccp(winSize.width/2,0);
@@ -44,10 +45,11 @@
         NSString * yourScore = [NSString stringWithFormat:@"Your Score : %d", scoreValue];
 
 
-        
-        CCLabelTTF * label = [CCLabelTTF labelWithString:message fontName:@"Arial" fontSize:32];
+        //[self setColor:ccRED];
+        CCLabelTTF * label = [CCLabelTTF labelWithString:message fontName:@"Chalkduster" fontSize:40];
 
-        label.color = ccc3(0,0,0);
+        label.color = ccRED;
+        //label.color = ccc3(0,0,0);
         label.position = ccp(winSize.width/2-200, winSize.height/2 + 140);
         [self addChild:label];
         
