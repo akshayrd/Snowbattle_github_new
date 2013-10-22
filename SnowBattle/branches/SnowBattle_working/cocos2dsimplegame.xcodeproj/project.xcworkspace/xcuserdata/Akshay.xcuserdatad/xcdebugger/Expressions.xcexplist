@@ -3,6 +3,23 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[HelloWorldLayer checkCollisionWithMonster]:HelloWorldLayer.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[player boundingBox]">
+            </PersistentString>
+            <PersistentString
+               value = "((CGRectIntersectsRect([monster1 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster3 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster4 boundingBox], [player boundingBox])) &amp;&amp; count == 100)">
+            </PersistentString>
+            <PersistentString
+               value = "CGRectIntersectsRect([monster1 boundingBox], [player boundingBox])">
+            </PersistentString>
+            <PersistentString
+               value = "[monster1 boundingBox]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[HelloWorldLayer spawnPlayer]:HelloWorldLayer.m">
          <PersistentStrings>
             <PersistentString

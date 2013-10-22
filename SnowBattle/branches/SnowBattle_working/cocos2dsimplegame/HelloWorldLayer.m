@@ -911,10 +911,11 @@ int livePowerEnabled = 0;
 - (void) checkCollisionWithMonster
 {
     
-    CCBlink* blink = [CCBlink actionWithDuration:2 blinks:40];
+    
     if((CGRectIntersectsRect([monster1 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster3 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster4 boundingBox], [player boundingBox])) && count == 100)
         
     {
+        CCBlink* blink = [CCBlink actionWithDuration:5 blinks:40];
         lifeItem[lifeCount].visible = false;
         
         lifeCount--;
