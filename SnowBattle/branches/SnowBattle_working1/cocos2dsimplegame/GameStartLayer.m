@@ -29,7 +29,7 @@
                                                         selector:@selector(startGame:)];
         [newGame setColor:ccBLUE];
         CCMenu *menu = [CCMenu menuWithItems: newGame, nil];
-        menu.position=ccp(680,170);
+        menu.position=ccp(680,150);
         [menu alignItemsVerticallyWithPadding:15];
         [self addChild:menu];
     }
