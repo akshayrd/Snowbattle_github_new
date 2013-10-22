@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[HelloWorldLayer spawnPlayer]:HelloWorldLayer.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "player.position">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[HelloWorldLayer ccTouchEnded:withEvent:]:HelloWorldLayer.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "playerDirection">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
