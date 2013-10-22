@@ -31,8 +31,6 @@
     
     HudLayer *hud;
     
-    CCMenu *life;
-    
     
     // Level timer
     CCLabelTTF *timeLabel;
@@ -41,17 +39,6 @@
     int myTime;
     
     int currentTime;
-    
-    // power up times
-    
-    ccTime totalTimePowerBlue;
-    int myTimeBlue;
-    int powerLiveTimeLimit;
-    int currentTimeBlue;
-    
-    CCLabelTTF *timeLabelBlue;
-    
-    
 
     
     
