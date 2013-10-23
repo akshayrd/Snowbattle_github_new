@@ -28,10 +28,6 @@
     int winScore;
     int totalLives;
     CCMenuItem *lifeItem[5];
-    CCSprite* bubble;
-    CCSprite* bubble2;
-    CCSprite* bubble3;
-    
     
     HudLayer *hud;
     
