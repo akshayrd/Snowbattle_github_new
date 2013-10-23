@@ -23,12 +23,12 @@
 -(id) initW:(BOOL)start
 {
     if( (self=[super init] )) {
-        CCSprite *bg =[CCSprite spriteWithFile:@"level.png"];
+        CCSprite *bg =[CCSprite spriteWithFile:@"levelscreen_final.jpg"];
         bg.position=ccp(0,0);
         bg.anchorPoint = ccp(0, 0);
         [self addChild:bg z:0];
         
-        [CCMenuItemFont setFontName:@"Courier New"];
+        [CCMenuItemFont setFontName:@"Chalkduster"];
         [CCMenuItemFont setFontSize:38];
         
         CCMenuItemFont *newGame = [CCMenuItemFont itemFromString:@"Level 1"
@@ -48,8 +48,19 @@
         [newGame1 setColor:ccRED];
         [newGame2 setColor:ccRED];
         [newGame3 setColor:ccRED];
-        CCMenu *menu = [CCMenu menuWithItems: newGame, newGame1, newGame2,newGame3, nil];
-        menu.position=ccp(240,500);
+
+        // not working
+        newGame.position = ccp(240, 500);
+        newGame1.position = ccp(540, 500);
+        newGame2.position = ccp(240, 300);
+        newGame3.position = ccp(440, 300);
+        
+        CCMenuItemImage *menuItem1 = [CCMenuItemImage itemFromNormalImage:@"bug_51x51.png"
+                                                            selectedImage:@"bug_51x51.png"
+                                                            target:self selector:@selector(startGame:)];
+        
+        CCMenu *menu = [CCMenu menuWithItems: newGame, newGame1, newGame2,newGame3, menuItem1, nil];
+        menu.position=ccp(440,200);
         [menu alignItemsVerticallyWithPadding:15];
         [self addChild:menu];
 
@@ -59,11 +70,7 @@
 
 -(void) startGame: (id) sender {
     [[CCDirector sharedDirector]
-<<<<<<< HEAD
      replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer scene]]];
-=======
-     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer node]]];
->>>>>>> parent of 420d52b... Revert d6c7a5e..24055fa
 }
 
 -(void) startGameLevel2: (id) sender {
