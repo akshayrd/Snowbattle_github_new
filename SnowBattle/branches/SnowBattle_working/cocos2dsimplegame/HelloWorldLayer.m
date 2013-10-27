@@ -413,193 +413,241 @@ CCSprite *monster4;
 
 int playerDirection = 1;
 int playerMoving = 0;
+int direction = -1;
+
+//-(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+//{
+//    //NSSet *allTouches = [event allTouches];
+//    //UITouch * touch = [[allTouches allObjects] objectAtIndex:0];
+//    CGPoint location = [touch locationInView: [touch view]];
+//    location = [[CCDirector sharedDirector] convertToGL:location];
+//    
+//    //Swipe Detection Part 2
+//    lastTouch = location;
+//    playerMoving =0;
+//    //Minimum length of the swipe
+//    float swipeLength = ccpDistance(firstTouch, lastTouch);
+//    
+//    //Check if the swipe is a left swipe and long enough
+//    if (firstTouch.x-60 > lastTouch.x && swipeLength > 60) {
+//        direction = 3;
+//        //[self performSelectorInBackground:@selector(swipeMovement)  withObject:self];
+//        //[self schedule:@selector(leftTurn) interval:3 repeat:100 delay:0];
+//    }
+//    else if (firstTouch.x < lastTouch.x-60 && swipeLength > 60) {
+//        direction = 1;
+//        //[self performSelectorInBackground:@selector(rightTurn)  withObject:self];
+//        //[self schedule:@selector(rightTurn) interval:3 repeat:100 delay:0];
+//    }
+//    else if (firstTouch.y < lastTouch.y-20 && swipeLength > 60) {
+//        direction = 0;
+//        //[self performSelectorInBackground:@selector(upTurn)  withObject:self];
+//        //[self schedule:@selector(upTurn) interval:3 repeat:100 delay:0];
+//    }
+//    else if (firstTouch.y-20 > lastTouch.y && swipeLength > 60) {
+//        direction = 2;
+//        //[self performSelectorInBackground:@selector(downTurn)  withObject:self];
+//        //[self schedule:@selector(downTurn) interval:3 repeat:100 delay:0];
+//    }
+//    
+//    
+//}
 
 
--(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+-(void)swipeMovement
 {
-    //NSSet *allTouches = [event allTouches];
-    //UITouch * touch = [[allTouches allObjects] objectAtIndex:0];
-    CGPoint location = [touch locationInView: [touch view]];
-    location = [[CCDirector sharedDirector] convertToGL:location];
-    
-    //Swipe Detection Part 2
-    lastTouch = location;
-    playerMoving =0;
-    //Minimum length of the swipe
-    float swipeLength = ccpDistance(firstTouch, lastTouch);
-    
-    //Check if the swipe is a left swipe and long enough
-    if (firstTouch.x-60 > lastTouch.x && swipeLength > 60) {
-        [self leftTurn];
-    }
-    else if (firstTouch.x < lastTouch.x-60 && swipeLength > 60) {
-        [self rightTurn];
-    }
-    else if (firstTouch.y < lastTouch.y-20 && swipeLength > 60) {
-        [self upTurn];
-    }
-    else if (firstTouch.y-20 > lastTouch.y && swipeLength > 60) {
-        [self downTurn];
-    }
-    
-}
-
-
--(void)leftTurn
-{
-    playerMoving =1;
-    while (playerMoving) {
+    while (1) {
         
-        NSLog(@"Left");
+        //playerMoving =1;
+        switch (direction) {
+            case 0:
+                //NSLog(@"Up");
+                if (!playerMoving) {
+                    [self schedule:@selector(upTurn) interval:3 repeat:100 delay:0];
+                }
+                
+                break;
+            case 1:
+                //NSLog(@"Right");
+                if (!playerMoving) {
+                    [self schedule:@selector(rightTurn) interval:3 repeat:100 delay:0];
+                }
+                break;
+            case 2:
+                //NSLog(@"Down");
+                if (!playerMoving) {
+                    [self schedule:@selector(downTurn) interval:3 repeat:100 delay:0];
+                }
+                break;
+            case 3:
+                //NSLog(@"Left");
+                if (!playerMoving) {
+                    [self schedule:@selector(leftTurn) interval:3 repeat:100 delay:0];
+                }
+                break;
+            default:
+                break;
+        }
     }
     
 }
 -(void)rightTurn
 {
     playerMoving =1;
-    while (playerMoving) {
-        NSLog(@"Right");
+    while (direction == 1) {
+        NSLog(@"Moving right");
     }
     
 }
 -(void)upTurn
 {
     playerMoving =1;
-    while (playerMoving) {
-        NSLog(@"Up");
+    while (direction == 0) {
+        NSLog(@"Moving up");
     }
+    //while (playerMoving) {
+    //    NSLog(@"Up");
+    //}
     
 }
 -(void)downTurn
 {
     playerMoving =1;
-    while (playerMoving ) {
-        NSLog(@"Down");
+    while (direction == 2) {
+        NSLog(@"Moving down");
+    }
+    
+}
+-(void)leftTurn
+{
+    playerMoving =1;
+    while (direction == 3) {
+        NSLog(@"Moving left");
     }
     
 }
 
-//
-//-(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
-//{
-//    
-//    CGPoint touchLocation = [touch locationInView:touch.view];
-//    
-//    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-//    
-//    touchLocation = [self convertToNodeSpace:touchLocation];
-//    
-//    CGPoint playerPos = player.position;
-//    
-//    CGPoint diff = ccpSub(touchLocation, playerPos);
-//    
-//    if ( abs(diff.x) > abs(diff.y) ) {
-//        if (diff.x > 0) {
-//            playerPos.x += _tileMap.tileSize.width;
-//            //player.flipX = YES;
-//            if (playerDirection != 2) {
-//                if ( playerDirection==1)
-//                {
-//                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:90];
-//                    [player runAction: [CCSequence actions: actionRotate,nil]];
-//                }
-//                if ( playerDirection==3)
-//                {
-//                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:-90];
-//                    [player runAction: [CCSequence actions: actionRotate,nil]];
-//                }
-//                if ( playerDirection==4)
-//                {
-//                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:180];
-//                    [player runAction: [CCSequence actions: actionRotate,nil]];
-//                }
-//                playerDirection = 2;
-//                
-//            }
-//            
-//        } else {
-//            
-//            if (playerDirection != 4) {
-//                if ( playerDirection==1)
-//                {
-//                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:-90];
-//                    [player runAction: [CCSequence actions: actionRotate,nil]];
-//                }
-//                if ( playerDirection==3)
-//                {
-//                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:90];
-//                    [player runAction: [CCSequence actions: actionRotate,nil]];
-//                }
-//                if ( playerDirection==2)
-//                {
-//                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:180];
-//                    [player runAction: [CCSequence actions: actionRotate,nil]];
-//                }
-//                playerDirection = 4;
-//                
-//            }
-//            
-//            playerPos.x -= _tileMap.tileSize.width;
-//        }
-//        
-//    } else {
-//        if (diff.y > 0) {
-//            if (playerDirection != 1) {
-//                if ( playerDirection==2)
-//                {
-//                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:-90];
-//                    [player runAction: [CCSequence actions: actionRotate,nil]];
-//                }
-//                if ( playerDirection==3)
-//                {
-//                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:180];
-//                    [player runAction: [CCSequence actions: actionRotate,nil]];
-//                }
-//                if ( playerDirection==4)
-//                {
-//                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:90];
-//                    [player runAction: [CCSequence actions: actionRotate,nil]];
-//                }
-//                playerDirection = 1;
-//                
-//            }
-//            
-//            playerPos.y += _tileMap.tileSize.height;
-//        } else {
-//            if (playerDirection != 3) {
-//                if ( playerDirection==1)
-//                {
-//                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:180];
-//                    [player runAction: [CCSequence actions: actionRotate,nil]];
-//                }
-//                if ( playerDirection==2)
-//                {
-//                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:90];
-//                    [player runAction: [CCSequence actions: actionRotate,nil]];
-//                }
-//                if ( playerDirection==4)
-//                {
-//                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:-90];
-//                    [player runAction: [CCSequence actions: actionRotate,nil]];
-//                }
-//                playerDirection = 3;
-//            }
-//            playerPos.y -= _tileMap.tileSize.height;
-//        }
-//    }
-//    
-//    // safety check on the bounds of the map
-//    if (playerPos.x <= (_tileMap.mapSize.width * _tileMap.tileSize.width) &&
-//        playerPos.y <= (_tileMap.mapSize.height * _tileMap.tileSize.height) &&
-//        playerPos.y >= 0 &&
-//        playerPos.x >= 0 )
-//    {
-//        [self setPlayerPosition:playerPos];
-//        
-//
-//    }
-//    //[self setViewPointCenter:player.position];
-//}
+
+-(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    
+    CGPoint touchLocation = [touch locationInView:touch.view];
+    
+    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+    
+    touchLocation = [self convertToNodeSpace:touchLocation];
+    
+    CGPoint playerPos = player.position;
+    
+    CGPoint diff = ccpSub(touchLocation, playerPos);
+    
+    if ( abs(diff.x) > abs(diff.y) ) {
+        if (diff.x > 0) {
+            playerPos.x += _tileMap.tileSize.width;
+            //player.flipX = YES;
+            if (playerDirection != 2) {
+                if ( playerDirection==1)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:90];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                if ( playerDirection==3)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:-90];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                if ( playerDirection==4)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:180];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                playerDirection = 2;
+                
+            }
+            
+        } else {
+            
+            if (playerDirection != 4) {
+                if ( playerDirection==1)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:-90];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                if ( playerDirection==3)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:90];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                if ( playerDirection==2)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:180];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                playerDirection = 4;
+                
+            }
+            
+            playerPos.x -= _tileMap.tileSize.width;
+        }
+        
+    } else {
+        if (diff.y > 0) {
+            if (playerDirection != 1) {
+                if ( playerDirection==2)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:-90];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                if ( playerDirection==3)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:180];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                if ( playerDirection==4)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:90];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                playerDirection = 1;
+                
+            }
+            
+            playerPos.y += _tileMap.tileSize.height;
+        } else {
+            if (playerDirection != 3) {
+                if ( playerDirection==1)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:180];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                if ( playerDirection==2)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:90];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                if ( playerDirection==4)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:-90];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                playerDirection = 3;
+            }
+            playerPos.y -= _tileMap.tileSize.height;
+        }
+    }
+    
+    // safety check on the bounds of the map
+    if (playerPos.x <= (_tileMap.mapSize.width * _tileMap.tileSize.width) &&
+        playerPos.y <= (_tileMap.mapSize.height * _tileMap.tileSize.height) &&
+        playerPos.y >= 0 &&
+        playerPos.x >= 0 )
+    {
+        [self setPlayerPosition:playerPos];
+
+
+    }
+    //[self setViewPointCenter:player.position];
+}
 
 -(void)setPlayerPosition:(CGPoint)position {
     CGPoint tileCoord = [self tileCoordForPosition:position];
@@ -837,6 +885,8 @@ int playerMoving = 0;
         lifeCount = 2;
         levelTimeLimit = 240;
         powerLiveTimeLimit = 45;
+        
+        //[self performSelectorInBackground:@selector(swipeMovement)  withObject:self];
         
         for(CCTMXLayer *child in [_tileMap children])
         {
