@@ -366,6 +366,9 @@ CCSprite *monster4;
 }
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    NSLog(@"hello");
+    
+    
     return YES;
 }
 
@@ -375,7 +378,6 @@ int playerDirection = 1;
 
 
 -(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
-
 {
     
     CGPoint touchLocation = [touch locationInView:touch.view];
