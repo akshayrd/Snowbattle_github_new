@@ -53,19 +53,6 @@
  </tileset>
  <tileset firstgid="323" name="powerup12" tilewidth="45" tileheight="45">
   <image source="powerup12.png" width="45" height="45"/>
-  <tile id="0">
-   <properties>
-    <property name="Power_blue" value="True"/>
-   </properties>
-  </tile>
- </tileset>
- <tileset firstgid="324" name="life" tilewidth="45" tileheight="45">
-  <image source="life.png" width="45" height="45"/>
-  <tile id="0">
-   <properties>
-    <property name="lives" value="True"/>
-   </properties>
-  </tile>
  </tileset>
  <layer name="Street" width="21" height="16">
   <data encoding="base64" compression="zlib">
@@ -100,9 +87,4 @@
  <objectgroup name="Objects" width="21" height="16">
   <object name="SpawnPoint" x="58" y="361" width="32" height="35"/>
  </objectgroup>
- <layer name="Power_lives" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo4A04MI40C4YBaNgcAAA13sARg==
-  </data>
- </layer>
 </map>

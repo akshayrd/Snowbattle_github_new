@@ -59,7 +59,8 @@
                                                             selectedImage:@"bug_51x51.png"
                                                             target:self selector:@selector(startGame:)];
         
-        CCMenu *menu = [CCMenu menuWithItems: newGame, newGame1, newGame2,newGame3, menuItem1, nil];
+        //CCMenu *menu = [CCMenu menuWithItems: newGame, newGame1, newGame2,newGame3, menuItem1, nil];
+        CCMenu *menu = [CCMenu menuWithItems: newGame, newGame1, newGame2,newGame3, nil];
         menu.position=ccp(440,200);
         [menu alignItemsVerticallyWithPadding:15];
         [self addChild:menu];

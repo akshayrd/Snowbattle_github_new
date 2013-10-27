@@ -19,12 +19,13 @@
         _label = [CCLabelTTF labelWithString:@"Score : 0" fontName:@"Verdana-Bold" fontSize:18.0];
         _label.color = ccc3(0,0,0);
         int margin = 10;
-        _label.position = ccp(winSize.width - (_label.contentSize.width/2) - 30, _label.contentSize.height/2 + margin);
-        _livesLabel = [CCLabelTTF labelWithString:@"Lives:" fontName:@"Verdana-Bold" fontSize:18.0];
+        _label.position = ccp(winSize.width/2 - (_label.contentSize.width/2) + 30, _label.contentSize.height/2 + margin);
+        _livesLabel = [CCLabelTTF labelWithString:@"Lives" fontName:@"Verdana-Bold" fontSize:18.0];
         _livesLabel.color = ccc3(0,0,0);
-        _livesLabel.position = ccp(winSize.width - (_livesLabel.contentSize.width/2) - 480, _livesLabel.contentSize.height/2 + margin);
+        //_livesLabel.position = ccp(winSize.width - (_livesLabel.contentSize.width/2) - 480, _livesLabel.contentSize.height/2 + margin);
+        _livesLabel.position = ccp(20, winSize.height/2 - 20);
         [self addChild:_label];
-        [self addChild:_livesLabel];
+        //[self addChild:_livesLabel];
     }
     return self;
     
@@ -62,6 +63,24 @@
     
     return scene;
     
+}
+
+-(void)newLocalScore {
+    [self PauseGame:YES];
+    UIAlertView* dialog = [[UIAlertView alloc] init];
+    [dialog setDelegate:self];
+    [dialog setTitle:@"Online Access"];
+    [dialog setMessage:@"Do you want to connect to the online ranking?"];
+    [dialog addButtonWithTitle:@"Ok"];
+    [dialog show];
+    [dialog release];
+}
+
+- (void) alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex==0) {
+        [self ResumeGame:YES];
+    }
 }
 
 - (void) Monster1move:(ccTime)dt
@@ -366,9 +385,6 @@ CCSprite *monster4;
 }
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    NSLog(@"hello");
-    
-    
     return YES;
 }
 
@@ -378,6 +394,7 @@ int playerDirection = 1;
 
 
 -(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+
 {
     
     CGPoint touchLocation = [touch locationInView:touch.view];
@@ -492,6 +509,8 @@ int playerDirection = 1;
         playerPos.x >= 0 )
     {
         [self setPlayerPosition:playerPos];
+        
+
     }
     //[self setViewPointCenter:player.position];
 }
@@ -546,6 +565,7 @@ int playerDirection = 1;
     
     tileGid = [powerBlueLayer tileGIDAt:tileCoord];
     if (tileGid) {
+        
         NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         if (properties) {
             NSString *collision = properties[@"Power_blue"];
@@ -554,6 +574,10 @@ int playerDirection = 1;
                 powerBlue = 1;
                 [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
                 [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"HyperPlayer_40x40.png"]];
+                bubble.visible = TRUE;
+                
+                [self schedule:@selector(MakeBubbleInvisible ) interval:3 repeat:1 delay:7];
+                //[self newLocalScore];
             }
         }
     }
@@ -584,6 +608,12 @@ int playerDirection = 1;
             
             NSString *collectible = properties[@"collectible2x"];
             
+            if(powerBlue!=1)
+            {
+                bubble3.visible=TRUE;
+                [self schedule:@selector(removeBubble3) interval:3 repeat:1 delay:5];
+            }
+            
             if (collectible && [collectible isEqualToString:@"True"] && powerBlue == 1) {
                 
                 [darkBlue removeTileAt:tileCoord];
@@ -599,6 +629,10 @@ int playerDirection = 1;
                     timeLabelBlue.visible=FALSE;
                     //[self removeChild: PowerLabel];
                     //[self removeChild:timeLabelBlue];
+                    
+                    
+                    
+                    
                 }
                 
                 [hud numCollectedChanged:_numCollected];
@@ -624,10 +658,12 @@ int playerDirection = 1;
     [[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
     
     player.position = position;
-    
 }
 
-
+-(void) MakeBubbleInvisible
+{
+    bubble.visible = FALSE;
+}
 
 -(void) spawnPlayer
 
@@ -648,8 +684,6 @@ int playerDirection = 1;
     CGPoint actualPos = [self tileCoordForPosition:ccp(x_spawn, y_spawn)];
     
     player.position = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
-    
-    
     
 }
 
@@ -677,7 +711,6 @@ int playerDirection = 1;
     [[CCDirector sharedDirector] resume];
     
     [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
-    
     [[CCDirector sharedDirector] startAnimation];
     
 }
@@ -694,9 +727,9 @@ int playerDirection = 1;
     if( (self=[super init]) ) {
         //[self setTouchEnabled:YES];
         self.isTouchEnabled = YES;
-        count = 100;
+        count = 90;
         darkBlueCount = 0;
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"backmusic.mp3"];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"funk.mp3"];
         _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"tileMap2.tmx"];
         snow = [_tileMap layerNamed:@"Snow"];
         border = [_tileMap layerNamed:@"Border"];
@@ -715,8 +748,8 @@ int playerDirection = 1;
         totalLives = 2;
         //        totalLives = 1;
         lifeCount = 2;
-        levelTimeLimit = 300;
-        powerLiveTimeLimit = 60;
+        levelTimeLimit = 240;
+        powerLiveTimeLimit = 45;
         
         for(CCTMXLayer *child in [_tileMap children])
         {
@@ -755,7 +788,8 @@ int playerDirection = 1;
         // Standard method to pause the game
         CCMenuItem *starMenuItem = [CCMenuItemImage itemFromNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseGame:)];
         
-        starMenuItem.position = ccp(870, 25);
+        //starMenuItem.position = ccp(870, 25);
+        starMenuItem.position = ccp(22, 680);
         CCMenu *starMenu = [CCMenu menuWithItems:starMenuItem, nil];
         starMenu.position = CGPointZero;
         [self addChild:starMenu];
@@ -764,13 +798,14 @@ int playerDirection = 1;
         
         CCMenuItem *resumeMenuItem = [CCMenuItemImage itemFromNormalImage:@"Play40x40.png" selectedImage:@"Play40x40.png" target:self selector:@selector(ResumeGame:)];
         
-        resumeMenuItem.position = ccp(820, 25);
+        //resumeMenuItem.position = ccp(820, 25);
+        resumeMenuItem.position = ccp(22, 730);
         CCMenu *resumeMenu = [CCMenu menuWithItems:resumeMenuItem, nil];
         resumeMenu.position = CGPointZero;
         [self addChild:resumeMenu];
         for (int i=0; i<5; i++) {
             lifeItem[i] = [CCMenuItemImage itemFromNormalImage:@"life.png" selectedImage:@"life.png" target:self selector:Nil];
-            lifeItem[i].position = ccp(570+i*40, 25);
+            lifeItem[i].position = ccp(22, 600-i*40);
             lifeItem[i].visible = true;
         }
         lifeItem[3].visible = false;
@@ -783,7 +818,7 @@ int playerDirection = 1;
         [self schedule:@selector(checkCollisionWithMonster)];
         myTime = 0;
         
-        timeLabel = [CCLabelTTF labelWithString:@"0" fontName:@"Arial" fontSize:30];
+        timeLabel = [CCLabelTTF labelWithString:@"" fontName:@"Arial" fontSize:30];
         timeLabel.position = CGPointMake(winSize.width / 2+200, winSize.height);
         // Adjust the label's anchorPoint's y position to make it align with the top.
         timeLabel.anchorPoint = CGPointMake(0.5f, 1.0f);
@@ -801,6 +836,7 @@ int playerDirection = 1;
         timeLabelBlue.color = ccBLACK;
         // Add the time label
         timeLabelBlue.visible = FALSE;
+        collideTime = 0;
         
         PowerLabel = [CCSprite spriteWithFile:@"powerup12.png"];
         
@@ -808,6 +844,22 @@ int playerDirection = 1;
         PowerLabel.position =ccp(120 + timeLabelBlue.contentSize.width, timeLabelBlue.contentSize.height/2 + 27);
         PowerLabel.visible = FALSE;
         [self addChild:PowerLabel];
+        
+        bubble = [CCSprite spriteWithFile:@"bubble4.png"];
+        bubble.position = ccp(winSize.width - 420 , winSize.height - 380);
+        [self addChild:bubble];
+        bubble.visible = FALSE;
+        
+        bubble2 = [CCSprite spriteWithFile:@"bubble5.png"];
+        bubble2.position = ccp(winSize.width/2 , winSize.height/2);
+        [self addChild:bubble2];
+        //bubble.visible = FALSE;
+        [self schedule:@selector(removeBubble2) interval:3 repeat:1 delay:5];
+        
+        bubble3 = [CCSprite spriteWithFile:@"bubble6.png"];
+        bubble3.position = ccp(winSize.width - 420 , winSize.height - 380);
+        [self addChild:bubble3];
+        bubble3.visible = FALSE;
         
         
         [self addChild:timeLabelBlue];
@@ -820,6 +872,15 @@ int playerDirection = 1;
     
 }
 
+-(void) removeBubble2
+{
+    bubble2.visible = FALSE;
+}
+
+-(void) removeBubble3
+{
+    bubble3.visible = FALSE;
+}
 
 CCSprite* PowerLabel;
 
@@ -909,15 +970,17 @@ int livePowerEnabled = 0;
     }
     
 }
-
+int collideTime =0;
+int immuneDuration = 2;
 - (void) checkCollisionWithMonster
 {
+    //NSLog(@"Time %d",myTime - collideTime );
     
-    
-    if((CGRectIntersectsRect([monster1 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster3 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster4 boundingBox], [player boundingBox])) && count == 100)
+    if((CGRectIntersectsRect([monster1 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster2 boundingBox], [player boundingBox]) || CGRectIntersectsRect([monster3 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster4 boundingBox], [player boundingBox])) && totalTime - collideTime >= immuneDuration)
         
     {
-        CCBlink* blink = [CCBlink actionWithDuration:5 blinks:40];
+        collideTime = totalTime;
+        CCBlink* blink = [CCBlink actionWithDuration:immuneDuration blinks:20];
         lifeItem[lifeCount].visible = false;
         
         lifeCount--;
@@ -932,7 +995,7 @@ int livePowerEnabled = 0;
         //[self spawnPlayer];
         //return;
     }
-    else if (count < 100)
+    else if (count < 90)
         count++;
     
 }
