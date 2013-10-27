@@ -55,6 +55,8 @@
     
     CCLabelTTF *timeLabelBlue;
     
+    CGPoint firstTouch;
+    CGPoint lastTouch;
     
 
     
