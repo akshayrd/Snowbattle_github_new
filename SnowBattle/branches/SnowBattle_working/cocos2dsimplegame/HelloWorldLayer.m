@@ -388,25 +388,25 @@ CCSprite *monster4;
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     //NSLog(@"TouchBegan");
-    CGPoint location = [touch locationInView: [touch view]];
+    /*CGPoint location = [touch locationInView: [touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
     
     //Swipe Detection Part 1
     firstTouch = location;
-    //NSLog(@"TouchBeganEnd");
+    //NSLog(@"TouchBeganEnd");*/
 
     return YES;
 }
 
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
         NSLog(@"TouchesBegan");
-    NSSet *allTouches = [event allTouches];
+   /* NSSet *allTouches = [event allTouches];
     UITouch * touch = [[allTouches allObjects] objectAtIndex:0];
     CGPoint location = [touch locationInView: [touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
     
     //Swipe Detection Part 1
-    firstTouch = location;
+    firstTouch = location;*/
     //return YES;
 }
 
@@ -456,7 +456,7 @@ int direction = -1;
 
 -(void)swipeMovement
 {
-    while (1) {
+    /*while (1) {
         
         //playerMoving =1;
         switch (direction) {
@@ -488,42 +488,42 @@ int direction = -1;
             default:
                 break;
         }
-    }
+    }*/
     
 }
 -(void)rightTurn
 {
-    playerMoving =1;
+    /*playerMoving =1;
     while (direction == 1) {
         NSLog(@"Moving right");
-    }
+    }*/
     
 }
 -(void)upTurn
 {
-    playerMoving =1;
+    /*playerMoving =1;
     while (direction == 0) {
         NSLog(@"Moving up");
     }
     //while (playerMoving) {
     //    NSLog(@"Up");
-    //}
+    //}*/
     
 }
 -(void)downTurn
 {
-    playerMoving =1;
+    /*playerMoving =1;
     while (direction == 2) {
         NSLog(@"Moving down");
-    }
+    }*/
     
 }
 -(void)leftTurn
 {
-    playerMoving =1;
+   /* playerMoving =1;
     while (direction == 3) {
         NSLog(@"Moving left");
-    }
+    }*/
     
 }
 

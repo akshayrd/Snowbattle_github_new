@@ -201,6 +201,12 @@
 		F5CCB29117E6859300D56915 /* Tiled_Map_Snow.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F5CCB29017E6859300D56915 /* Tiled_Map_Snow.tmx */; };
 		F5CCB29717E6965000D56915 /* player.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5CCB29617E6965000D56915 /* player.jpg */; };
 		F5CCB29917E6970D00D56915 /* monster.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5CCB29817E6970D00D56915 /* monster.jpg */; };
+		F5F5C6BA1820EFBB005CD95C /* bubble1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F5C6B41820EFBA005CD95C /* bubble1.png */; };
+		F5F5C6BB1820EFBB005CD95C /* bubble3.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F5C6B51820EFBA005CD95C /* bubble3.png */; };
+		F5F5C6BC1820EFBB005CD95C /* bubble4.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F5C6B61820EFBB005CD95C /* bubble4.png */; };
+		F5F5C6BD1820EFBB005CD95C /* bubble5.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F5C6B71820EFBB005CD95C /* bubble5.png */; };
+		F5F5C6BE1820EFBB005CD95C /* bubble6.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F5C6B81820EFBB005CD95C /* bubble6.png */; };
+		F5F5C6BF1820EFBB005CD95C /* funk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F5F5C6B91820EFBB005CD95C /* funk.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -800,6 +806,12 @@
 		F5CCB29617E6965000D56915 /* player.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = player.jpg; sourceTree = "<group>"; };
 		F5CCB29817E6970D00D56915 /* monster.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = monster.jpg; sourceTree = "<group>"; };
 		F5E77AEA180EE7E50087256B /* SwipeDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeDemoViewController.h; sourceTree = "<group>"; };
+		F5F5C6B41820EFBA005CD95C /* bubble1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bubble1.png; path = Resources/bubble1.png; sourceTree = "<group>"; };
+		F5F5C6B51820EFBA005CD95C /* bubble3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bubble3.png; path = Resources/bubble3.png; sourceTree = "<group>"; };
+		F5F5C6B61820EFBB005CD95C /* bubble4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bubble4.png; path = Resources/bubble4.png; sourceTree = "<group>"; };
+		F5F5C6B71820EFBB005CD95C /* bubble5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bubble5.png; path = Resources/bubble5.png; sourceTree = "<group>"; };
+		F5F5C6B81820EFBB005CD95C /* bubble6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bubble6.png; path = Resources/bubble6.png; sourceTree = "<group>"; };
+		F5F5C6B91820EFBB005CD95C /* funk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = funk.mp3; path = Resources/funk.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1251,6 +1263,12 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F5F5C6B41820EFBA005CD95C /* bubble1.png */,
+				F5F5C6B51820EFBA005CD95C /* bubble3.png */,
+				F5F5C6B61820EFBB005CD95C /* bubble4.png */,
+				F5F5C6B71820EFBB005CD95C /* bubble5.png */,
+				F5F5C6B81820EFBB005CD95C /* bubble6.png */,
+				F5F5C6B91820EFBB005CD95C /* funk.mp3 */,
 				BAD120AA1815E62D00705C1F /* backmusic.mp3 */,
 				F515890E1815E2F6006E50B7 /* backmusic.mp3 */,
 				BA68E5411814B7D900F3F937 /* GameLostPng.png */,
@@ -1802,6 +1820,12 @@
 				BAD120AB1815E62D00705C1F /* backmusic.mp3 in Resources */,
 				F53576E618134C360003E30F /* POSTER_1.jpg in Resources */,
 				F515890F1815E2F6006E50B7 /* backmusic.mp3 in Resources */,
+				F5F5C6BA1820EFBB005CD95C /* bubble1.png in Resources */,
+				F5F5C6BB1820EFBB005CD95C /* bubble3.png in Resources */,
+				F5F5C6BC1820EFBB005CD95C /* bubble4.png in Resources */,
+				F5F5C6BD1820EFBB005CD95C /* bubble5.png in Resources */,
+				F5F5C6BE1820EFBB005CD95C /* bubble6.png in Resources */,
+				F5F5C6BF1820EFBB005CD95C /* funk.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

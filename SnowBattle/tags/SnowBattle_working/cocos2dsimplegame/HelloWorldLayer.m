@@ -3,7 +3,7 @@
 #import "SimpleAudioEngine.h"
 #import "GameOverLayer.h"
 #import "GameStartLayer.h"
-
+#import "LevelSelectLayer.h"
 
 @implementation HudLayer
 {
@@ -701,23 +701,78 @@ int playerDirection = 1;
     
 }
 
+- (void) PauseResumeGame:(id) sender
+{
+    NSLog(@"helloo");
+    [CCMenuItemFont setFontName:@"chalkduster"];
+    
+    [CCMenuItemFont setFontSize:50];
+    
+    
+    CCMenuItemFont *resumeGame = [CCMenuItemFont itemFromString:@"Resume Game"
+                                                         target:self
+                                                       selector:@selector(ResumeGame:)];
+    [resumeGame setColor:ccBLUE];
+    CCMenuItemFont *restartGame = [CCMenuItemFont itemFromString:@"Restart"
+                                                          target:self
+                                                        selector:@selector(RestartGame:)];
+    [restartGame setColor:ccBLUE];
+    CCMenuItemFont *menuGame = [CCMenuItemFont itemFromString:@"Menu"
+                                                       target:self
+                                                     selector:@selector(MenuGame:)];
+    [menuGame setColor:ccBLUE];
+    
+    pauseResumeMenu = [CCMenu menuWithItems: resumeGame,restartGame,menuGame, nil];
+    pauseResumeMenu.position=ccp(500,300);
+    [pauseResumeMenu alignItemsVerticallyWithPadding:15];
+    [self addChild:pauseResumeMenu];
+    
+    [NSTimer scheduledTimerWithTimeInterval:.06 target:self selector:@selector(PauseGame:) userInfo:nil repeats:NO];
+}
 
 
 - (void)ResumeGame:(id)sender
 {
-    
     [[CCDirector sharedDirector] stopAnimation];
     
     [[CCDirector sharedDirector] resume];
     
     [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+    
     [[CCDirector sharedDirector] startAnimation];
+    [self removeChild:pauseResumeMenu];
     
 }
 
 
+- (void)RestartGame:(id)sender
+{
+    [[CCDirector sharedDirector] stopAnimation];
+    
+    [[CCDirector sharedDirector] resume];
+    
+    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+    
+    [[CCDirector sharedDirector] startAnimation];
+    
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameStartLayer firstScene:YES]]];
+}
 
 
+- (void)MenuGame:(id)sender
+{
+    [[CCDirector sharedDirector] stopAnimation];
+    
+    [[CCDirector sharedDirector] resume];
+    
+    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+    
+    [[CCDirector sharedDirector] startAnimation];
+    
+    [[CCDirector sharedDirector]
+     replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[LevelSelectLayer firstScene:YES]]];
+    
+}
 
 // on "init" you need to initialize your instance
 
@@ -786,7 +841,7 @@ int playerDirection = 1;
         [self performSelectorInBackground:@selector(actionmonster4) withObject:self];
         
         // Standard method to pause the game
-        CCMenuItem *starMenuItem = [CCMenuItemImage itemFromNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseGame:)];
+        CCMenuItem *starMenuItem = [CCMenuItemImage itemFromNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame:)];
         
         //starMenuItem.position = ccp(870, 25);
         starMenuItem.position = ccp(22, 680);
@@ -794,15 +849,6 @@ int playerDirection = 1;
         starMenu.position = CGPointZero;
         [self addChild:starMenu];
         
-        // Standard method to resume the game
-        
-        CCMenuItem *resumeMenuItem = [CCMenuItemImage itemFromNormalImage:@"Play40x40.png" selectedImage:@"Play40x40.png" target:self selector:@selector(ResumeGame:)];
-        
-        //resumeMenuItem.position = ccp(820, 25);
-        resumeMenuItem.position = ccp(22, 730);
-        CCMenu *resumeMenu = [CCMenu menuWithItems:resumeMenuItem, nil];
-        resumeMenu.position = CGPointZero;
-        [self addChild:resumeMenu];
         for (int i=0; i<5; i++) {
             lifeItem[i] = [CCMenuItemImage itemFromNormalImage:@"life.png" selectedImage:@"life.png" target:self selector:Nil];
             lifeItem[i].position = ccp(22, 600-i*40);

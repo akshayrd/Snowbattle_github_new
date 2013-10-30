@@ -31,7 +31,7 @@
     CCSprite* bubble;
     CCSprite* bubble2;
     CCSprite* bubble3;
-    
+    CCMenu *pauseResumeMenu;
     
     HudLayer *hud;
     
