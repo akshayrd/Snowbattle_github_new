@@ -67,24 +67,14 @@
    </properties>
   </tile>
  </tileset>
- <layer name="Street" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJytk7EOhDAMQ5tj5W5tWYH//8ZLpVZ6igIKpYNF5BjXxUJSSh/FopBJ86r4Kn5tLooNfH1m8BU79gXvdh/qq/ZQnI3PxkeA7Og9H+bfzY76FTvqu5aZxXwHzjzX3v/u7lcz89BbHH3nvb6kZbF8bjtP7/kw2wh/BHqP8PKw91H+qrs+S0Az0js7jejvep/Bv+098r/P4Gf1/gdZXRfJ
-  </data>
- </layer>
- <layer name="Snow" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJyrZmBgqB7Fo5hKmGEQuIFS92MDg83MUTw4MABMBJsy
-  </data>
- </layer>
- <layer name="Border" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJyrY2BgqKMBpiYYNXPUzFEzR82khpnUxgC/7iJ1
-  </data>
- </layer>
  <layer name="Building" width="21" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFIFAPxA0U8LGBRiBuooCPDxCynxj3oQNC9pPjPlJpYtxHKk2Ke8mVx+decuXx2T/Y0+dIAQC6sCYn
+   eJxjYBi6oB6IG6igBhk0AnETFdQg202KOwmphdlNijuJde8ooA4YavE+2PPRYAYAcBEYGQ==
+  </data>
+ </layer>
+ <layer name="DarkBlueTiles" width="21" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYKANmIKEyQErkDC6mdjUEmKjm4tsJi77sanHZiY+cVxqkM0lRi8hM4l1Jzb92DC6PDFqSbGP2oASt2DzD65wIMfvgy3epxEwE91cXGYuQTMTm7mk5M0lOMzE5V5CYAkDppnUBgAJnjd1
   </data>
  </layer>
  <layer name="power_blue" width="21" height="16">
@@ -92,17 +82,22 @@
    eJxjYBgFowAVODMOtAtGwSgYGgAA3O8ARQ==
   </data>
  </layer>
- <layer name="DarkBlueTiles" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUwEAzDjzYzBwFgwMAADVkBiU=
-  </data>
- </layer>
- <objectgroup name="Objects" width="21" height="16">
-  <object name="SpawnPoint" x="58" y="361" width="32" height="35"/>
- </objectgroup>
  <layer name="Power_lives" width="21" height="16">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo4A04MI40C4YBaNgcAAA13sARg==
   </data>
  </layer>
+ <layer name="Border" width="21" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyrY2BgqKMBpiagl5mk2oFN/1D1+6iZI9PMkZbmqY0B7ykkbQ==
+  </data>
+ </layer>
+ <layer name="Snow" width="21" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYKA9qCYDE2MeLjFC8sSYx4Amhk8NJXaRog6fWmraTY5adH2E4pWUNEBNteT6h1K1gyne8aknxp2U2EVqfkFXQ60yhFoAAPmvPYE=
+  </data>
+ </layer>
+ <objectgroup name="Objects" width="21" height="16">
+  <object name="SpawnPoint" x="58" y="361" width="32" height="35"/>
+ </objectgroup>
 </map>

@@ -1,5 +1,6 @@
 #import "GameOverLayer.h"
 #import "HelloWorldLayer.h"
+#import "HelloWorldLayer_Level2.h"
 
 @implementation GameOverLayer
 
@@ -75,9 +76,15 @@
         label2.color = ccc3(0,0,0);
         CCMenuItemLabel *back = [CCMenuItemLabel itemWithLabel:label2  target:self selector:@selector(restart)];
         
+        label3 = [CCLabelTTF labelWithString:@"Go to Next Level" fontName:@"Marker Felt" fontSize:32];
+        label3.color = ccBLUE;
+        CCMenuItemLabel *next_level = [CCMenuItemLabel itemWithLabel:label3  target:self selector:@selector(nextLevel)];
+        CCMenu *menu1= [CCMenu menuWithItems:next_level, nil];
+        menu1.position = ccp(winSize.width/2-200 , winSize.height/2-250);
+        [self addChild: menu1];
         
         CCMenu *menu= [CCMenu menuWithItems:back, nil];
-        menu.position = ccp(winSize.width/2-200 , winSize.height/2-240);
+        menu.position = ccp(winSize.width/2-200 , winSize.height/2-180);
         [self addChild: menu];
 
     }
@@ -86,6 +93,11 @@
 
 -(void) restart {
     [[CCDirector sharedDirector] replaceScene:[HelloWorldLayer scene]];
+}
+
+-(void) nextLevel {
+    [[CCDirector sharedDirector]
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2]]];
 }
 
 @end

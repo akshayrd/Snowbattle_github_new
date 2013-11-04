@@ -114,6 +114,7 @@
 		F53576E0181338500003E30F /* life.png in Resources */ = {isa = PBXBuildFile; fileRef = F53576DC181338500003E30F /* life.png */; };
 		F53576E518134C360003E30F /* levelscreen_final.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576E318134C360003E30F /* levelscreen_final.jpg */; };
 		F53576E618134C360003E30F /* POSTER_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576E418134C360003E30F /* POSTER_1.jpg */; };
+		F53F5F7A182703870044BBAC /* PlayerSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F53F5F79182703870044BBAC /* PlayerSelectLayer.m */; };
 		F54BA66A1802986400FCDA16 /* pause1.png in Resources */ = {isa = PBXBuildFile; fileRef = F54BA6681802986400FCDA16 /* pause1.png */; };
 		F54BA66B1802986400FCDA16 /* resume1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F54BA6691802986400FCDA16 /* resume1.jpg */; };
 		F54BA66E18029D3B00FCDA16 /* GameStartLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F54BA66D18029D3B00FCDA16 /* GameStartLayer.m */; };
@@ -206,6 +207,9 @@
 		F5CCB29117E6859300D56915 /* Tiled_Map_Snow.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F5CCB29017E6859300D56915 /* Tiled_Map_Snow.tmx */; };
 		F5CCB29717E6965000D56915 /* player.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5CCB29617E6965000D56915 /* player.jpg */; };
 		F5CCB29917E6970D00D56915 /* monster.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5CCB29817E6970D00D56915 /* monster.jpg */; };
+		F5F5C6C31820F47C005CD95C /* wall1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5F5C6C21820F47C005CD95C /* wall1.jpg */; };
+		F5F5C6C61820F4E6005CD95C /* HelloWorldLayer_Level2.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F5C6C51820F4E6005CD95C /* HelloWorldLayer_Level2.m */; };
+		F5F5C6C81820FE23005CD95C /* tileMap3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F5F5C6C71820FE23005CD95C /* tileMap3.tmx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -521,6 +525,8 @@
 		F53576DC181338500003E30F /* life.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = life.png; path = Resources/life.png; sourceTree = "<group>"; };
 		F53576E318134C360003E30F /* levelscreen_final.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = levelscreen_final.jpg; sourceTree = "<group>"; };
 		F53576E418134C360003E30F /* POSTER_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = POSTER_1.jpg; sourceTree = "<group>"; };
+		F53F5F78182703870044BBAC /* PlayerSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerSelectLayer.h; sourceTree = "<group>"; };
+		F53F5F79182703870044BBAC /* PlayerSelectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerSelectLayer.m; sourceTree = "<group>"; };
 		F54BA6681802986400FCDA16 /* pause1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause1.png; sourceTree = "<group>"; };
 		F54BA6691802986400FCDA16 /* resume1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = resume1.jpg; sourceTree = "<group>"; };
 		F54BA66C18029D3B00FCDA16 /* GameStartLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStartLayer.h; sourceTree = "<group>"; };
@@ -810,6 +816,10 @@
 		F5CCB29617E6965000D56915 /* player.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = player.jpg; sourceTree = "<group>"; };
 		F5CCB29817E6970D00D56915 /* monster.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = monster.jpg; sourceTree = "<group>"; };
 		F5E77AEA180EE7E50087256B /* SwipeDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeDemoViewController.h; sourceTree = "<group>"; };
+		F5F5C6C21820F47C005CD95C /* wall1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = wall1.jpg; path = Resources/wall1.jpg; sourceTree = "<group>"; };
+		F5F5C6C41820F4E6005CD95C /* HelloWorldLayer_Level2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer_Level2.h; sourceTree = "<group>"; };
+		F5F5C6C51820F4E6005CD95C /* HelloWorldLayer_Level2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer_Level2.m; sourceTree = "<group>"; };
+		F5F5C6C71820FE23005CD95C /* tileMap3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tileMap3.tmx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1238,6 +1248,10 @@
 		F55302D517E646CD00D1FD31 /* cocos2dsimplegame */ = {
 			isa = PBXGroup;
 			children = (
+				F53F5F78182703870044BBAC /* PlayerSelectLayer.h */,
+				F53F5F79182703870044BBAC /* PlayerSelectLayer.m */,
+				F5F5C6C51820F4E6005CD95C /* HelloWorldLayer_Level2.m */,
+				F5F5C6C41820F4E6005CD95C /* HelloWorldLayer_Level2.h */,
 				BA508743180BAAB60097C021 /* GameOverLayer.h */,
 				BA508744180BAAB60097C021 /* GameOverLayer.m */,
 				F54BA66D18029D3B00FCDA16 /* GameStartLayer.m */,
@@ -1261,6 +1275,8 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F5F5C6C71820FE23005CD95C /* tileMap3.tmx */,
+				F5F5C6C21820F47C005CD95C /* wall1.jpg */,
 				BABF081D181780240014367F /* bubble6.png */,
 				BABF081B18177F7F0014367F /* bubble5.png */,
 				BABF081918177DAB0014367F /* bubble4.png */,
@@ -1822,6 +1838,8 @@
 				F53576E518134C360003E30F /* levelscreen_final.jpg in Resources */,
 				BA68E53E1814AEDC00F3F937 /* NormalPlayer_40x40.png in Resources */,
 				F53576E618134C360003E30F /* POSTER_1.jpg in Resources */,
+				F5F5C6C31820F47C005CD95C /* wall1.jpg in Resources */,
+				F5F5C6C81820FE23005CD95C /* tileMap3.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1947,6 +1965,8 @@
 				F553046E17E646CF00D1FD31 /* IntroLayer.m in Sources */,
 				F54BA66E18029D3B00FCDA16 /* GameStartLayer.m in Sources */,
 				F52F674D180E41250081074E /* LevelSelectLayer.m in Sources */,
+				F5F5C6C61820F4E6005CD95C /* HelloWorldLayer_Level2.m in Sources */,
+				F53F5F7A182703870044BBAC /* PlayerSelectLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

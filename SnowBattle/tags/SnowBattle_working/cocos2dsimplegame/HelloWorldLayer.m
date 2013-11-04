@@ -46,13 +46,14 @@
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
-+(CCScene *) scene
++(CCScene *) scene:(BOOL)start
 {
     // 'scene' is an autorelease object.
     CCScene *scene = [CCScene node];
     
     // 'layer' is an autorelease object.
-    HelloWorldLayer *layer = [HelloWorldLayer node];
+    //HelloWorldLayer *layer = [HelloWorldLayer node];
+    HelloWorldLayer *layer = [[HelloWorldLayer alloc] initWithPlayer:start];
     
     // add layer as a child to scene
     [scene addChild: layer];
@@ -776,7 +777,7 @@ int playerDirection = 1;
 
 // on "init" you need to initialize your instance
 
--(id) init
+-(id) initWithPlayer:(BOOL)player1
 
 {
     if( (self=[super init]) ) {
@@ -815,7 +816,13 @@ int playerDirection = 1;
         CGSize winSize = [CCDirector sharedDirector].winSize;
         
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
-        player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"] ;
+        if(player1==true)
+        {
+            player = [CCSprite spriteWithFile:@"HyperPlayer_40x40.png"] ;
+        }
+        else{
+            player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"] ;
+        }
         [self spawnPlayer];
         if(player == nil)
         {

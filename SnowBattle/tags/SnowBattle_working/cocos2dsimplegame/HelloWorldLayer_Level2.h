@@ -1,16 +1,15 @@
-#import <GameKit/GameKit.h>
-#import "AppDelegate.h"
+//
+//  HelloWorldLayer_Level2.h
+//  cocos2dsimplegame
+//
+//  Created by Student on 10/30/13.
+//  Copyright 2013 gpadmin. All rights reserved.
+//
 
+#import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-
-@interface HudLayer : CCLayer
-- (void)numCollectedChanged:(int)numCollected;
-@end
-
-
-@interface HelloWorldLayer : CCLayer
-{
+@interface HelloWorldLayer_Level2 : CCNode {
     CCTMXTiledMap *_tileMap;
     CCTMXLayer *bgLayer;
     CCTMXLayer *snow;
@@ -33,8 +32,6 @@
     CCSprite* bubble3;
     CCMenu *pauseResumeMenu;
     
-    HudLayer *hud;
-    
     CCMenu *life;
     
     
@@ -55,13 +52,8 @@
     
     CCLabelTTF *timeLabelBlue;
     
-    
-
-    
-    
 }
 
-+(CCScene *) scene:(BOOL)start;
++(CCScene *) scene2:(BOOL)start;
 
 @end
-

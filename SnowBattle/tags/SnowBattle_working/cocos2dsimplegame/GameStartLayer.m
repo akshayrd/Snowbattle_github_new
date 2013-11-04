@@ -1,6 +1,7 @@
 #import "GameStartLayer.h"
 #import "HelloWorldLayer.h"
 #import "LevelSelectLayer.h"
+#import "PlayerSelectLayer.h"
 
 @implementation GameStartLayer
 
@@ -38,7 +39,7 @@
 
 -(void) startGame: (id) sender {
     [[CCDirector sharedDirector]
-     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LevelSelectLayer firstScene:YES]]];
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[PlayerSelectLayer selectScene:YES]]];
 }
 
 @end
