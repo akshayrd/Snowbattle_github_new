@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 
 @interface LevelSelectLayer : CCLayer {
-    
+    BOOL player1Select;
 }
 
 +(id) firstScene:(BOOL)start;

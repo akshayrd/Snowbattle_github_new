@@ -31,7 +31,7 @@
     CCSprite* bubble;
     CCSprite* bubble2;
     CCSprite* bubble3;
-    
+    CCMenu *pauseResumeMenu;
     
     HudLayer *hud;
     
@@ -55,15 +55,13 @@
     
     CCLabelTTF *timeLabelBlue;
     
-    CGPoint firstTouch;
-    CGPoint lastTouch;
     
 
     
     
 }
 
-+(CCScene *) scene;
++(CCScene *) scene:(BOOL)start;
 
 @end
 

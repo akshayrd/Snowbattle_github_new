@@ -16,5 +16,38 @@
          landmarkName = "-onEnter"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "cocos2dsimplegame/HelloWorldLayer.m"
+         timestampString = "405212299.220912"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1196"
+         endingLineNumber = "1196">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "cocos2dsimplegame/HelloWorldLayer.m"
+         timestampString = "405212299.220912"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1192"
+         endingLineNumber = "1192">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "cocos2dsimplegame/HelloWorldLayer.m"
+         timestampString = "405212299.220912"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1410"
+         endingLineNumber = "1410">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

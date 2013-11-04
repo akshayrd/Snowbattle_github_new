@@ -3,7 +3,7 @@
 #import "SimpleAudioEngine.h"
 #import "GameOverLayer.h"
 #import "GameStartLayer.h"
-
+#import "LevelSelectLayer.h"
 
 @implementation HudLayer
 {
@@ -46,13 +46,14 @@
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
-+(CCScene *) scene
++(CCScene *) scene:(BOOL)start
 {
     // 'scene' is an autorelease object.
     CCScene *scene = [CCScene node];
     
     // 'layer' is an autorelease object.
-    HelloWorldLayer *layer = [HelloWorldLayer node];
+    //HelloWorldLayer *layer = [HelloWorldLayer node];
+    HelloWorldLayer *layer = [[HelloWorldLayer alloc] initWithPlayer:start];
     
     // add layer as a child to scene
     [scene addChild: layer];
@@ -379,156 +380,22 @@ CCSprite *monster4;
 
 -(void)registerWithTouchDispatcher
 {
-    //[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self
-       //                                                       priority:0
-         //                                              swallowsTouches:YES];
-    
-    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:INT_MIN+1 swallowsTouches:YES];
+    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self
+                                                              priority:0
+                                                       swallowsTouches:YES];
 }
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    //NSLog(@"TouchBegan");
-    /*CGPoint location = [touch locationInView: [touch view]];
-    location = [[CCDirector sharedDirector] convertToGL:location];
-    
-    //Swipe Detection Part 1
-    firstTouch = location;
-    //NSLog(@"TouchBeganEnd");*/
-
     return YES;
-}
-
--(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-        NSLog(@"TouchesBegan");
-   /* NSSet *allTouches = [event allTouches];
-    UITouch * touch = [[allTouches allObjects] objectAtIndex:0];
-    CGPoint location = [touch locationInView: [touch view]];
-    location = [[CCDirector sharedDirector] convertToGL:location];
-    
-    //Swipe Detection Part 1
-    firstTouch = location;*/
-    //return YES;
 }
 
 
 int playerDirection = 1;
-int playerMoving = 0;
-int direction = -1;
 
-//-(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
-//{
-//    //NSSet *allTouches = [event allTouches];
-//    //UITouch * touch = [[allTouches allObjects] objectAtIndex:0];
-//    CGPoint location = [touch locationInView: [touch view]];
-//    location = [[CCDirector sharedDirector] convertToGL:location];
-//    
-//    //Swipe Detection Part 2
-//    lastTouch = location;
-//    playerMoving =0;
-//    //Minimum length of the swipe
-//    float swipeLength = ccpDistance(firstTouch, lastTouch);
-//    
-//    //Check if the swipe is a left swipe and long enough
-//    if (firstTouch.x-60 > lastTouch.x && swipeLength > 60) {
-//        direction = 3;
-//        //[self performSelectorInBackground:@selector(swipeMovement)  withObject:self];
-//        //[self schedule:@selector(leftTurn) interval:3 repeat:100 delay:0];
-//    }
-//    else if (firstTouch.x < lastTouch.x-60 && swipeLength > 60) {
-//        direction = 1;
-//        //[self performSelectorInBackground:@selector(rightTurn)  withObject:self];
-//        //[self schedule:@selector(rightTurn) interval:3 repeat:100 delay:0];
-//    }
-//    else if (firstTouch.y < lastTouch.y-20 && swipeLength > 60) {
-//        direction = 0;
-//        //[self performSelectorInBackground:@selector(upTurn)  withObject:self];
-//        //[self schedule:@selector(upTurn) interval:3 repeat:100 delay:0];
-//    }
-//    else if (firstTouch.y-20 > lastTouch.y && swipeLength > 60) {
-//        direction = 2;
-//        //[self performSelectorInBackground:@selector(downTurn)  withObject:self];
-//        //[self schedule:@selector(downTurn) interval:3 repeat:100 delay:0];
-//    }
-//    
-//    
-//}
-
-
--(void)swipeMovement
-{
-    /*while (1) {
-        
-        //playerMoving =1;
-        switch (direction) {
-            case 0:
-                //NSLog(@"Up");
-                if (!playerMoving) {
-                    [self schedule:@selector(upTurn) interval:3 repeat:100 delay:0];
-                }
-                
-                break;
-            case 1:
-                //NSLog(@"Right");
-                if (!playerMoving) {
-                    [self schedule:@selector(rightTurn) interval:3 repeat:100 delay:0];
-                }
-                break;
-            case 2:
-                //NSLog(@"Down");
-                if (!playerMoving) {
-                    [self schedule:@selector(downTurn) interval:3 repeat:100 delay:0];
-                }
-                break;
-            case 3:
-                //NSLog(@"Left");
-                if (!playerMoving) {
-                    [self schedule:@selector(leftTurn) interval:3 repeat:100 delay:0];
-                }
-                break;
-            default:
-                break;
-        }
-    }*/
-    
-}
--(void)rightTurn
-{
-    /*playerMoving =1;
-    while (direction == 1) {
-        NSLog(@"Moving right");
-    }*/
-    
-}
--(void)upTurn
-{
-    /*playerMoving =1;
-    while (direction == 0) {
-        NSLog(@"Moving up");
-    }
-    //while (playerMoving) {
-    //    NSLog(@"Up");
-    //}*/
-    
-}
--(void)downTurn
-{
-    /*playerMoving =1;
-    while (direction == 2) {
-        NSLog(@"Moving down");
-    }*/
-    
-}
--(void)leftTurn
-{
-   /* playerMoving =1;
-    while (direction == 3) {
-        NSLog(@"Moving left");
-    }*/
-    
-}
 
 
 -(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+
 {
     
     CGPoint touchLocation = [touch locationInView:touch.view];
@@ -643,7 +510,7 @@ int direction = -1;
         playerPos.x >= 0 )
     {
         [self setPlayerPosition:playerPos];
-
+        
 
     }
     //[self setViewPointCenter:player.position];
@@ -835,32 +702,86 @@ int direction = -1;
     
 }
 
+- (void) PauseResumeGame:(id) sender
+{
+    NSLog(@"helloo");
+    [CCMenuItemFont setFontName:@"chalkduster"];
+    
+    [CCMenuItemFont setFontSize:50];
+    
+    
+    CCMenuItemFont *resumeGame = [CCMenuItemFont itemFromString:@"Resume Game"
+                                                         target:self
+                                                       selector:@selector(ResumeGame:)];
+    [resumeGame setColor:ccBLUE];
+    CCMenuItemFont *restartGame = [CCMenuItemFont itemFromString:@"Restart"
+                                                          target:self
+                                                        selector:@selector(RestartGame:)];
+    [restartGame setColor:ccBLUE];
+    CCMenuItemFont *menuGame = [CCMenuItemFont itemFromString:@"Menu"
+                                                       target:self
+                                                     selector:@selector(MenuGame:)];
+    [menuGame setColor:ccBLUE];
+    
+    pauseResumeMenu = [CCMenu menuWithItems: resumeGame,restartGame,menuGame, nil];
+    pauseResumeMenu.position=ccp(500,300);
+    [pauseResumeMenu alignItemsVerticallyWithPadding:15];
+    [self addChild:pauseResumeMenu];
+    
+    [NSTimer scheduledTimerWithTimeInterval:.06 target:self selector:@selector(PauseGame:) userInfo:nil repeats:NO];
+}
 
 
 - (void)ResumeGame:(id)sender
 {
-    
     [[CCDirector sharedDirector] stopAnimation];
     
     [[CCDirector sharedDirector] resume];
     
     [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+    
     [[CCDirector sharedDirector] startAnimation];
+    [self removeChild:pauseResumeMenu];
     
 }
 
 
+- (void)RestartGame:(id)sender
+{
+    [[CCDirector sharedDirector] stopAnimation];
+    
+    [[CCDirector sharedDirector] resume];
+    
+    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+    
+    [[CCDirector sharedDirector] startAnimation];
+    
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameStartLayer firstScene:YES]]];
+}
 
 
+- (void)MenuGame:(id)sender
+{
+    [[CCDirector sharedDirector] stopAnimation];
+    
+    [[CCDirector sharedDirector] resume];
+    
+    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+    
+    [[CCDirector sharedDirector] startAnimation];
+    
+    [[CCDirector sharedDirector]
+     replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[LevelSelectLayer firstScene:YES]]];
+    
+}
 
 // on "init" you need to initialize your instance
 
--(id) init
+-(id) initWithPlayer:(BOOL)player1
 
 {
     if( (self=[super init]) ) {
         //[self setTouchEnabled:YES];
-        self.isTouchEnabled = YES;
         self.isTouchEnabled = YES;
         count = 90;
         darkBlueCount = 0;
@@ -886,8 +807,6 @@ int direction = -1;
         levelTimeLimit = 240;
         powerLiveTimeLimit = 45;
         
-        //[self performSelectorInBackground:@selector(swipeMovement)  withObject:self];
-        
         for(CCTMXLayer *child in [_tileMap children])
         {
             [[child texture] setAliasTexParameters];
@@ -897,7 +816,13 @@ int direction = -1;
         CGSize winSize = [CCDirector sharedDirector].winSize;
         
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
-        player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"] ;
+        if(player1==true)
+        {
+            player = [CCSprite spriteWithFile:@"HyperPlayer_40x40.png"] ;
+        }
+        else{
+            player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"] ;
+        }
         [self spawnPlayer];
         if(player == nil)
         {
@@ -923,7 +848,7 @@ int direction = -1;
         [self performSelectorInBackground:@selector(actionmonster4) withObject:self];
         
         // Standard method to pause the game
-        CCMenuItem *starMenuItem = [CCMenuItemImage itemFromNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseGame:)];
+        CCMenuItem *starMenuItem = [CCMenuItemImage itemFromNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame:)];
         
         //starMenuItem.position = ccp(870, 25);
         starMenuItem.position = ccp(22, 680);
@@ -931,15 +856,6 @@ int direction = -1;
         starMenu.position = CGPointZero;
         [self addChild:starMenu];
         
-        // Standard method to resume the game
-        
-        CCMenuItem *resumeMenuItem = [CCMenuItemImage itemFromNormalImage:@"Play40x40.png" selectedImage:@"Play40x40.png" target:self selector:@selector(ResumeGame:)];
-        
-        //resumeMenuItem.position = ccp(820, 25);
-        resumeMenuItem.position = ccp(22, 730);
-        CCMenu *resumeMenu = [CCMenu menuWithItems:resumeMenuItem, nil];
-        resumeMenu.position = CGPointZero;
-        [self addChild:resumeMenu];
         for (int i=0; i<5; i++) {
             lifeItem[i] = [CCMenuItemImage itemFromNormalImage:@"life.png" selectedImage:@"life.png" target:self selector:Nil];
             lifeItem[i].position = ccp(22, 600-i*40);

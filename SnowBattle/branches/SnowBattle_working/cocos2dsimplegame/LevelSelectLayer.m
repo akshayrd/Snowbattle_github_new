@@ -8,7 +8,7 @@
 
 #import "LevelSelectLayer.h"
 #import "HelloWorldLayer.h"
-
+#import "HelloWorldLayer_Level2.h"
 
 @implementation LevelSelectLayer
 
@@ -23,6 +23,7 @@
 -(id) initW:(BOOL)start
 {
     if( (self=[super init] )) {
+        player1Select=start;
         CCSprite *bg =[CCSprite spriteWithFile:@"levelscreen_final.jpg"];
         bg.position=ccp(0,0);
         bg.anchorPoint = ccp(0, 0);
@@ -37,7 +38,8 @@
         
         CCMenuItemFont *newGame1 = [CCMenuItemFont itemFromString:@"Level 2"
                                                           target:self
-                                                        selector:@selector(startGameLevel2:)];
+                                                         selector:@selector(startGameLevel2:)];
+        
         CCMenuItemFont *newGame2 = [CCMenuItemFont itemFromString:@"Level 3"
                                                            target:self
                                                          selector:@selector(startGameLevel2:)];
@@ -45,7 +47,7 @@
                                                            target:self
                                                          selector:@selector(startGameLevel2:)];
         [newGame setColor:ccBLUE];
-        [newGame1 setColor:ccRED];
+        [newGame1 setColor:ccBLUE];
         [newGame2 setColor:ccRED];
         [newGame3 setColor:ccRED];
 
@@ -57,7 +59,7 @@
         
         CCMenuItemImage *menuItem1 = [CCMenuItemImage itemFromNormalImage:@"bug_51x51.png"
                                                             selectedImage:@"bug_51x51.png"
-                                                            target:self selector:@selector(startGame:)];
+                                                            target:self selector:@selector(startGame:start:)];
         
         //CCMenu *menu = [CCMenu menuWithItems: newGame, newGame1, newGame2,newGame3, menuItem1, nil];
         CCMenu *menu = [CCMenu menuWithItems: newGame, newGame1, newGame2,newGame3, nil];
@@ -69,13 +71,17 @@
     return self;
 }
 
--(void) startGame: (id) sender {
+-(void) startGame: (id) sender{
+    NSLog(@"1111Heree");
     [[CCDirector sharedDirector]
-     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer scene]]];
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer scene:player1Select]]];
 }
 
--(void) startGameLevel2: (id) sender {
-    ;
+-(void) startGameLevel2:(id) sender{
+    NSLog(@"222Heree");
+    [[CCDirector sharedDirector]
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:player1Select]]];
+
 }
 
 @end

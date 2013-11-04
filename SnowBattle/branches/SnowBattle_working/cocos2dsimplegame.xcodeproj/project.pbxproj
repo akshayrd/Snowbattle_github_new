@@ -98,10 +98,15 @@
 		BAB655EE180117DE0062BE70 /* bug_51x51.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB655ED180117DE0062BE70 /* bug_51x51.png */; };
 		BAB655F218011B2D0062BE70 /* powerup12.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB655F118011B2D0062BE70 /* powerup12.png */; };
 		BAB655F418011D5D0062BE70 /* dark-blue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAB655F318011D5D0062BE70 /* dark-blue.jpg */; };
-		BAD120AB1815E62D00705C1F /* backmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BAD120AA1815E62D00705C1F /* backmusic.mp3 */; };
+		BABF080E18176D710014367F /* funk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BABF080D18176D710014367F /* funk.mp3 */; };
+		BABF0814181777360014367F /* bubble1.png in Resources */ = {isa = PBXBuildFile; fileRef = BABF0813181777360014367F /* bubble1.png */; };
+		BABF0816181777AF0014367F /* bubble2.png in Resources */ = {isa = PBXBuildFile; fileRef = BABF0815181777AF0014367F /* bubble2.png */; };
+		BABF0818181779E00014367F /* bubble3.png in Resources */ = {isa = PBXBuildFile; fileRef = BABF0817181779E00014367F /* bubble3.png */; };
+		BABF081A18177DAB0014367F /* bubble4.png in Resources */ = {isa = PBXBuildFile; fileRef = BABF081918177DAB0014367F /* bubble4.png */; };
+		BABF081C18177F7F0014367F /* bubble5.png in Resources */ = {isa = PBXBuildFile; fileRef = BABF081B18177F7F0014367F /* bubble5.png */; };
+		BABF081E181780240014367F /* bubble6.png in Resources */ = {isa = PBXBuildFile; fileRef = BABF081D181780240014367F /* bubble6.png */; };
 		BAEB6EE517FCC832000F3DAE /* snowmover1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAEB6EE417FCC832000F3DAE /* snowmover1.jpg */; };
 		BAEB785417FC93A300B9663A /* player2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAEB785317FC93A300B9663A /* player2.jpg */; };
-		F515890F1815E2F6006E50B7 /* backmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F515890E1815E2F6006E50B7 /* backmusic.mp3 */; };
 		F52F674D180E41250081074E /* LevelSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F52F674C180E41250081074E /* LevelSelectLayer.m */; };
 		F53576DD181338500003E30F /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576D9181338500003E30F /* background.jpg */; };
 		F53576DE181338500003E30F /* grassTexture2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576DA181338500003E30F /* grassTexture2.jpg */; };
@@ -109,6 +114,7 @@
 		F53576E0181338500003E30F /* life.png in Resources */ = {isa = PBXBuildFile; fileRef = F53576DC181338500003E30F /* life.png */; };
 		F53576E518134C360003E30F /* levelscreen_final.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576E318134C360003E30F /* levelscreen_final.jpg */; };
 		F53576E618134C360003E30F /* POSTER_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576E418134C360003E30F /* POSTER_1.jpg */; };
+		F53F5F7A182703870044BBAC /* PlayerSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F53F5F79182703870044BBAC /* PlayerSelectLayer.m */; };
 		F54BA66A1802986400FCDA16 /* pause1.png in Resources */ = {isa = PBXBuildFile; fileRef = F54BA6681802986400FCDA16 /* pause1.png */; };
 		F54BA66B1802986400FCDA16 /* resume1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F54BA6691802986400FCDA16 /* resume1.jpg */; };
 		F54BA66E18029D3B00FCDA16 /* GameStartLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F54BA66D18029D3B00FCDA16 /* GameStartLayer.m */; };
@@ -201,12 +207,9 @@
 		F5CCB29117E6859300D56915 /* Tiled_Map_Snow.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F5CCB29017E6859300D56915 /* Tiled_Map_Snow.tmx */; };
 		F5CCB29717E6965000D56915 /* player.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5CCB29617E6965000D56915 /* player.jpg */; };
 		F5CCB29917E6970D00D56915 /* monster.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5CCB29817E6970D00D56915 /* monster.jpg */; };
-		F5F5C6BA1820EFBB005CD95C /* bubble1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F5C6B41820EFBA005CD95C /* bubble1.png */; };
-		F5F5C6BB1820EFBB005CD95C /* bubble3.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F5C6B51820EFBA005CD95C /* bubble3.png */; };
-		F5F5C6BC1820EFBB005CD95C /* bubble4.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F5C6B61820EFBB005CD95C /* bubble4.png */; };
-		F5F5C6BD1820EFBB005CD95C /* bubble5.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F5C6B71820EFBB005CD95C /* bubble5.png */; };
-		F5F5C6BE1820EFBB005CD95C /* bubble6.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F5C6B81820EFBB005CD95C /* bubble6.png */; };
-		F5F5C6BF1820EFBB005CD95C /* funk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F5F5C6B91820EFBB005CD95C /* funk.mp3 */; };
+		F5F5C6C31820F47C005CD95C /* wall1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5F5C6C21820F47C005CD95C /* wall1.jpg */; };
+		F5F5C6C61820F4E6005CD95C /* HelloWorldLayer_Level2.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F5C6C51820F4E6005CD95C /* HelloWorldLayer_Level2.m */; };
+		F5F5C6C81820FE23005CD95C /* tileMap3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F5F5C6C71820FE23005CD95C /* tileMap3.tmx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -505,10 +508,15 @@
 		BAB655ED180117DE0062BE70 /* bug_51x51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bug_51x51.png; path = Resources/bug_51x51.png; sourceTree = "<group>"; };
 		BAB655F118011B2D0062BE70 /* powerup12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = powerup12.png; path = Resources/powerup12.png; sourceTree = "<group>"; };
 		BAB655F318011D5D0062BE70 /* dark-blue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "dark-blue.jpg"; path = "Resources/dark-blue.jpg"; sourceTree = "<group>"; };
-		BAD120AA1815E62D00705C1F /* backmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backmusic.mp3; sourceTree = "<group>"; };
+		BABF080D18176D710014367F /* funk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = funk.mp3; path = Resources/funk.mp3; sourceTree = "<group>"; };
+		BABF0813181777360014367F /* bubble1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble1.png; sourceTree = "<group>"; };
+		BABF0815181777AF0014367F /* bubble2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble2.png; sourceTree = "<group>"; };
+		BABF0817181779E00014367F /* bubble3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble3.png; sourceTree = "<group>"; };
+		BABF081918177DAB0014367F /* bubble4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble4.png; sourceTree = "<group>"; };
+		BABF081B18177F7F0014367F /* bubble5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble5.png; sourceTree = "<group>"; };
+		BABF081D181780240014367F /* bubble6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble6.png; sourceTree = "<group>"; };
 		BAEB6EE417FCC832000F3DAE /* snowmover1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snowmover1.jpg; sourceTree = "<group>"; };
 		BAEB785317FC93A300B9663A /* player2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = player2.jpg; sourceTree = "<group>"; };
-		F515890E1815E2F6006E50B7 /* backmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backmusic.mp3; sourceTree = "<group>"; };
 		F52F674B180E41250081074E /* LevelSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectLayer.h; sourceTree = "<group>"; };
 		F52F674C180E41250081074E /* LevelSelectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectLayer.m; sourceTree = "<group>"; };
 		F53576D9181338500003E30F /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = Resources/background.jpg; sourceTree = "<group>"; };
@@ -517,6 +525,8 @@
 		F53576DC181338500003E30F /* life.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = life.png; path = Resources/life.png; sourceTree = "<group>"; };
 		F53576E318134C360003E30F /* levelscreen_final.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = levelscreen_final.jpg; sourceTree = "<group>"; };
 		F53576E418134C360003E30F /* POSTER_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = POSTER_1.jpg; sourceTree = "<group>"; };
+		F53F5F78182703870044BBAC /* PlayerSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerSelectLayer.h; sourceTree = "<group>"; };
+		F53F5F79182703870044BBAC /* PlayerSelectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerSelectLayer.m; sourceTree = "<group>"; };
 		F54BA6681802986400FCDA16 /* pause1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause1.png; sourceTree = "<group>"; };
 		F54BA6691802986400FCDA16 /* resume1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = resume1.jpg; sourceTree = "<group>"; };
 		F54BA66C18029D3B00FCDA16 /* GameStartLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStartLayer.h; sourceTree = "<group>"; };
@@ -806,12 +816,10 @@
 		F5CCB29617E6965000D56915 /* player.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = player.jpg; sourceTree = "<group>"; };
 		F5CCB29817E6970D00D56915 /* monster.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = monster.jpg; sourceTree = "<group>"; };
 		F5E77AEA180EE7E50087256B /* SwipeDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeDemoViewController.h; sourceTree = "<group>"; };
-		F5F5C6B41820EFBA005CD95C /* bubble1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bubble1.png; path = Resources/bubble1.png; sourceTree = "<group>"; };
-		F5F5C6B51820EFBA005CD95C /* bubble3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bubble3.png; path = Resources/bubble3.png; sourceTree = "<group>"; };
-		F5F5C6B61820EFBB005CD95C /* bubble4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bubble4.png; path = Resources/bubble4.png; sourceTree = "<group>"; };
-		F5F5C6B71820EFBB005CD95C /* bubble5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bubble5.png; path = Resources/bubble5.png; sourceTree = "<group>"; };
-		F5F5C6B81820EFBB005CD95C /* bubble6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bubble6.png; path = Resources/bubble6.png; sourceTree = "<group>"; };
-		F5F5C6B91820EFBB005CD95C /* funk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = funk.mp3; path = Resources/funk.mp3; sourceTree = "<group>"; };
+		F5F5C6C21820F47C005CD95C /* wall1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = wall1.jpg; path = Resources/wall1.jpg; sourceTree = "<group>"; };
+		F5F5C6C41820F4E6005CD95C /* HelloWorldLayer_Level2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer_Level2.h; sourceTree = "<group>"; };
+		F5F5C6C51820F4E6005CD95C /* HelloWorldLayer_Level2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer_Level2.m; sourceTree = "<group>"; };
+		F5F5C6C71820FE23005CD95C /* tileMap3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tileMap3.tmx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1240,6 +1248,10 @@
 		F55302D517E646CD00D1FD31 /* cocos2dsimplegame */ = {
 			isa = PBXGroup;
 			children = (
+				F53F5F78182703870044BBAC /* PlayerSelectLayer.h */,
+				F53F5F79182703870044BBAC /* PlayerSelectLayer.m */,
+				F5F5C6C51820F4E6005CD95C /* HelloWorldLayer_Level2.m */,
+				F5F5C6C41820F4E6005CD95C /* HelloWorldLayer_Level2.h */,
 				BA508743180BAAB60097C021 /* GameOverLayer.h */,
 				BA508744180BAAB60097C021 /* GameOverLayer.m */,
 				F54BA66D18029D3B00FCDA16 /* GameStartLayer.m */,
@@ -1263,14 +1275,15 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F5F5C6B41820EFBA005CD95C /* bubble1.png */,
-				F5F5C6B51820EFBA005CD95C /* bubble3.png */,
-				F5F5C6B61820EFBB005CD95C /* bubble4.png */,
-				F5F5C6B71820EFBB005CD95C /* bubble5.png */,
-				F5F5C6B81820EFBB005CD95C /* bubble6.png */,
-				F5F5C6B91820EFBB005CD95C /* funk.mp3 */,
-				BAD120AA1815E62D00705C1F /* backmusic.mp3 */,
-				F515890E1815E2F6006E50B7 /* backmusic.mp3 */,
+				F5F5C6C71820FE23005CD95C /* tileMap3.tmx */,
+				F5F5C6C21820F47C005CD95C /* wall1.jpg */,
+				BABF081D181780240014367F /* bubble6.png */,
+				BABF081B18177F7F0014367F /* bubble5.png */,
+				BABF081918177DAB0014367F /* bubble4.png */,
+				BABF0817181779E00014367F /* bubble3.png */,
+				BABF0815181777AF0014367F /* bubble2.png */,
+				BABF0813181777360014367F /* bubble1.png */,
+				BABF080D18176D710014367F /* funk.mp3 */,
 				BA68E5411814B7D900F3F937 /* GameLostPng.png */,
 				BA68E5421814B7D900F3F937 /* GameWonPng.png */,
 				BA68E54E1814B7D900F3F937 /* shoveling.mp3 */,
@@ -1757,6 +1770,8 @@
 				BAEB6EE517FCC832000F3DAE /* snowmover1.jpg in Resources */,
 				BA3FEDF917FEA36100DD2E17 /* h8.jpg in Resources */,
 				BA68E5351814A9EF00F3F937 /* pause.png in Resources */,
+				BABF081E181780240014367F /* bubble6.png in Resources */,
+				BABF080E18176D710014367F /* funk.mp3 in Resources */,
 				BA991234180F0DD1001C5562 /* LICENSE_CocosDenshion.txt in Resources */,
 				BAB655F218011B2D0062BE70 /* powerup12.png in Resources */,
 				BA3FEDF317FEA36100DD2E17 /* h1.jpg in Resources */,
@@ -1764,6 +1779,8 @@
 				BA3FEDE117FE98A000DD2E17 /* 2.jpg in Resources */,
 				BA68E5391814AC3000F3F937 /* Play40x40.png in Resources */,
 				BA3FEDFE17FEA36100DD2E17 /* pickup.caf in Resources */,
+				BABF0814181777360014367F /* bubble1.png in Resources */,
+				BABF0818181779E00014367F /* bubble3.png in Resources */,
 				BA991235180F0DD1001C5562 /* LICENSE_Kazmath.txt in Resources */,
 				BA3FEDF417FEA36100DD2E17 /* h2.jpg in Resources */,
 				F55302DC17E646CD00D1FD31 /* Default-568h@2x.png in Resources */,
@@ -1777,6 +1794,7 @@
 				F55302E017E646CD00D1FD31 /* Icon-72.png in Resources */,
 				BA3FEDF617FEA36100DD2E17 /* h4.jpg in Resources */,
 				BA991233180F0DD1001C5562 /* LICENSE_cocos2d.txt in Resources */,
+				BABF0816181777AF0014367F /* bubble2.png in Resources */,
 				F55302E217E646CD00D1FD31 /* Icon-Small-50.png in Resources */,
 				F55302E417E646CD00D1FD31 /* Icon-Small.png in Resources */,
 				BAB655E8180112BD0062BE70 /* FinalOne.jpg in Resources */,
@@ -1785,6 +1803,7 @@
 				BA3FEDD617FE893800DD2E17 /* Raycast.m4a in Resources */,
 				BA3FEDDC17FE986800DD2E17 /* grey.jpg in Resources */,
 				F55302E817E646CD00D1FD31 /* Icon.png in Resources */,
+				BABF081A18177DAB0014367F /* bubble4.png in Resources */,
 				F55302EA17E646CD00D1FD31 /* Icon@2x.png in Resources */,
 				BA3FEDFC17FEA36100DD2E17 /* move.caf in Resources */,
 				BA3FEDF717FEA36100DD2E17 /* h6.jpg in Resources */,
@@ -1810,6 +1829,7 @@
 				F54BA66A1802986400FCDA16 /* pause1.png in Resources */,
 				F54BA66B1802986400FCDA16 /* resume1.jpg in Resources */,
 				F53576DD181338500003E30F /* background.jpg in Resources */,
+				BABF081C18177F7F0014367F /* bubble5.png in Resources */,
 				F53576DE181338500003E30F /* grassTexture2.jpg in Resources */,
 				F53576DF181338500003E30F /* level.png in Resources */,
 				BA68E5501814B7D900F3F937 /* GameWonPng.png in Resources */,
@@ -1817,15 +1837,9 @@
 				BA68E5361814A9EF00F3F937 /* Play.png in Resources */,
 				F53576E518134C360003E30F /* levelscreen_final.jpg in Resources */,
 				BA68E53E1814AEDC00F3F937 /* NormalPlayer_40x40.png in Resources */,
-				BAD120AB1815E62D00705C1F /* backmusic.mp3 in Resources */,
 				F53576E618134C360003E30F /* POSTER_1.jpg in Resources */,
-				F515890F1815E2F6006E50B7 /* backmusic.mp3 in Resources */,
-				F5F5C6BA1820EFBB005CD95C /* bubble1.png in Resources */,
-				F5F5C6BB1820EFBB005CD95C /* bubble3.png in Resources */,
-				F5F5C6BC1820EFBB005CD95C /* bubble4.png in Resources */,
-				F5F5C6BD1820EFBB005CD95C /* bubble5.png in Resources */,
-				F5F5C6BE1820EFBB005CD95C /* bubble6.png in Resources */,
-				F5F5C6BF1820EFBB005CD95C /* funk.mp3 in Resources */,
+				F5F5C6C31820F47C005CD95C /* wall1.jpg in Resources */,
+				F5F5C6C81820FE23005CD95C /* tileMap3.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1951,6 +1965,8 @@
 				F553046E17E646CF00D1FD31 /* IntroLayer.m in Sources */,
 				F54BA66E18029D3B00FCDA16 /* GameStartLayer.m in Sources */,
 				F52F674D180E41250081074E /* LevelSelectLayer.m in Sources */,
+				F5F5C6C61820F4E6005CD95C /* HelloWorldLayer_Level2.m in Sources */,
+				F53F5F7A182703870044BBAC /* PlayerSelectLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

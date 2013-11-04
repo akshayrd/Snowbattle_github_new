@@ -3,9 +3,10 @@
 
 @interface GameOverLayer : CCLayerColor {
     CCLabelTTF *label2;
+    CCLabelTTF *label3;
 }
 
-+(CCScene *) sceneWithWon:(BOOL)won withscoreValue:(int)scoreValue;
-- (id)initWithWon:(BOOL)won withscoreValue:(int)scoreValue;
++(CCScene *) sceneWithWon:(BOOL)won withscoreValue:(int)scoreValue timeBonus:(int) timeRemaining;
+- (id)initWithWon:(BOOL)won withscoreValue:(int)scoreValue timeBonus:(int) timeRemaining;
 
 @end

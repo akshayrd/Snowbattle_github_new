@@ -21,37 +21,33 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "cocos2dsimplegame/HelloWorldLayer.m"
-         timestampString = "403916151.400858"
+         timestampString = "405212299.220912"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1143"
-         endingLineNumber = "1143"
-         landmarkName = "-dealloc"
-         landmarkType = "5">
+         startingLineNumber = "1196"
+         endingLineNumber = "1196">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "cocos2dsimplegame/HelloWorldLayer.m"
-         timestampString = "403916273.734701"
+         timestampString = "405212299.220912"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1139"
-         endingLineNumber = "1139"
-         landmarkName = "@implementation HelloWorldLayer"
-         landmarkType = "3">
+         startingLineNumber = "1192"
+         endingLineNumber = "1192">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "cocos2dsimplegame/HelloWorldLayer.m"
-         timestampString = "404087377.778084"
+         timestampString = "405212299.220912"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1357"
-         endingLineNumber = "1357">
+         startingLineNumber = "1410"
+         endingLineNumber = "1410">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
