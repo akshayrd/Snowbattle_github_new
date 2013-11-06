@@ -1,6 +1,7 @@
 #import "GameOverLayer.h"
 #import "HelloWorldLayer.h"
 #import "HelloWorldLayer_Level2.h"
+#import "ShopLayer.h"
 
 @implementation GameOverLayer
 
@@ -23,6 +24,7 @@
         bg.anchorPoint = ccp(0, 0);
         //[self addChild:bg z:0];
         
+        
         NSString * message;
         NSString * timeBonus;
         CGSize winSize = [[CCDirector sharedDirector] winSize];
@@ -34,6 +36,13 @@
             bg.position=ccp(winSize.width/2,winSize.height/2-300);
             bg.anchorPoint = ccp(0, 0);
             [self addChild:bg z:0];
+            label4 = [CCLabelTTF labelWithString:@"Shop Now" fontName:@"Marker Felt" fontSize:32];
+            label4.color = ccBLUE;
+            CCMenuItemLabel *next_level = [CCMenuItemLabel itemWithLabel:label4  target:self selector:@selector(shopNow)];
+            CCMenu *menu2= [CCMenu menuWithItems:next_level, nil];
+            menu2.position = ccp(winSize.width/2-200 , winSize.height/2-210);
+            [self addChild: menu2];
+
         } else {
             message = @"Game Over!";
             timeBonus = [NSString stringWithFormat:@"Time Bonus: %d", timeRemaining];
@@ -48,7 +57,6 @@
 
         //[self setColor:ccRED];
         CCLabelTTF * label = [CCLabelTTF labelWithString:message fontName:@"Chalkduster" fontSize:40];
-
         label.color = ccRED;
         //label.color = ccc3(0,0,0);
         label.position = ccp(winSize.width/2-200, winSize.height/2 + 140);
@@ -86,18 +94,23 @@
         CCMenu *menu= [CCMenu menuWithItems:back, nil];
         menu.position = ccp(winSize.width/2-200 , winSize.height/2-180);
         [self addChild: menu];
+        timeBonus1=timeRemaining;
 
     }
     return self;
 }
 
 -(void) restart {
-    [[CCDirector sharedDirector] replaceScene:[HelloWorldLayer scene]];
+    [[CCDirector sharedDirector] replaceScene:[HelloWorldLayer scene:YES]];
 }
 
 -(void) nextLevel {
     [[CCDirector sharedDirector]
-     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2]]];
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:1]]];
 }
 
+-(void) shopNow {
+    [[CCDirector sharedDirector]
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[ShopLayer scene3:timeBonus1]]];
+}
 @end

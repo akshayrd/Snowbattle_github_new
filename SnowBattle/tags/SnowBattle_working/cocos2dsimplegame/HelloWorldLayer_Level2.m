@@ -23,12 +23,12 @@
 
 @implementation HelloWorldLayer_Level2
 
-+(CCScene *) scene2:(BOOL)start{
++(CCScene *) scene2:(BOOL)start timeBonus:(int) timeRemaining{
     // 'scene' is an autorelease object.
     CCScene *scene2 = [CCScene node];
     
     // 'layer' is an autorelease object.
-    HelloWorldLayer_Level2 *layer = [[HelloWorldLayer_Level2 alloc] initWithPlayer:start];
+    HelloWorldLayer_Level2 *layer = [[HelloWorldLayer_Level2 alloc] initWithPlayer:start timeBonus:timeRemaining];
     
     // add layer as a child to scene
     [scene2 addChild: layer];
@@ -39,7 +39,7 @@
 
 // on "init" you need to initialize your instance
 
--(id) initWithPlayer:(BOOL)player1
+-(id) initWithPlayer:(BOOL)player1 timeBonus:(int) timeRemaining
 
 {
     if( (self=[super init]) ) {
@@ -75,7 +75,12 @@
         }
         
         [self addChild: _tileMap];
-        CGSize winSize = [CCDirector sharedDirector].winSize;
+        
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Bonus Score: %d", timeRemaining] fontName:@"Verdana-Bold" fontSize:21.0];
+        label.color = ccc3(0,0,0);
+        label.position = ccp(200 , 36);
+        [self addChild: label];
         
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
         if(player1==true)
