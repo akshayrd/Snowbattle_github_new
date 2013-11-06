@@ -54,6 +54,6 @@
     
 }
 
-+(CCScene *) scene2:(BOOL)start;
++(CCScene *) scene2:(BOOL)start timeBonus:(int)timeRemaining;
 
 @end

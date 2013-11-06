@@ -186,12 +186,61 @@
         
         [self addChild:timeLabelBlue];
         
-      
+      [self schedule:@selector(LevelTimer:)];
         
     }
     return self;
     
 }
+
+int livePowerEnabled1 = 0;
+
+-(void)LevelTimer:(ccTime)dt{
+    totalTime += dt;
+    currentTime = (int)totalTime;
+    if (myTime < currentTime)
+    {
+        myTime = currentTime;
+        [timeLabel setString:[NSString stringWithFormat:@"%02d:%02d", (levelTimeLimit - myTime)/60, (levelTimeLimit-myTime)%60]];
+    }
+    
+    if (myTime == 15 && livePowerEnabled1 == 0) {
+        livePowerEnabled1 = 1;
+        //[self addChild:life];
+        
+        //powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
+        //[_tileMap addChild:powerLivesLayer];
+        powerLivesLayer.visible = TRUE;
+    }
+    if (myTime == 40) {
+        CCBlink* blink1 = [CCBlink actionWithDuration:5 blinks:20];
+        [powerLivesLayer runAction:blink1];
+    }
+    if (myTime == 45) {
+        livePowerEnabled1 = 0;
+        powerLivesLayer.visible = FALSE;
+    }
+    
+    if(myTime==levelTimeLimit-30)
+    {
+        CCFadeTo *fadeIn = [CCFadeTo actionWithDuration:0.25 opacity:0];
+        CCFadeTo *fadeOut = [CCFadeTo actionWithDuration:0.75 opacity:255];
+        CCSequence *pulseSequence = [CCSequence actionOne:fadeIn two:fadeOut];
+        CCRepeatForever *repeat = [CCRepeatForever actionWithAction:pulseSequence];
+        [timeLabel runAction:repeat];
+        timeLabel.color=ccBLUE;
+        
+    }
+    
+    if (levelTimeLimit < myTime)
+    {
+        CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:0];
+        
+        [[CCDirector sharedDirector] replaceScene:gameOverScene];
+    }
+    
+}
+
 
 -(void) spawnPlayer
 

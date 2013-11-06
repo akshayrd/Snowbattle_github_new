@@ -23,12 +23,12 @@
 
 @implementation HelloWorldLayer_Level2
 
-+(CCScene *) scene2:(BOOL)start{
++(CCScene *) scene2:(BOOL)start timeBonus:(int) timeRemaining{
     // 'scene' is an autorelease object.
     CCScene *scene2 = [CCScene node];
     
     // 'layer' is an autorelease object.
-    HelloWorldLayer_Level2 *layer = [[HelloWorldLayer_Level2 alloc] initWithPlayer:start];
+    HelloWorldLayer_Level2 *layer = [[HelloWorldLayer_Level2 alloc] initWithPlayer:start timeBonus:timeRemaining];
     
     // add layer as a child to scene
     [scene2 addChild: layer];
@@ -39,7 +39,7 @@
 
 // on "init" you need to initialize your instance
 
--(id) initWithPlayer:(BOOL)player1
+-(id) initWithPlayer:(BOOL)player1 timeBonus:(int) timeRemaining
 
 {
     if( (self=[super init]) ) {
@@ -75,7 +75,12 @@
         }
         
         [self addChild: _tileMap];
-        CGSize winSize = [CCDirector sharedDirector].winSize;
+        
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Bonus Score: %d", timeRemaining] fontName:@"Verdana-Bold" fontSize:21.0];
+        label.color = ccc3(0,0,0);
+        label.position = ccp(200 , 36);
+        [self addChild: label];
         
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
         if(player1==true)
@@ -181,12 +186,61 @@
         
         [self addChild:timeLabelBlue];
         
-      
+      [self schedule:@selector(LevelTimer:)];
         
     }
     return self;
     
 }
+
+int livePowerEnabled1 = 0;
+
+-(void)LevelTimer:(ccTime)dt{
+    totalTime += dt;
+    currentTime = (int)totalTime;
+    if (myTime < currentTime)
+    {
+        myTime = currentTime;
+        [timeLabel setString:[NSString stringWithFormat:@"%02d:%02d", (levelTimeLimit - myTime)/60, (levelTimeLimit-myTime)%60]];
+    }
+    
+    if (myTime == 15 && livePowerEnabled1 == 0) {
+        livePowerEnabled1 = 1;
+        //[self addChild:life];
+        
+        //powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
+        //[_tileMap addChild:powerLivesLayer];
+        powerLivesLayer.visible = TRUE;
+    }
+    if (myTime == 40) {
+        CCBlink* blink1 = [CCBlink actionWithDuration:5 blinks:20];
+        [powerLivesLayer runAction:blink1];
+    }
+    if (myTime == 45) {
+        livePowerEnabled1 = 0;
+        powerLivesLayer.visible = FALSE;
+    }
+    
+    if(myTime==levelTimeLimit-30)
+    {
+        CCFadeTo *fadeIn = [CCFadeTo actionWithDuration:0.25 opacity:0];
+        CCFadeTo *fadeOut = [CCFadeTo actionWithDuration:0.75 opacity:255];
+        CCSequence *pulseSequence = [CCSequence actionOne:fadeIn two:fadeOut];
+        CCRepeatForever *repeat = [CCRepeatForever actionWithAction:pulseSequence];
+        [timeLabel runAction:repeat];
+        timeLabel.color=ccBLUE;
+        
+    }
+    
+    if (levelTimeLimit < myTime)
+    {
+        CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:0];
+        
+        [[CCDirector sharedDirector] replaceScene:gameOverScene];
+    }
+    
+}
+
 
 -(void) spawnPlayer
 

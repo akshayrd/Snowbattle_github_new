@@ -800,7 +800,7 @@ int playerDirection = 1;
         
         playerDirection = 1;
         //winScore = 188;
-        winScore = 10;
+        winScore = 20;
         totalLives = 2;
         //        totalLives = 1;
         lifeCount = 2;

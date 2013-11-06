@@ -27,10 +27,9 @@
         bg.anchorPoint = ccp(0, 0);
         [self addChild:bg z:0];*/
         
-        
-        
+        [CCMenuItemFont setFontName:@"Chalkduster"];
+        [CCMenuItemFont setFontSize:38];
         player1 = false;
-        
         menuItem1 = [CCMenuItemImage itemFromNormalImage:@"HyperPlayer_40x40.png"
                                                             selectedImage:@"HyperPlayer_40x40.png"
                                                                    target:self selector:@selector(changePlayerImage1:)];
@@ -50,8 +49,6 @@
         [menu1 alignItemsVerticallyWithPadding:15];
         [self addChild:menu1];
         
-        [CCMenuItemFont setFontName:@"Chalkduster"];
-        [CCMenuItemFont setFontSize:38];        
         CCMenuItemFont *selectPlayer = [CCMenuItemFont itemFromString:@"SELECT PLAYER"
                                                           target:self
                                                         selector:@selector(startGame:)];

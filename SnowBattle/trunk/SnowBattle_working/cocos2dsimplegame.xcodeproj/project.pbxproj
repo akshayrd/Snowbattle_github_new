@@ -40,6 +40,8 @@
 		BA68E54F1814B7D900F3F937 /* GameLostPng.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E5411814B7D900F3F937 /* GameLostPng.png */; };
 		BA68E5501814B7D900F3F937 /* GameWonPng.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E5421814B7D900F3F937 /* GameWonPng.png */; };
 		BA68E5581814B7D900F3F937 /* shoveling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA68E54E1814B7D900F3F937 /* shoveling.mp3 */; };
+		BA7C53DF182A136E009BA09F /* ShopLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7C53DE182A136E009BA09F /* ShopLayer.m */; };
+		BA7C53E1182A1BC1009BA09F /* shop1.png in Resources */ = {isa = PBXBuildFile; fileRef = BA7C53E0182A1BC1009BA09F /* shop1.png */; };
 		BA9911CD180F0DD1001C5562 /* CCActionPageTurn3D.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9910D2180F0DD1001C5562 /* CCActionPageTurn3D.m */; };
 		BA9911CF180F0DD1001C5562 /* CCActionTiledGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9910D6180F0DD1001C5562 /* CCActionTiledGrid.m */; };
 		BA9911D3180F0DD1001C5562 /* CCAtlasNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9910DE180F0DD1001C5562 /* CCAtlasNode.m */; };
@@ -253,6 +255,9 @@
 		BA68E5411814B7D900F3F937 /* GameLostPng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GameLostPng.png; path = Resources/GameLostPng.png; sourceTree = "<group>"; };
 		BA68E5421814B7D900F3F937 /* GameWonPng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GameWonPng.png; path = Resources/GameWonPng.png; sourceTree = "<group>"; };
 		BA68E54E1814B7D900F3F937 /* shoveling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = shoveling.mp3; path = Resources/shoveling.mp3; sourceTree = "<group>"; };
+		BA7C53DD182A136E009BA09F /* ShopLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopLayer.h; sourceTree = "<group>"; };
+		BA7C53DE182A136E009BA09F /* ShopLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopLayer.m; sourceTree = "<group>"; };
+		BA7C53E0182A1BC1009BA09F /* shop1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shop1.png; sourceTree = "<group>"; };
 		BA9910BF180F0DD0001C5562 /* CCAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAction.h; sourceTree = "<group>"; };
 		BA9910C0180F0DD0001C5562 /* CCAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAction.m; sourceTree = "<group>"; };
 		BA9910C1180F0DD0001C5562 /* CCActionCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCActionCamera.h; sourceTree = "<group>"; };
@@ -1248,6 +1253,8 @@
 		F55302D517E646CD00D1FD31 /* cocos2dsimplegame */ = {
 			isa = PBXGroup;
 			children = (
+				BA7C53DD182A136E009BA09F /* ShopLayer.h */,
+				BA7C53DE182A136E009BA09F /* ShopLayer.m */,
 				F53F5F78182703870044BBAC /* PlayerSelectLayer.h */,
 				F53F5F79182703870044BBAC /* PlayerSelectLayer.m */,
 				F5F5C6C51820F4E6005CD95C /* HelloWorldLayer_Level2.m */,
@@ -1275,6 +1282,7 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA7C53E0182A1BC1009BA09F /* shop1.png */,
 				F5F5C6C71820FE23005CD95C /* tileMap3.tmx */,
 				F5F5C6C21820F47C005CD95C /* wall1.jpg */,
 				BABF081D181780240014367F /* bubble6.png */,
@@ -1837,6 +1845,7 @@
 				BA68E5361814A9EF00F3F937 /* Play.png in Resources */,
 				F53576E518134C360003E30F /* levelscreen_final.jpg in Resources */,
 				BA68E53E1814AEDC00F3F937 /* NormalPlayer_40x40.png in Resources */,
+				BA7C53E1182A1BC1009BA09F /* shop1.png in Resources */,
 				F53576E618134C360003E30F /* POSTER_1.jpg in Resources */,
 				F5F5C6C31820F47C005CD95C /* wall1.jpg in Resources */,
 				F5F5C6C81820FE23005CD95C /* tileMap3.tmx in Resources */,
@@ -1859,6 +1868,7 @@
 				BA9911CD180F0DD1001C5562 /* CCActionPageTurn3D.m in Sources */,
 				BA99121C180F0DD1001C5562 /* ZipUtils.m in Sources */,
 				F55302F517E646CD00D1FD31 /* CCActionCamera.m in Sources */,
+				BA7C53DF182A136E009BA09F /* ShopLayer.m in Sources */,
 				F55302F817E646CD00D1FD31 /* CCActionCatmullRom.m in Sources */,
 				F55302FB17E646CD00D1FD31 /* CCActionEase.m in Sources */,
 				BA991219180F0DD1001C5562 /* NSThread+performBlock.m in Sources */,
