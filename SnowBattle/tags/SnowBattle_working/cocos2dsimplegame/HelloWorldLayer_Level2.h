@@ -50,7 +50,8 @@
     
     int playerDirection ;
     
-    
+    int collideTime;
+    int immuneDuration;
     CCLabelTTF *timeLabelBlue;
     
 }
