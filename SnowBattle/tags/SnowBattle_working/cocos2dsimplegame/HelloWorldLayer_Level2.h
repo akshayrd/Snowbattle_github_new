@@ -1,15 +1,10 @@
-//
-//  HelloWorldLayer_Level2.h
-//  cocos2dsimplegame
-//
-//  Created by Student on 10/30/13.
-//  Copyright 2013 gpadmin. All rights reserved.
-//
-
+#pragma once
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "HudLayer.h"
 
-@interface HelloWorldLayer_Level2 : CCNode {
+
+@interface HelloWorldLayer_Level2 : CCLayer {
     CCTMXTiledMap *_tileMap;
     CCTMXLayer *bgLayer;
     CCTMXLayer *snow;
@@ -33,6 +28,7 @@
     CCMenu *pauseResumeMenu;
     
     CCMenu *life;
+    HudLayer *hud;
     
     
     // Level timer
@@ -51,6 +47,9 @@
     int currentTimeBlue;
     CCMenuItemImage* shopPowerUp1;
     CCMenuItemImage* shopPowerUp2;
+    
+    int playerDirection ;
+    
     
     CCLabelTTF *timeLabelBlue;
     

@@ -70,14 +70,14 @@
  <tileset firstgid="325" name="HandGernade_45x45" tilewidth="45" tileheight="45">
   <image source="HandGernade_45x45.png" width="45" height="45"/>
  </tileset>
+ <layer name="Street" width="21" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzt06kOgDAQRdEpi2MAx1LH5tj+/+e4kpAq2hASEMfcjHsZIyIRYiRIYTxbBkWOAmWAVqFGgxY2QOvQY8CIKUCbsWDFhv3S1NFcd+fmu8fXNlLPje60f6Nn/+gtGx0jNB6o
+  </data>
+ </layer>
  <layer name="Building" width="21" height="16">
   <data encoding="base64" compression="zlib">
    eJxjYBg8oB6IG6isvhGIm0gwkxj1MHsJ2Y+uDp96mL2E7EdXh089qeFJDCA1PIcTIDY8yYl3QoCceCfVvaTYTwiQko+oCeidPgFzjCAh
-  </data>
- </layer>
- <layer name="DarkBlueTiles" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYKANmIaECakjVj8x5hFSh81MSswjxRxyzCXHzFFAPUCL8KR2vJNqHrFqCZlLat4kxjxsZlKzDKE2AADiQRid
   </data>
  </layer>
  <layer name="Border" width="21" height="16">
@@ -87,7 +87,12 @@
  </layer>
  <layer name="Snow" width="21" height="16">
   <data encoding="base64" compression="zlib">
-   eJy9klEKACAIQ3fvLt+/zE0FHQiS41kmsK8nAiFHyBUv4zNOrCme68N8FZ7iTnuzemc+3dhgdntdMifzzFTZzwnTedm581b2M7tP9i7nUZr80YU+KV5K9Q==
+   eJy9klEKADAIQr33Lr//SC1hE4IgeW0V8F5HBEqOkise43ecWlM816fzTXiKm/bu6pv5bMMxU+6m109mMk+myX0mTOdVO2LeyX2y97B/OY9SsqMfur/wSno=
+  </data>
+ </layer>
+ <layer name="DarkBlueTiles" width="21" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYKANaEbChNQRq58Y8wipw2YmJeaRYg455pJj5iigHqBFeFI73kk1j1i1hMwlNW8SYx42M6lZhlAbAADLYRV/
   </data>
  </layer>
  <layer name="power_blue" width="21" height="16">

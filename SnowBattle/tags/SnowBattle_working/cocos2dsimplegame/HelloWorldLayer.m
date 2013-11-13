@@ -5,37 +5,8 @@
 #import "GameStartLayer.h"
 #import "LevelSelectLayer.h"
 
-@implementation HudLayer
-{
-    CCLabelTTF *_label;
-    CCLabelTTF *_livesLabel;
-}
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        CGSize winSize = [[CCDirector sharedDirector] winSize];
-        _label = [CCLabelTTF labelWithString:@"Score : 0" fontName:@"Verdana-Bold" fontSize:18.0];
-        _label.color = ccc3(0,0,0);
-        int margin = 10;
-        _label.position = ccp(winSize.width/2 - (_label.contentSize.width/2) + 30, _label.contentSize.height/2 + margin);
-        _livesLabel = [CCLabelTTF labelWithString:@"Lives" fontName:@"Verdana-Bold" fontSize:18.0];
-        _livesLabel.color = ccc3(0,0,0);
-        //_livesLabel.position = ccp(winSize.width - (_livesLabel.contentSize.width/2) - 480, _livesLabel.contentSize.height/2 + margin);
-        _livesLabel.position = ccp(20, winSize.height/2 - 20);
-        [self addChild:_label];
-        //[self addChild:_livesLabel];
-    }
-    return self;
-    
-}
 
--(void)numCollectedChanged:(int)numCollected
-{
-    _label.string = [NSString stringWithFormat:@"Score : %d", numCollected];
-}
-@end
 
 @interface HelloWorldLayer ()
 @property (assign) int numCollected;
@@ -631,9 +602,6 @@ int playerDirection = 1;
                     //[self removeChild: PowerLabel];
                     //[self removeChild:timeLabelBlue];
                     
-                    
-                    
-                    
                 }
                 
                 [hud numCollectedChanged:_numCollected];
@@ -709,16 +677,15 @@ int playerDirection = 1;
     
     [CCMenuItemFont setFontSize:50];
     
-    
-    CCMenuItemFont *resumeGame = [CCMenuItemFont itemFromString:@"Resume Game"
+    CCMenuItemFont *resumeGame = [CCMenuItemFont itemFromString:@"Resume"
                                                          target:self
                                                        selector:@selector(ResumeGame:)];
     [resumeGame setColor:ccBLUE];
-    CCMenuItemFont *restartGame = [CCMenuItemFont itemFromString:@"Restart"
+    CCMenuItemFont *restartGame = [CCMenuItemFont itemFromString:@"Restart Level"
                                                           target:self
                                                         selector:@selector(RestartGame:)];
     [restartGame setColor:ccBLUE];
-    CCMenuItemFont *menuGame = [CCMenuItemFont itemFromString:@"Menu"
+    CCMenuItemFont *menuGame = [CCMenuItemFont itemFromString:@"Select Level"
                                                        target:self
                                                      selector:@selector(MenuGame:)];
     [menuGame setColor:ccBLUE];
@@ -756,7 +723,12 @@ int playerDirection = 1;
     
     [[CCDirector sharedDirector] startAnimation];
     
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameStartLayer firstScene:YES]]];
+	//[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameStartLayer firstScene:YES]]];
+    
+    [[CCDirector sharedDirector]
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer scene:NO]]];
+    //[[CCDirector sharedDirector]
+//replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:player1Select timeBonus:0 powerup1:false powerup2:false]]];
 }
 
 
@@ -799,8 +771,8 @@ int playerDirection = 1;
         //powerLivesLayer = NULL;
         
         playerDirection = 1;
-        //winScore = 188;
-        winScore = 20;
+        winScore = 188;
+        //winScore = 20;
         totalLives = 2;
         //        totalLives = 1;
         lifeCount = 2;
@@ -893,7 +865,7 @@ int playerDirection = 1;
         
         PowerLabel = [CCSprite spriteWithFile:@"powerup12.png"];
         
-        //PowerLabel.position = ccp(, winSize.height/2-65);
+        
         PowerLabel.position =ccp(120 + timeLabelBlue.contentSize.width, timeLabelBlue.contentSize.height/2 + 27);
         PowerLabel.visible = FALSE;
         [self addChild:PowerLabel];
