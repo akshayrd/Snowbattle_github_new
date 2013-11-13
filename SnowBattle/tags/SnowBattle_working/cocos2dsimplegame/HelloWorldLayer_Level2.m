@@ -23,12 +23,12 @@
 
 @implementation HelloWorldLayer_Level2
 
-+(CCScene *) scene2:(BOOL)start timeBonus:(int) timeRemaining{
++(CCScene *) scene2:(BOOL)start timeBonus:(int) timeRemaining powerup1:(Boolean)powerup1Check powerup2:(Boolean)powerup2Check{
     // 'scene' is an autorelease object.
     CCScene *scene2 = [CCScene node];
     
     // 'layer' is an autorelease object.
-    HelloWorldLayer_Level2 *layer = [[HelloWorldLayer_Level2 alloc] initWithPlayer:start timeBonus:timeRemaining];
+    HelloWorldLayer_Level2 *layer = [[HelloWorldLayer_Level2 alloc] initWithPlayer:start timeBonus:timeRemaining powerup1:powerup1Check powerup2:powerup2Check];
     
     // add layer as a child to scene
     [scene2 addChild: layer];
@@ -39,7 +39,7 @@
 
 // on "init" you need to initialize your instance
 
--(id) initWithPlayer:(BOOL)player1 timeBonus:(int) timeRemaining
+-(id) initWithPlayer:(BOOL)player1 timeBonus:(int) timeRemaining powerup1:(Boolean)powerup1Check powerup2:(Boolean)powerup2Check
 
 {
     if( (self=[super init]) ) {
@@ -124,6 +124,23 @@
         starMenu.position = CGPointZero;
         [self addChild:starMenu];
 
+        NSLog(@"booleans : %d and %d: ",powerup1Check,powerup2Check);
+        if(powerup1Check==true)
+        {
+            NSLog(@"Powerup1 %d: ",powerup1Check);
+            shopPowerUp1 = [CCMenuItemImage itemFromNormalImage:@"life.png" selectedImage:@"life.png" target:self selector:Nil];
+            shopPowerUp1.position = ccp(22, 600-7*40);
+            shopPowerUp1.visible = true;
+            [self addChild:shopPowerUp1];
+        }
+        if(powerup2Check==true)
+        {
+            NSLog(@"Powerup2 %d: ",powerup1Check);
+            shopPowerUp2 = [CCMenuItemImage itemFromNormalImage:@"powerup12.png" selectedImage:@"powerup12.png" target:self selector:Nil];
+            shopPowerUp2.position = ccp(22, 600-9*40);
+            shopPowerUp2.visible = true;
+            [self addChild:shopPowerUp2];
+        }
         
         for (int i=0; i<5; i++) {
             lifeItem[i] = [CCMenuItemImage itemFromNormalImage:@"life.png" selectedImage:@"life.png" target:self selector:Nil];

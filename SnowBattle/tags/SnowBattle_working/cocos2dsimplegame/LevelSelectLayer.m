@@ -80,7 +80,7 @@
 -(void) startGameLevel2:(id) sender{
     NSLog(@"222Heree");
     [[CCDirector sharedDirector]
-     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:player1Select timeBonus:0]]];
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:player1Select timeBonus:0 powerup1:false powerup2:false]]];
 
 }
 

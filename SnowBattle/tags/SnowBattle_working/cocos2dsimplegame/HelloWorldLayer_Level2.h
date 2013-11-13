@@ -49,11 +49,13 @@
     int myTimeBlue;
     int powerLiveTimeLimit;
     int currentTimeBlue;
+    CCMenuItemImage* shopPowerUp1;
+    CCMenuItemImage* shopPowerUp2;
     
     CCLabelTTF *timeLabelBlue;
     
 }
 
-+(CCScene *) scene2:(BOOL)start timeBonus:(int)timeRemaining;
++(CCScene *) scene2:(BOOL)start timeBonus:(int)timeRemaining powerup1:(Boolean)s1 powerup2:(Boolean)s2;
 
 @end

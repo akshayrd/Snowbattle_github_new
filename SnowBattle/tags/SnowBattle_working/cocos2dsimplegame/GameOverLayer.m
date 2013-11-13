@@ -94,7 +94,7 @@
         CCMenu *menu= [CCMenu menuWithItems:back, nil];
         menu.position = ccp(winSize.width/2-200 , winSize.height/2-180);
         [self addChild: menu];
-        timeBonus1=timeRemaining;
+        timeBonus1=timeRemaining+scoreValue;
 
     }
     return self;
@@ -106,7 +106,7 @@
 
 -(void) nextLevel {
     [[CCDirector sharedDirector]
-     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:1]]];
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:1 powerup1:false powerup2:false]]];
 }
 
 -(void) shopNow {
