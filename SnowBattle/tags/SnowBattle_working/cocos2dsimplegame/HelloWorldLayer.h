@@ -1,12 +1,10 @@
+#pragma once
 #import <GameKit/GameKit.h>
 #import "AppDelegate.h"
 
 #import "cocos2d.h"
+#import "HudLayer.h"
 
-
-@interface HudLayer : CCLayer
-- (void)numCollectedChanged:(int)numCollected;
-@end
 
 
 @interface HelloWorldLayer : CCLayer

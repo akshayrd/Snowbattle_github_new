@@ -19,7 +19,6 @@
 @end
 
 #pragma mark - HelloWorldLayer_Level2
-// HelloWorldLayer implementation
 
 @implementation HelloWorldLayer_Level2
 
@@ -33,8 +32,299 @@
     // add layer as a child to scene
     [scene2 addChild: layer];
     
+    
+    HudLayer *hud = [HudLayer node];
+    [scene2 addChild:hud];
+    layer->hud = hud;
+    
     return scene2;
     
+}
+
+
+#pragma mark - handle touches
+
+-(void)registerWithTouchDispatcher
+{
+    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self
+                                                              priority:0
+                                                       swallowsTouches:YES];
+}
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    return YES;
+}
+
+
+
+
+
+
+-(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+
+{
+    
+    CGPoint touchLocation = [touch locationInView:touch.view];
+    
+    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+    
+    touchLocation = [self convertToNodeSpace:touchLocation];
+    
+    CGPoint playerPos = player.position;
+    
+    CGPoint diff = ccpSub(touchLocation, playerPos);
+    
+    if ( abs(diff.x) > abs(diff.y) ) {
+        if (diff.x > 0) {
+            playerPos.x += _tileMap.tileSize.width;
+            //player.flipX = YES;
+            if (playerDirection != 2) {
+                if ( playerDirection==1)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:90];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                if ( playerDirection==3)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:-90];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                if ( playerDirection==4)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:180];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                playerDirection = 2;
+                
+            }
+            
+        } else {
+            
+            if (playerDirection != 4) {
+                if ( playerDirection==1)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:-90];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                if ( playerDirection==3)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:90];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                if ( playerDirection==2)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:180];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                playerDirection = 4;
+                
+            }
+            
+            playerPos.x -= _tileMap.tileSize.width;
+        }
+        
+    } else {
+        if (diff.y > 0) {
+            if (playerDirection != 1) {
+                if ( playerDirection==2)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:-90];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                if ( playerDirection==3)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:180];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                if ( playerDirection==4)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:90];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                playerDirection = 1;
+                
+            }
+            
+            playerPos.y += _tileMap.tileSize.height;
+        } else {
+            if (playerDirection != 3) {
+                if ( playerDirection==1)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:180];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                if ( playerDirection==2)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:90];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                if ( playerDirection==4)
+                {
+                    id actionRotate = [CCRotateBy actionWithDuration:1/10 angle:-90];
+                    [player runAction: [CCSequence actions: actionRotate,nil]];
+                }
+                playerDirection = 3;
+            }
+            playerPos.y -= _tileMap.tileSize.height;
+        }
+    }
+    
+    // safety check on the bounds of the map
+    if (playerPos.x <= (_tileMap.mapSize.width * _tileMap.tileSize.width) &&
+        playerPos.y <= (_tileMap.mapSize.height * _tileMap.tileSize.height) &&
+        playerPos.y >= 0 &&
+        playerPos.x >= 0 )
+    {
+        [self setPlayerPosition:playerPos];
+        
+        
+    }
+    //[self setViewPointCenter:player.position];
+}
+
+//int livePowerEnabled = 0;
+CCSprite* PowerLabel;
+
+-(void)setPlayerPosition:(CGPoint)position {
+    CGPoint tileCoord = [self tileCoordForPosition:position];
+    int tileGid = [building tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collision = properties[@"Collidable"];
+            if (collision && [collision isEqualToString:@"True"]) {
+                return;
+            }
+            
+        }
+        
+    }
+    
+    tileCoord = [self tileCoordForPosition:position];
+    tileGid = [border tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collision = properties[@"Collidable"];
+            if (collision && [collision isEqualToString:@"True"]) {
+                return;
+            }
+        }
+    }
+    tileGid = [snow tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collectible = properties[@"Collectable"];
+            if (collectible && [collectible isEqualToString:@"True"]) {
+                [snow removeTileAt:tileCoord];
+                _numCollected++;
+                [hud numCollectedChanged:_numCollected];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"shoveling.mp3"];
+                
+                if (_numCollected > winScore) {
+                    
+                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES
+                                                          withscoreValue:_numCollected timeBonus:levelTimeLimit-myTime];
+                    [[CCDirector sharedDirector] replaceScene:gameOverScene];
+                    
+                }
+            }
+        }
+    }
+    
+    tileGid = [powerBlueLayer tileGIDAt:tileCoord];
+    if (tileGid) {
+        
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collision = properties[@"Power_blue"];
+            if (collision && [collision isEqualToString:@"True"]) {
+                [powerBlueLayer removeTileAt:tileCoord];
+                powerBlue = 1;
+                [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
+                [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"HyperPlayer_40x40.png"]];
+                bubble.visible = TRUE;
+                
+                [self schedule:@selector(MakeBubbleInvisible ) interval:3 repeat:1 delay:7];
+                //[self newLocalScore];
+            }
+        }
+    }
+    
+    tileGid = [powerLivesLayer tileGIDAt:tileCoord];
+    if (tileGid && livePowerEnabled1 == 1) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collision = properties[@"lives"];
+            if (collision && [collision isEqualToString:@"True"]) {
+                [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
+                [powerLivesLayer removeTileAt:tileCoord];
+                if (lifeCount<4)
+                    lifeCount++;
+                lifeItem[lifeCount].visible = true;
+                
+            }
+        }
+    }
+    
+    tileGid = [darkBlue tileGIDAt:tileCoord];
+    
+    if (tileGid) {
+        
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        
+        if (properties) {
+            
+            NSString *collectible = properties[@"collectible2x"];
+            
+            if(powerBlue!=1)
+            {
+                bubble3.visible=TRUE;
+                [self schedule:@selector(removeBubble3) interval:3 repeat:1 delay:5];
+            }
+            
+            if (collectible && [collectible isEqualToString:@"True"] && powerBlue == 1) {
+                
+                [darkBlue removeTileAt:tileCoord];
+                
+                _numCollected++;
+                darkBlueCount++;
+                if(darkBlueCount == 42)
+                {
+                    //[player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"FinalTwo_51x51x.png"]];
+                    [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"NormalPlayer_40x40.png"]];
+                    powerBlue = 0;
+                    PowerLabel.visible=FALSE;
+                    timeLabelBlue.visible=FALSE;
+                    //[self removeChild: PowerLabel];
+                    //[self removeChild:timeLabelBlue];
+                    
+                }
+                
+                [hud numCollectedChanged:_numCollected];
+                
+                [[SimpleAudioEngine sharedEngine] playEffect:@"shoveling.mp3"];
+                
+                if (_numCollected > winScore) {
+                    
+                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:_numCollected timeBonus:levelTimeLimit-myTime];
+                    
+                    [[CCDirector sharedDirector] replaceScene:gameOverScene];
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    [[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
+    
+    player.position = position;
 }
 
 // on "init" you need to initialize your instance
@@ -44,7 +334,7 @@
 {
     if( (self=[super init]) ) {
         //[self setTouchEnabled:YES];
-        //self.isTouchEnabled = YES;
+        self.isTouchEnabled = YES;
         count = 90;
         darkBlueCount = 0;
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"funk.mp3"];
@@ -57,11 +347,14 @@
         powerBlueLayer = [_tileMap layerNamed:@"power_blue"];
         powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
         powerLivesLayer.visible = FALSE;
+        
+        playerDirection = 1;
+        
         //[_tileMap removeChild:powerLivesLayer];
         //powerLivesLayer = NULL;
         
-       // playerDirection = 1;
-        winScore = 188;
+        //playerDirection = 1;
+        winScore = 197;
         //winScore = 10;
         totalLives = 2;
         //        totalLives = 1;
@@ -96,6 +389,8 @@
             printf("this is an error");
         }
         [self addChild:player];
+        
+        
         /*monster1 = [CCSprite spriteWithFile:@"bug_51x51.png"];
         monster1.position = ccp(winSize.width/3+35, winSize.height/2+90);
         [self addChild:monster1];
@@ -175,17 +470,16 @@
         timeLabelBlue.color = ccBLACK;
         // Add the time label
         timeLabelBlue.visible = FALSE;
-        /*collideTime = 0;
+        /*collideTime = 0;*/
         
         PowerLabel = [CCSprite spriteWithFile:@"powerup12.png"];
         
-        //PowerLabel.position = ccp(, winSize.height/2-65);
         PowerLabel.position =ccp(120 + timeLabelBlue.contentSize.width, timeLabelBlue.contentSize.height/2 + 27);
         PowerLabel.visible = FALSE;
-        [self addChild:PowerLabel];*/
+        [self addChild:PowerLabel];
         
         bubble = [CCSprite spriteWithFile:@"bubble4.png"];
-        bubble.position = ccp(winSize.width - 420 , winSize.height - 380);
+        bubble.position = ccp(winSize.width - 420 , winSize.height - 340);
         [self addChild:bubble];
         bubble.visible = FALSE;
         
@@ -197,7 +491,7 @@
         [self schedule:@selector(removeBubble2) interval:3 repeat:1 delay:5];
         
         bubble3 = [CCSprite spriteWithFile:@"bubble6.png"];
-        bubble3.position = ccp(winSize.width - 420 , winSize.height - 380);
+        bubble3.position = ccp(winSize.width - 600 , winSize.height - 180);
         [self addChild:bubble3];
         bubble3.visible = FALSE;
         
@@ -208,6 +502,10 @@
     }
     return self;
     
+}
+-(void) MakeBubbleInvisible
+{
+    bubble.visible = FALSE;
 }
 
 int livePowerEnabled1 = 0;
@@ -306,15 +604,15 @@ int livePowerEnabled1 = 0;
     [CCMenuItemFont setFontSize:50];
     
     
-    CCMenuItemFont *resumeGame = [CCMenuItemFont itemFromString:@"Resume Game"
+    CCMenuItemFont *resumeGame = [CCMenuItemFont itemFromString:@"Resume"
                                                          target:self
                                                        selector:@selector(ResumeGame:)];
     [resumeGame setColor:ccBLUE];
-    CCMenuItemFont *restartGame = [CCMenuItemFont itemFromString:@"Restart"
+    CCMenuItemFont *restartGame = [CCMenuItemFont itemFromString:@"Restart Level"
                                                           target:self
                                                         selector:@selector(RestartGame:)];
     [restartGame setColor:ccBLUE];
-    CCMenuItemFont *menuGame = [CCMenuItemFont itemFromString:@"Menu"
+    CCMenuItemFont *menuGame = [CCMenuItemFont itemFromString:@"Select Level"
                                                        target:self
                                                      selector:@selector(MenuGame:)];
     [menuGame setColor:ccBLUE];
@@ -352,7 +650,9 @@ int livePowerEnabled1 = 0;
     
     [[CCDirector sharedDirector] startAnimation];
     
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameStartLayer firstScene:YES]]];
+	//[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameStartLayer firstScene:YES]]];
+    [[CCDirector sharedDirector]
+    replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:NO timeBonus:0 powerup1:false powerup2:false]]];
 }
 
 
