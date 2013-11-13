@@ -64,7 +64,7 @@
         [menu alignItemsVerticallyWithPadding:15];
         [self addChild:menu];
         
-        CCMenuItemFont *lifePower = [CCMenuItemFont itemFromString:@"40 $"
+        CCMenuItemFont *lifePower = [CCMenuItemFont itemFromString:@"$ 40"
                                                                target:self
                                                              selector:@selector(startGame:)];
         lifePower.color=ccORANGE;
@@ -82,7 +82,7 @@
         [menu1 alignItemsVerticallyWithPadding:15];
         [self addChild:menu1];
         
-        CCMenuItemFont *bluePower = [CCMenuItemFont itemFromString:@"55 $"
+        CCMenuItemFont *bluePower = [CCMenuItemFont itemFromString:@"$ 55"
                                                             target:self
                                                           selector:@selector(startGame:)];
         bluePower.color=ccORANGE;

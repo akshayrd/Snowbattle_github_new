@@ -42,6 +42,8 @@
 		BA68E5581814B7D900F3F937 /* shoveling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA68E54E1814B7D900F3F937 /* shoveling.mp3 */; };
 		BA7C53DF182A136E009BA09F /* ShopLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7C53DE182A136E009BA09F /* ShopLayer.m */; };
 		BA7C53E1182A1BC1009BA09F /* shop1.png in Resources */ = {isa = PBXBuildFile; fileRef = BA7C53E0182A1BC1009BA09F /* shop1.png */; };
+		BA90FCA7182DF0A9001D3A61 /* tileMap3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BA90FCA6182DF0A9001D3A61 /* tileMap3.tmx */; };
+		BA90FCAB182DF58D001D3A61 /* HandGernade_45x45.png in Resources */ = {isa = PBXBuildFile; fileRef = BA90FCAA182DF58D001D3A61 /* HandGernade_45x45.png */; };
 		BA9911CD180F0DD1001C5562 /* CCActionPageTurn3D.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9910D2180F0DD1001C5562 /* CCActionPageTurn3D.m */; };
 		BA9911CF180F0DD1001C5562 /* CCActionTiledGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9910D6180F0DD1001C5562 /* CCActionTiledGrid.m */; };
 		BA9911D3180F0DD1001C5562 /* CCAtlasNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9910DE180F0DD1001C5562 /* CCAtlasNode.m */; };
@@ -211,7 +213,6 @@
 		F5CCB29917E6970D00D56915 /* monster.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5CCB29817E6970D00D56915 /* monster.jpg */; };
 		F5F5C6C31820F47C005CD95C /* wall1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5F5C6C21820F47C005CD95C /* wall1.jpg */; };
 		F5F5C6C61820F4E6005CD95C /* HelloWorldLayer_Level2.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F5C6C51820F4E6005CD95C /* HelloWorldLayer_Level2.m */; };
-		F5F5C6C81820FE23005CD95C /* tileMap3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F5F5C6C71820FE23005CD95C /* tileMap3.tmx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -258,6 +259,8 @@
 		BA7C53DD182A136E009BA09F /* ShopLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopLayer.h; sourceTree = "<group>"; };
 		BA7C53DE182A136E009BA09F /* ShopLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopLayer.m; sourceTree = "<group>"; };
 		BA7C53E0182A1BC1009BA09F /* shop1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shop1.png; sourceTree = "<group>"; };
+		BA90FCA6182DF0A9001D3A61 /* tileMap3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = tileMap3.tmx; path = Resources/tileMap3.tmx; sourceTree = "<group>"; };
+		BA90FCAA182DF58D001D3A61 /* HandGernade_45x45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HandGernade_45x45.png; path = Resources/HandGernade_45x45.png; sourceTree = "<group>"; };
 		BA9910BF180F0DD0001C5562 /* CCAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAction.h; sourceTree = "<group>"; };
 		BA9910C0180F0DD0001C5562 /* CCAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAction.m; sourceTree = "<group>"; };
 		BA9910C1180F0DD0001C5562 /* CCActionCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCActionCamera.h; sourceTree = "<group>"; };
@@ -824,7 +827,6 @@
 		F5F5C6C21820F47C005CD95C /* wall1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = wall1.jpg; path = Resources/wall1.jpg; sourceTree = "<group>"; };
 		F5F5C6C41820F4E6005CD95C /* HelloWorldLayer_Level2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer_Level2.h; sourceTree = "<group>"; };
 		F5F5C6C51820F4E6005CD95C /* HelloWorldLayer_Level2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer_Level2.m; sourceTree = "<group>"; };
-		F5F5C6C71820FE23005CD95C /* tileMap3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tileMap3.tmx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1282,8 +1284,9 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA90FCAA182DF58D001D3A61 /* HandGernade_45x45.png */,
+				BA90FCA6182DF0A9001D3A61 /* tileMap3.tmx */,
 				BA7C53E0182A1BC1009BA09F /* shop1.png */,
-				F5F5C6C71820FE23005CD95C /* tileMap3.tmx */,
 				F5F5C6C21820F47C005CD95C /* wall1.jpg */,
 				BABF081D181780240014367F /* bubble6.png */,
 				BABF081B18177F7F0014367F /* bubble5.png */,
@@ -1784,6 +1787,7 @@
 				BAB655F218011B2D0062BE70 /* powerup12.png in Resources */,
 				BA3FEDF317FEA36100DD2E17 /* h1.jpg in Resources */,
 				F55302DA17E646CD00D1FD31 /* Default@2x.png in Resources */,
+				BA90FCAB182DF58D001D3A61 /* HandGernade_45x45.png in Resources */,
 				BA3FEDE117FE98A000DD2E17 /* 2.jpg in Resources */,
 				BA68E5391814AC3000F3F937 /* Play40x40.png in Resources */,
 				BA3FEDFE17FEA36100DD2E17 /* pickup.caf in Resources */,
@@ -1830,6 +1834,7 @@
 				BA3FEDF517FEA36100DD2E17 /* h3.jpg in Resources */,
 				BA991225180F0DD1001C5562 /* ChangeLog in Resources */,
 				F5CCB29917E6970D00D56915 /* monster.jpg in Resources */,
+				BA90FCA7182DF0A9001D3A61 /* tileMap3.tmx in Resources */,
 				BAB655F418011D5D0062BE70 /* dark-blue.jpg in Resources */,
 				BA3FEDDA17FE8DCE00DD2E17 /* street.jpg in Resources */,
 				BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */,
@@ -1848,7 +1853,6 @@
 				BA7C53E1182A1BC1009BA09F /* shop1.png in Resources */,
 				F53576E618134C360003E30F /* POSTER_1.jpg in Resources */,
 				F5F5C6C31820F47C005CD95C /* wall1.jpg in Resources */,
-				F5F5C6C81820FE23005CD95C /* tileMap3.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

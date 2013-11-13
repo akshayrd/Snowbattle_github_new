@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="21" height="16" tilewidth="50" tileheight="50">
+ <tileset firstgid="1" name="grassTexture" tilewidth="50" tileheight="50">
+  <image source="grassTexture.jpg" width="590" height="590"/>
+ </tileset>
+ <tileset firstgid="122" name="3" tilewidth="50" tileheight="50" spacing="1" margin="1">
+  <image source="3.jpg" width="128" height="128"/>
+  <tile id="1">
+   <properties>
+    <property name="Collectable" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="126" name="wall2" tilewidth="50" tileheight="50" spacing="1" margin="1">
+  <image source="wall2.jpg" width="100" height="100"/>
+  <tile id="0">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="127" name="h1" tilewidth="50" tileheight="50">
+  <image source="h1.jpg" width="111" height="100"/>
+  <tile id="0">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="131" name="dark-blue" tilewidth="50" tileheight="50">
+  <tileoffset x="0" y="2"/>
+  <image source="dark-blue.jpg" width="800" height="600"/>
+  <tile id="0">
+   <properties>
+    <property name="collectible2x" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="323" name="powerup12" tilewidth="45" tileheight="45">
+  <image source="powerup12.png" width="45" height="45"/>
+  <tile id="0">
+   <properties>
+    <property name="Power_blue" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="324" name="life" tilewidth="45" tileheight="45">
+  <image source="life.png" width="45" height="45"/>
+  <tile id="0">
+   <properties>
+    <property name="lives" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Building" width="21" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBi6oB6IG6igBhk0AnETFdQg202KOwmphdlNijuJde8ooA4YavE+2PPRYAYAcBEYGQ==
+  </data>
+ </layer>
+ <layer name="DarkBlueTiles" width="21" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYKANmIKEyQErkDC6mdjUEmKjm4tsJi77sanHZiY+cVxqkM0lRi8hM4l1Jzb92DC6PDFqSbGP2oASt2DzD65wIMfvgy3epxEwE91cXGYuQTMTm7mk5M0lOMzE5V5CYAkDppnUBgAJnjd1
+  </data>
+ </layer>
+ <layer name="power_blue" width="21" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFowAVODMOtAtGwSgYGgAA3O8ARQ==
+  </data>
+ </layer>
+ <layer name="Power_lives" width="21" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4A04MI40C4YBaNgcAAA13sARg==
+  </data>
+ </layer>
+ <layer name="Border" width="21" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyrY2BgqKMBpiagl5mk2oFN/1D1+6iZI9PMkZbmqY0B7ykkbQ==
+  </data>
+ </layer>
+ <layer name="Snow" width="21" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYKA9qCYDE2MeLjFC8sSYx4Amhk8NJXaRog6fWmraTY5adH2E4pWUNEBNteT6h1K1gyne8aknxp2U2EVqfkFXQ60yhFoAAPmvPYE=
+  </data>
+ </layer>
+ <objectgroup name="Objects" width="21" height="16">
+  <object name="SpawnPoint" x="58" y="361" width="32" height="35"/>
+ </objectgroup>
+</map>
