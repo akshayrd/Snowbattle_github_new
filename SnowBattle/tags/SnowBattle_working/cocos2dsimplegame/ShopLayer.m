@@ -143,7 +143,7 @@
         powerup1Check=true;
     }
     else{
-        errLabel1 =[CCLabelTTF labelWithString:[NSString stringWithFormat:@"Can not Buy, not enough Points", remainingTimeBonus]  fontName:@"Chalkduster" fontSize:50];
+        errLabel1 =[CCLabelTTF labelWithString:[NSString stringWithFormat:@"Can not Buy, not enough Points"]  fontName:@"Chalkduster" fontSize:50];
         errLabel1.color = ccRED;
         errLabel1.position = ccp(550, 400);
         [self addChild:errLabel1];
@@ -162,9 +162,9 @@
     menuItem2.position=ccp(800-dx,300-dy);
     [menuItem1 setScale:1];
     
-    CCMenuItemImage *menuItem3 = [CCMenuItemImage itemFromNormalImage:@"powerup12.png"
+    CCMenuItemImage *menuItem5 = [CCMenuItemImage itemFromNormalImage:@"powerup12.png"
                                                         selectedImage:@"powerup12.png"];
-    CCMenu *menu9 = [CCMenu menuWithItems: menuItem3, nil];
+    CCMenu *menu9 = [CCMenu menuWithItems: menuItem5, nil];
     menu9.position=ccp(850,650);
     [menu9 alignItemsVerticallyWithPadding:15];
     
@@ -183,7 +183,7 @@
         powerup2Check=true;
     }
     else{
-        errLabel2 =[CCLabelTTF labelWithString:[NSString stringWithFormat:@"Can not Buy, not enough Points", remainingTimeBonus]  fontName:@"Chalkduster" fontSize:50];
+        errLabel2 =[CCLabelTTF labelWithString:[NSString stringWithFormat:@"Can not Buy, not enough Points"]  fontName:@"Chalkduster" fontSize:50];
         errLabel2.color = ccRED;
         errLabel2.position = ccp(550, 400);
         [self addChild:errLabel2];

@@ -57,9 +57,9 @@
         newGame2.position = ccp(240, 300);
         newGame3.position = ccp(440, 300);
         
-        CCMenuItemImage *menuItem1 = [CCMenuItemImage itemFromNormalImage:@"bug_51x51.png"
-                                                            selectedImage:@"bug_51x51.png"
-                                                            target:self selector:@selector(startGame:start:)];
+        //CCMenuItemImage *menuItem1 = [CCMenuItemImage itemFromNormalImage:@"bug_51x51.png"
+          //                                                  selectedImage:@"bug_51x51.png"
+            //                                                target:self selector:@selector(startGame:start:)];
         
         //CCMenu *menu = [CCMenu menuWithItems: newGame, newGame1, newGame2,newGame3, menuItem1, nil];
         CCMenu *menu = [CCMenu menuWithItems: newGame, newGame1, newGame2,newGame3, nil];

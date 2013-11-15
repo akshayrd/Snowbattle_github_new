@@ -22,12 +22,12 @@
 
 @implementation HelloWorldLayer_Level2
 
-+(CCScene *) scene2:(BOOL)start timeBonus:(int) timeRemaining powerup1:(Boolean)powerup1Check powerup2:(Boolean)powerup2Check{
++(CCScene *) scene2:(BOOL)playerImage1 timeBonus:(int) timeRemaining powerup1:(Boolean)powerup1Check powerup2:(Boolean)powerup2Check{
     // 'scene' is an autorelease object.
     CCScene *scene2 = [CCScene node];
     
     // 'layer' is an autorelease object.
-    HelloWorldLayer_Level2 *layer = [[HelloWorldLayer_Level2 alloc] initWithPlayer:start timeBonus:timeRemaining powerup1:powerup1Check powerup2:powerup2Check];
+    HelloWorldLayer_Level2 *layer = [[HelloWorldLayer_Level2 alloc] initWithPlayer:playerImage1 timeBonus:timeRemaining powerup1:powerup1Check powerup2:powerup2Check];
     
     // add layer as a child to scene
     [scene2 addChild: layer];
@@ -462,7 +462,7 @@ CCSprite* PowerLabel;
                 if (_numCollected > winScore) {
                     
                     CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES
-                                                          withscoreValue:_numCollected timeBonus:levelTimeLimit-myTime];
+                                                          withscoreValue:_numCollected timeBonus:levelTimeLimit-myTime playerImage:_playerimage];
                     [[CCDirector sharedDirector] replaceScene:gameOverScene];
                     
                 }
@@ -545,7 +545,7 @@ CCSprite* PowerLabel;
                 
                 if (_numCollected > winScore) {
                     
-                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:_numCollected timeBonus:levelTimeLimit-myTime];
+                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:_numCollected timeBonus:levelTimeLimit-myTime playerImage:_playerimage];
                     
                     [[CCDirector sharedDirector] replaceScene:gameOverScene];
                     
@@ -581,7 +581,7 @@ CCSprite* PowerLabel;
         if (lifeCount < 0) {
             
             lifeCount = 2;
-            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:0];
+            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:0 playerImage:_playerimage];
             [[CCDirector sharedDirector] replaceScene:gameOverScene];
         }
         [player runAction:blink];
@@ -605,6 +605,7 @@ CCSprite* PowerLabel;
     if( (self=[super init]) ) {
         //[self setTouchEnabled:YES];
         self.isTouchEnabled = YES;
+        _playerimage = player1;
         count = 90;
         darkBlueCount = 0;
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"funk.mp3"];
@@ -826,7 +827,7 @@ int livePowerEnabled1 = 0;
     
     if (levelTimeLimit < myTime)
     {
-        CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:0];
+        CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:0 playerImage:_playerimage];
         
         [[CCDirector sharedDirector] replaceScene:gameOverScene];
     }

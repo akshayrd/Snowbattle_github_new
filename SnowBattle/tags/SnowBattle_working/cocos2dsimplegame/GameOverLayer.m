@@ -5,18 +5,18 @@
 
 @implementation GameOverLayer
 
-+(CCScene *) sceneWithWon:(BOOL)won withscoreValue:(int)scoreValue timeBonus:(int) timeRemaining{
++(CCScene *) sceneWithWon:(BOOL)won withscoreValue:(int)scoreValue timeBonus:(int) timeRemaining playerImage:(BOOL)playerimage{
     CCScene *scene = [CCScene node];
     
     GameOverLayer *layer = [[[GameOverLayer alloc] initWithWon:won withscoreValue:scoreValue
-                                                     timeBonus:timeRemaining] autorelease];
+                                                     timeBonus:timeRemaining playerImage: playerimage] autorelease];
   //  layer.color = ccGRAY;
     [scene addChild: layer];
     //NSLog(@"score %d", scoreValue);
     return scene;
 }
 
-- (id)initWithWon:(BOOL)won withscoreValue:(int)scoreValue timeBonus:(int) timeRemaining {
+- (id)initWithWon:(BOOL)won withscoreValue:(int)scoreValue timeBonus:(int) timeRemaining playerImage:(BOOL)playerimage {
     if ((self = [super initWithColor:ccc4(255, 255, 255, 255)])) {
         
         CCSprite *bg =[CCSprite spriteWithFile:@"levelscreen_final.jpg"];
@@ -24,7 +24,7 @@
         bg.anchorPoint = ccp(0, 0);
         //[self addChild:bg z:0];
         
-        
+        _playerimage = playerimage;
         NSString * message;
         NSString * timeBonus;
         CGSize winSize = [[CCDirector sharedDirector] winSize];
@@ -84,13 +84,14 @@
         label2.color = ccc3(0,0,0);
         CCMenuItemLabel *back = [CCMenuItemLabel itemWithLabel:label2  target:self selector:@selector(restart)];
         
-        label3 = [CCLabelTTF labelWithString:@"Go to Next Level" fontName:@"Marker Felt" fontSize:32];
-        label3.color = ccBLUE;
-        CCMenuItemLabel *next_level = [CCMenuItemLabel itemWithLabel:label3  target:self selector:@selector(nextLevel)];
-        CCMenu *menu1= [CCMenu menuWithItems:next_level, nil];
-        menu1.position = ccp(winSize.width/2-200 , winSize.height/2-250);
-        [self addChild: menu1];
-        
+        if (won){
+            label3 = [CCLabelTTF labelWithString:@"Go to Next Level" fontName:@"Marker Felt" fontSize:32];
+            label3.color = ccBLUE;
+            CCMenuItemLabel *next_level = [CCMenuItemLabel itemWithLabel:label3  target:self selector:@selector(nextLevel)];
+            CCMenu *menu1= [CCMenu menuWithItems:next_level, nil];
+            menu1.position = ccp(winSize.width/2-200 , winSize.height/2-250);
+            [self addChild: menu1];
+        }
         CCMenu *menu= [CCMenu menuWithItems:back, nil];
         menu.position = ccp(winSize.width/2-200 , winSize.height/2-180);
         [self addChild: menu];
@@ -101,12 +102,12 @@
 }
 
 -(void) restart {
-    [[CCDirector sharedDirector] replaceScene:[HelloWorldLayer scene:YES]];
+    [[CCDirector sharedDirector] replaceScene:[HelloWorldLayer scene:_playerimage]];
 }
 
 -(void) nextLevel {
     [[CCDirector sharedDirector]
-     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:1 powerup1:false powerup2:false]]];
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:_playerimage timeBonus:0 powerup1:false powerup2:false]]];
 }
 
 -(void) shopNow {

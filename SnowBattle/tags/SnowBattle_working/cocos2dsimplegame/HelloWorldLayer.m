@@ -17,14 +17,14 @@
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
-+(CCScene *) scene:(BOOL)start
++(CCScene *) scene:(BOOL)playerImage1
 {
     // 'scene' is an autorelease object.
     CCScene *scene = [CCScene node];
     
     // 'layer' is an autorelease object.
     //HelloWorldLayer *layer = [HelloWorldLayer node];
-    HelloWorldLayer *layer = [[HelloWorldLayer alloc] initWithPlayer:start];
+    HelloWorldLayer *layer = [[HelloWorldLayer alloc] initWithPlayer:playerImage1];
     
     // add layer as a child to scene
     [scene addChild: layer];
@@ -38,7 +38,7 @@
 }
 
 -(void)newLocalScore {
-    [self PauseGame:YES];
+    [self PauseGame];
     UIAlertView* dialog = [[UIAlertView alloc] init];
     [dialog setDelegate:self];
     [dialog setTitle:@"Online Access"];
@@ -51,7 +51,7 @@
 - (void) alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex==0) {
-        [self ResumeGame:YES];
+        [self ResumeGame];
     }
 }
 
@@ -527,7 +527,7 @@ int playerDirection = 1;
                 if (_numCollected > winScore) {
                     
                     CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES
-                                                          withscoreValue:_numCollected timeBonus:levelTimeLimit-myTime];
+                                                          withscoreValue:_numCollected timeBonus:levelTimeLimit-myTime playerImage:_playerimage];
                     [[CCDirector sharedDirector] replaceScene:gameOverScene];
                     
                 }
@@ -610,7 +610,7 @@ int playerDirection = 1;
                 
                 if (_numCollected > winScore) {
                     
-                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:_numCollected timeBonus:levelTimeLimit-myTime];
+                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:_numCollected timeBonus:levelTimeLimit-myTime playerImage:_playerimage];
                     
                     [[CCDirector sharedDirector] replaceScene:gameOverScene];
                     
@@ -658,7 +658,7 @@ int playerDirection = 1;
 
 
 
-- (void) PauseGame:(id)sender
+- (void) PauseGame
 
 {
     
@@ -679,11 +679,11 @@ int playerDirection = 1;
     
     CCMenuItemFont *resumeGame = [CCMenuItemFont itemFromString:@"Resume"
                                                          target:self
-                                                       selector:@selector(ResumeGame:)];
+                                                       selector:@selector(ResumeGame)];
     [resumeGame setColor:ccBLUE];
     CCMenuItemFont *restartGame = [CCMenuItemFont itemFromString:@"Restart Level"
                                                           target:self
-                                                        selector:@selector(RestartGame:)];
+                                                        selector:@selector(RestartGame)];
     [restartGame setColor:ccBLUE];
     CCMenuItemFont *menuGame = [CCMenuItemFont itemFromString:@"Select Level"
                                                        target:self
@@ -694,12 +694,15 @@ int playerDirection = 1;
     pauseResumeMenu.position=ccp(500,300);
     [pauseResumeMenu alignItemsVerticallyWithPadding:15];
     [self addChild:pauseResumeMenu];
+
+    //[self PauseGame:self];
     
-    [NSTimer scheduledTimerWithTimeInterval:.06 target:self selector:@selector(PauseGame:) userInfo:nil repeats:NO];
+    
+    [NSTimer scheduledTimerWithTimeInterval:.06 target:self selector:@selector(PauseGame) userInfo:nil repeats:NO];
 }
 
 
-- (void)ResumeGame:(id)sender
+- (void)ResumeGame
 {
     [[CCDirector sharedDirector] stopAnimation];
     
@@ -713,7 +716,7 @@ int playerDirection = 1;
 }
 
 
-- (void)RestartGame:(id)sender
+- (void)RestartGame
 {
     [[CCDirector sharedDirector] stopAnimation];
     
@@ -755,6 +758,7 @@ int playerDirection = 1;
     if( (self=[super init]) ) {
         //[self setTouchEnabled:YES];
         self.isTouchEnabled = YES;
+        _playerimage = player1;
         count = 90;
         darkBlueCount = 0;
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"funk.mp3"];
@@ -771,8 +775,8 @@ int playerDirection = 1;
         //powerLivesLayer = NULL;
         
         playerDirection = 1;
-        winScore = 188;
-        //winScore = 20;
+        //winScore = 188;
+        winScore = 20;
         totalLives = 2;
         //        totalLives = 1;
         lifeCount = 2;
@@ -942,7 +946,7 @@ CCSprite* PowerLabel;
         }
         if ( myTimeBlue > powerLiveTimeLimit && darkBlueCount < 12)
         {
-            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:0];
+            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:0 playerImage:_playerimage];
             [[CCDirector sharedDirector] replaceScene:gameOverScene];
         }
     }
@@ -989,7 +993,7 @@ int livePowerEnabled = 0;
     
     if (levelTimeLimit < myTime)
     {
-        CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:0];
+        CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:0 playerImage:_playerimage];
         
         [[CCDirector sharedDirector] replaceScene:gameOverScene];
     }
@@ -1013,7 +1017,7 @@ int immuneDuration = 2;
         if (lifeCount < 0) {
             
             lifeCount = 2;
-            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:0];
+            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:0 playerImage:_playerimage];
             [[CCDirector sharedDirector] replaceScene:gameOverScene];
         }
         [player runAction:blink];
