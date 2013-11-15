@@ -38,7 +38,7 @@
 }
 
 -(void)newLocalScore {
-    [self PauseGame:YES];
+    [self PauseGame:self];
     UIAlertView* dialog = [[UIAlertView alloc] init];
     [dialog setDelegate:self];
     [dialog setTitle:@"Online Access"];
@@ -51,7 +51,7 @@
 - (void) alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex==0) {
-        [self ResumeGame:YES];
+        [self ResumeGame:self];
     }
 }
 
@@ -771,8 +771,8 @@ int playerDirection = 1;
         //powerLivesLayer = NULL;
         
         playerDirection = 1;
-        winScore = 188;
-        //winScore = 20;
+        //winScore = 188;
+        winScore = 20;
         totalLives = 2;
         //        totalLives = 1;
         lifeCount = 2;

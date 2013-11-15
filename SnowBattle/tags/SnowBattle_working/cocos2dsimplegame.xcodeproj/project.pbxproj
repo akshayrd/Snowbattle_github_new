@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F473CBB1835B8F900D73022 /* fire_particle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F473CBA1835B8F900D73022 /* fire_particle.png */; };
 		BA3949D617F2EC450072E0C9 /* hit.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3949D217F2EC450072E0C9 /* hit.caf */; };
 		BA3FEDD617FE893800DD2E17 /* Raycast.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDD517FE893800DD2E17 /* Raycast.m4a */; };
 		BA3FEDDC17FE986800DD2E17 /* grey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDDB17FE986800DD2E17 /* grey.jpg */; };
@@ -215,6 +216,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F473CBA1835B8F900D73022 /* fire_particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire_particle.png; sourceTree = "<group>"; };
 		BA3949CE17F2B6430072E0C9 /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "pew-pew-lei.caf"; path = "Resources/Sounds/pew-pew-lei.caf"; sourceTree = "<group>"; };
 		BA3949D217F2EC450072E0C9 /* hit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit.caf; path = Resources/Sounds/hit.caf; sourceTree = "<group>"; };
 		BA3949D317F2EC450072E0C9 /* move.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = move.caf; path = Resources/Sounds/move.caf; sourceTree = "<group>"; };
@@ -1285,6 +1287,7 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3F473CBA1835B8F900D73022 /* fire_particle.png */,
 				BA90FCAA182DF58D001D3A61 /* HandGernade_45x45.png */,
 				BA90FCA6182DF0A9001D3A61 /* tileMap3.tmx */,
 				BA7C53E0182A1BC1009BA09F /* shop1.png */,
@@ -1850,6 +1853,7 @@
 				BA7C53E1182A1BC1009BA09F /* shop1.png in Resources */,
 				F53576E618134C360003E30F /* POSTER_1.jpg in Resources */,
 				F5F5C6C31820F47C005CD95C /* wall1.jpg in Resources */,
+				3F473CBB1835B8F900D73022 /* fire_particle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

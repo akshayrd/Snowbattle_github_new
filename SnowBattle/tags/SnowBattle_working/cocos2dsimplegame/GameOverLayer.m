@@ -10,7 +10,7 @@
     
     GameOverLayer *layer = [[[GameOverLayer alloc] initWithWon:won withscoreValue:scoreValue
                                                      timeBonus:timeRemaining] autorelease];
-  //  layer.color = ccGRAY;
+    //  layer.color = ccGRAY;
     [scene addChild: layer];
     //NSLog(@"score %d", scoreValue);
     return scene;
@@ -42,7 +42,7 @@
             CCMenu *menu2= [CCMenu menuWithItems:next_level, nil];
             menu2.position = ccp(winSize.width/2-200 , winSize.height/2-210);
             [self addChild: menu2];
-
+            
         } else {
             message = @"Game Over!";
             timeBonus = [NSString stringWithFormat:@"Time Bonus: %d", timeRemaining];
@@ -53,8 +53,8 @@
         }
         
         NSString * yourScore = [NSString stringWithFormat:@"Your Score : %d", scoreValue];
-
-
+        
+        
         //[self setColor:ccRED];
         CCLabelTTF * label = [CCLabelTTF labelWithString:message fontName:@"Chalkduster" fontSize:40];
         label.color = ccRED;
@@ -84,18 +84,21 @@
         label2.color = ccc3(0,0,0);
         CCMenuItemLabel *back = [CCMenuItemLabel itemWithLabel:label2  target:self selector:@selector(restart)];
         
-        label3 = [CCLabelTTF labelWithString:@"Go to Next Level" fontName:@"Marker Felt" fontSize:32];
-        label3.color = ccBLUE;
-        CCMenuItemLabel *next_level = [CCMenuItemLabel itemWithLabel:label3  target:self selector:@selector(nextLevel)];
-        CCMenu *menu1= [CCMenu menuWithItems:next_level, nil];
-        menu1.position = ccp(winSize.width/2-200 , winSize.height/2-250);
-        [self addChild: menu1];
+        if(won)
+        {
+            label3 = [CCLabelTTF labelWithString:@"Go to Next Level" fontName:@"Marker Felt" fontSize:32];
+            label3.color = ccBLUE;
+            CCMenuItemLabel *next_level = [CCMenuItemLabel itemWithLabel:label3  target:self selector:@selector(nextLevel)];
+            CCMenu *menu1= [CCMenu menuWithItems:next_level, nil];
+            menu1.position = ccp(winSize.width/2-200 , winSize.height/2-250);
+            [self addChild: menu1];
+        }
         
         CCMenu *menu= [CCMenu menuWithItems:back, nil];
         menu.position = ccp(winSize.width/2-200 , winSize.height/2-180);
         [self addChild: menu];
         timeBonus1=timeRemaining+scoreValue;
-
+        
     }
     return self;
 }
@@ -106,7 +109,7 @@
 
 -(void) nextLevel {
     [[CCDirector sharedDirector]
-     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:1 powerup1:false powerup2:false]]];
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:1 timeBonus:0 powerup1:false powerup2:false]]];
 }
 
 -(void) shopNow {
