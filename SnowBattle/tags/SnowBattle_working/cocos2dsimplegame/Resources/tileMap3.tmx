@@ -69,6 +69,11 @@
  </tileset>
  <tileset firstgid="325" name="HandGernade_45x45" tilewidth="45" tileheight="45">
   <image source="HandGernade_45x45.png" width="45" height="45"/>
+  <tile id="0">
+   <properties>
+    <property name="Grenade" value="True"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="Street" width="21" height="16">
   <data encoding="base64" compression="zlib">
@@ -111,6 +116,11 @@
  <layer name="Grenade" width="21" height="16">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo4D+wJVxoF0wCkYB5QAAx+8ARw==
+  </data>
+ </layer>
+ <layer name="GrenadeWall" width="21" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BgQd0QMXMUjAJ0AACNFgD9
   </data>
  </layer>
 </map>

@@ -505,6 +505,25 @@ CCSprite* PowerLabel;
         }
     }
     
+    tileGid = [powerGrenadeLayer tileGIDAt:tileCoord];
+    if (tileGid) {
+        
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collision = properties[@"Grenade"];
+            if (collision && [collision isEqualToString:@"True"]) {
+                [powerGrenadeLayer removeTileAt:tileCoord];
+                powerGrenade = 1;
+                [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
+                //[player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"HyperPlayer_40x40.png"]];
+                //bubble.visible = TRUE;
+                
+                [self schedule:@selector(MakeBubbleInvisible ) interval:3 repeat:1 delay:7];
+                //[self newLocalScore];
+            }
+        }
+    }
+    
     tileGid = [darkBlue tileGIDAt:tileCoord];
     
     if (tileGid) {
@@ -551,6 +570,37 @@ CCSprite* PowerLabel;
                     
                 }
                 
+            }
+            
+        }
+        
+    }
+    
+    tileGid = [grenadeLayer tileGIDAt:tileCoord];
+    
+    if (tileGid) {
+        
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        
+        if (properties) {
+            
+            NSString *collision = properties[@"Collidable"];
+            if (collision && [collision isEqualToString:@"True"] && powerGrenade!=1) {
+                return;
+            }
+            
+            if (powerGrenade == 1) {
+                NSLog(@"Inside grenade %f %f",tileCoord.x,tileCoord.y);
+                CCParticleFire* p = [[CCParticleFire alloc]initWithTotalParticles:500];
+                [p autorelease];
+                p.texture=[[CCTextureCache sharedTextureCache] addImage:@"fire.png"];
+                p.autoRemoveOnFinish = YES;
+                p.duration = 1;
+                p.position=ccp(700,350);
+                [self addChild:p];
+                //[grenadeLayer removeFromParent];
+                [grenadeLayer removeTileAt:tileCoord];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"explosion-01.mp3"];
             }
             
         }
@@ -615,7 +665,10 @@ CCSprite* PowerLabel;
         building = [_tileMap layerNamed:@"Building"];
         darkBlue = [_tileMap layerNamed:@"DarkBlueTiles"];
         powerBlueLayer = [_tileMap layerNamed:@"power_blue"];
+        powerGrenadeLayer = [_tileMap layerNamed:@"Grenade"];
         powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
+        grenadeLayer = [_tileMap layerNamed:@"GrenadeWall"];
+        
         powerLivesLayer.visible = FALSE;
         
         playerDirection = 1;
@@ -643,13 +696,13 @@ CCSprite* PowerLabel;
         
         [self addChild: _tileMap];
         
-        CCParticleFire* p = [[CCParticleFire alloc]initWithTotalParticles:500];
+       /* CCParticleFire* p = [[CCParticleFire alloc]initWithTotalParticles:500];
         [p autorelease];
         p.texture=[[CCTextureCache sharedTextureCache] addImage:@"fire_particle.png"];
         p.autoRemoveOnFinish = YES;
         p.duration = 3;
         p.position=ccp(700,350);
-        [self addChild:p];
+        [self addChild:p];*/
         
         CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Bonus Score: %d", timeRemaining] fontName:@"Verdana-Bold" fontSize:21.0];
         label.color = ccc3(0,0,0);
@@ -692,7 +745,7 @@ CCSprite* PowerLabel;
         [self performSelectorInBackground:@selector(actionmonster6) withObject:self];
         [self performSelectorInBackground:@selector(actionmonster7) withObject:self];
         [self performSelectorInBackground:@selector(actionmonster8) withObject:self];
-
+        
         
         // Standard method to pause the game
         CCMenuItem *starMenuItem = [CCMenuItemImage itemFromNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame:)];
@@ -702,7 +755,7 @@ CCSprite* PowerLabel;
         CCMenu *starMenu = [CCMenu menuWithItems:starMenuItem, nil];
         starMenu.position = CGPointZero;
         [self addChild:starMenu];
-
+        
         NSLog(@"booleans : %d and %d: ",powerup1Check,powerup2Check);
         if(powerup1Check==true)
         {
@@ -783,7 +836,7 @@ CCSprite* PowerLabel;
         
         [self addChild:timeLabelBlue];
         
-      [self schedule:@selector(LevelTimer:)];
+        [self schedule:@selector(LevelTimer:)];
         
     }
     return self;
@@ -938,7 +991,7 @@ int livePowerEnabled1 = 0;
     
 	//[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameStartLayer firstScene:YES]]];
     [[CCDirector sharedDirector]
-    replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:NO timeBonus:0 powerup1:false powerup2:false]]];
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:NO timeBonus:0 powerup1:false powerup2:false]]];
 }
 
 
