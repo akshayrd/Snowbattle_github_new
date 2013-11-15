@@ -636,21 +636,20 @@ CCSprite* PowerLabel;
         
         CGSize winSize = [[CCDirector sharedDirector] winSize];  // Request the current window size
         
-        emitter = [CCParticleFire  node]; // initialize the particle system to be a fire system
-        
-        emitter.texture = [[CCTextureCache sharedTextureCache] addImage:@"fire_particle.png"]; //Set the texture to use our fire_particle.png
-        
-        emitter.position = ccp (winSize.width/2, winSize.height/3);
-        
-        [self addChild:emitter];
-        
-        
         for(CCTMXLayer *child in [_tileMap children])
         {
             [[child texture] setAliasTexParameters];
         }
         
         [self addChild: _tileMap];
+        
+        CCParticleFire* p = [[CCParticleFire alloc]initWithTotalParticles:500];
+        [p autorelease];
+        p.texture=[[CCTextureCache sharedTextureCache] addImage:@"fire_particle.png"];
+        p.autoRemoveOnFinish = YES;
+        p.duration = 3;
+        p.position=ccp(700,350);
+        [self addChild:p];
         
         CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Bonus Score: %d", timeRemaining] fontName:@"Verdana-Bold" fontSize:21.0];
         label.color = ccc3(0,0,0);
