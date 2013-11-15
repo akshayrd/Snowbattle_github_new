@@ -56,9 +56,10 @@
     int collideTime;
     int immuneDuration;
     CCLabelTTF *timeLabelBlue;
-    CCParticleSystem *emitter;
+    BOOL _playerimage;
+    
 }
 
-+(CCScene *) scene2:(BOOL)start timeBonus:(int)timeRemaining powerup1:(Boolean)s1 powerup2:(Boolean)s2;
++(CCScene *) scene2:(BOOL)playerImage1 timeBonus:(int)timeRemaining powerup1:(Boolean)s1 powerup2:(Boolean)s2;
 
 @end

@@ -53,13 +53,13 @@
     
     CCLabelTTF *timeLabelBlue;
     
-    
+    BOOL _playerimage;
 
     
     
 }
 
-+(CCScene *) scene:(BOOL)start;
++(CCScene *) scene:(BOOL)playerImage1;
 
 @end
 
