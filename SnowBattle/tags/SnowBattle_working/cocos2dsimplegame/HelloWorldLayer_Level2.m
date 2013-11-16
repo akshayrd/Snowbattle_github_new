@@ -254,6 +254,65 @@
      [CCSequence actions: actionRotate,actionRotate,actionRotate,actionRotate,nil]];
     
 }
+int c = 0;
+CGPoint currentposition;
+
+- (void) Ghost1move:(ccTime)dt {
+    
+    CCSprite * monster13 = [CCSprite spriteWithFile:@"monster-hd.png"];
+    
+    // Determine where to spawn the monster along the Y axis
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    int minY = 100;
+    int maxY = winSize.height - 100;
+    int rangeY = maxY - minY;
+    int actualY = (arc4random() % rangeY) + minY;
+    /*
+    int minX = 100;
+    int maxX = winSize.width - 100;
+    int rangeX = maxX - minX;
+    int actualX = (arc4random() % rangeX) + minX;
+    */
+    
+    // Create the monster slightly off-screen along the right edge,
+    // and along a random position along the Y axis as calculated above
+    monster13.position = ccp(winSize.width - 100, winSize.height/2);
+    if(c==0)
+        [self addChild:monster13];
+    
+    // Determine speed of the monster
+    int minDuration = 2.0;
+    int maxDuration = 4.0;
+    int rangeDuration = maxDuration - minDuration;
+    int actualDuration = (arc4random() % rangeDuration) + minDuration;
+    currentposition = ghost1.position;
+    
+    // Create the actions
+    //CCMoveTo * actionMove = nil;
+    
+    CCMoveTo * actionMove = [CCMoveTo actionWithDuration:actualDuration
+                                                position:ccp(-monster13.contentSize.width/2, actualY)];
+    
+    CCCallBlockN * actionMoveDone = [CCCallBlockN actionWithBlock:^(CCNode *node) {
+        [node removeFromParentAndCleanup:YES];
+    }];
+    /*  
+    if (c%2 == 0) {
+        actionMove = [CCMoveTo actionWithDuration:actualDuration
+                                         position:ccp(currentposition.x, actualY)];
+        }
+    else
+    {
+        actionMove = [CCMoveTo actionWithDuration:actualDuration
+                                         position:ccp(actualX, currentposition.y)];
+        
+    }
+    c++;
+*/
+    
+        [monster13 runAction:[CCSequence actions:actionMove,actionMoveDone, nil]];
+    
+}
 
 - (void) actionmonster5
 {
@@ -279,10 +338,21 @@
     [self schedule:@selector(Monster8move: ) interval:13 repeat:250 delay:0 ];
 }
 
+- (void) actionghost1
+{
+    [self schedule:@selector(Ghost1move: ) interval:1 repeat:50 delay:0 ];
+}
+
 CCSprite *monster5;
 CCSprite *monster6;
 CCSprite *monster7;
 CCSprite *monster8;
+
+CCSprite *ghost1;
+CCSprite *ghost2;
+CCSprite *ghost3;
+
+
 
 #pragma mark - handle touches
 
@@ -591,7 +661,7 @@ CCSprite* PowerLabel;
             
             if (powerGrenade == 1) {
                 NSLog(@"Inside grenade %f %f",tileCoord.x,tileCoord.y);
-                CCParticleFire* p = [[CCParticleFire alloc]initWithTotalParticles:500];
+                CCParticleFire * p = [[CCParticleFire alloc]initWithTotalParticles:500];
                 [p autorelease];
                 p.texture=[[CCTextureCache sharedTextureCache] addImage:@"fire.png"];
                 p.autoRemoveOnFinish = YES;
@@ -742,10 +812,16 @@ CCSprite* PowerLabel;
         monster8.position = ccp(125, 75);
         [self addChild:monster8];
         
+        //ghost1 = [CCSprite spriteWithFile:@"bug_51x51.png"];
+        //ghost1.position = ccp(winSize.width-45,winSize.height/2);
+        //[self addChild:ghost1];
+        
         [self performSelectorInBackground:@selector(actionmonster5) withObject:self];
         [self performSelectorInBackground:@selector(actionmonster6) withObject:self];
         [self performSelectorInBackground:@selector(actionmonster7) withObject:self];
         [self performSelectorInBackground:@selector(actionmonster8) withObject:self];
+        
+        [self performSelectorInBackground:@selector(actionghost1) withObject:self];
         
         
         // Standard method to pause the game
