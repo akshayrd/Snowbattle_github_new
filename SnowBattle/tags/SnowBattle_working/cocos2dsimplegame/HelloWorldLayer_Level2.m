@@ -12,6 +12,7 @@
 #import "GameOverLayer.h"
 #import "GameStartLayer.h"
 #import "LevelSelectLayer.h"
+#import "BonusStage.h"
 
 @interface HelloWorldLayer_Level2 ()
 @property (assign) int numCollected;
@@ -575,6 +576,8 @@ CCSprite* PowerLabel;
         }
     }
     
+    
+    
     tileGid = [powerGrenadeLayer tileGIDAt:tileCoord];
     if (tileGid) {
         
@@ -593,6 +596,61 @@ CCSprite* PowerLabel;
             }
         }
     }
+    
+    
+    
+    tileGid = [bonusLayer tileGIDAt:tileCoord];
+    if (tileGid) {
+        
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collision = properties[@"Bonus"];
+            if (collision && [collision isEqualToString:@"True"]) {
+                [bonusLayer removeTileAt:tileCoord];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
+                NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+                NSString *documentsDirectory = [paths objectAtIndex:0];
+                NSString *gameStatePath = [documentsDirectory stringByAppendingPathComponent:@"gameState.dat"];
+                
+                NSMutableData *gameData;
+                NSKeyedArchiver *encoder;
+                gameData = [NSMutableData data];
+                encoder = [[NSKeyedArchiver alloc] initForWritingWithMutableData:gameData];
+                
+                [encoder encodeBool:_playerimage forKey:@"stage2"];
+                //CCTMXLayer* p = [CCTMXLayer alloc];
+                //[encoder encodeBytes:(const uint8_t *)snow length:sizeof(snow) forKey:@"snowmap"];
+                
+                [encoder finishEncoding];
+                [gameData writeToFile:gameStatePath atomically:YES];
+                [encoder release];
+                
+                NSUserDefaults *userDafs = [NSUserDefaults standardUserDefaults];
+                int test2 = 9;
+                [userDafs setInteger:test2 forKey:@"player"];
+                [userDafs setInteger:darkBlueCount forKey:@"darkBlueCount"];
+                //[userDafs removeObjectForKey:@"snow1"];
+                //[userDafs setObject:snow forKey:@"snow1"];
+
+                
+                
+                NSLog(@"Stored:%d", test2);
+                //[userDafs setInteger:self.gameMode forKey:@"gameMode"];
+                
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
+                
+                CCScene *bonusStage_level = [BonusStage scene];
+                [[CCDirector sharedDirector] replaceScene:bonusStage_level];
+                
+                
+                
+                
+            }
+        }
+    }
+    
+    
     
     tileGid = [darkBlue tileGIDAt:tileCoord];
     
@@ -725,12 +783,56 @@ CCSprite* PowerLabel;
     if( (self=[super init]) ) {
         //[self setTouchEnabled:YES];
         self.isTouchEnabled = YES;
-        _playerimage = player1;
+        
+        _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"tileMap3.tmx"];
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        //NSString *gameStatePath = [documentsDirectory stringByAppendingPathComponent:@"gameState.dat"];
+        
+        NSMutableData *gameData;
+        NSKeyedUnarchiver *decoder;
+        
+        NSString *documentPath = [documentsDirectory stringByAppendingPathComponent:@"gameState.dat"];
+        gameData = [NSData dataWithContentsOfFile:documentPath];
+        NSUserDefaults *userDafs = [NSUserDefaults standardUserDefaults];
+        if (gameData) {
+            decoder = [[NSKeyedUnarchiver alloc] initForReadingWithData:gameData];
+            
+            _playerimage = [decoder decodeBoolForKey:@"stage2"];
+            NSUInteger lengthRet = 0;
+            snow = (CCTMXLayer*)[decoder decodeBytesForKey:@"snowmap" returnedLength:&lengthRet];
+            
+            //[decoder finishEncoding];
+            //[gameData writeToFile:gameStatePath atomically:YES];
+            [decoder release];
+        }
+        
+        else
+        {
+            snow = [_tileMap layerNamed:@"Snow"];
+            _playerimage = player1;
+        }
+        
+        
+        //[userDafs setInteger:_playerimage forKey:@"player"];
+        
+        int test1 = [userDafs integerForKey:@"player"];
+        
+        if (test1 == 9) {
+            darkBlueCount = [userDafs integerForKey:@"darkBlueCount"];
+        }
+        
+        
+        NSLog(@"Got Replay:%d",test1);
+        //self.gameMode = (GameMode)[userDafs integerForKey:@"gameMode"]
+        
+        
         count = 90;
         darkBlueCount = 0;
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"funk.mp3"];
-        _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"tileMap3.tmx"];
-        snow = [_tileMap layerNamed:@"Snow"];
+        
+        
         border = [_tileMap layerNamed:@"Border"];
         //street  = [_tileMap layerNamed:@"Street"];
         building = [_tileMap layerNamed:@"Building"];
@@ -739,6 +841,7 @@ CCSprite* PowerLabel;
         powerGrenadeLayer = [_tileMap layerNamed:@"Grenade"];
         powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
         grenadeLayer = [_tileMap layerNamed:@"GrenadeWall"];
+        bonusLayer = [_tileMap layerNamed:@"Bonus"];
         
         powerLivesLayer.visible = FALSE;
         
@@ -767,13 +870,13 @@ CCSprite* PowerLabel;
         
         [self addChild: _tileMap];
         
-       /* CCParticleFire* p = [[CCParticleFire alloc]initWithTotalParticles:500];
-        [p autorelease];
-        p.texture=[[CCTextureCache sharedTextureCache] addImage:@"fire_particle.png"];
-        p.autoRemoveOnFinish = YES;
-        p.duration = 3;
-        p.position=ccp(700,350);
-        [self addChild:p];*/
+        /* CCParticleFire* p = [[CCParticleFire alloc]initWithTotalParticles:500];
+         [p autorelease];
+         p.texture=[[CCTextureCache sharedTextureCache] addImage:@"fire_particle.png"];
+         p.autoRemoveOnFinish = YES;
+         p.duration = 3;
+         p.position=ccp(700,350);
+         [self addChild:p];*/
         
         CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Bonus Score: %d", timeRemaining] fontName:@"Verdana-Bold" fontSize:21.0];
         label.color = ccc3(0,0,0);
@@ -833,7 +936,7 @@ CCSprite* PowerLabel;
         starMenu.position = CGPointZero;
         [self addChild:starMenu];
         
-        NSLog(@"booleans : %d and %d: ",powerup1Check,powerup2Check);
+        //NSLog(@"booleans : %d and %d: ",powerup1Check,powerup2Check);
         if(powerup1Check==true)
         {
             NSLog(@"Powerup1 %d: ",powerup1Check);
@@ -864,7 +967,6 @@ CCSprite* PowerLabel;
         [self addChild:life];
         
         [self schedule:@selector(checkCollisionWithMonster)];
-        
         
         myTime = 0;
         

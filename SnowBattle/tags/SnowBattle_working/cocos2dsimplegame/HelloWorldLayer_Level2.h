@@ -17,6 +17,7 @@
     CCTMXLayer *powerLivesLayer;
     CCTMXLayer *powerGrenadeLayer;
     CCTMXLayer *grenadeLayer;
+    CCTMXLayer *bonusLayer;
     int darkBlueCount;
     int powerBlue;
     int powerGrenade;

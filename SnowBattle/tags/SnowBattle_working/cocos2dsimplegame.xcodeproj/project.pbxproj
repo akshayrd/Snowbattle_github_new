@@ -30,6 +30,8 @@
 		BA508745180BAAB60097C021 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BA508744180BAAB60097C021 /* GameOverLayer.m */; };
 		BA508748180BAD970097C021 /* POSTER.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA508746180BAD970097C021 /* POSTER.jpg */; };
 		BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */; };
+		BA608C4F18361C9F002F09EA /* bonus.png in Resources */ = {isa = PBXBuildFile; fileRef = BA608C4E18361C9F002F09EA /* bonus.png */; };
+		BA608C52183624CA002F09EA /* BonusStage.m in Sources */ = {isa = PBXBuildFile; fileRef = BA608C51183624CA002F09EA /* BonusStage.m */; };
 		BA6131EC1801046500ECF6D6 /* grassTexture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA6131EB1801046500ECF6D6 /* grassTexture.jpg */; };
 		BA68E5351814A9EF00F3F937 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E5331814A9EF00F3F937 /* pause.png */; };
 		BA68E5361814A9EF00F3F937 /* Play.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E5341814A9EF00F3F937 /* Play.png */; };
@@ -248,6 +250,9 @@
 		BA508744180BAAB60097C021 /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
 		BA508746180BAD970097C021 /* POSTER.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = POSTER.jpg; path = Resources/POSTER.jpg; sourceTree = "<group>"; };
 		BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TileMap.tmx; sourceTree = "<group>"; };
+		BA608C4E18361C9F002F09EA /* bonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bonus.png; path = libs/bonus.png; sourceTree = "<group>"; };
+		BA608C50183624CA002F09EA /* BonusStage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonusStage.h; sourceTree = "<group>"; };
+		BA608C51183624CA002F09EA /* BonusStage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonusStage.m; sourceTree = "<group>"; };
 		BA6131EB1801046500ECF6D6 /* grassTexture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = grassTexture.jpg; path = Resources/grassTexture.jpg; sourceTree = "<group>"; };
 		BA68E5331814A9EF00F3F937 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/pause.png; sourceTree = "<group>"; };
 		BA68E5341814A9EF00F3F937 /* Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Play.png; path = Resources/Play.png; sourceTree = "<group>"; };
@@ -1263,9 +1268,11 @@
 				BA7C53DD182A136E009BA09F /* ShopLayer.h */,
 				BA7C53DE182A136E009BA09F /* ShopLayer.m */,
 				F53F5F78182703870044BBAC /* PlayerSelectLayer.h */,
+				F53F5F79182703870044BBAC /* PlayerSelectLayer.m */,
 				BAADD3E918336FA1008E093A /* HudLayer.h */,
 				BAADD3EA18336FA1008E093A /* HudLayer.m */,
-				F53F5F79182703870044BBAC /* PlayerSelectLayer.m */,
+				BA608C50183624CA002F09EA /* BonusStage.h */,
+				BA608C51183624CA002F09EA /* BonusStage.m */,
 				F5F5C6C51820F4E6005CD95C /* HelloWorldLayer_Level2.m */,
 				F5F5C6C41820F4E6005CD95C /* HelloWorldLayer_Level2.h */,
 				BA508743180BAAB60097C021 /* GameOverLayer.h */,
@@ -1314,6 +1321,7 @@
 				BA68E5371814AC3000F3F937 /* Play40x40.png */,
 				BA68E5381814AC3000F3F937 /* player_pause40x40.png */,
 				BA68E5331814A9EF00F3F937 /* pause.png */,
+				BA608C4E18361C9F002F09EA /* bonus.png */,
 				BA68E5341814A9EF00F3F937 /* Play.png */,
 				F53576E318134C360003E30F /* levelscreen_final.jpg */,
 				F53576E418134C360003E30F /* POSTER_1.jpg */,
@@ -1809,6 +1817,7 @@
 				BA3FEDF817FEA36100DD2E17 /* h7.jpg in Resources */,
 				BAB655EE180117DE0062BE70 /* bug_51x51.png in Resources */,
 				BA3FEDFD17FEA36100DD2E17 /* pew-pew-lei.caf in Resources */,
+				BA608C4F18361C9F002F09EA /* bonus.png in Resources */,
 				F55302DE17E646CD00D1FD31 /* Default-Landscape~ipad.png in Resources */,
 				F55302E017E646CD00D1FD31 /* Icon-72.png in Resources */,
 				BA3FEDF617FEA36100DD2E17 /* h4.jpg in Resources */,
@@ -1962,6 +1971,7 @@
 				F55303C417E646CE00D1FD31 /* CCTransition.m in Sources */,
 				F55303C717E646CE00D1FD31 /* CCTransitionPageTurn.m in Sources */,
 				F55303CA17E646CE00D1FD31 /* CCTransitionProgress.m in Sources */,
+				BA608C52183624CA002F09EA /* BonusStage.m in Sources */,
 				F55303CE17E646CE00D1FD31 /* cocos2d.m in Sources */,
 				F55303D817E646CE00D1FD31 /* CCES2Renderer.m in Sources */,
 				BA99122C180F0DD1001C5562 /* plane.c in Sources */,
