@@ -114,6 +114,8 @@
 		BABF081C18177F7F0014367F /* bubble5.png in Resources */ = {isa = PBXBuildFile; fileRef = BABF081B18177F7F0014367F /* bubble5.png */; };
 		BABF081E181780240014367F /* bubble6.png in Resources */ = {isa = PBXBuildFile; fileRef = BABF081D181780240014367F /* bubble6.png */; };
 		BAEB785417FC93A300B9663A /* player2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAEB785317FC93A300B9663A /* player2.jpg */; };
+		BAFF85A618372FF400149C47 /* Bonus_hud.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF85A518372FF400149C47 /* Bonus_hud.m */; };
+		BAFF85A81837387300149C47 /* ghostPit.png in Resources */ = {isa = PBXBuildFile; fileRef = BAFF85A71837387300149C47 /* ghostPit.png */; };
 		F52F674D180E41250081074E /* LevelSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F52F674C180E41250081074E /* LevelSelectLayer.m */; };
 		F53576DD181338500003E30F /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576D9181338500003E30F /* background.jpg */; };
 		F53576DE181338500003E30F /* grassTexture2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576DA181338500003E30F /* grassTexture2.jpg */; };
@@ -534,6 +536,9 @@
 		BABF081B18177F7F0014367F /* bubble5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble5.png; sourceTree = "<group>"; };
 		BABF081D181780240014367F /* bubble6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble6.png; sourceTree = "<group>"; };
 		BAEB785317FC93A300B9663A /* player2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = player2.jpg; sourceTree = "<group>"; };
+		BAFF85A418372FF400149C47 /* Bonus_hud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bonus_hud.h; sourceTree = "<group>"; };
+		BAFF85A518372FF400149C47 /* Bonus_hud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bonus_hud.m; sourceTree = "<group>"; };
+		BAFF85A71837387300149C47 /* ghostPit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ghostPit.png; path = Resources/ghostPit.png; sourceTree = "<group>"; };
 		F52F674B180E41250081074E /* LevelSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectLayer.h; sourceTree = "<group>"; };
 		F52F674C180E41250081074E /* LevelSelectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectLayer.m; sourceTree = "<group>"; };
 		F53576D9181338500003E30F /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = Resources/background.jpg; sourceTree = "<group>"; };
@@ -1273,6 +1278,8 @@
 				BAADD3EA18336FA1008E093A /* HudLayer.m */,
 				BA608C50183624CA002F09EA /* BonusStage.h */,
 				BA608C51183624CA002F09EA /* BonusStage.m */,
+				BAFF85A418372FF400149C47 /* Bonus_hud.h */,
+				BAFF85A518372FF400149C47 /* Bonus_hud.m */,
 				F5F5C6C51820F4E6005CD95C /* HelloWorldLayer_Level2.m */,
 				F5F5C6C41820F4E6005CD95C /* HelloWorldLayer_Level2.h */,
 				BA508743180BAAB60097C021 /* GameOverLayer.h */,
@@ -1298,6 +1305,7 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BAFF85A71837387300149C47 /* ghostPit.png */,
 				3FBF397F1836E96500C5ED4A /* monster-hd.png */,
 				F5E9DC5F18360090002C145E /* explosion-01.mp3 */,
 				3F473CBA1835B8F900D73022 /* fire.png */,
@@ -1871,6 +1879,7 @@
 				3F473CBB1835B8F900D73022 /* fire.png in Resources */,
 				F5E9DC6018360090002C145E /* explosion-01.mp3 in Resources */,
 				3FBF39801836E96500C5ED4A /* monster-hd.png in Resources */,
+				BAFF85A81837387300149C47 /* ghostPit.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1977,6 +1986,7 @@
 				BA99122C180F0DD1001C5562 /* plane.c in Sources */,
 				F55303DC17E646CE00D1FD31 /* CCGLView.m in Sources */,
 				F55303E717E646CE00D1FD31 /* CCDirectorMac.m in Sources */,
+				BAFF85A618372FF400149C47 /* Bonus_hud.m in Sources */,
 				F55303EA17E646CE00D1FD31 /* CCEventDispatcher.m in Sources */,
 				F55303F317E646CE00D1FD31 /* base64.c in Sources */,
 				BA99121E180F0DD1001C5562 /* CDOpenALSupport.m in Sources */,

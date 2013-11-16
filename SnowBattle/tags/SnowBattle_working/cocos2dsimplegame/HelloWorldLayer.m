@@ -667,6 +667,7 @@ int playerDirection = 1;
     [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
     
     [[CCDirector sharedDirector] pause];
+    self.isTouchEnabled = NO;
     
 }
 
@@ -712,6 +713,7 @@ int playerDirection = 1;
     
     [[CCDirector sharedDirector] startAnimation];
     [self removeChild:pauseResumeMenu];
+    self.isTouchEnabled = YES;
     
 }
 

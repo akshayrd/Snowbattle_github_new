@@ -1111,6 +1111,7 @@ int livePowerEnabled1 = 0;
     [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
     
     [[CCDirector sharedDirector] pause];
+    self.isTouchEnabled = NO;
     
 }
 
@@ -1154,6 +1155,7 @@ int livePowerEnabled1 = 0;
     
     [[CCDirector sharedDirector] startAnimation];
     [self removeChild:pauseResumeMenu];
+    self.isTouchEnabled = YES;
     
 }
 

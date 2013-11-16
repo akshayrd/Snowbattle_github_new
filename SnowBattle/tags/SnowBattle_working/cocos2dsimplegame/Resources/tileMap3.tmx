@@ -83,8 +83,8 @@
    </properties>
   </tile>
  </tileset>
- <tileset firstgid="327" name="ghostPit" tilewidth="50" tileheight="50">
-  <image source="ghostPit.png" width="1280" height="1254"/>
+ <tileset firstgid="327" name="ghostPit" tilewidth="44" tileheight="44">
+  <image source="ghostPit.png" width="45" height="44"/>
  </tileset>
  <layer name="Street" width="21" height="16">
   <data encoding="base64" compression="zlib">
@@ -93,7 +93,7 @@
  </layer>
  <layer name="Building" width="21" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBg8oB6IG6isvhGIm0gwkxj1MHsJ2Y+uDp96mL2E7EdXh089qeFJDCA1PIcTIDY8yYl3QoCceCfVvaTYTwiQko+oCeidPgFzjCAh
+   eJxjYBg8oBGIm0hQXw/EDVRQQ6obiHUnzG50mhi1hOxGp4lRSw1AangSA6jpPloCYv1OSrwT63dS4p3YtISunhT7CQFi1A2HtAQAkR4hJA==
   </data>
  </layer>
  <layer name="Border" width="21" height="16">
@@ -103,7 +103,7 @@
  </layer>
  <layer name="Snow" width="21" height="16">
   <data encoding="base64" compression="zlib">
-   eJy9klEKADAIQr33Lr//SC1hE4IgeW0V8F5HBEqOkise43ecWlM816fzTXiKm/bu6pv5bMMxU+6m109mMk+myX0mTOdVO2LeyX2y97B/OY9SsqMfur/wSno=
+   eJy9k9sKACAIQ/ff/XzvortENRCk7CzJgPdaJFBylJzxJn7HqXuMp3w6X4fHOKk3q0/7SWI62/ncYp7cM/VK55MxJznzecJUtcmMqn/E1jqu05PqsXLcN/qhDcKGSYQ=
   </data>
  </layer>
  <layer name="DarkBlueTiles" width="21" height="16">
@@ -116,9 +116,9 @@
    eJxjYBgFo2AUjALaAWfGgXYB7QAAP68ARQ==
   </data>
  </layer>
- <layer name="Power_lives" width="21" height="16" visible="0">
+ <layer name="Power_lives" width="21" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFwx24MA60C0bBKBieAADtCwBG
+   eJxjYBgFo4B04MI40C4YBaNg4AEA1mcARg==
   </data>
  </layer>
  <objectgroup name="Objects" width="21" height="16">
@@ -131,7 +131,7 @@
  </layer>
  <layer name="GrenadeWall" width="21" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2BgQd0QMXMUjAJ0AACNFgD9
+   eJxjYBgFo2D4gbqBdsAoGBEAADR/AH8=
   </data>
  </layer>
  <layer name="Bonus" width="21" height="16">
@@ -141,7 +141,7 @@
  </layer>
  <layer name="ghostPit" width="21" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRQA4AAAVAAAE=
+   eJxjYBgFo2BkAHfGgXbBKBhuAACs3wBJ
   </data>
  </layer>
 </map>
