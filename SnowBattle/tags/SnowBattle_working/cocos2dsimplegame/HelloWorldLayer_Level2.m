@@ -23,12 +23,12 @@
 
 @implementation HelloWorldLayer_Level2
 
-+(CCScene *) scene2:(BOOL)playerImage1 timeBonus:(int) timeRemaining powerup1:(Boolean)powerup1Check powerup2:(Boolean)powerup2Check{
++(CCScene *) scene2:(BOOL)playerImage1 timeBonus:(int) timeRemaining powerups:(int [])powerupArray playerSelected:(int [])playerSelectArray{
     // 'scene' is an autorelease object.
     CCScene *scene2 = [CCScene node];
     
     // 'layer' is an autorelease object.
-    HelloWorldLayer_Level2 *layer = [[HelloWorldLayer_Level2 alloc] initWithPlayer:playerImage1 timeBonus:timeRemaining powerup1:powerup1Check powerup2:powerup2Check];
+    HelloWorldLayer_Level2 *layer = [[HelloWorldLayer_Level2 alloc] initWithPlayer:playerImage1 timeBonus:timeRemaining powerups:powerupArray playerSelected:playerSelectArray];
     
     // add layer as a child to scene
     [scene2 addChild: layer];
@@ -777,7 +777,7 @@ CCSprite* PowerLabel;
 
 // on "init" you need to initialize your instance
 
--(id) initWithPlayer:(BOOL)player1 timeBonus:(int) timeRemaining powerup1:(Boolean)powerup1Check powerup2:(Boolean)powerup2Check
+-(id) initWithPlayer:(BOOL)player1 timeBonus:(int) timeRemaining powerups:(int [])powerupArray playerSelected:(int [])playerSelectArray
 
 {
     if( (self=[super init]) ) {
@@ -937,19 +937,19 @@ CCSprite* PowerLabel;
         [self addChild:starMenu];
         
         //NSLog(@"booleans : %d and %d: ",powerup1Check,powerup2Check);
-        if(powerup1Check==true)
+        /* Ghost Immune PowerUp */
+        if(powerupArray[1]>=1)
         {
-            NSLog(@"Powerup1 %d: ",powerup1Check);
-            shopPowerUp1 = [CCMenuItemImage itemFromNormalImage:@"life.png" selectedImage:@"life.png" target:self selector:Nil];
-            shopPowerUp1.position = ccp(22, 600-7*40);
-            shopPowerUp1.visible = true;
-            [self addChild:shopPowerUp1];
-        }
-        if(powerup2Check==true)
-        {
-            NSLog(@"Powerup2 %d: ",powerup1Check);
-            shopPowerUp2 = [CCMenuItemImage itemFromNormalImage:@"powerup12.png" selectedImage:@"powerup12.png" target:self selector:Nil];
+            shopPowerUp2 = [CCMenuItemImage itemFromNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png.png" target:self selector:Nil];
             shopPowerUp2.position = ccp(22, 600-9*40);
+            shopPowerUp2.visible = true;
+            [self addChild:shopPowerUp2];
+        }
+        /* Ghost Pit Close PowerUp */
+        if(powerupArray[2]>=1)
+        {
+            shopPowerUp2 = [CCMenuItemImage itemFromNormalImage:@"powerUp_ghostPitClose.png" selectedImage:@"powerUp_ghostPitClose.png" target:self selector:Nil];
+            shopPowerUp2.position = ccp(22, 600-10*40);
             shopPowerUp2.visible = true;
             [self addChild:shopPowerUp2];
         }
@@ -961,6 +961,12 @@ CCSprite* PowerLabel;
         }
         lifeItem[3].visible = false;
         lifeItem[4].visible = false;
+        /* Life Power Up */
+        if(powerupArray[0]>=1)
+        {
+            lifeItem[3].visible = true;
+            lifeCount++;
+        }
         life = [CCMenu menuWithItems:lifeItem[0],lifeItem[1],lifeItem[2],lifeItem[3],lifeItem[4], nil];
         
         life.position = CGPointZero;

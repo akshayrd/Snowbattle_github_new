@@ -10,14 +10,24 @@
 #import "cocos2d.h"
 
 @interface ShopLayer : CCLayerColor {
-    Boolean player1;
+    Boolean player1,player2,player3;
     int powerup1;
     int powerup2;
+    int powerup3;
+    int playerCount;
+    int powerUpXPos,powerUpYPos,playerSelectXPos,playerSelectYPos;
     Boolean powerup1Check;
     Boolean powerup2Check;
     CCMenuItemImage *menuItem1;
     CCMenuItemImage *menuItem2;
     CCMenuItemImage *menuItem3;
+    CCMenuItemImage *menuItem4;
+    CCMenuItemImage *menuItem5;
+    CCMenuItemImage *menuItem6;
+    CCMenuItemImage *menuItem7;
+    
+    NSMutableArray *powerupList;
+    
     CCLabelTTF *label1;
     CCLabelTTF *errLabel1;
     CCLabelTTF *errLabel2;

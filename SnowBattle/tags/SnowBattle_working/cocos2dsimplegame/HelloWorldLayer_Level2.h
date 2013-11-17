@@ -61,6 +61,6 @@
     
 }
 
-+(CCScene *) scene2:(BOOL)playerImage1 timeBonus:(int)timeRemaining powerup1:(Boolean)s1 powerup2:(Boolean)s2;
++(CCScene *) scene2:(BOOL)playerImage1 timeBonus:(int)timeRemaining powerups:(int [])powerupArray playerSelected:(int [])playerSelectArray;
 
 @end

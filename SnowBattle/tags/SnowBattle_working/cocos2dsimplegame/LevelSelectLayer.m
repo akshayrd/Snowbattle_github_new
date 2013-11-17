@@ -72,15 +72,23 @@
 }
 
 -(void) startGame: (id) sender{
-    NSLog(@"1111Heree");
     [[CCDirector sharedDirector]
      replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer scene:player1Select]]];
 }
 
 -(void) startGameLevel2:(id) sender{
-    NSLog(@"222Heree");
+    int powerupArray[3];
+    powerupArray[0]=0;
+    powerupArray[1]=0;
+    powerupArray[2]=0;
+    
+    int playerSelectArray[3];
+    playerSelectArray[0]=1;
+    playerSelectArray[1]=0;
+    playerSelectArray[2]=0;
+
     [[CCDirector sharedDirector]
-     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:player1Select timeBonus:0 powerup1:false powerup2:false]]];
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:player1Select timeBonus:0 powerups:powerupArray playerSelected:playerSelectArray]]];
 
 }
 
