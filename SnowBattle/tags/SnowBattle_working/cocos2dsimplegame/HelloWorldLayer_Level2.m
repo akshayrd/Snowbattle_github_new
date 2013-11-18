@@ -704,6 +704,7 @@ CCSprite* PowerLabel;
         
     }
     
+    
     tileGid = [grenadeLayer tileGIDAt:tileCoord];
     
     if (tileGid) {
@@ -729,6 +730,9 @@ CCSprite* PowerLabel;
                 //[grenadeLayer removeFromParent];
                 [grenadeLayer removeTileAt:tileCoord];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"explosion-01.mp3"];
+                
+               
+
             }
             
         }
@@ -948,6 +952,15 @@ CCSprite* PowerLabel;
         /* Ghost Pit Close PowerUp */
         if(powerupArray[2]>=1)
         {
+            CCParticleSmoke * p1 = [[CCParticleSmoke alloc]initWithTotalParticles:5];
+            [p1 autorelease];
+            p1.texture=[[CCTextureCache sharedTextureCache] addImage:@"smoke.png"];
+            p1.autoRemoveOnFinish = YES;
+            p1.duration = 20;
+            //p1.life=1.0;
+            p1.position=ccp(980,370);
+            [self addChild:p1];
+            
             shopPowerUp2 = [CCMenuItemImage itemFromNormalImage:@"powerUp_ghostPitClose.png" selectedImage:@"powerUp_ghostPitClose.png" target:self selector:Nil];
             shopPowerUp2.position = ccp(22, 600-10*40);
             shopPowerUp2.visible = true;
@@ -1177,8 +1190,20 @@ int livePowerEnabled1 = 0;
     [[CCDirector sharedDirector] startAnimation];
     
 	//[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameStartLayer firstScene:YES]]];
+    
+    int powerupArray[3];
+    powerupArray[0]=0;
+    powerupArray[1]=0;
+    powerupArray[2]=0;
+    
+    int playerSelectArray[3];
+    playerSelectArray[0]=1;
+    playerSelectArray[1]=0;
+    playerSelectArray[2]=0;
+
+    
     [[CCDirector sharedDirector]
-     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:NO timeBonus:0 powerup1:false powerup2:false]]];
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:NO timeBonus:0 powerups:powerupArray playerSelected:playerSelectArray]]];
 }
 
 

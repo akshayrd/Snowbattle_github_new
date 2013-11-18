@@ -39,6 +39,12 @@
         player1 = false;
         player2=false;
         player3=false;
+        int powerup1Cost=10;
+        int powerup2Cost=20;
+        int powerup3Cost=30;
+        int player2cost=40;
+        int player3cost=50;
+        
         remainingTimeBonus=timeBonus;
         
         [CCMenuItemFont setFontName:@"Chalkduster"];
@@ -79,7 +85,7 @@
         //menuItem1.position=ccp(300,300);
         powerupList=[[NSMutableArray alloc] initWithCapacity:3];
         powerupList[0]=[NSString stringWithFormat:@"1"];
-        powerupList[1]=[NSString stringWithFormat:@"100"];
+        powerupList[1]=[NSString stringWithFormat:@"%d", powerup1Cost];
         powerupList[2]=[NSString stringWithFormat:@"life.png"];
         menuItem1.userData=powerupList;
         CCMenu *menu = [CCMenu menuWithItems: menuItem1, nil];
@@ -88,14 +94,12 @@
         [menu alignItemsVerticallyWithPadding:15];
         [self addChild:menu];
         
-        CCMenuItemFont *lifePower = [CCMenuItemFont itemFromString:@"200"];
+        CCMenuItemFont *lifePower = [CCMenuItemFont itemFromString:[NSString stringWithFormat:@"%d", powerup1Cost]];
         lifePower.color=ccORANGE;
         CCMenu *menu4 = [CCMenu menuWithItems: lifePower, nil];
         menu4.position=ccp(250,250);
         [menu4 alignItemsVerticallyWithPadding:15];
         [self addChild:menu4];
-        
-        int a=0;
         
         menuItem6 = [CCMenuItemImage itemFromNormalImage:@"powerUp_immuneGhost.png"
                                            selectedImage:@"powerUp_immuneGhost.png"
@@ -103,7 +107,7 @@
         //menuItem1.position=ccp(300,300);
         powerupList=[[NSMutableArray alloc] initWithCapacity:3];
         powerupList[0]=[NSString stringWithFormat:@"2"];
-        powerupList[1]=[NSString stringWithFormat:@"120"];
+        powerupList[1]=[NSString stringWithFormat:@"%d", powerup2Cost];
         powerupList[2]=[NSString stringWithFormat:@"powerUp_immuneGhost.png"];
         menuItem6.userData=powerupList;
         CCMenu *menu15 = [CCMenu menuWithItems: menuItem6, nil];
@@ -111,7 +115,7 @@
         [menu15 alignItemsVerticallyWithPadding:15];
         [self addChild:menu15];
         
-        CCMenuItemFont *immunePower = [CCMenuItemFont itemFromString:@"180"];
+        CCMenuItemFont *immunePower = [CCMenuItemFont itemFromString:[NSString stringWithFormat:@"%d", powerup2Cost]];
         immunePower.color=ccORANGE;
         CCMenu *menu14 = [CCMenu menuWithItems: immunePower, nil];
         menu14.position=ccp(250,200);
@@ -125,7 +129,7 @@
         //menuItem2.position=ccp(800,300);
         powerupList=[[NSMutableArray alloc] initWithCapacity:3];
         powerupList[0]=[NSString stringWithFormat:@"3"];
-        powerupList[1]=[NSString stringWithFormat:@"10"];
+        powerupList[1]=[NSString stringWithFormat:@"%d", powerup3Cost];
         powerupList[2]=[NSString stringWithFormat:@"powerUp_ghostPitClose.png"];
         menuItem2.userData=powerupList;
         CCMenu *menu1 = [CCMenu menuWithItems: menuItem2, nil];
@@ -133,7 +137,7 @@
         [menu1 alignItemsVerticallyWithPadding:15];
         [self addChild:menu1];
         
-        CCMenuItemFont *bluePower = [CCMenuItemFont itemFromString:@"150"];
+        CCMenuItemFont *bluePower = [CCMenuItemFont itemFromString:[NSString stringWithFormat:@"%d", powerup3Cost]];
         bluePower.color=ccORANGE;
         CCMenu *menu6 = [CCMenu menuWithItems: bluePower, nil];
         menu6.position=ccp(250,150);
@@ -174,7 +178,7 @@
         //menuItem2.position=ccp(800,300);
         powerupList=[[NSMutableArray alloc] initWithCapacity:3];
         powerupList[0]=[NSString stringWithFormat:@"2"];
-        powerupList[1]=[NSString stringWithFormat:@"10"];
+        powerupList[1]=[NSString stringWithFormat:@"%d", player2cost];
         powerupList[2]=[NSString stringWithFormat:@"try1.gif"];
         menuItem5.userData=powerupList;
         CCMenu *menu11 = [CCMenu menuWithItems: menuItem5, nil];
@@ -182,7 +186,7 @@
         [menu11 alignItemsVerticallyWithPadding:15];
         [self addChild:menu11];
         
-        CCMenuItemFont *player2Points = [CCMenuItemFont itemFromString:@"150"];
+        CCMenuItemFont *player2Points = [CCMenuItemFont itemFromString:[NSString stringWithFormat:@"%d", player2cost]];
         player2Points.color=ccORANGE;
         CCMenu *menu13 = [CCMenu menuWithItems: player2Points, nil];
         menu13.position=ccp(800,110);
@@ -195,7 +199,7 @@
         //menuItem2.position=ccp(800,300);
         powerupList=[[NSMutableArray alloc] initWithCapacity:3];
         powerupList[0]=[NSString stringWithFormat:@"3"];
-        powerupList[1]=[NSString stringWithFormat:@"10"];
+        powerupList[1]=[NSString stringWithFormat:@"%d", player3cost];
         powerupList[2]=[NSString stringWithFormat:@"try1.gif"];
         menuItem7.userData=powerupList;
         CCMenu *menu17 = [CCMenu menuWithItems: menuItem7, nil];
@@ -203,7 +207,7 @@
         [menu17 alignItemsVerticallyWithPadding:15];
         [self addChild:menu17];
         
-        CCMenuItemFont *player3Points = [CCMenuItemFont itemFromString:@"200"];
+        CCMenuItemFont *player3Points = [CCMenuItemFont itemFromString:[NSString stringWithFormat:@"%d", player3cost]];
         player3Points.color=ccORANGE;
         CCMenu *menu18 = [CCMenu menuWithItems: player3Points, nil];
         menu18.position=ccp(900,110);
@@ -287,9 +291,9 @@
         [menuItem6 setScale:1];
     }
     
-    CCMenuItemImage *menuItem4 = [CCMenuItemImage itemFromNormalImage:[NSString stringWithFormat:@"%s",powerUpImageName]
+    CCMenuItemImage *menuItem19 = [CCMenuItemImage itemFromNormalImage:[NSString stringWithFormat:@"%s",powerUpImageName]
                                                         selectedImage:[NSString stringWithFormat:@"%s",powerUpImageName]];
-    CCMenu *menu8 = [CCMenu menuWithItems: menuItem4, nil];
+    CCMenu *menu8 = [CCMenu menuWithItems: menuItem19, nil];
     menu8.position=ccp(powerUpXPos,powerUpYPos);
     
     [menu8 alignItemsVerticallyWithPadding:15];
@@ -354,11 +358,13 @@
     {
         playerCount++;
         player1=true;
+        player2=false;
+        player3=false;
         [menuItem4 setScale:2];
         //menuItem1.position=ccp(300/2+40,300*1.5);
-        double dx=(300*2-300);
+        double dx=(800*2-800);
         double dy=(300*2-300);
-        menuItem4.position=ccp(300-dx,300-dy);
+        menuItem4.position=ccp(800-dx,300-dy);
         [menuItem5 setScale:1];
         [menuItem7 setScale:1];
     }
@@ -366,6 +372,8 @@
     {
         playerCount++;
         player2=true;
+        player1=false;
+        player3=false;
         [menuItem5 setScale:2];
         //menuItem2.position=ccp(800/2+40,300*1.5);
         double dx=(800*2-800);
@@ -376,8 +384,11 @@
     }
     else if(playerSelectCheck==3)
     {
+
         playerCount++;
         player3=true;
+        player1=false;
+        player2=false;
         [menuItem7 setScale:2];
         //menuItem2.position=ccp(800/2+40,300*1.5);
         double dx=(800*2-800);
