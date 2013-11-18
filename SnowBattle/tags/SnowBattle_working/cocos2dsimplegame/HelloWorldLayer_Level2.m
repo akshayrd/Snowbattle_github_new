@@ -944,7 +944,7 @@ CCSprite* PowerLabel;
         /* Ghost Immune PowerUp */
         if(powerupArray[1]>=1)
         {
-            shopPowerUp2 = [CCMenuItemImage itemFromNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png.png" target:self selector:Nil];
+            shopPowerUp2 = [CCMenuItemImage itemFromNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png" target:self selector:Nil];
             shopPowerUp2.position = ccp(22, 600-9*40);
             shopPowerUp2.visible = true;
             [self addChild:shopPowerUp2];

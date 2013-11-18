@@ -42,8 +42,8 @@
         int powerup1Cost=10;
         int powerup2Cost=20;
         int powerup3Cost=30;
-        int player2cost=40;
-        int player3cost=50;
+        int player2cost=100;
+        int player3cost=200;
         
         remainingTimeBonus=timeBonus;
         
@@ -80,12 +80,18 @@
         
         menuItem1 = [CCMenuItemImage itemFromNormalImage:@"life.png"
                                            selectedImage:@"life.png"
+                                            disabledImage:@"locked.png" 
                                                   target:self selector:@selector(addToCartPowerUp:)];
         
         //menuItem1.position=ccp(300,300);
+        
         powerupList=[[NSMutableArray alloc] initWithCapacity:3];
         powerupList[0]=[NSString stringWithFormat:@"1"];
         powerupList[1]=[NSString stringWithFormat:@"%d", powerup1Cost];
+        if(remainingTimeBonus<powerup1Cost)
+        {
+            [menuItem1 setIsEnabled:NO];
+        }
         powerupList[2]=[NSString stringWithFormat:@"life.png"];
         menuItem1.userData=powerupList;
         CCMenu *menu = [CCMenu menuWithItems: menuItem1, nil];
@@ -103,11 +109,16 @@
         
         menuItem6 = [CCMenuItemImage itemFromNormalImage:@"powerUp_immuneGhost.png"
                                            selectedImage:@"powerUp_immuneGhost.png"
+                                            disabledImage:@"locked.png" 
                                                   target:self selector:@selector(addToCartPowerUp:)];
         //menuItem1.position=ccp(300,300);
         powerupList=[[NSMutableArray alloc] initWithCapacity:3];
         powerupList[0]=[NSString stringWithFormat:@"2"];
         powerupList[1]=[NSString stringWithFormat:@"%d", powerup2Cost];
+        if(remainingTimeBonus<powerup2Cost)
+        {
+            [menuItem6 setIsEnabled:NO];
+        }
         powerupList[2]=[NSString stringWithFormat:@"powerUp_immuneGhost.png"];
         menuItem6.userData=powerupList;
         CCMenu *menu15 = [CCMenu menuWithItems: menuItem6, nil];
@@ -125,11 +136,16 @@
         
         menuItem2 = [CCMenuItemImage itemFromNormalImage:@"powerUp_ghostPitClose.png"
                                            selectedImage:@"powerUp_ghostPitClose.png"
+                                            disabledImage:@"locked.png" 
                                                   target:self selector:@selector(addToCartPowerUp:)];
         //menuItem2.position=ccp(800,300);
         powerupList=[[NSMutableArray alloc] initWithCapacity:3];
         powerupList[0]=[NSString stringWithFormat:@"3"];
         powerupList[1]=[NSString stringWithFormat:@"%d", powerup3Cost];
+        if(remainingTimeBonus<powerup3Cost)
+        {
+            [menuItem2 setIsEnabled:NO];
+        }
         powerupList[2]=[NSString stringWithFormat:@"powerUp_ghostPitClose.png"];
         menuItem2.userData=powerupList;
         CCMenu *menu1 = [CCMenu menuWithItems: menuItem2, nil];
@@ -172,14 +188,19 @@
         [menu12 alignItemsVerticallyWithPadding:15];
         [self addChild:menu12];
         
-        menuItem5 = [CCMenuItemImage itemFromNormalImage:@"try1.gif"
-                                           selectedImage:@"try1.gif"
+        menuItem5 = [CCMenuItemImage itemFromNormalImage:@"player2.png"
+                                           selectedImage:@"player2.png"
+                                            disabledImage:@"big_lock.png" 
                                                   target:self selector:@selector(addToCartPlayer:)];
         //menuItem2.position=ccp(800,300);
         powerupList=[[NSMutableArray alloc] initWithCapacity:3];
         powerupList[0]=[NSString stringWithFormat:@"2"];
         powerupList[1]=[NSString stringWithFormat:@"%d", player2cost];
-        powerupList[2]=[NSString stringWithFormat:@"try1.gif"];
+        if(remainingTimeBonus<player2cost)
+        {
+            [menuItem5 setIsEnabled:NO];
+        }
+        powerupList[2]=[NSString stringWithFormat:@"player2.png"];
         menuItem5.userData=powerupList;
         CCMenu *menu11 = [CCMenu menuWithItems: menuItem5, nil];
         menu11.position=ccp(800,210);
@@ -193,14 +214,19 @@
         [menu13 alignItemsVerticallyWithPadding:15];
         [self addChild:menu13];
         
-        menuItem7 = [CCMenuItemImage itemFromNormalImage:@"try1.gif"
-                                           selectedImage:@"try1.gif"
+        menuItem7 = [CCMenuItemImage itemFromNormalImage:@"player3.gif"
+                                           selectedImage:@"player3.gif"
+                                            disabledImage:@"big_lock.png" 
                                                   target:self selector:@selector(addToCartPlayer:)];
         //menuItem2.position=ccp(800,300);
         powerupList=[[NSMutableArray alloc] initWithCapacity:3];
         powerupList[0]=[NSString stringWithFormat:@"3"];
         powerupList[1]=[NSString stringWithFormat:@"%d", player3cost];
-        powerupList[2]=[NSString stringWithFormat:@"try1.gif"];
+        if(remainingTimeBonus<player3cost)
+        {
+            [menuItem7 setIsEnabled:NO];
+        }
+        powerupList[2]=[NSString stringWithFormat:@"player3.gif"];
         menuItem7.userData=powerupList;
         CCMenu *menu17 = [CCMenu menuWithItems: menuItem7, nil];
         menu17.position=ccp(900,210);
@@ -235,6 +261,11 @@
     return self;
 }
 
+-(void) checkForLock:(int) a
+{
+    
+}
+
 -(void) addToCartPowerUp: (CCMenuItemImage *) sender
 {
     if(errLabel1!=NULL)
@@ -259,7 +290,11 @@
     
     if(powerUpCheck==1)
     {
-        powerup1++;
+        if(remainingTimeBonus>0)
+        {
+            powerup1++;
+        }
+
         [menuItem1 setScale:2];
         //menuItem1.position=ccp(300/2+40,300*1.5);
         double dx=(300*2-300);
@@ -270,7 +305,10 @@
     }
     if(powerUpCheck==2)
     {
-        powerup2++;
+        if(remainingTimeBonus>0)
+        {
+            powerup2++;
+        }
         [menuItem6 setScale:2];
         //menuItem2.position=ccp(800/2+40,300*1.5);
         double dx=(800*2-800);
@@ -281,7 +319,10 @@
     }
     if(powerUpCheck==3)
     {
-        powerup3++;
+        if(remainingTimeBonus>0)
+        {
+            powerup3++;
+        }
         [menuItem2 setScale:2];
         //menuItem2.position=ccp(800/2+40,300*1.5);
         double dx=(800*2-800);
@@ -292,7 +333,7 @@
     }
     
     CCMenuItemImage *menuItem19 = [CCMenuItemImage itemFromNormalImage:[NSString stringWithFormat:@"%s",powerUpImageName]
-                                                        selectedImage:[NSString stringWithFormat:@"%s",powerUpImageName]];
+                                                         selectedImage:[NSString stringWithFormat:@"%s",powerUpImageName]];
     CCMenu *menu8 = [CCMenu menuWithItems: menuItem19, nil];
     menu8.position=ccp(powerUpXPos,powerUpYPos);
     
@@ -318,6 +359,9 @@
         if((powerup1>=1 && powerUpCheck==1) || (powerup2>=1 && powerUpCheck==2) || (powerup3>=1 && powerUpCheck==3))
         {
             errLabel1 =[CCLabelTTF labelWithString:[NSString stringWithFormat:@"Power Up Already in Cart !!"]  fontName:@"Chalkduster" fontSize:50];
+            [menuItem1 setScale:1];
+            [menuItem2 setScale:1];
+            [menuItem6 setScale:1];
         }
         else
         {
@@ -370,7 +414,10 @@
     }
     else if(playerSelectCheck==2)
     {
-        playerCount++;
+        if(remainingTimeBonus>0)
+        {
+            playerCount++;
+        }
         player2=true;
         player1=false;
         player3=false;
@@ -384,8 +431,10 @@
     }
     else if(playerSelectCheck==3)
     {
-
-        playerCount++;
+        if(remainingTimeBonus>0)
+        {
+            playerCount++;
+        }
         player3=true;
         player1=false;
         player2=false;
@@ -433,12 +482,7 @@
         errLabel1.visible=true;
         //powerup1Check=false;
     }
-
-}
-
--(void) startGame: (id) sender {
-    /*[[CCDirector sharedDirector]
-     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LevelSelectLayer firstScene:player1]]];*/
+    
 }
 
 -(void)nextLevelStart:(id) sender
