@@ -16,12 +16,10 @@
 
 @implementation HelloWorldLayer_Level2
 
-<<<<<<< HEAD
-+(CCScene *) scene2:(BOOL)playerImage1 timeBonus:(int) timeRemaining powerup1:(Boolean)powerup1Check powerup2:(Boolean)powerup2Check
-{ 
-=======
+
+
 +(CCScene *) scene2:(BOOL)playerImage1 timeBonus:(int) timeRemaining powerups:(int [])powerupArray playerSelected:(int [])playerSelectArray{
->>>>>>> 76c1b818284c75bf61d3cb1bfb8c043a47e3a0ed
+
     // 'scene' is an autorelease object.
     CCScene *scene2 = [CCScene node];
     
@@ -907,27 +905,23 @@ CCSprite* PowerLabel;
         /* Ghost Immune PowerUp */
         if(powerupArray[1]>=1)
         {
-<<<<<<< HEAD
             //NSLog(@"Powerup1 %d: ",powerup1Check);
             shopPowerUp1 = [CCMenuItemImage itemFromNormalImage:@"life.png" selectedImage:@"life.png" target:self selector:Nil];
             shopPowerUp1.position = ccp(22, 600-7*40);
             shopPowerUp1.visible = true;
             [self addChild:shopPowerUp1];
-=======
             shopPowerUp2 = [CCMenuItemImage itemFromNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png" target:self selector:Nil];
             shopPowerUp2.position = ccp(22, 600-9*40);
             shopPowerUp2.visible = true;
             [self addChild:shopPowerUp2];
->>>>>>> 76c1b818284c75bf61d3cb1bfb8c043a47e3a0ed
         }
         /* Ghost Pit Close PowerUp */
         if(powerupArray[2]>=1)
         {
-<<<<<<< HEAD
+
             //NSLog(@"Powerup2 %d: ",powerup1Check);
             shopPowerUp2 = [CCMenuItemImage itemFromNormalImage:@"powerup12.png" selectedImage:@"powerup12.png" target:self selector:Nil];
             shopPowerUp2.position = ccp(22, 600-9*40);
-=======
             CCParticleSmoke * p1 = [[CCParticleSmoke alloc]initWithTotalParticles:5];
             [p1 autorelease];
             p1.texture=[[CCTextureCache sharedTextureCache] addImage:@"smoke.png"];
@@ -939,7 +933,6 @@ CCSprite* PowerLabel;
             
             shopPowerUp2 = [CCMenuItemImage itemFromNormalImage:@"powerUp_ghostPitClose.png" selectedImage:@"powerUp_ghostPitClose.png" target:self selector:Nil];
             shopPowerUp2.position = ccp(22, 600-10*40);
->>>>>>> 76c1b818284c75bf61d3cb1bfb8c043a47e3a0ed
             shopPowerUp2.visible = true;
             [self addChild:shopPowerUp2];
         }
