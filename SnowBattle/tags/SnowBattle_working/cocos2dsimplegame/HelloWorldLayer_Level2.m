@@ -17,7 +17,6 @@
 @implementation HelloWorldLayer_Level2
 
 
-
 +(CCScene *) scene2:(BOOL)playerImage1 timeBonus:(int) timeRemaining powerups:(int [])powerupArray playerSelected:(int [])playerSelectArray{
 
     // 'scene' is an autorelease object.
@@ -833,19 +832,6 @@ CCSprite* PowerLabel;
         }
         
         [self addChild: _tileMap];
-        
-        /* CCParticleFire* p = [[CCParticleFire alloc]initWithTotalParticles:500];
-         [p autorelease];
-         p.texture=[[CCTextureCache sharedTextureCache] addImage:@"fire_particle.png"];
-         p.autoRemoveOnFinish = YES;
-         p.duration = 3;
-         p.position=ccp(700,350);
-         [self addChild:p];*/
-        
-        CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Bonus Score: %d", timeRemaining] fontName:@"Verdana-Bold" fontSize:21.0];
-        label.color = ccc3(0,0,0);
-        label.position = ccp(200 , 36);
-        [self addChild: label];
         
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
         if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 1)
