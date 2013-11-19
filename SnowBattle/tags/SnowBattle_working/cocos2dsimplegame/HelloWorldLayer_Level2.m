@@ -749,6 +749,7 @@ CCSprite* PowerLabel;
         lifeItem[lifeCount].visible = false;
         
         lifeCount--;
+        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp1"];
         count = 0;
         if (lifeCount < 0) {
             
@@ -820,6 +821,7 @@ CCSprite* PowerLabel;
         totalLives = 2;
         //        totalLives = 1;
         lifeCount = 2;
+        
         levelTimeLimit = 240;
         powerLiveTimeLimit = 45;
         collideTime =0;
@@ -848,11 +850,15 @@ CCSprite* PowerLabel;
         [self addChild: label];
         
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
-        if(player1==true)
+        if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 1)
         {
             player = [CCSprite spriteWithFile:@"HyperPlayer_40x40.png"];
         }
-        else{
+        else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
+            player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
+        }
+        else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 3)
+        {
             player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
         }
         [self spawnPlayer];
@@ -903,25 +909,18 @@ CCSprite* PowerLabel;
         
         //NSLog(@"booleans : %d and %d: ",powerup1Check,powerup2Check);
         /* Ghost Immune PowerUp */
-        if(powerupArray[1]>=1)
+        if(powerupArray[1]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp2"] >=1))
         {
             //NSLog(@"Powerup1 %d: ",powerup1Check);
-            shopPowerUp1 = [CCMenuItemImage itemFromNormalImage:@"life.png" selectedImage:@"life.png" target:self selector:Nil];
-            shopPowerUp1.position = ccp(22, 600-7*40);
-            shopPowerUp1.visible = true;
-            [self addChild:shopPowerUp1];
             shopPowerUp2 = [CCMenuItemImage itemFromNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png" target:self selector:Nil];
             shopPowerUp2.position = ccp(22, 600-9*40);
             shopPowerUp2.visible = true;
             [self addChild:shopPowerUp2];
         }
         /* Ghost Pit Close PowerUp */
-        if(powerupArray[2]>=1)
+        if(powerupArray[2]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp3"] >=1))
         {
-
             //NSLog(@"Powerup2 %d: ",powerup1Check);
-            shopPowerUp2 = [CCMenuItemImage itemFromNormalImage:@"powerup12.png" selectedImage:@"powerup12.png" target:self selector:Nil];
-            shopPowerUp2.position = ccp(22, 600-9*40);
             CCParticleSmoke * p1 = [[CCParticleSmoke alloc]initWithTotalParticles:5];
             [p1 autorelease];
             p1.texture=[[CCTextureCache sharedTextureCache] addImage:@"smoke.png"];
@@ -945,7 +944,7 @@ CCSprite* PowerLabel;
         lifeItem[3].visible = false;
         lifeItem[4].visible = false;
         /* Life Power Up */
-        if(powerupArray[0]>=1)
+        if(powerupArray[0]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp1"] >=1))
         {
             lifeItem[3].visible = true;
             lifeCount++;
@@ -999,14 +998,13 @@ CCSprite* PowerLabel;
         [self schedule:@selector(removeBubble2) interval:3 repeat:1 delay:5];
         
         bubble3 = [CCSprite spriteWithFile:@"bubble6.png"];
-        bubble3.position = ccp(winSize.width - 600 , winSize.height - 180);
+        bubble3.position = ccp(winSize.width - 600 , winSize.height - 680);
         [self addChild:bubble3];
         bubble3.visible = FALSE;
         
         [self addChild:timeLabelBlue];
         
         [self schedule:@selector(LevelTimer:)];
-        
     }
     return self;
     

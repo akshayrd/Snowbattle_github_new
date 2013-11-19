@@ -8,6 +8,7 @@
 
 #import "ShopLayer.h"
 #import "HelloWorldLayer_Level2.h"
+#import "LevelSelectLayer.h"
 
 @implementation ShopLayer
 
@@ -34,9 +35,13 @@
         playerSelectYPos=600;
         
         powerup1=0;
+        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp1"];
         powerup2=0;
+        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp2"];
         playerCount=0;
+        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp3"];
         player1 = false;
+        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"Shop_PlayerImage"];
         player2=false;
         player3=false;
         int powerup1Cost=10;
@@ -241,7 +246,7 @@
         [self addChild:menu18];
         
         
-        CCMenuItemFont *selectPlayer = [CCMenuItemFont itemFromString:@"Go To Next Level"
+        CCMenuItemFont *selectPlayer = [CCMenuItemFont itemFromString:@"Select Level"
                                                                target:self
                                                              selector:@selector(nextLevelStart:)];
         selectPlayer.color=ccBLUE;
@@ -293,6 +298,7 @@
         if(remainingTimeBonus>0)
         {
             powerup1++;
+            [[NSUserDefaults standardUserDefaults] setInteger:powerup1 forKey:@"Shop_PowerUp1"];
         }
 
         [menuItem1 setScale:2];
@@ -308,6 +314,7 @@
         if(remainingTimeBonus>0)
         {
             powerup2++;
+            [[NSUserDefaults standardUserDefaults] setInteger:powerup2 forKey:@"Shop_PowerUp2"];
         }
         [menuItem6 setScale:2];
         //menuItem2.position=ccp(800/2+40,300*1.5);
@@ -322,6 +329,7 @@
         if(remainingTimeBonus>0)
         {
             powerup3++;
+            [[NSUserDefaults standardUserDefaults] setInteger:powerup3 forKey:@"Shop_PowerUp3"];
         }
         [menuItem2 setScale:2];
         //menuItem2.position=ccp(800/2+40,300*1.5);
@@ -397,10 +405,10 @@
     
     NSLog(@"%d %d %s",playerSelectCheck,playerSelectCost,playerSelectImageName);
     
-    
     if(playerSelectCheck==1)
     {
         playerCount++;
+        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"Shop_PlayerImage"];
         player1=true;
         player2=false;
         player3=false;
@@ -419,6 +427,7 @@
             playerCount++;
         }
         player2=true;
+        [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"Shop_PlayerImage"];
         player1=false;
         player3=false;
         [menuItem5 setScale:2];
@@ -436,6 +445,7 @@
             playerCount++;
         }
         player3=true;
+        [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"Shop_PlayerImage"];
         player1=false;
         player2=false;
         [menuItem7 setScale:2];
@@ -487,7 +497,7 @@
 
 -(void)nextLevelStart:(id) sender
 {
-    int powerUpArray[3];
+    /*int powerUpArray[3];
     powerUpArray[0]=powerup1;
     powerUpArray[1]=powerup2;
     powerUpArray[2]=powerup3;
@@ -497,9 +507,9 @@
     playerSelectArray[1]=player2;
     playerSelectArray[2]=player3;
     [[CCDirector sharedDirector]
-     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:YES timeBonus:remainingTimeBonus powerups:powerUpArray playerSelected:playerSelectArray]]];
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:YES timeBonus:remainingTimeBonus powerups:powerUpArray playerSelected:playerSelectArray]]];*/
+    [[CCDirector sharedDirector]
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LevelSelectLayer firstScene:0]]];
 }
-
-
 
 @end

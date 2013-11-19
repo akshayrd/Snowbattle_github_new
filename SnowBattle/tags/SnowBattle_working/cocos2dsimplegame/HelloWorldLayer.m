@@ -793,12 +793,16 @@ int playerDirection = 1;
         CGSize winSize = [CCDirector sharedDirector].winSize;
         
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
-        if(player1==true)
+        if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 1)
         {
-            player = [CCSprite spriteWithFile:@"HyperPlayer_40x40.png"] ;
+            player = [CCSprite spriteWithFile:@"HyperPlayer_40x40.png"];
         }
-        else{
-            player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"] ;
+        else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
+            player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
+        }
+        else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 3)
+        {
+            player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
         }
         [self spawnPlayer];
         if(player == nil)
@@ -806,6 +810,25 @@ int playerDirection = 1;
             printf("this is an error");
         }
         [self addChild:player];
+        
+        /* Ghost Immune PowerUp */
+        if(([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp2"] >=1))
+        {
+            //NSLog(@"Powerup1 %d: ",powerup1Check);
+            shopPowerUp2 = [CCMenuItemImage itemFromNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png" target:self selector:Nil];
+            shopPowerUp2.position = ccp(22, 600-9*40);
+            shopPowerUp2.visible = true;
+            [self addChild:shopPowerUp2];
+        }
+        /* Ghost Pit Close PowerUp */
+        if(([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp3"] >=1))
+        {
+            shopPowerUp3 = [CCMenuItemImage itemFromNormalImage:@"powerUp_ghostPitClose.png" selectedImage:@"powerUp_ghostPitClose.png" target:self selector:Nil];
+            shopPowerUp3.position = ccp(22, 600-10*40);
+            shopPowerUp3.visible = true;
+            [self addChild:shopPowerUp3];
+        }
+        
         monster1 = [CCSprite spriteWithFile:@"bug_51x51.png"];
         monster1.position = ccp(winSize.width/3+35, winSize.height/2+90);
         [self addChild:monster1];
@@ -840,6 +863,12 @@ int playerDirection = 1;
         }
         lifeItem[3].visible = false;
         lifeItem[4].visible = false;
+        /* Life Power Up */
+        if(([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp1"] >=1))
+        {
+            lifeItem[3].visible = true;
+            lifeCount++;
+        }
         life = [CCMenu menuWithItems:lifeItem[0],lifeItem[1],lifeItem[2],lifeItem[3],lifeItem[4], nil];
         
         life.position = CGPointZero;
@@ -1014,6 +1043,8 @@ int immuneDuration = 2;
         lifeItem[lifeCount].visible = false;
         
         lifeCount--;
+        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp1"];
+
         count = 0;
         if (lifeCount < 0) {
             
