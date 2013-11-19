@@ -771,8 +771,8 @@ int playerDirection = 1;
         //powerLivesLayer = NULL;
         
         playerDirection = 1;
-        winScore = 188;
-        //winScore = 20;
+        //winScore = 188;
+        winScore = 20;
         totalLives = 2;
         //        totalLives = 1;
         lifeCount = 2;

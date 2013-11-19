@@ -996,7 +996,7 @@ CCSprite* PowerLabel;
         [self schedule:@selector(removeBubble2) interval:3 repeat:1 delay:5];
         
         bubble3 = [CCSprite spriteWithFile:@"bubble6.png"];
-        bubble3.position = ccp(winSize.width - 600 , winSize.height - 680);
+        bubble3.position = ccp(winSize.width - 550 , winSize.height - 530);
         [self addChild:bubble3];
         bubble3.visible = FALSE;
         
