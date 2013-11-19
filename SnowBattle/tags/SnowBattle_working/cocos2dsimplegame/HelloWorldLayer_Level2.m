@@ -16,13 +16,17 @@
 
 @implementation HelloWorldLayer_Level2
 
+<<<<<<< HEAD
 +(CCScene *) scene2:(BOOL)playerImage1 timeBonus:(int) timeRemaining powerup1:(Boolean)powerup1Check powerup2:(Boolean)powerup2Check
 { 
+=======
++(CCScene *) scene2:(BOOL)playerImage1 timeBonus:(int) timeRemaining powerups:(int [])powerupArray playerSelected:(int [])playerSelectArray{
+>>>>>>> 76c1b818284c75bf61d3cb1bfb8c043a47e3a0ed
     // 'scene' is an autorelease object.
     CCScene *scene2 = [CCScene node];
     
     // 'layer' is an autorelease object.
-    HelloWorldLayer_Level2 *layer = [[HelloWorldLayer_Level2 alloc] initWithPlayer:playerImage1 timeBonus:timeRemaining powerup1:powerup1Check powerup2:powerup2Check];
+    HelloWorldLayer_Level2 *layer = [[HelloWorldLayer_Level2 alloc] initWithPlayer:playerImage1 timeBonus:timeRemaining powerups:powerupArray playerSelected:playerSelectArray];
     
     // add layer as a child to scene
     [scene2 addChild: layer];
@@ -682,6 +686,7 @@ CCSprite* PowerLabel;
         
     }
     
+    
     tileGid = [grenadeLayer tileGIDAt:tileCoord];
     
     if (tileGid) {
@@ -707,6 +712,9 @@ CCSprite* PowerLabel;
                 //[grenadeLayer removeFromParent];
                 [grenadeLayer removeTileAt:tileCoord];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"explosion-01.mp3"];
+                
+               
+
             }
             
         }
@@ -763,7 +771,7 @@ CCSprite* PowerLabel;
 
 // on "init" you need to initialize your instance
 
--(id) initWithPlayer:(BOOL)player1 timeBonus:(int) timeRemaining powerup1:(Boolean)powerup1Check powerup2:(Boolean)powerup2Check
+-(id) initWithPlayer:(BOOL)player1 timeBonus:(int) timeRemaining powerups:(int [])powerupArray playerSelected:(int [])playerSelectArray
 
 {
     if( (self=[super init]) ) {
@@ -896,19 +904,42 @@ CCSprite* PowerLabel;
         [self addChild:starMenu];
         
         //NSLog(@"booleans : %d and %d: ",powerup1Check,powerup2Check);
-        if(powerup1Check==true)
+        /* Ghost Immune PowerUp */
+        if(powerupArray[1]>=1)
         {
+<<<<<<< HEAD
             //NSLog(@"Powerup1 %d: ",powerup1Check);
             shopPowerUp1 = [CCMenuItemImage itemFromNormalImage:@"life.png" selectedImage:@"life.png" target:self selector:Nil];
             shopPowerUp1.position = ccp(22, 600-7*40);
             shopPowerUp1.visible = true;
             [self addChild:shopPowerUp1];
+=======
+            shopPowerUp2 = [CCMenuItemImage itemFromNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png" target:self selector:Nil];
+            shopPowerUp2.position = ccp(22, 600-9*40);
+            shopPowerUp2.visible = true;
+            [self addChild:shopPowerUp2];
+>>>>>>> 76c1b818284c75bf61d3cb1bfb8c043a47e3a0ed
         }
-        if(powerup2Check==true)
+        /* Ghost Pit Close PowerUp */
+        if(powerupArray[2]>=1)
         {
+<<<<<<< HEAD
             //NSLog(@"Powerup2 %d: ",powerup1Check);
             shopPowerUp2 = [CCMenuItemImage itemFromNormalImage:@"powerup12.png" selectedImage:@"powerup12.png" target:self selector:Nil];
             shopPowerUp2.position = ccp(22, 600-9*40);
+=======
+            CCParticleSmoke * p1 = [[CCParticleSmoke alloc]initWithTotalParticles:5];
+            [p1 autorelease];
+            p1.texture=[[CCTextureCache sharedTextureCache] addImage:@"smoke.png"];
+            p1.autoRemoveOnFinish = YES;
+            p1.duration = 20;
+            //p1.life=1.0;
+            p1.position=ccp(980,370);
+            [self addChild:p1];
+            
+            shopPowerUp2 = [CCMenuItemImage itemFromNormalImage:@"powerUp_ghostPitClose.png" selectedImage:@"powerUp_ghostPitClose.png" target:self selector:Nil];
+            shopPowerUp2.position = ccp(22, 600-10*40);
+>>>>>>> 76c1b818284c75bf61d3cb1bfb8c043a47e3a0ed
             shopPowerUp2.visible = true;
             [self addChild:shopPowerUp2];
         }
@@ -920,6 +951,12 @@ CCSprite* PowerLabel;
         }
         lifeItem[3].visible = false;
         lifeItem[4].visible = false;
+        /* Life Power Up */
+        if(powerupArray[0]>=1)
+        {
+            lifeItem[3].visible = true;
+            lifeCount++;
+        }
         life = [CCMenu menuWithItems:lifeItem[0],lifeItem[1],lifeItem[2],lifeItem[3],lifeItem[4], nil];
         
         life.position = CGPointZero;
@@ -1160,8 +1197,20 @@ int livePowerEnabled1 = 0;
     [[CCDirector sharedDirector] startAnimation];
     
 	//[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameStartLayer firstScene:YES]]];
+    
+    int powerupArray[3];
+    powerupArray[0]=0;
+    powerupArray[1]=0;
+    powerupArray[2]=0;
+    
+    int playerSelectArray[3];
+    playerSelectArray[0]=1;
+    playerSelectArray[1]=0;
+    playerSelectArray[2]=0;
+
+    
     [[CCDirector sharedDirector]
-     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:NO timeBonus:0 powerup1:false powerup2:false]]];
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:NO timeBonus:0 powerups:powerupArray playerSelected:playerSelectArray]]];
 }
 
 

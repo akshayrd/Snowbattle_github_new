@@ -11,6 +11,8 @@
 
 @interface LevelSelectLayer : CCLayer {
     BOOL player1Select;
+    NSMutableArray *powerupList;
+    CCMenuItemFont *selectLevel ;
 }
 
 +(id) firstScene:(BOOL)start;
