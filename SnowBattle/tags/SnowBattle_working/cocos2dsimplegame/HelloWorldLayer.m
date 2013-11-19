@@ -7,12 +7,6 @@
 
 
 
-
-@interface HelloWorldLayer ()
-@property (assign) int numCollected;
-
-@end
-
 #pragma mark - HelloWorldLayer
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
@@ -520,14 +514,15 @@ int playerDirection = 1;
             NSString *collectible = properties[@"Collectable"];
             if (collectible && [collectible isEqualToString:@"True"]) {
                 [snow removeTileAt:tileCoord];
-                _numCollected++;
-                [hud numCollectedChanged:_numCollected];
+                currentLevelScore++;
+                [hud numCollectedChanged:currentLevelScore+totalScore];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"shoveling.mp3"];
                 
-                if (_numCollected > winScore) {
+                if (currentLevelScore > winScore) {
                     
                     CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES
-                                                          withscoreValue:_numCollected timeBonus:levelTimeLimit-myTime playerImage:_playerimage];
+                                                          withscoreValue:currentLevelScore timeBonus:levelTimeLimit-myTime playerImage:_playerimage];
+                    [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+totalScore forKey:@"Score"];
                     [[CCDirector sharedDirector] replaceScene:gameOverScene];
                     
                 }
@@ -590,7 +585,7 @@ int playerDirection = 1;
                 
                 [darkBlue removeTileAt:tileCoord];
                 
-                _numCollected++;
+                currentLevelScore++;
                 darkBlueCount++;
                 if(darkBlueCount == 12)
                 {
@@ -604,14 +599,13 @@ int playerDirection = 1;
                     
                 }
                 
-                [hud numCollectedChanged:_numCollected];
-                
+                [hud numCollectedChanged:currentLevelScore+totalScore];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"shoveling.mp3"];
                 
-                if (_numCollected > winScore) {
-                    
-                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:_numCollected timeBonus:levelTimeLimit-myTime playerImage:_playerimage];
-                    
+                if (currentLevelScore > winScore)
+                {
+                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:currentLevelScore timeBonus:levelTimeLimit-myTime playerImage:_playerimage];
+                    [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+totalScore forKey:@"Score"];
                     [[CCDirector sharedDirector] replaceScene:gameOverScene];
                     
                 }
@@ -671,7 +665,7 @@ int playerDirection = 1;
 }
 
 
-- (void) PauseResumeGame:(id) sender
+- (void) PauseResumeGame
 {
     NSLog(@"helloo");
     [CCMenuItemFont setFontName:@"chalkduster"];
@@ -730,10 +724,11 @@ int playerDirection = 1;
     
 	//[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameStartLayer firstScene:YES]]];
     
+    [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+totalScore forKey:@"Score"];
+    
     [[CCDirector sharedDirector]
      replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer scene:NO]]];
-    //[[CCDirector sharedDirector]
-//replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:player1Select timeBonus:0 powerup1:false powerup2:false]]];
+
 }
 
 
@@ -776,13 +771,21 @@ int playerDirection = 1;
         //powerLivesLayer = NULL;
         
         playerDirection = 1;
-        //winScore = 188;
-        winScore = 20;
+        winScore = 188;
+        //winScore = 20;
         totalLives = 2;
         //        totalLives = 1;
         lifeCount = 2;
         levelTimeLimit = 240;
         powerLiveTimeLimit = 45;
+        currentLevelScore = 0;
+        
+        //[[NSUserDefaults standardUserDefaults] setInteger:10 forKey:@"Score"];
+        
+        totalScore = [[NSUserDefaults standardUserDefaults] integerForKey:@"Score"];
+        
+        //[[NSUserDefaults standardUserDefaults] setInteger:_numCollected+10 forKey:@"Score"];
+        
         
         for(CCTMXLayer *child in [_tileMap children])
         {
@@ -825,7 +828,7 @@ int playerDirection = 1;
         [self performSelectorInBackground:@selector(actionmonster4) withObject:self];
         
         // Standard method to pause the game
-        CCMenuItem *starMenuItem = [CCMenuItemImage itemFromNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame:)];
+        CCMenuItem *starMenuItem = [CCMenuItemImage itemFromNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame)];
         
         //starMenuItem.position = ccp(870, 25);
         starMenuItem.position = ccp(22, 680);
@@ -947,7 +950,8 @@ CCSprite* PowerLabel;
         }
         if ( myTimeBlue > powerLiveTimeLimit && darkBlueCount < 12)
         {
-            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:0 playerImage:_playerimage];
+            [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+ totalScore forKey:@"Score"];
+            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:currentLevelScore timeBonus:0 playerImage:_playerimage];
             [[CCDirector sharedDirector] replaceScene:gameOverScene];
         }
     }
@@ -994,8 +998,8 @@ int livePowerEnabled = 0;
     
     if (levelTimeLimit < myTime)
     {
-        CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:0 playerImage:_playerimage];
-        
+        CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:currentLevelScore timeBonus:0 playerImage:_playerimage];
+        [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+totalScore forKey:@"Score"];
         [[CCDirector sharedDirector] replaceScene:gameOverScene];
     }
     
@@ -1018,7 +1022,8 @@ int immuneDuration = 2;
         if (lifeCount < 0) {
             
             lifeCount = 2;
-            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:_numCollected timeBonus:0 playerImage:_playerimage];
+            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:currentLevelScore timeBonus:0 playerImage:_playerimage];
+            [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+totalScore forKey:@"Score"];
             [[CCDirector sharedDirector] replaceScene:gameOverScene];
         }
         [player runAction:blink];

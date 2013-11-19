@@ -43,6 +43,8 @@
     int myTime;
     
     int currentTime;
+    int currentLevelScore;
+    int totalScore;
     
     // power up times
     
