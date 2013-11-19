@@ -3,21 +3,21 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[HelloWorldLayer_Level2 checkBonusStageIsReturned]:HelloWorldLayer_Level2.m">
+         contextName = "-[HelloWorldLayer_Level2 ShowBonuStageImage]:HelloWorldLayer_Level2.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.isTouchEnabled">
+               value = "player">
             </PersistentString>
             <PersistentString
-               value = "b_hud.visible">
+               value = "bonusPointsLocation[bonusIndex]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[Bonus_hud setPlayerPosition:]:Bonus_hud.m">
+         contextName = "-[Bonus_hud checkCollisionWithMonster]:Bonus_hud.m">
          <PersistentStrings>
             <PersistentString
-               value = "playerB.position">
+               value = "CGRectIntersectsRect([monster9 boundingBox] , [playerB boundingBox])">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -30,10 +30,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[Bonus_hud checkCollisionWithMonster]:Bonus_hud.m">
+         contextName = "-[HelloWorldLayer_Level2 checkBonusStageIsReturned]:HelloWorldLayer_Level2.m">
          <PersistentStrings>
             <PersistentString
-               value = "CGRectIntersectsRect([monster9 boundingBox] , [playerB boundingBox])">
+               value = "self.isTouchEnabled">
+            </PersistentString>
+            <PersistentString
+               value = "b_hud.visible">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -51,6 +54,14 @@
             </PersistentString>
             <PersistentString
                value = "[monster1 boundingBox]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[Bonus_hud setPlayerPosition:]:Bonus_hud.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "playerB.position">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

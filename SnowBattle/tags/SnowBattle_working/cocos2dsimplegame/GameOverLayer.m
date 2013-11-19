@@ -2,9 +2,9 @@
 #import "HelloWorldLayer.h"
 #import "HelloWorldLayer_Level2.h"
 #import "ShopLayer.h"
+#import "LevelSelectLayer.h"
 
 @implementation GameOverLayer
-
 +(CCScene *) sceneWithWon:(BOOL)won withscoreValue:(int)scoreValue timeBonus:(int) timeRemaining playerImage:(BOOL)playerimage{
     CCScene *scene = [CCScene node];
     
@@ -82,7 +82,7 @@
         
         label2 = [CCLabelTTF labelWithString:@"Select Level" fontName:@"Marker Felt" fontSize:32];
         label2.color = ccc3(0,0,0);
-        CCMenuItemLabel *back = [CCMenuItemLabel itemWithLabel:label2  target:self selector:@selector(restart)];
+        CCMenuItemLabel *back = [CCMenuItemLabel itemWithLabel:label2  target:self selector:@selector(LevelSelector)];
         
         if (won){
             //label3 = [CCLabelTTF labelWithString:@"Go to Next Level" fontName:@"Marker Felt" fontSize:32];
@@ -101,10 +101,10 @@
     return self;
 }
 
--(void) restart {
+-(void) LevelSelector {
     
     //[[CCDirector sharedDirector] replaceScene:[HelloWorldLayer scene:_playerimage]];
-    [[CCDirector sharedDirector] replaceScene:[HelloWorldLayer scene:_playerimage]];
+    [[CCDirector sharedDirector] replaceScene:[LevelSelectLayer firstScene:_playerimage ]];
 }
 
 -(void) nextLevel {
