@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "cocos2dsimplegame/HelloWorldLayer_Level2.m"
-         timestampString = "406256934.745685"
+         timestampString = "406528119.72564"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "300"
-         endingLineNumber = "300"
+         startingLineNumber = "299"
+         endingLineNumber = "299"
          landmarkName = "-Ghost1move:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "cocos2dsimplegame/HelloWorldLayer.m"
-         timestampString = "406263362.797113"
+         timestampString = "406526106.067936"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "836"
-         endingLineNumber = "836"
+         startingLineNumber = "855"
+         endingLineNumber = "855"
          landmarkName = "-initWithPlayer:"
          landmarkType = "5">
       </FileBreakpoint>

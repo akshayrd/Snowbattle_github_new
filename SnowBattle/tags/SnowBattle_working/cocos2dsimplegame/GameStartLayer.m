@@ -57,11 +57,20 @@
 }
 
 -(void) startGame: (id) sender {
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp1"];
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp2"];
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp3"];
+    [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"Shop_PlayerImage"];
+    
     [[CCDirector sharedDirector]
      replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[PlayerSelectLayer selectScene:YES]]];
 }
 
 -(void) shopNow: (id) sender {
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp1"];
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp2"];
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp3"];
+    [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"Shop_PlayerImage"];
     [[CCDirector sharedDirector]
      replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[ShopLayer scene3:0]]];
 }

@@ -30,6 +30,8 @@
     CCSprite* bubble2;
     CCSprite* bubble3;
     CCMenu *pauseResumeMenu;
+    CCMenuItemImage *shopPowerUp2;
+    CCMenuItemImage *shopPowerUp3;
     
     HudLayer *hud;
     
