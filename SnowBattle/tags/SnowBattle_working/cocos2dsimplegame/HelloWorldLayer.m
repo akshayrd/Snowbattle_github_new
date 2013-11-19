@@ -659,7 +659,6 @@ int playerDirection = 1;
 
 
 - (void) PauseGame
-
 {
     
     [[CCDirector sharedDirector] stopAnimation];
@@ -670,6 +669,7 @@ int playerDirection = 1;
     self.isTouchEnabled = NO;
     
 }
+
 
 - (void) PauseResumeGame:(id) sender
 {
@@ -753,7 +753,6 @@ int playerDirection = 1;
 }
 
 // on "init" you need to initialize your instance
-
 -(id) initWithPlayer:(BOOL)player1
 
 {
@@ -953,7 +952,7 @@ CCSprite* PowerLabel;
         }
     }
     
-}
+ }
 int livePowerEnabled = 0;
 
 -(void)LevelTimer:(ccTime)dt{

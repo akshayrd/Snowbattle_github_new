@@ -116,6 +116,7 @@
 		BAEB785417FC93A300B9663A /* player2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAEB785317FC93A300B9663A /* player2.jpg */; };
 		BAFF85A618372FF400149C47 /* Bonus_hud.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF85A518372FF400149C47 /* Bonus_hud.m */; };
 		BAFF85A81837387300149C47 /* ghostPit.png in Resources */ = {isa = PBXBuildFile; fileRef = BAFF85A71837387300149C47 /* ghostPit.png */; };
+		BAFF85AA1837510000149C47 /* BonusMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BAFF85A91837510000149C47 /* BonusMap.tmx */; };
 		F52F674D180E41250081074E /* LevelSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F52F674C180E41250081074E /* LevelSelectLayer.m */; };
 		F53576DD181338500003E30F /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576D9181338500003E30F /* background.jpg */; };
 		F53576DE181338500003E30F /* grassTexture2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53576DA181338500003E30F /* grassTexture2.jpg */; };
@@ -539,6 +540,7 @@
 		BAFF85A418372FF400149C47 /* Bonus_hud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bonus_hud.h; sourceTree = "<group>"; };
 		BAFF85A518372FF400149C47 /* Bonus_hud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bonus_hud.m; sourceTree = "<group>"; };
 		BAFF85A71837387300149C47 /* ghostPit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ghostPit.png; path = Resources/ghostPit.png; sourceTree = "<group>"; };
+		BAFF85A91837510000149C47 /* BonusMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = BonusMap.tmx; path = Resources/BonusMap.tmx; sourceTree = "<group>"; };
 		F52F674B180E41250081074E /* LevelSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectLayer.h; sourceTree = "<group>"; };
 		F52F674C180E41250081074E /* LevelSelectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectLayer.m; sourceTree = "<group>"; };
 		F53576D9181338500003E30F /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = Resources/background.jpg; sourceTree = "<group>"; };
@@ -1305,6 +1307,7 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BAFF85A91837510000149C47 /* BonusMap.tmx */,
 				BAFF85A71837387300149C47 /* ghostPit.png */,
 				3FBF397F1836E96500C5ED4A /* monster-hd.png */,
 				F5E9DC5F18360090002C145E /* explosion-01.mp3 */,
@@ -1813,6 +1816,7 @@
 				BA90FCAB182DF58D001D3A61 /* HandGernade_45x45.png in Resources */,
 				BA3FEDE117FE98A000DD2E17 /* 2.jpg in Resources */,
 				BA68E5391814AC3000F3F937 /* Play40x40.png in Resources */,
+				BAFF85AA1837510000149C47 /* BonusMap.tmx in Resources */,
 				BA3FEDFE17FEA36100DD2E17 /* pickup.caf in Resources */,
 				BABF0814181777360014367F /* bubble1.png in Resources */,
 				BABF0818181779E00014367F /* bubble3.png in Resources */,

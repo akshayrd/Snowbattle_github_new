@@ -1,18 +1,11 @@
-//
-//  HelloWorldLayer_Level2.m
-//  cocos2dsimplegame
-//
-//  Created by Student on 10/30/13.
-//  Copyright 2013 gpadmin. All rights reserved.
-//
-
 #import "HelloWorldLayer_Level2.h"
 #import "AppDelegate.h"
 #import "SimpleAudioEngine.h"
 #import "GameOverLayer.h"
 #import "GameStartLayer.h"
 #import "LevelSelectLayer.h"
-#import "BonusStage.h"
+//#import "BonusStage.h"
+#import "Bonus_hud.h"
 
 @interface HelloWorldLayer_Level2 ()
 @property (assign) int numCollected;
@@ -23,7 +16,8 @@
 
 @implementation HelloWorldLayer_Level2
 
-+(CCScene *) scene2:(BOOL)playerImage1 timeBonus:(int) timeRemaining powerup1:(Boolean)powerup1Check powerup2:(Boolean)powerup2Check{
++(CCScene *) scene2:(BOOL)playerImage1 timeBonus:(int) timeRemaining powerup1:(Boolean)powerup1Check powerup2:(Boolean)powerup2Check
+{ 
     // 'scene' is an autorelease object.
     CCScene *scene2 = [CCScene node];
     
@@ -37,6 +31,13 @@
     HudLayer *hud = [HudLayer node];
     [scene2 addChild:hud];
     layer->hud = hud;
+    
+    Bonus_hud *bhud = [Bonus_hud scene:YES];
+    [scene2 addChild:bhud];
+    layer->b_hud = bhud;
+    bhud.visible = NO;
+    
+    
     
     return scene2;
     
@@ -269,11 +270,11 @@ CGPoint currentposition;
     int rangeY = maxY - minY;
     int actualY = (arc4random() % rangeY) + minY;
     /*
-    int minX = 100;
-    int maxX = winSize.width - 100;
-    int rangeX = maxX - minX;
-    int actualX = (arc4random() % rangeX) + minX;
-    */
+     int minX = 100;
+     int maxX = winSize.width - 100;
+     int rangeX = maxX - minX;
+     int actualX = (arc4random() % rangeX) + minX;
+     */
     
     // Create the monster slightly off-screen along the right edge,
     // and along a random position along the Y axis as calculated above
@@ -297,21 +298,21 @@ CGPoint currentposition;
     CCCallBlockN * actionMoveDone = [CCCallBlockN actionWithBlock:^(CCNode *node) {
         [node removeFromParentAndCleanup:YES];
     }];
-    /*  
-    if (c%2 == 0) {
-        actionMove = [CCMoveTo actionWithDuration:actualDuration
-                                         position:ccp(currentposition.x, actualY)];
-        }
-    else
-    {
-        actionMove = [CCMoveTo actionWithDuration:actualDuration
-                                         position:ccp(actualX, currentposition.y)];
-        
-    }
-    c++;
-*/
+    /*
+     if (c%2 == 0) {
+     actionMove = [CCMoveTo actionWithDuration:actualDuration
+     position:ccp(currentposition.x, actualY)];
+     }
+     else
+     {
+     actionMove = [CCMoveTo actionWithDuration:actualDuration
+     position:ccp(actualX, currentposition.y)];
+     
+     }
+     c++;
+     */
     
-        [monster13 runAction:[CCSequence actions:actionMove,actionMoveDone, nil]];
+    [monster13 runAction:[CCSequence actions:actionMove,actionMoveDone, nil]];
     
 }
 
@@ -495,6 +496,10 @@ CCSprite* PowerLabel;
 
 -(void)setPlayerPosition:(CGPoint)position {
     CGPoint tileCoord = [self tileCoordForPosition:position];
+    
+        //NSLog(@"%f %f",tileCoord.x,tileCoord.y);
+    
+    
     int tileGid = [building tileGIDAt:tileCoord];
     if (tileGid) {
         NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
@@ -526,6 +531,7 @@ CCSprite* PowerLabel;
             NSString *collectible = properties[@"Collectable"];
             if (collectible && [collectible isEqualToString:@"True"]) {
                 [snow removeTileAt:tileCoord];
+                
                 _numCollected++;
                 [hud numCollectedChanged:_numCollected];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"shoveling.mp3"];
@@ -605,47 +611,19 @@ CCSprite* PowerLabel;
         NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         if (properties) {
             NSString *collision = properties[@"Bonus"];
-            if (collision && [collision isEqualToString:@"True"]) {
+            if (collision && [collision isEqualToString:@"True"] && bonusRoundPlayed == NO) {
                 [bonusLayer removeTileAt:tileCoord];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
-                NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
-                NSString *documentsDirectory = [paths objectAtIndex:0];
-                NSString *gameStatePath = [documentsDirectory stringByAppendingPathComponent:@"gameState.dat"];
                 
-                NSMutableData *gameData;
-                NSKeyedArchiver *encoder;
-                gameData = [NSMutableData data];
-                encoder = [[NSKeyedArchiver alloc] initForWritingWithMutableData:gameData];
+                b_hud.visible  = YES;
+        
+                b_hud.isTouchEnabled = YES;
+                bonusStageRunning = YES;
                 
-                [encoder encodeBool:_playerimage forKey:@"stage2"];
-                //CCTMXLayer* p = [CCTMXLayer alloc];
-                //[encoder encodeBytes:(const uint8_t *)snow length:sizeof(snow) forKey:@"snowmap"];
+                bonusRoundPlayed = YES;
                 
-                [encoder finishEncoding];
-                [gameData writeToFile:gameStatePath atomically:YES];
-                [encoder release];
-                
-                NSUserDefaults *userDafs = [NSUserDefaults standardUserDefaults];
-                int test2 = 9;
-                [userDafs setInteger:test2 forKey:@"player"];
-                [userDafs setInteger:darkBlueCount forKey:@"darkBlueCount"];
-                //[userDafs removeObjectForKey:@"snow1"];
-                //[userDafs setObject:snow forKey:@"snow1"];
-
-                
-                
-                NSLog(@"Stored:%d", test2);
-                //[userDafs setInteger:self.gameMode forKey:@"gameMode"];
-                
-                [[NSUserDefaults standardUserDefaults] synchronize];
-                
-                
-                CCScene *bonusStage_level = [BonusStage scene];
-                [[CCDirector sharedDirector] replaceScene:bonusStage_level];
-                
-                
-                
-                
+                [self schedule:@selector(checkBonusStageIsReturned) ];
+                [NSTimer scheduledTimerWithTimeInterval:.06 target:self selector:@selector(PauseGameForBonus:) userInfo:nil repeats:NO];
             }
         }
     }
@@ -718,7 +696,7 @@ CCSprite* PowerLabel;
             }
             
             if (powerGrenade == 1) {
-                NSLog(@"Inside grenade %f %f",tileCoord.x,tileCoord.y);
+                //NSLog(@"Inside grenade %f %f",tileCoord.x,tileCoord.y);
                 CCParticleFire * p = [[CCParticleFire alloc]initWithTotalParticles:500];
                 [p autorelease];
                 p.texture=[[CCTextureCache sharedTextureCache] addImage:@"fire.png"];
@@ -735,11 +713,21 @@ CCSprite* PowerLabel;
         
     }
     
-    
-    
     [[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
     
     player.position = position;
+ }
+
+- (void) checkBonusStageIsReturned
+{
+    if (b_hud.visible == NO && self.isTouchEnabled == NO) {
+        bonusStageRunning = NO;
+        [self ResumeGameAfterBonus];
+        [self unschedule:@selector(checkBonusStageIsReturned)];
+    }
+    //NSLog(@"Checkbonus");
+    
+    
 }
 
 
@@ -773,8 +761,6 @@ CCSprite* PowerLabel;
 
 
 
-
-
 // on "init" you need to initialize your instance
 
 -(id) initWithPlayer:(BOOL)player1 timeBonus:(int) timeRemaining powerup1:(Boolean)powerup1Check powerup2:(Boolean)powerup2Check
@@ -783,50 +769,13 @@ CCSprite* PowerLabel;
     if( (self=[super init]) ) {
         //[self setTouchEnabled:YES];
         self.isTouchEnabled = YES;
-        
+        isBonusDisplayed =  NO;
         _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"tileMap3.tmx"];
         
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
-        //NSString *gameStatePath = [documentsDirectory stringByAppendingPathComponent:@"gameState.dat"];
-        
-        NSMutableData *gameData;
-        NSKeyedUnarchiver *decoder;
-        
-        NSString *documentPath = [documentsDirectory stringByAppendingPathComponent:@"gameState.dat"];
-        gameData = [NSData dataWithContentsOfFile:documentPath];
-        NSUserDefaults *userDafs = [NSUserDefaults standardUserDefaults];
-        if (gameData) {
-            decoder = [[NSKeyedUnarchiver alloc] initForReadingWithData:gameData];
-            
-            _playerimage = [decoder decodeBoolForKey:@"stage2"];
-            NSUInteger lengthRet = 0;
-            snow = (CCTMXLayer*)[decoder decodeBytesForKey:@"snowmap" returnedLength:&lengthRet];
-            
-            //[decoder finishEncoding];
-            //[gameData writeToFile:gameStatePath atomically:YES];
-            [decoder release];
-        }
-        
-        else
-        {
-            snow = [_tileMap layerNamed:@"Snow"];
-            _playerimage = player1;
-        }
-        
-        
-        //[userDafs setInteger:_playerimage forKey:@"player"];
-        
-        int test1 = [userDafs integerForKey:@"player"];
-        
-        if (test1 == 9) {
-            darkBlueCount = [userDafs integerForKey:@"darkBlueCount"];
-        }
-        
-        
-        NSLog(@"Got Replay:%d",test1);
-        //self.gameMode = (GameMode)[userDafs integerForKey:@"gameMode"]
-        
+        snow = [_tileMap layerNamed:@"Snow"];
+        _playerimage = player1;
+        bonusStageRunning = NO;
+        bonusRoundPlayed = NO;
         
         count = 90;
         darkBlueCount = 0;
@@ -842,15 +791,24 @@ CCSprite* PowerLabel;
         powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
         grenadeLayer = [_tileMap layerNamed:@"GrenadeWall"];
         bonusLayer = [_tileMap layerNamed:@"Bonus"];
+        //bonusLayer.visible = NO;
         
         powerLivesLayer.visible = FALSE;
         
         playerDirection = 1;
+        bonusPointsLocation[0] = ccp(6, 14);
+        bonusPointsLocation[1] = ccp(12, 1);
+        bonusPointsLocation[2] = ccp(17, 10);
+        bonusPointsLocation[3] = ccp(6, 9);
+        bonusPointsLocation[4] = ccp(17, 13);
         
-        //[_tileMap removeChild:powerLivesLayer];
-        //powerLivesLayer = NULL;
         
-        //playerDirection = 1;
+        for (int i = 0; i<5; i++)
+        {
+            [bonusLayer tileAt:bonusPointsLocation[i]].visible = NO;
+        }
+        
+        
         winScore = 197;
         //winScore = 10;
         totalLives = 2;
@@ -886,10 +844,10 @@ CCSprite* PowerLabel;
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
         if(player1==true)
         {
-            player = [CCSprite spriteWithFile:@"HyperPlayer_40x40.png"] ;
+            player = [CCSprite spriteWithFile:@"HyperPlayer_40x40.png"];
         }
         else{
-            player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"] ;
+            player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
         }
         [self spawnPlayer];
         if(player == nil)
@@ -927,6 +885,7 @@ CCSprite* PowerLabel;
         [self performSelectorInBackground:@selector(actionghost1) withObject:self];
         
         
+        
         // Standard method to pause the game
         CCMenuItem *starMenuItem = [CCMenuItemImage itemFromNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame:)];
         
@@ -939,7 +898,7 @@ CCSprite* PowerLabel;
         //NSLog(@"booleans : %d and %d: ",powerup1Check,powerup2Check);
         if(powerup1Check==true)
         {
-            NSLog(@"Powerup1 %d: ",powerup1Check);
+            //NSLog(@"Powerup1 %d: ",powerup1Check);
             shopPowerUp1 = [CCMenuItemImage itemFromNormalImage:@"life.png" selectedImage:@"life.png" target:self selector:Nil];
             shopPowerUp1.position = ccp(22, 600-7*40);
             shopPowerUp1.visible = true;
@@ -947,7 +906,7 @@ CCSprite* PowerLabel;
         }
         if(powerup2Check==true)
         {
-            NSLog(@"Powerup2 %d: ",powerup1Check);
+            //NSLog(@"Powerup2 %d: ",powerup1Check);
             shopPowerUp2 = [CCMenuItemImage itemFromNormalImage:@"powerup12.png" selectedImage:@"powerup12.png" target:self selector:Nil];
             shopPowerUp2.position = ccp(22, 600-9*40);
             shopPowerUp2.visible = true;
@@ -967,6 +926,7 @@ CCSprite* PowerLabel;
         [self addChild:life];
         
         [self schedule:@selector(checkCollisionWithMonster)];
+        [self schedule:@selector(ShowBonuStageImage)];
         
         myTime = 0;
         
@@ -986,10 +946,10 @@ CCSprite* PowerLabel;
         timeLabelBlue.anchorPoint = CGPointMake(0.5f, 1.0f);
         
         timeLabelBlue.color = ccBLACK;
+        
         // Add the time label
         timeLabelBlue.visible = FALSE;
         /*collideTime = 0;*/
-        
         PowerLabel = [CCSprite spriteWithFile:@"powerup12.png"];
         
         PowerLabel.position =ccp(120 + timeLabelBlue.contentSize.width, timeLabelBlue.contentSize.height/2 + 27);
@@ -1021,6 +981,25 @@ CCSprite* PowerLabel;
     return self;
     
 }
+- (void) ShowBonuStageImage
+{
+    if (bonusRoundPlayed == NO)
+    {
+
+        if (myTime%10 == 0 && myTime !=0 && isBonusDisplayed == NO)
+        {
+            isBonusDisplayed = YES;
+            bonusIndex = rand() %5;
+            [bonusLayer tileAt:bonusPointsLocation[bonusIndex]].visible = YES;
+            
+        }
+        if ((myTime+15)%10 == 0) {
+            [bonusLayer tileAt:bonusPointsLocation[bonusIndex]].visible = NO;
+            isBonusDisplayed = NO;
+        }
+
+    }
+}
 -(void) MakeBubbleInvisible
 {
     bubble.visible = FALSE;
@@ -1037,7 +1016,7 @@ int livePowerEnabled1 = 0;
         [timeLabel setString:[NSString stringWithFormat:@"%02d:%02d", (levelTimeLimit - myTime)/60, (levelTimeLimit-myTime)%60]];
     }
     
-    if (myTime == 15 && livePowerEnabled1 == 0) {
+    if (myTime == 25 && livePowerEnabled1 == 0) {
         livePowerEnabled1 = 1;
         //[self addChild:life];
         
@@ -1074,9 +1053,7 @@ int livePowerEnabled1 = 0;
     
 }
 
-
 -(void) spawnPlayer
-
 {
     CCTMXObjectGroup *objectGroup = [_tileMap objectGroupNamed:@"Objects"];
     
@@ -1103,21 +1080,27 @@ int livePowerEnabled1 = 0;
 }
 
 - (void) PauseGame:(id)sender
-
 {
-    
     [[CCDirector sharedDirector] stopAnimation];
-    
     [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
-    
     [[CCDirector sharedDirector] pause];
     self.isTouchEnabled = NO;
     
 }
 
+- (void) PauseGameForBonus:(id)sender
+{
+    //[[CCDirector sharedDirector] stopAnimation];
+    //[[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
+    //[[CCDirector sharedDirector] pause];
+    self.isTouchEnabled = NO;
+    
+}
+
+
 - (void) PauseResumeGame:(id) sender
 {
-    NSLog(@"helloo");
+    //NSLog(@"helloo");
     [CCMenuItemFont setFontName:@"chalkduster"];
     
     [CCMenuItemFont setFontSize:50];
@@ -1148,17 +1131,23 @@ int livePowerEnabled1 = 0;
 - (void)ResumeGame:(id)sender
 {
     [[CCDirector sharedDirector] stopAnimation];
-    
     [[CCDirector sharedDirector] resume];
-    
     [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
-    
     [[CCDirector sharedDirector] startAnimation];
     [self removeChild:pauseResumeMenu];
     self.isTouchEnabled = YES;
     
 }
 
+- (void)ResumeGameAfterBonus
+{
+    [[CCDirector sharedDirector] stopAnimation];
+    [[CCDirector sharedDirector] resume];
+    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+    [[CCDirector sharedDirector] startAnimation];
+    self.isTouchEnabled = YES;
+    
+}
 
 - (void)RestartGame:(id)sender
 {

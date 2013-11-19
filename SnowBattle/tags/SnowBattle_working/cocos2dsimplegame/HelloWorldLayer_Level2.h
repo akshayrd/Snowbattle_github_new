@@ -2,7 +2,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "HudLayer.h"
-
+#import "Bonus_hud.h"
 
 @interface HelloWorldLayer_Level2 : CCLayer {
     CCTMXTiledMap *_tileMap;
@@ -33,6 +33,8 @@
     
     CCMenu *life;
     HudLayer *hud;
+    Bonus_hud *b_hud;
+    BOOL bonusStageRunning;
     
     
     // Level timer
@@ -58,6 +60,10 @@
     int immuneDuration;
     CCLabelTTF *timeLabelBlue;
     BOOL _playerimage;
+    BOOL bonusRoundPlayed ;
+    CGPoint bonusPointsLocation[5];
+    bool isBonusDisplayed;
+    int bonusIndex;
     
 }
 

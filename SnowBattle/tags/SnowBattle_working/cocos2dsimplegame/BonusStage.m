@@ -29,6 +29,8 @@
     //[scene addChild:hud];
     //layer->hud = hud;
     
+    
+    
     return scene;
     
 }
@@ -58,6 +60,7 @@
     }
     return self;
 }
+
 
 -(void) startGameLevel2:(id) sender{
     NSLog(@"222Heree");

@@ -88,7 +88,7 @@
  </tileset>
  <layer name="Street" width="21" height="16">
   <data encoding="base64" compression="zlib">
-   eJzt06kOgDAQRdEpi2MAx1LH5tj+/+e4kpAq2hASEMfcjHsZIyIRYiRIYTxbBkWOAmWAVqFGgxY2QOvQY8CIKUCbsWDFhv3S1NFcd+fmu8fXNlLPje60f6Nn/+gtGx0jNB6o
+   eJzt0ykSgDAQBdEkgCOAY4ljc2z3vxwtKSoGMmBAPNM17tdopZRBhBgJdGBLYZEhRyHQSlSo0cAJtBYdegwYBdqEGQtWbKdmPc13d2yhe3xtIxu40dVm/o1e/6M77YmNds3RHn0=
   </data>
  </layer>
  <layer name="Building" width="21" height="16">
@@ -103,45 +103,10 @@
  </layer>
  <layer name="Snow" width="21" height="16">
   <data encoding="base64" compression="zlib">
-   eJy9k9sKACAIQ/ff/XzvortENRCk7CzJgPdaJFBylJzxJn7HqXuMp3w6X4fHOKk3q0/7SWI62/ncYp7cM/VK55MxJznzecJUtcmMqn/E1jqu05PqsXLcN/qhDcKGSYQ=
-  </data>
- </layer>
- <layer name="DarkBlueTiles" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYKANaEbChNQRq58Y8wipw2YmJeaRYg455pJj5iigHqBFeFI73kk1j1i1hMwlNW8SYx42M6lZhlAbAADLYRV/
-  </data>
- </layer>
- <layer name="power_blue" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjALaAWfGgXYB7QAAP68ARQ==
-  </data>
- </layer>
- <layer name="Power_lives" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo4B04MI40C4YBaNg4AEA1mcARg==
-  </data>
- </layer>
- <layer name="Grenade" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYBhawJVxoF0wCkbBKBgFEAAARK4ARw==
-  </data>
- </layer>
- <layer name="GrenadeWall" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2D4gbqBdsAoGBEAADR/AH8=
-  </data>
- </layer>
- <layer name="Bonus" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYBh44MY40C4YBaNg4NPhQNs/kIBYvw+2MAIAxc0BZA==
-  </data>
- </layer>
- <layer name="ghostPit" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2BkAHfGgXbBKBhuAACs3wBJ
+   eJxjYBgFo4C6oJoITI6ZlMjj0kNtd46CkQUAWYgJnQ==
   </data>
  </layer>
  <objectgroup name="Objects" width="21" height="16">
-  <object name="SpawnPoint" x="58" y="361" width="32" height="35"/>
+  <object name="SpawnPoint" x="560" y="409" width="32" height="35"/>
  </objectgroup>
 </map>
