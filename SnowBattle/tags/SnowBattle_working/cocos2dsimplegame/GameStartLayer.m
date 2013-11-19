@@ -21,15 +21,17 @@
         bg.anchorPoint = ccp(0, 0);
         [self addChild:bg z:0];
         
-        CCParticleSnow * p = [[CCParticleSnow alloc]initWithTotalParticles:4000];
+        CCParticleSnow * p = [[CCParticleSnow alloc]initWithTotalParticles:10000];
         [p autorelease];
         p.texture=[[CCTextureCache sharedTextureCache] addImage:@"snowImage.png"];
         p.autoRemoveOnFinish = YES;
-        p.speed=30.0;
+        p.speed=100.0;
         p.duration = 1000;
         p.position=ccp(200,750);
         p.scaleX=2.0f;
-        p.endSize=8.0f;
+        p.endSize=18.0f;
+        p.startSize = 15.0f;
+        //p.startColor = [ccColor4F colorWithRed:0 green:0 blue:255];
         [self addChild:p z:1];
         
         [CCMenuItemFont setFontName:@"chalkduster"];
