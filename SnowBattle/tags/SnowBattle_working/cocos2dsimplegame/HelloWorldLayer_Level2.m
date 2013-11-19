@@ -38,9 +38,7 @@
     [scene2 addChild:bhud];
     layer->b_hud = bhud;
     bhud.visible = NO;
-    
-    
-    
+ 
     return scene2;
     
 }
