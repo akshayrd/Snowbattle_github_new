@@ -18,6 +18,9 @@
     CCTMXLayer *powerGrenadeLayer;
     CCTMXLayer *grenadeLayer;
     CCTMXLayer *bonusLayer;
+    
+    CCTMXLayer *ghostpitLayer;
+
     int darkBlueCount;
     int powerBlue;
     int powerGrenade;
@@ -30,6 +33,7 @@
     CCSprite* bubble2;
     CCSprite* bubble3;
     CCMenu *pauseResumeMenu;
+    CCMenu *Powerupmenu2;
     
     CCMenu *life;
     HudLayer *hud;
@@ -64,6 +68,13 @@
     CGPoint bonusPointsLocation[5];
     bool isBonusDisplayed;
     int bonusIndex;
+    
+    int currentLevelScore;
+    int totalScore;
+    
+    int pitTime;
+    CCSprite * monster13;
+    int c;
     
 }
 

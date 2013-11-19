@@ -742,6 +742,8 @@ int playerDirection = 1;
     
     [[CCDirector sharedDirector] startAnimation];
     
+    [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+totalScore forKey:@"Score"];
+    
     [[CCDirector sharedDirector]
      replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[LevelSelectLayer firstScene:YES]]];
     
@@ -771,7 +773,7 @@ int playerDirection = 1;
         //powerLivesLayer = NULL;
         
         playerDirection = 1;
-        winScore = 188;
+        winScore = 1;
         //winScore = 20;
         totalLives = 2;
         //        totalLives = 1;

@@ -12,7 +12,6 @@
 		3F703EDA1838AC6900309DEB /* try1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3F703ED81838AC6900309DEB /* try1.gif */; };
 		3F703EDD1838B0F200309DEB /* powerUp_immuneGhost.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F703EDB1838B0F200309DEB /* powerUp_immuneGhost.png */; };
 		3F703EDE1838B0F200309DEB /* powerUp_ghostPitClose.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F703EDC1838B0F200309DEB /* powerUp_ghostPitClose.png */; };
-		3FBF39801836E96500C5ED4A /* monster-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF397F1836E96500C5ED4A /* monster-hd.png */; };
 		BA3949D617F2EC450072E0C9 /* hit.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3949D217F2EC450072E0C9 /* hit.caf */; };
 		BA3FEDD617FE893800DD2E17 /* Raycast.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDD517FE893800DD2E17 /* Raycast.m4a */; };
 		BA3FEDDC17FE986800DD2E17 /* grey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDDB17FE986800DD2E17 /* grey.jpg */; };
@@ -31,6 +30,7 @@
 		BA3FEDFE17FEA36100DD2E17 /* pickup.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDEF17FEA36100DD2E17 /* pickup.caf */; };
 		BA3FEE0117FEA36100DD2E17 /* tileMap2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDF217FEA36100DD2E17 /* tileMap2.tmx */; };
 		BA3FEE5E17FEA3D400DD2E17 /* wall2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEE5D17FEA3D400DD2E17 /* wall2.jpg */; };
+		BA45C40A183B1AB200818656 /* monster-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BA45C409183B1AB200818656 /* monster-hd.png */; };
 		BA508745180BAAB60097C021 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BA508744180BAAB60097C021 /* GameOverLayer.m */; };
 		BA508748180BAD970097C021 /* POSTER.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA508746180BAD970097C021 /* POSTER.jpg */; };
 		BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */; };
@@ -240,7 +240,6 @@
 		3F703ED81838AC6900309DEB /* try1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = try1.gif; sourceTree = "<group>"; };
 		3F703EDB1838B0F200309DEB /* powerUp_immuneGhost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerUp_immuneGhost.png; sourceTree = "<group>"; };
 		3F703EDC1838B0F200309DEB /* powerUp_ghostPitClose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerUp_ghostPitClose.png; sourceTree = "<group>"; };
-		3FBF397F1836E96500C5ED4A /* monster-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "monster-hd.png"; path = "Resources/Art/monster-hd.png"; sourceTree = "<group>"; };
 		BA3949CE17F2B6430072E0C9 /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "pew-pew-lei.caf"; path = "Resources/Sounds/pew-pew-lei.caf"; sourceTree = "<group>"; };
 		BA3949D217F2EC450072E0C9 /* hit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit.caf; path = Resources/Sounds/hit.caf; sourceTree = "<group>"; };
 		BA3949D317F2EC450072E0C9 /* move.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = move.caf; path = Resources/Sounds/move.caf; sourceTree = "<group>"; };
@@ -265,6 +264,7 @@
 		BA3FEDF017FEA36100DD2E17 /* TileMap.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TileMap.caf; sourceTree = "<group>"; };
 		BA3FEDF217FEA36100DD2E17 /* tileMap2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = tileMap2.tmx; path = Resources/tileMap2.tmx; sourceTree = "<group>"; };
 		BA3FEE5D17FEA3D400DD2E17 /* wall2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = wall2.jpg; path = Resources/wall2.jpg; sourceTree = "<group>"; };
+		BA45C409183B1AB200818656 /* monster-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "monster-hd.png"; path = "Resources/monster-hd.png"; sourceTree = "<group>"; };
 		BA508743180BAAB60097C021 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
 		BA508744180BAAB60097C021 /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
 		BA508746180BAD970097C021 /* POSTER.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = POSTER.jpg; path = Resources/POSTER.jpg; sourceTree = "<group>"; };
@@ -1331,6 +1331,7 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA45C409183B1AB200818656 /* monster-hd.png */,
 				BAFF85A91837510000149C47 /* BonusMap.tmx */,
 				BEEFE7BD1839BF69000A533A /* big_lock.png */,
 				BEEFE7BB1839BC52000A533A /* locked.png */,
@@ -1345,7 +1346,6 @@
 				3F703ED71838AC6900309DEB /* shop2.png */,
 				3F703ED81838AC6900309DEB /* try1.gif */,
 				BAFF85A71837387300149C47 /* ghostPit.png */,
-				3FBF397F1836E96500C5ED4A /* monster-hd.png */,
 				F5E9DC5F18360090002C145E /* explosion-01.mp3 */,
 				3F473CBA1835B8F900D73022 /* fire.png */,
 				BA90FCAA182DF58D001D3A61 /* HandGernade_45x45.png */,
@@ -1912,13 +1912,13 @@
 				F53576E0181338500003E30F /* life.png in Resources */,
 				BA68E5361814A9EF00F3F937 /* Play.png in Resources */,
 				F53576E518134C360003E30F /* levelscreen_final.jpg in Resources */,
+				BA45C40A183B1AB200818656 /* monster-hd.png in Resources */,
 				BA68E53E1814AEDC00F3F937 /* NormalPlayer_40x40.png in Resources */,
 				BA7C53E1182A1BC1009BA09F /* shop1.png in Resources */,
 				F53576E618134C360003E30F /* POSTER_1.jpg in Resources */,
 				F5F5C6C31820F47C005CD95C /* wall1.jpg in Resources */,
 				3F473CBB1835B8F900D73022 /* fire.png in Resources */,
 				F5E9DC6018360090002C145E /* explosion-01.mp3 in Resources */,
-				3FBF39801836E96500C5ED4A /* monster-hd.png in Resources */,
 				BAFF85A81837387300149C47 /* ghostPit.png in Resources */,
 				3F703ED91838AC6900309DEB /* shop2.png in Resources */,
 				3F703EDA1838AC6900309DEB /* try1.gif in Resources */,
