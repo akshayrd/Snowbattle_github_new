@@ -49,7 +49,7 @@
     }
 }
 
-- (void) Monster1move:(ccTime)dt
+- (void) Monster1move
 {
     
     CGSize winSize = [CCDirector sharedDirector].winSize;
@@ -84,7 +84,7 @@
      [CCSequence actions: actionRotate90,actionMove,actionRotate360,actionMove1,actionRotate270,actionMove2,actionRotate180,actionMove3,nil]];
 }
 
-- (void) Monster2move:(ccTime)dt
+- (void) Monster2move
 {
     
     CGSize winSize = [CCDirector sharedDirector].winSize;
@@ -118,7 +118,7 @@
      [CCSequence actions: actionRotate90,actionMove,actionRotate180,actionMove1,actionRotate270,actionMove2,actionRotate360,actionMove3,nil]];
 }
 
-- (void) Monster4move:(ccTime)dt
+- (void) Monster4move
 {
     CGSize winSize = [CCDirector sharedDirector].winSize;
     int realX = 75;
@@ -199,7 +199,7 @@
      [CCSequence actions: actionRotate360,actionMove,actionRotate90,actionMove1,actionRotate180,actionMove2,actionRotate270,actionMove3,actionRotate180,actionMove4,actionRotate90,actionMove5,actionRotate180,actionMove6,actionRotate270,actionMove7,actionRotate180,actionMove8,actionRotate90,actionMove9,actionRotate180,actionMove10,actionRotate270,actionMove11,actionRotate180,actionMove12,actionRotate270,actionMove13,nil]];
 }
 
-- (void) Monster3move:(ccTime)dt
+- (void) Monster3move
 {
     CGSize winSize = [CCDirector sharedDirector].winSize;
     int realX = winSize.width-45;
@@ -315,25 +315,25 @@
 {
     
     [self Monster1Freeze];
-    [self schedule:@selector(Monster1move: ) interval:3 repeat:250 delay:0];
+    [self schedule:@selector(Monster1move) interval:3 repeat:250 delay:0];
 }
 
 - (void) actionmonster2
 {
     [self Monster2Freeze];
-    [self schedule:@selector(Monster2move: ) interval:3 repeat:250 delay:0 ];
+    [self schedule:@selector(Monster2move) interval:3 repeat:250 delay:0 ];
 }
 
 - (void) actionmonster3
 {
     [self Monster3Freeze];
-    [self schedule:@selector(Monster3move: ) interval:16.15 repeat:250 delay:0 ];
+    [self schedule:@selector(Monster3move) interval:16.15 repeat:250 delay:0 ];
 }
 
 - (void) actionmonster4
 {
     [self Monster4Freeze];
-    [self schedule:@selector(Monster4move: ) interval:16 repeat:250 delay:0 ];
+    [self schedule:@selector(Monster4move) interval:16 repeat:250 delay:0 ];
 }
 
 CCSprite *monster1;
@@ -661,6 +661,7 @@ int playerDirection = 1;
     
     [[CCDirector sharedDirector] pause];
     self.isTouchEnabled = NO;
+    starMenuItem.visible = NO;
     
 }
 
@@ -708,6 +709,7 @@ int playerDirection = 1;
     [[CCDirector sharedDirector] startAnimation];
     [self removeChild:pauseResumeMenu];
     self.isTouchEnabled = YES;
+    starMenuItem.visible = YES;
     
 }
 
@@ -858,7 +860,7 @@ int playerDirection = 1;
         [self performSelectorInBackground:@selector(actionmonster4) withObject:self];
         
         // Standard method to pause the game
-        CCMenuItem *starMenuItem = [CCMenuItemImage itemFromNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame)];
+        starMenuItem = [CCMenuItemImage itemFromNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame)];
         
         //starMenuItem.position = ccp(870, 25);
         starMenuItem.position = ccp(22, 680);
@@ -867,7 +869,7 @@ int playerDirection = 1;
         [self addChild:starMenu];
         
         for (int i=0; i<5; i++) {
-            lifeItem[i] = [CCMenuItemImage itemFromNormalImage:@"life.png" selectedImage:@"life.png" target:self selector:Nil];
+            lifeItem[i] = [CCMenuItemImage itemFromNormalImage:@"life.png" selectedImage:@"life.png"];
             lifeItem[i].position = ccp(22, 600-i*40);
             lifeItem[i].visible = true;
         }

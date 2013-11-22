@@ -86,70 +86,33 @@
  <tileset firstgid="327" name="ghostPit" tilewidth="44" tileheight="44">
   <image source="ghostPit.png" width="45" height="44"/>
  </tileset>
- <tileset firstgid="328" name="BonusPit_45x45" tilewidth="32" tileheight="45">
-  <image source="BonusPit_45x45.png" width="32" height="45"/>
+ <tileset firstgid="328" name="Black" tilewidth="50" tileheight="50">
+  <image source="Black.jpg" width="1900" height="1200"/>
+ </tileset>
+ <tileset firstgid="1240" name="BonusCoin_45x45" tilewidth="44" tileheight="42">
+  <image source="BonusCoin_45x45.png" width="45" height="42"/>
   <tile id="0">
    <properties>
-    <property name="Bonus" value="True"/>
+    <property name="Collectable" value="True"/>
    </properties>
   </tile>
  </tileset>
- <layer name="Street" width="21" height="16">
+ <layer name="Wall" width="21" height="16">
   <data encoding="base64" compression="zlib">
-   eJzt06kOgDAQRdEpi2MAx1LH5tj+/+e4kpAq2hASEMfcjHsZIyIRYiRIYTxbBkWOAmWAVqFGgxY2QOvQY8CIKUCbsWDFhv3S1NFcd+fmu8fXNlLPje60f6Nn/+gtGx0jNB6o
+   eJxjYBiaoI4MTIyZpLph1MxRM4e6mdTORyMJAACapBWp
   </data>
  </layer>
- <layer name="Building" width="21" height="16">
+ <layer name="Background" width="21" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBg8oBGIm0hQXw/EDVRQQ6obiHUnzG50mhi1hOxGp4lRSw1AangSA6jpPloCYv1OSrwT63dS4p3YtISunhT7CQFi1A2HtAQAkR4hJA==
-  </data>
- </layer>
- <layer name="Border" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJyrY2BgqKMBpiagl5l1ONiUmEkpGDVz1ExamjnS0jy1MQASqCRt
-  </data>
- </layer>
- <layer name="Snow" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJy9k9sKACAIQ/ff/XzvortENRCk7CzJgPdaJFBylJzxJn7HqXuMp3w6X4fHOKk3q0/7SWI62/ncYp7cM/VK55MxJznzecJUtcmMqn/E1jqu05PqsXLcN/qhDcKGSYQ=
-  </data>
- </layer>
- <layer name="DarkBlueTiles" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYKANaEbChNQRq58Y8wipw2YmJeaRYg455pJj5iigHqBFeFI73kk1j1i1hMwlNW8SYx42M6lZhlAbAADLYRV/
-  </data>
- </layer>
- <layer name="power_blue" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjALaAWfGgXYB7QAAP68ARQ==
-  </data>
- </layer>
- <layer name="Power_lives" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYKAvcGGks4WjYBSMglFAIwAAUV4ARg==
-  </data>
- </layer>
- <layer name="Grenade" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYBhawJVxoF0wCkbBKBgFEAAARK4ARw==
-  </data>
- </layer>
- <layer name="GrenadeWall" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2D4gbqBdsAoGBEAADR/AH8=
-  </data>
- </layer>
- <layer name="Bonus" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYBh44ME40C4YBaNg4NPhQNs/kIBYvw+2MAIA2aUBbg==
-  </data>
- </layer>
- <layer name="ghostPit" width="21" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2BkAHfGgXbBKBhuAACs3wBJ
+   eJxjYGBg8GCkHoYBWptJDiDGTFLdNWrmqJlD3UxSASEzKcW0NJPaAABE+0S6
   </data>
  </layer>
  <objectgroup name="Objects" width="21" height="16">
-  <object name="SpawnPoint" x="58" y="361" width="32" height="35"/>
+  <object name="SpawnPoint" x="258" y="363" width="32" height="35"/>
  </objectgroup>
+ <layer name="Coins" width="21" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFyOAGC/GYHLMJsYebO0lx60C6c6iEJy3dOQpIBwCe6ji5
+  </data>
+ </layer>
 </map>

@@ -4,6 +4,7 @@
 #import "PlayerSelectLayer.h"
 #import "ShopLayer.h"
 
+
 @implementation GameStartLayer
 
 +(id) firstScene:(BOOL)start{
@@ -62,8 +63,13 @@
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp3"];
     [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"Shop_PlayerImage"];
     
+//    [[CCDirector sharedDirector]
+//     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[PlayerSelectLayer selectScene:YES]]];
+
     [[CCDirector sharedDirector]
-     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[PlayerSelectLayer selectScene:YES]]];
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[LevelSelectLayer firstScene:NO ]]];
+    
+    
 }
 
 -(void) shopNow: (id) sender {

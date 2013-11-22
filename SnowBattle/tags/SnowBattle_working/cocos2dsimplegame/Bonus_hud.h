@@ -12,17 +12,12 @@
 
 @interface Bonus_hud : CCLayer {
     CCTMXTiledMap *_tileMap;
-    CCTMXLayer *bgLayer;
-    CCTMXLayer *snow;
+    CCTMXLayer *Coins_layer;
+    CCTMXLayer *background_layer;
     CCSprite   *playerB;
-    CCTMXLayer *building;
+
     CCTMXLayer *border;
-    CCTMXLayer *street;
-    CCTMXLayer *darkBlue;
-    CCTMXLayer *powerBlueLayer;
-    CCTMXLayer *powerLivesLayer;
-    CCTMXLayer *powerGrenadeLayer;
-    CCTMXLayer *grenadeLayer;
+
     CCTMXLayer *bonusLayer;
     
     int darkBlueCount;
@@ -68,7 +63,8 @@
     CCLabelTTF *timeLabelBlue;
     BOOL _playerimage;
     
-    int _numCollected;
+    int currentLevelScore;
+    
     
 
     

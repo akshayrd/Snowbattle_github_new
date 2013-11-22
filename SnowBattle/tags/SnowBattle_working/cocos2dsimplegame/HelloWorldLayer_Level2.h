@@ -34,6 +34,9 @@
     CCSprite* bubble3;
     CCMenu *pauseResumeMenu;
     CCMenu *Powerupmenu2;
+    CCMenuItem *starMenuItem;
+    
+    CGSize screenSize2;
     
     CCMenu *life;
     HudLayer *hud;

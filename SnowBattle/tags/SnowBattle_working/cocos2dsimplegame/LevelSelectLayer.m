@@ -106,14 +106,17 @@
     if(levelSelected==1)
     {
         menuItem19 = [CCMenuItemImage itemFromNormalImage:[NSString stringWithFormat:@"level1_map.png"]
-                                            selectedImage:[NSString stringWithFormat:@"level1_map.png"]];
+                                            selectedImage:[NSString stringWithFormat:@"level1_map.png"]
+                                                   target:self selector:@selector(nextLevelStart:)];
+        menuItem19.tag = levelSelected;
         menu8 = [CCMenu menuWithItems: menuItem19, nil];
         menu8.visible=false;
     }
     else if(levelSelected==2)
     {
         menuItem19 = [CCMenuItemImage itemFromNormalImage:[NSString stringWithFormat:@"level2_map.png"]
-                                            selectedImage:[NSString stringWithFormat:@"level2_map.png"]];
+                                            selectedImage:[NSString stringWithFormat:@"level2_map.png" ] target:self selector:@selector(nextLevelStart:)];
+        menuItem19.tag = levelSelected;
         menu8 = [CCMenu menuWithItems: menuItem19, nil];
         menu8.visible=false;
         

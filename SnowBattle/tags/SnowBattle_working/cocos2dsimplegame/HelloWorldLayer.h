@@ -32,6 +32,7 @@
     CCMenu *pauseResumeMenu;
     CCMenuItemImage *shopPowerUp2;
     CCMenuItemImage *shopPowerUp3;
+    CCMenuItem *starMenuItem;
     
     HudLayer *hud;
     

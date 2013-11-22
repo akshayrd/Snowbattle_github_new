@@ -167,20 +167,10 @@ CCSprite *monster9,*monster10, *monster11, *monster12;
 
 -(void)setPlayerPosition:(CGPoint)position {
     CGPoint tileCoord = [self tileCoordForPosition:position];
-    int tileGid = [building tileGIDAt:tileCoord];
-    if (tileGid) {
-        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
-        if (properties) {
-            NSString *collision = properties[@"Collidable"];
-            if (collision && [collision isEqualToString:@"True"]) {
-                return;
-            }
-        }
-        
-    }
+ 
     
     tileCoord = [self tileCoordForPosition:position];
-    tileGid = [border tileGIDAt:tileCoord];
+    int tileGid = [border tileGIDAt:tileCoord];
     if (tileGid) {
         NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         if (properties) {
@@ -190,18 +180,18 @@ CCSprite *monster9,*monster10, *monster11, *monster12;
             }
         }
     }
-    tileGid = [snow tileGIDAt:tileCoord];
+    tileGid = [Coins_layer tileGIDAt:tileCoord];
     if (tileGid) {
         NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         if (properties) {
             NSString *collectible = properties[@"Collectable"];
             if (collectible && [collectible isEqualToString:@"True"]) {
-                [snow removeTileAt:tileCoord];
-                _numCollected++;
+                [Coins_layer removeTileAt:tileCoord];
+                currentLevelScore++;
                 //[hud numCollectedChanged:_numCollected];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"shoveling.mp3"];
                 
-                if (_numCollected >= winScore) {
+                if (currentLevelScore >= winScore) {
                     self.visible = NO;
                     self.isTouchEnabled = NO;
                     NSLog(@"Won Bonus Stage");
@@ -245,9 +235,6 @@ CCSprite *monster9,*monster10, *monster11, *monster12;
     if (self.visible == YES && self.isTouchEnabled == YES) {
         inBonusStage = YES;
     }
-    //NSLog(@"In bonus check");
-    
-    
 }
 
 
@@ -258,12 +245,23 @@ CCSprite *monster9,*monster10, *monster11, *monster12;
         //[self setTouchEnabled:YES];
         self.isTouchEnabled = NO;
         touchEnabled = NO;
-        _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"BonusMap.tmx"];
-        snow = [_tileMap layerNamed:@"Snow"];
-        border = [_tileMap layerNamed:@"Border"];
-        building = [_tileMap layerNamed:@"Building"];
+        //_tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"BonusMap.tmx"];
+        _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"bonusMap_new.tmx"];
+        Coins_layer = [_tileMap layerNamed:@"Coins"];
+        border = [_tileMap layerNamed:@"Wall"];
+        //building = [_tileMap layerNamed:@"Building"];
         playerDirection = 1;
         inBonusStage = NO;
+        
+        
+        
+        
+        CCMenuItemFont *powerupLabel = [CCMenuItemFont itemFromString:@"Bonus Stage"];
+        powerupLabel.color=ccWHITE;
+        CCMenu *menu9 = [CCMenu menuWithItems: powerupLabel, nil];
+        menu9.position=ccp(550,750);
+        [menu9 alignItemsVerticallyWithPadding:15];
+        
         
         _playerimage = player1;
         [self schedule:@selector(checkCollisionWithMonsterBonus)];
@@ -279,25 +277,30 @@ CCSprite *monster9,*monster10, *monster11, *monster12;
 
         _tileMap.visible = YES;
         [self addChild: _tileMap];
+        
+        [self addChild:menu9];
 
         playerB.visible = YES;
         [self addChild:playerB];
 
         [self spawnPlayer];
-        winScore =  20;
+        winScore = 66;
         [self schedule:@selector(checkBonusStage) interval:1];
         
         
         monster9 = [CCSprite spriteWithFile:@"bug_51x51.png"];
         monster9.position = ccp(winSize.width/3+435, winSize.height/2-10);
+        monster9.position = ccp(125, 75);
         [self addChild:monster9];
         
         monster10 = [CCSprite spriteWithFile:@"bug_51x51.png"];
         monster10.position = ccp(winSize.width/3+185, winSize.height/2-10);
+        monster10.position = ccp(125, 75);
         [self addChild:monster10];
         
         monster11 = [CCSprite spriteWithFile:@"bug_51x51.png"];
         monster11.position = ccp(winSize.width-45, winSize.height-50);
+        monster11.position = ccp(125, 75);
         [self addChild:monster11];
         
         monster12 = [CCSprite spriteWithFile:@"bug_51x51.png"];

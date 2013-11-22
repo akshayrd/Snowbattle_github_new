@@ -18,7 +18,6 @@
 
 - (id)initWithWon:(BOOL)won withscoreValue:(int)scoreValue timeBonus:(int) timeRemaining playerImage:(BOOL)playerimage {
     if ((self = [super initWithColor:ccc4(255, 255, 255, 255)])) {
-        
         CCSprite *bg =[CCSprite spriteWithFile:@"levelscreen_final.jpg"];
         bg.position=ccp(0,0);
         bg.anchorPoint = ccp(0, 0);
@@ -36,13 +35,6 @@
             bg.position=ccp(winSize.width/2,winSize.height/2-300);
             bg.anchorPoint = ccp(0, 0);
             [self addChild:bg z:0];
-            label4 = [CCLabelTTF labelWithString:@"Shop Now" fontName:@"Marker Felt" fontSize:32];
-            label4.color = ccBLUE;
-            CCMenuItemLabel *next_level = [CCMenuItemLabel itemWithLabel:label4  target:self selector:@selector(shopNow)];
-            CCMenu *menu2= [CCMenu menuWithItems:next_level, nil];
-            menu2.position = ccp(winSize.width/2-200 , winSize.height/2-210);
-            [self addChild: menu2];
-
         } else {
             message = @"Game Over!";
             timeBonus = [NSString stringWithFormat:@"Time Bonus: %d", timeRemaining];
@@ -51,6 +43,12 @@
             bg.anchorPoint = ccp(0, 0);
             [self addChild:bg z:0];
         }
+        label4 = [CCLabelTTF labelWithString:@"Shop Now" fontName:@"Marker Felt" fontSize:32];
+        label4.color = ccBLUE;
+        CCMenuItemLabel *next_level = [CCMenuItemLabel itemWithLabel:label4  target:self selector:@selector(shopNow)];
+        CCMenu *menu2= [CCMenu menuWithItems:next_level, nil];
+        menu2.position = ccp(winSize.width/2-200 , winSize.height/2-250);
+        [self addChild: menu2];
         
         NSString * yourScore = [NSString stringWithFormat:@"Your Score : %d", scoreValue];
 

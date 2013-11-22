@@ -47,8 +47,8 @@
         int powerup1Cost=10;
         int powerup2Cost=20;
         int powerup3Cost=30;
-        int player2cost=100;
-        int player3cost=200;
+        int player2cost=500;
+        int player3cost=700;
         
         remainingTimeBonus=timeBonus;
         
@@ -105,7 +105,8 @@
         [menu alignItemsVerticallyWithPadding:15];
         [self addChild:menu];
         
-        CCMenuItemFont *lifePower = [CCMenuItemFont itemFromString:[NSString stringWithFormat:@"%d", powerup1Cost]];
+        CCMenuItemFont *lifePower = [CCMenuItemFont itemFromString:[NSString stringWithFormat:@"%d", powerup1Cost] target:self selector:@selector(addToCartPowerUp:)];
+        lifePower.userData=powerupList;
         lifePower.color=ccORANGE;
         CCMenu *menu4 = [CCMenu menuWithItems: lifePower, nil];
         menu4.position=ccp(250,250);
@@ -131,7 +132,8 @@
         [menu15 alignItemsVerticallyWithPadding:15];
         [self addChild:menu15];
         
-        CCMenuItemFont *immunePower = [CCMenuItemFont itemFromString:[NSString stringWithFormat:@"%d", powerup2Cost]];
+        CCMenuItemFont *immunePower = [CCMenuItemFont itemFromString:[NSString stringWithFormat:@"%d", powerup2Cost] target:self selector:@selector(addToCartPowerUp:)];
+        immunePower.userData=powerupList;
         immunePower.color=ccORANGE;
         CCMenu *menu14 = [CCMenu menuWithItems: immunePower, nil];
         menu14.position=ccp(250,200);
@@ -139,8 +141,8 @@
         [self addChild:menu14];
         
         
-        menuItem2 = [CCMenuItemImage itemFromNormalImage:@"powerUp_ghostPitClose.png"
-                                           selectedImage:@"powerUp_ghostPitClose.png"
+        menuItem2 = [CCMenuItemImage itemFromNormalImage:@"NoMoreGhostPowerUp_45x45.png"
+                                           selectedImage:@"NoMoreGhostPowerUp_45x45.png"
                                             disabledImage:@"locked.png" 
                                                   target:self selector:@selector(addToCartPowerUp:)];
         //menuItem2.position=ccp(800,300);
@@ -151,14 +153,16 @@
         {
             [menuItem2 setIsEnabled:NO];
         }
-        powerupList[2]=[NSString stringWithFormat:@"powerUp_ghostPitClose.png"];
+        powerupList[2]=[NSString stringWithFormat:@"NoMoreGhostPowerUp_45x45.png"];
         menuItem2.userData=powerupList;
         CCMenu *menu1 = [CCMenu menuWithItems: menuItem2, nil];
         menu1.position=ccp(150,150);
         [menu1 alignItemsVerticallyWithPadding:15];
         [self addChild:menu1];
         
-        CCMenuItemFont *bluePower = [CCMenuItemFont itemFromString:[NSString stringWithFormat:@"%d", powerup3Cost]];
+        CCMenuItemFont *bluePower = [CCMenuItemFont itemFromString:[NSString stringWithFormat:@"%d", powerup3Cost] target:self selector:@selector(addToCartPowerUp:)];
+        bluePower.userData=powerupList;
+        
         bluePower.color=ccORANGE;
         CCMenu *menu6 = [CCMenu menuWithItems: bluePower, nil];
         menu6.position=ccp(250,150);
