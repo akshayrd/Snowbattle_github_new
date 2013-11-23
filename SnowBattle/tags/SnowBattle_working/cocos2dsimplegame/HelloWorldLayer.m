@@ -660,7 +660,7 @@ int playerDirection = 1;
     [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
     
     [[CCDirector sharedDirector] pause];
-    self.isTouchEnabled = NO;
+    self.touchEnabled=NO;
     starMenuItem.visible = NO;
     
 }
@@ -673,15 +673,15 @@ int playerDirection = 1;
     
     [CCMenuItemFont setFontSize:50];
     
-    CCMenuItemFont *resumeGame = [CCMenuItemFont itemFromString:@"Resume"
+    CCMenuItemFont *resumeGame = [CCMenuItemFont itemWithString:@"Resume"
                                                          target:self
                                                        selector:@selector(ResumeGame)];
     [resumeGame setColor:ccBLUE];
-    CCMenuItemFont *restartGame = [CCMenuItemFont itemFromString:@"Restart Level"
+    CCMenuItemFont *restartGame = [CCMenuItemFont itemWithString:@"Restart Level"
                                                           target:self
                                                         selector:@selector(RestartGame)];
     [restartGame setColor:ccBLUE];
-    CCMenuItemFont *menuGame = [CCMenuItemFont itemFromString:@"Select Level"
+    CCMenuItemFont *menuGame = [CCMenuItemFont itemWithString:@"Select Level"
                                                        target:self
                                                      selector:@selector(MenuGame:)];
     [menuGame setColor:ccBLUE];
@@ -708,7 +708,7 @@ int playerDirection = 1;
     
     [[CCDirector sharedDirector] startAnimation];
     [self removeChild:pauseResumeMenu];
-    self.isTouchEnabled = YES;
+    self.touchEnabled = YES;
     starMenuItem.visible = YES;
     
 }
@@ -757,7 +757,7 @@ int playerDirection = 1;
 {
     if( (self=[super init]) ) {
         //[self setTouchEnabled:YES];
-        self.isTouchEnabled = YES;
+        self.touchEnabled = YES;
         _playerimage = player1;
         count = 90;
         darkBlueCount = 0;
@@ -802,6 +802,18 @@ int playerDirection = 1;
         }
         
         [self addChild: _tileMap];
+        CCParticleRain * p = [[CCParticleRain alloc]initWithTotalParticles:10000];
+        [p autorelease];
+        p.texture=[[CCTextureCache sharedTextureCache] addImage:@"snowImage.png"];
+        p.autoRemoveOnFinish = YES;
+        p.speed=100.0;
+        p.duration = 1000;
+        p.position=ccp(200,750);
+        p.scaleX=2.0f;
+        p.endSize=10.0f;
+        p.startSize = 8.0f;
+        //p.startColor = [ccColor4F colorWithRed:0 green:0 blue:255];
+        [self addChild:p z:1];
         CGSize winSize = [CCDirector sharedDirector].winSize;
         
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
@@ -827,7 +839,7 @@ int playerDirection = 1;
         if(([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp2"] >=1))
         {
             //NSLog(@"Powerup1 %d: ",powerup1Check);
-            shopPowerUp2 = [CCMenuItemImage itemFromNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png" target:self selector:Nil];
+            shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png" target:self selector:Nil];
             shopPowerUp2.position = ccp(22, 600-9*40);
             shopPowerUp2.visible = true;
             [self addChild:shopPowerUp2];
@@ -835,7 +847,7 @@ int playerDirection = 1;
         /* Ghost Pit Close PowerUp */
         if(([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp3"] >=1))
         {
-            shopPowerUp3 = [CCMenuItemImage itemFromNormalImage:@"powerUp_ghostPitClose.png" selectedImage:@"powerUp_ghostPitClose.png" target:self selector:Nil];
+            shopPowerUp3 = [CCMenuItemImage itemWithNormalImage:@"powerUp_ghostPitClose.png" selectedImage:@"powerUp_ghostPitClose.png" target:self selector:Nil];
             shopPowerUp3.position = ccp(22, 600-10*40);
             shopPowerUp3.visible = true;
             [self addChild:shopPowerUp3];
@@ -860,7 +872,7 @@ int playerDirection = 1;
         [self performSelectorInBackground:@selector(actionmonster4) withObject:self];
         
         // Standard method to pause the game
-        starMenuItem = [CCMenuItemImage itemFromNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame)];
+        starMenuItem = [CCMenuItemImage itemWithNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame)];
         
         //starMenuItem.position = ccp(870, 25);
         starMenuItem.position = ccp(22, 680);
@@ -869,7 +881,7 @@ int playerDirection = 1;
         [self addChild:starMenu];
         
         for (int i=0; i<5; i++) {
-            lifeItem[i] = [CCMenuItemImage itemFromNormalImage:@"life.png" selectedImage:@"life.png"];
+            lifeItem[i] = [CCMenuItemImage itemWithNormalImage:@"life.png" selectedImage:@"life.png"];
             lifeItem[i].position = ccp(22, 600-i*40);
             lifeItem[i].visible = true;
         }

@@ -155,7 +155,7 @@ CCSprite *monster9,*monster10, *monster11, *monster12;
         
     {
         self.visible = NO;
-        self.isTouchEnabled = NO;
+        self.touchEnabled = NO;
         NSLog(@"Touch to monster in Bonus Stage");
         inBonusStage = NO;
         [[CCDirector sharedDirector] resume];
@@ -193,7 +193,7 @@ CCSprite *monster9,*monster10, *monster11, *monster12;
                 
                 if (currentLevelScore >= winScore) {
                     self.visible = NO;
-                    self.isTouchEnabled = NO;
+                    self.touchEnabled = NO;
                     NSLog(@"Won Bonus Stage");
                     [[CCDirector sharedDirector] resume];
                     [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
@@ -232,7 +232,7 @@ CCSprite *monster9,*monster10, *monster11, *monster12;
 
 - (void) checkBonusStage
 {
-    if (self.visible == YES && self.isTouchEnabled == YES) {
+    if (self.visible == YES && self.touchEnabled == YES) {
         inBonusStage = YES;
     }
 }
@@ -243,7 +243,7 @@ CCSprite *monster9,*monster10, *monster11, *monster12;
 {
     if( (self=[super init]) ) {
         //[self setTouchEnabled:YES];
-        self.isTouchEnabled = NO;
+        self.touchEnabled = NO;
         touchEnabled = NO;
         //_tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"BonusMap.tmx"];
         _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"bonusMap_new.tmx"];
@@ -256,7 +256,7 @@ CCSprite *monster9,*monster10, *monster11, *monster12;
         
         
         
-        CCMenuItemFont *powerupLabel = [CCMenuItemFont itemFromString:@"Bonus Stage"];
+        CCMenuItemFont *powerupLabel = [CCMenuItemFont itemWithString:@"Bonus Stage"];
         powerupLabel.color=ccWHITE;
         CCMenu *menu9 = [CCMenu menuWithItems: powerupLabel, nil];
         menu9.position=ccp(550,750);
@@ -581,7 +581,7 @@ CCSprite *monster9,*monster10, *monster11, *monster12;
 
 -(void) setTouch
 {
-    self.isTouchEnabled = YES;
+    self.touchEnabled = YES;
 }
 
 

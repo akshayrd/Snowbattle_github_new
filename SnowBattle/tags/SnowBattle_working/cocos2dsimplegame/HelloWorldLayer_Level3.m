@@ -1,48 +1,47 @@
-#import "HelloWorldLayer_Level2.h"
+#import "HelloWorldLayer_Level3.h"
 #import "AppDelegate.h"
 #import "SimpleAudioEngine.h"
 #import "GameOverLayer.h"
 #import "GameStartLayer.h"
 #import "LevelSelectLayer.h"
 //#import "BonusStage.h"
-#import "Bonus_hud.h"
 
-@interface HelloWorldLayer_Level2 ()
+@interface HelloWorldLayer_Level3 ()
 @property (assign) int numCollected;
 
 @end
 
-#pragma mark - HelloWorldLayer_Level2
+#pragma mark - HelloWorldLayer_Level3
 
-@implementation HelloWorldLayer_Level2
+@implementation HelloWorldLayer_Level3
 
-+(CCScene *) scene2:(BOOL)playerImage1 timeBonus:(int) timeRemaining powerups:(int [])powerupArray playerSelected:(int [])playerSelectArray{
++(CCScene *) scene:(BOOL)playerImage1 timeBonus:(int) timeRemaining powerups:(int [])powerupArray playerSelected:(int [])playerSelectArray{
     
     // 'scene' is an autorelease object.
-    CCScene *scene2 = [CCScene node];
+    CCScene *scene = [CCScene node];
     
     // 'layer' is an autorelease object.
-    HelloWorldLayer_Level2 *layer = [[HelloWorldLayer_Level2 alloc] initWithPlayer:playerImage1 timeBonus:timeRemaining powerups:powerupArray playerSelected:playerSelectArray];
+    HelloWorldLayer_Level3 *layer = [[HelloWorldLayer_Level3 alloc] initWithPlayer:playerImage1 timeBonus:timeRemaining powerups:powerupArray playerSelected:playerSelectArray];
     
     // add layer as a child to scene
-    [scene2 addChild: layer];
+    [scene addChild: layer];
     
     
     HudLayer *hud = [HudLayer node];
-    [scene2 addChild:hud];
+    [scene addChild:hud];
     layer->hud = hud;
     
-    Bonus_hud *bhud = [Bonus_hud scene:YES];
-    [scene2 addChild:bhud];
-    layer->b_hud = bhud;
-    bhud.visible = NO;
+    /*Bonus_hud *bhud = [Bonus_hud scene:YES];
+     [scene2 addChild:bhud];
+     layer->b_hud = bhud;
+     bhud.visible = NO;*/
     
-    return scene2;
+    return scene;
     
 }
 
 
-- (void) Monster5move:(ccTime)dt
+- (void) Monster1move:(ccTime)dt
 {
     
     CGSize winSize = [CCDirector sharedDirector].winSize;
@@ -77,156 +76,156 @@
     [monster5 runAction:
      [CCSequence actions: actionRotate360,actionMove,actionRotate90,actionMove1,actionRotate180,actionMove2,actionRotate270,actionMove3,nil]];
 }
-
-- (void) Monster6move:(ccTime)dt
-{
-    
-    //ccp(75, winSize.height-150)
-    
-    CGSize winSize = [CCDirector sharedDirector].winSize;
-    int realX = 75;
-    int realY = winSize.height-50;
-    CGPoint realDest = ccp(realX, realY);
-    
-    int realX1 = 175;
-    int realY1 = winSize.height-50;
-    
-    int realX2 = 175;
-    int realY2 = winSize.height-150;
-    
-    int realX3 = 75;
-    int realY3 = winSize.height-150;
-    CGPoint realDest1 = ccp(realX1, realY1);
-    CGPoint realDest2 = ccp(realX2, realY2);
-    CGPoint realDest3 = ccp(realX3, realY3);
-    
-    float realMoveDuration = 0.25;
-    
-    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
-    id actionRotate90 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:90];
-    id actionRotate360 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:360];
-    id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:180];
-    id actionRotate270 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:270];
-    id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest1];
-    id actionMove2 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest2];
-    id actionMove3 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest3];
-    
-    [monster6 runAction:
-     [CCSequence actions: actionRotate360,actionMove,actionRotate90,actionMove1,actionRotate180,actionMove2,actionRotate270,actionMove3,nil]];
-}
-
-- (void) Monster8move:(ccTime)dt
-{
-    CGSize winSize = [CCDirector sharedDirector].winSize;
-    int realX = 125;
-    int realY = winSize.height/2-10;
-    CGPoint realDest = ccp(realX, realY);
-    
-    int realX1 = winSize.width/2-40;
-    int realY1 = winSize.height/2-10;
-    
-    int realX2 = winSize.width/2-40;
-    int realY2 = winSize.height-40;
-    
-    int realX3 = 125;
-    int realY3 = winSize.height-40;
-    
-    int realX4 = 125;
-    int realY4 = winSize.height/2+40;
-    
-    int realX5 = winSize.width/2-40;
-    int realY5 = winSize.height/2+40;
-    
-    int realX6 = winSize.width/2-40;
-    int realY6 = 75;
-    
-    int realX7 = 125;
-    int realY7 = 75;
-    
-    CGPoint realDest1 = ccp(realX1, realY1);
-    CGPoint realDest2 = ccp(realX2, realY2);
-    CGPoint realDest3 = ccp(realX3, realY3);
-    CGPoint realDest4 = ccp(realX4, realY4);
-    CGPoint realDest5 = ccp(realX5, realY5);
-    CGPoint realDest6 = ccp(realX6, realY6);
-    CGPoint realDest7 = ccp(realX7, realY7);
-    float realMoveDuration = 1.5;
-    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
-    id actionRotate90 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:90];
-    id actionRotate360 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:360];
-    id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:180];
-    id actionRotate270 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:270];
-    id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest1];
-    id actionMove2 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest2];
-    id actionMove3 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest3];
-    id actionMove4 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest4];
-    id actionMove5 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest5];
-    id actionMove6 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest6];
-    id actionMove7 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest7];
-    
-    [monster8 runAction:
-     [CCSequence actions: actionRotate360,actionMove,actionRotate90,actionMove1,actionRotate360,actionMove2,actionRotate270,actionMove3,actionRotate180,actionMove4,actionRotate90,actionMove5,actionRotate180,actionMove6,actionRotate270,actionMove7,actionRotate360,nil]];
-}
-
-- (void) Monster7move:(ccTime)dt
-{
-    CGSize winSize = [CCDirector sharedDirector].winSize;
-    int realX = winSize.width-45;
-    int realY = 75;
-    CGPoint realDest = ccp(realX, realY);
-    int realX1 = winSize.width-200;
-    int realY1 = 75;
-    int realX2 = winSize.width-200;
-    int realY2 = 125;
-    int realX3 = winSize.width-95;
-    int realY3 = 125;
-    int realX4 = winSize.width-95;
-    int realY4 = winSize.height-90;
-    
-    int realX5 = winSize.width-200;
-    int realY5 = winSize.height-90;
-    
-    int realX6 = winSize.width-200;
-    int realY6 = winSize.height-50;
-    
-    int realX7 = winSize.width-45;
-    int realY7 = winSize.height-50;
-    CGPoint realDest1 = ccp(realX1, realY1);
-    CGPoint realDest2 = ccp(realX2, realY2);
-    CGPoint realDest3 = ccp(realX3, realY3);
-    CGPoint realDest4 = ccp(realX4, realY4);
-    CGPoint realDest5 = ccp(realX5, realY5);
-    CGPoint realDest6 = ccp(realX6, realY6);
-    CGPoint realDest7 = ccp(realX7, realY7);
-    
-    float realMoveDuration = 1.5;
-    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
-    id actionRotate90 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:90];
-    id actionRotate360 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:360];
-    id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:180];
-    id actionRotate270 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:270];
-    id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration/4 position:realDest1];
-    id actionMove2 = [CCMoveTo actionWithDuration:realMoveDuration/6 position:realDest2];
-    id actionMove3 = [CCMoveTo actionWithDuration:realMoveDuration/6 position:realDest3];
-    id actionMove4 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest4];
-    id actionMove5 = [CCMoveTo actionWithDuration:realMoveDuration/6 position:realDest5];
-    id actionMove6 = [CCMoveTo actionWithDuration:realMoveDuration/6 position:realDest6];
-    id actionMove7 = [CCMoveTo actionWithDuration:realMoveDuration/4 position:realDest7];
-    
-    [monster7 runAction:
-     [CCSequence actions: actionRotate180,actionMove,actionRotate270,actionMove1,actionRotate360,actionMove2,actionRotate90,actionMove3,actionRotate360,actionMove4,actionRotate270,actionMove5,actionRotate360,actionMove6,actionRotate90,actionMove7,actionRotate180,nil]];
-    
-    
-}
-- (void) Monster5Freeze
-{
-    float realMoveDuration = 6;
-    id actionRotate = [CCRotateBy actionWithDuration:realMoveDuration/10 angle:90];
-    // id actionRotate1 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:0];
-    [monster5 runAction:
-     [CCSequence actions: actionRotate,actionRotate,actionRotate,actionRotate,actionRotate,nil]];
-}
-
+/*
+ - (void) Monster6move:(ccTime)dt
+ {
+ 
+ //ccp(75, winSize.height-150)
+ 
+ CGSize winSize = [CCDirector sharedDirector].winSize;
+ int realX = 75;
+ int realY = winSize.height-50;
+ CGPoint realDest = ccp(realX, realY);
+ 
+ int realX1 = 175;
+ int realY1 = winSize.height-50;
+ 
+ int realX2 = 175;
+ int realY2 = winSize.height-150;
+ 
+ int realX3 = 75;
+ int realY3 = winSize.height-150;
+ CGPoint realDest1 = ccp(realX1, realY1);
+ CGPoint realDest2 = ccp(realX2, realY2);
+ CGPoint realDest3 = ccp(realX3, realY3);
+ 
+ float realMoveDuration = 0.25;
+ 
+ id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+ id actionRotate90 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:90];
+ id actionRotate360 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:360];
+ id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:180];
+ id actionRotate270 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:270];
+ id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest1];
+ id actionMove2 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest2];
+ id actionMove3 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest3];
+ 
+ [monster6 runAction:
+ [CCSequence actions: actionRotate360,actionMove,actionRotate90,actionMove1,actionRotate180,actionMove2,actionRotate270,actionMove3,nil]];
+ }
+ 
+ - (void) Monster8move:(ccTime)dt
+ {
+ CGSize winSize = [CCDirector sharedDirector].winSize;
+ int realX = 125;
+ int realY = winSize.height/2-10;
+ CGPoint realDest = ccp(realX, realY);
+ 
+ int realX1 = winSize.width/2-40;
+ int realY1 = winSize.height/2-10;
+ 
+ int realX2 = winSize.width/2-40;
+ int realY2 = winSize.height-40;
+ 
+ int realX3 = 125;
+ int realY3 = winSize.height-40;
+ 
+ int realX4 = 125;
+ int realY4 = winSize.height/2+40;
+ 
+ int realX5 = winSize.width/2-40;
+ int realY5 = winSize.height/2+40;
+ 
+ int realX6 = winSize.width/2-40;
+ int realY6 = 75;
+ 
+ int realX7 = 125;
+ int realY7 = 75;
+ 
+ CGPoint realDest1 = ccp(realX1, realY1);
+ CGPoint realDest2 = ccp(realX2, realY2);
+ CGPoint realDest3 = ccp(realX3, realY3);
+ CGPoint realDest4 = ccp(realX4, realY4);
+ CGPoint realDest5 = ccp(realX5, realY5);
+ CGPoint realDest6 = ccp(realX6, realY6);
+ CGPoint realDest7 = ccp(realX7, realY7);
+ float realMoveDuration = 1.5;
+ id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+ id actionRotate90 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:90];
+ id actionRotate360 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:360];
+ id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:180];
+ id actionRotate270 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:270];
+ id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest1];
+ id actionMove2 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest2];
+ id actionMove3 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest3];
+ id actionMove4 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest4];
+ id actionMove5 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest5];
+ id actionMove6 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest6];
+ id actionMove7 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest7];
+ 
+ [monster8 runAction:
+ [CCSequence actions: actionRotate360,actionMove,actionRotate90,actionMove1,actionRotate360,actionMove2,actionRotate270,actionMove3,actionRotate180,actionMove4,actionRotate90,actionMove5,actionRotate180,actionMove6,actionRotate270,actionMove7,actionRotate360,nil]];
+ }
+ 
+ - (void) Monster7move:(ccTime)dt
+ {
+ CGSize winSize = [CCDirector sharedDirector].winSize;
+ int realX = winSize.width-45;
+ int realY = 75;
+ CGPoint realDest = ccp(realX, realY);
+ int realX1 = winSize.width-200;
+ int realY1 = 75;
+ int realX2 = winSize.width-200;
+ int realY2 = 125;
+ int realX3 = winSize.width-95;
+ int realY3 = 125;
+ int realX4 = winSize.width-95;
+ int realY4 = winSize.height-90;
+ 
+ int realX5 = winSize.width-200;
+ int realY5 = winSize.height-90;
+ 
+ int realX6 = winSize.width-200;
+ int realY6 = winSize.height-50;
+ 
+ int realX7 = winSize.width-45;
+ int realY7 = winSize.height-50;
+ CGPoint realDest1 = ccp(realX1, realY1);
+ CGPoint realDest2 = ccp(realX2, realY2);
+ CGPoint realDest3 = ccp(realX3, realY3);
+ CGPoint realDest4 = ccp(realX4, realY4);
+ CGPoint realDest5 = ccp(realX5, realY5);
+ CGPoint realDest6 = ccp(realX6, realY6);
+ CGPoint realDest7 = ccp(realX7, realY7);
+ 
+ float realMoveDuration = 1.5;
+ id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+ id actionRotate90 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:90];
+ id actionRotate360 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:360];
+ id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:180];
+ id actionRotate270 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:270];
+ id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration/4 position:realDest1];
+ id actionMove2 = [CCMoveTo actionWithDuration:realMoveDuration/6 position:realDest2];
+ id actionMove3 = [CCMoveTo actionWithDuration:realMoveDuration/6 position:realDest3];
+ id actionMove4 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest4];
+ id actionMove5 = [CCMoveTo actionWithDuration:realMoveDuration/6 position:realDest5];
+ id actionMove6 = [CCMoveTo actionWithDuration:realMoveDuration/6 position:realDest6];
+ id actionMove7 = [CCMoveTo actionWithDuration:realMoveDuration/4 position:realDest7];
+ 
+ [monster7 runAction:
+ [CCSequence actions: actionRotate180,actionMove,actionRotate270,actionMove1,actionRotate360,actionMove2,actionRotate90,actionMove3,actionRotate360,actionMove4,actionRotate270,actionMove5,actionRotate360,actionMove6,actionRotate90,actionMove7,actionRotate180,nil]];
+ 
+ 
+ }
+ - (void) Monster5Freeze
+ {
+ float realMoveDuration = 6;
+ id actionRotate = [CCRotateBy actionWithDuration:realMoveDuration/10 angle:90];
+ // id actionRotate1 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:0];
+ [monster5 runAction:
+ [CCSequence actions: actionRotate,actionRotate,actionRotate,actionRotate,actionRotate,nil]];
+ }
+ */
 - (void) Monster6Freeze
 {
     float realMoveDuration = 6;
@@ -236,126 +235,127 @@
      [CCSequence actions: actionRotate,actionRotate,actionRotate,actionRotate,nil]];
     
 }
+/*
+ - (void) Monster7Freeze
+ {
+ float realMoveDuration = 6;
+ id actionRotate = [CCRotateBy actionWithDuration:realMoveDuration/10 angle:90];
+ // id actionRotate1 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:0];
+ [monster7 runAction:
+ [CCSequence actions: actionRotate,actionRotate,actionRotate,actionRotate,actionRotate,actionRotate,nil]];
+ }
+ 
+ - (void) Monster8Freeze
+ {
+ 
+ float realMoveDuration = 6;
+ id actionRotate = [CCRotateBy actionWithDuration:realMoveDuration/10 angle:90];
+ // id actionRotate1 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:0];
+ [monster8 runAction:
+ [CCSequence actions: actionRotate,actionRotate,actionRotate,actionRotate,nil]];
+ 
+ }
+ 
+ CGPoint currentposition;
+ */
+/*
+ - (void) Ghost1move:(ccTime)dt {
+ 
+ 
+ monster13 = [CCSprite spriteWithFile:@"monster-hd.png"];
+ 
+ // Determine where to spawn the monster along the Y axis
+ CGSize winSize = [CCDirector sharedDirector].winSize;
+ int minY = 100;
+ int maxY = winSize.height - 100;
+ int rangeY = maxY - minY;
+ int actualY = (arc4random() % rangeY) + minY;*/
+/*
+ int minX = 100;
+ int maxX = winSize.width - 100;
+ int rangeX = maxX - minX;
+ int actualX = (arc4random() % rangeX) + minX;
+ */
 
-- (void) Monster7Freeze
-{
-    float realMoveDuration = 6;
-    id actionRotate = [CCRotateBy actionWithDuration:realMoveDuration/10 angle:90];
-    // id actionRotate1 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:0];
-    [monster7 runAction:
-     [CCSequence actions: actionRotate,actionRotate,actionRotate,actionRotate,actionRotate,actionRotate,nil]];
-}
-
-- (void) Monster8Freeze
-{
-    
-    float realMoveDuration = 6;
-    id actionRotate = [CCRotateBy actionWithDuration:realMoveDuration/10 angle:90];
-    // id actionRotate1 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:0];
-    [monster8 runAction:
-     [CCSequence actions: actionRotate,actionRotate,actionRotate,actionRotate,nil]];
-    
-}
-
-CGPoint currentposition;
-
-- (void) Ghost1move:(ccTime)dt {
-    
-    
-    monster13 = [CCSprite spriteWithFile:@"monster-hd.png"];
-    
-    // Determine where to spawn the monster along the Y axis
-    CGSize winSize = [CCDirector sharedDirector].winSize;
-    int minY = 100;
-    int maxY = winSize.height - 100;
-    int rangeY = maxY - minY;
-    int actualY = (arc4random() % rangeY) + minY;
-    /*
-     int minX = 100;
-     int maxX = winSize.width - 100;
-     int rangeX = maxX - minX;
-     int actualX = (arc4random() % rangeX) + minX;
-     */
-    
-    // Create the monster slightly off-screen along the right edge,
-    // and along a random position along the Y axis as calculated above
-    monster13.position = ccp(winSize.width - 100, winSize.height/2);
-    if (c==0)
-        [self addChild:monster13];
-    
-    if(myTime > pitTime + 25  && c )
-    {
-        c = 0;
-        ghostpitLayer.visible  = YES;
-    }
-    
-    if((myTime > pitTime + 5) && c)
-    {
-        ghostpitLayer.visible  = NO;
-    }
-    
-    
-    // Determine speed of the monster
-    int minDuration = 2.0;
-    int maxDuration = 4.0;
-    int rangeDuration = maxDuration - minDuration;
-    int actualDuration = (arc4random() % rangeDuration) + minDuration;
-    currentposition = ghost1.position;
-    
-    // Create the actions
-    //CCMoveTo * actionMove = nil;
-    
-    CCMoveTo * actionMove = [CCMoveTo actionWithDuration:actualDuration*2
-                                                position:ccp(-monster13.contentSize.width/2, actualY)];
-    
-    CCCallBlockN * actionMoveDone = [CCCallBlockN actionWithBlock:^(CCNode *node) {
-        [node removeFromParentAndCleanup:YES];
-    }];
-    
-    //if(c==0)
-    [monster13 runAction:[CCSequence actions:actionMove,actionMoveDone, nil]];
-    
-}
-- (void) actionmonster5
+// Create the monster slightly off-screen along the right edge,
+// and along a random position along the Y axis as calculated above
+/*    monster13.position = ccp(winSize.width - 100, winSize.height/2);
+ if (c==0)
+ [self addChild:monster13];
+ 
+ if(myTime > pitTime + 25  && c )
+ {
+ c = 0;
+ ghostpitLayer.visible  = YES;
+ }
+ 
+ if((myTime > pitTime + 5) && c)
+ {
+ ghostpitLayer.visible  = NO;
+ }
+ 
+ 
+ // Determine speed of the monster
+ int minDuration = 2.0;
+ int maxDuration = 4.0;
+ int rangeDuration = maxDuration - minDuration;
+ int actualDuration = (arc4random() % rangeDuration) + minDuration;
+ currentposition = ghost1.position;
+ 
+ // Create the actions
+ //CCMoveTo * actionMove = nil;
+ 
+ CCMoveTo * actionMove = [CCMoveTo actionWithDuration:actualDuration*2
+ position:ccp(-monster13.contentSize.width/2, actualY)];
+ 
+ CCCallBlockN * actionMoveDone = [CCCallBlockN actionWithBlock:^(CCNode *node) {
+ [node removeFromParentAndCleanup:YES];
+ }];
+ 
+ //if(c==0)
+ [monster13 runAction:[CCSequence actions:actionMove,actionMoveDone, nil]];
+ 
+ }*/
+- (void) actionmonster1
 {
     [self Monster6Freeze];
-    [self schedule:@selector(Monster5move: ) interval:1.5 repeat:250 delay:0];
+    [self schedule:@selector(Monster1move:) interval:1.5 repeat:250 delay:0];
 }
-
-- (void) actionmonster6
-{
-    
-    [self schedule:@selector(Monster6move: ) interval:1.15 repeat:250 delay:0 ];
-}
-
-- (void) actionmonster7
-{
-    [self Monster7Freeze];
-    [self schedule:@selector(Monster7move: ) interval:6 repeat:250 delay:0 ];
-}
-
-- (void) actionmonster8
-{
-    [self Monster8Freeze];
-    [self schedule:@selector(Monster8move: ) interval:13 repeat:250 delay:0 ];
-}
-
-- (void) actionghost1
-{
-    [self schedule:@selector(Ghost1move: ) interval:4 repeat:150 delay:0 ];
-}
-
-CCSprite *monster5;
-CCSprite *monster6;
-CCSprite *monster7;
-CCSprite *monster8;
-
-CCSprite *ghost1;
-CCSprite *ghost2;
-CCSprite *ghost3;
-
-
-
+/*
+ - (void) actionmonster6
+ {
+ 
+ [self schedule:@selector(Monster6move: ) interval:1.15 repeat:250 delay:0 ];
+ }
+ 
+ - (void) actionmonster7
+ {
+ [self Monster7Freeze];
+ [self schedule:@selector(Monster7move: ) interval:6 repeat:250 delay:0 ];
+ }
+ 
+ - (void) actionmonster8
+ {
+ [self Monster8Freeze];
+ [self schedule:@selector(Monster8move: ) interval:13 repeat:250 delay:0 ];
+ }
+ 
+ - (void) actionghost1
+ {
+ [self schedule:@selector(Ghost1move: ) interval:4 repeat:150 delay:0 ];
+ }
+ 
+ CCSprite *monster5;
+ CCSprite *monster6;
+ CCSprite *monster7;
+ CCSprite *monster8;
+ 
+ CCSprite *ghost1;
+ CCSprite *ghost2;
+ CCSprite *ghost3;
+ 
+ 
+ */
 #pragma mark - handle touches
 
 -(void)registerWithTouchDispatcher
@@ -588,7 +588,6 @@ CCSprite* PowerLabel;
     }
     
     
-    
     tileGid = [powerGrenadeLayer tileGIDAt:tileCoord];
     if (tileGid) {
         
@@ -607,42 +606,7 @@ CCSprite* PowerLabel;
             }
         }
     }
-    
-    
-    
-    tileGid = [bonusLayer tileGIDAt:tileCoord];
-    if (tileGid) {
-        
-        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
-        if (properties) {
-            NSString *collision = properties[@"Bonus"];
-            if (collision && [collision isEqualToString:@"True"] && bonusRoundPlayed == NO && isBonusDisplayed
-                && bonusPointsLocation[bonusIndex].x == tileCoord.x && bonusPointsLocation[bonusIndex].y == tileCoord.y)
-            {
-                [bonusLayer removeTileAt:tileCoord];
-                [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
-                
-                //  visible that lable
-                //[self startAnimation:ccp(300, 300)];
-                
-                
-                // animate the label
-                // delay of 3 sec
-                // then remove the lable
-                
-                b_hud.visible  = YES;
-                b_hud.touchEnabled = YES;
-                bonusStageRunning = YES;
-                bonusRoundPlayed = YES;
-                self.visible = NO;
-                
-                [self schedule:@selector(checkBonusStageIsReturned) ];
-                [NSTimer scheduledTimerWithTimeInterval:.06 target:self selector:@selector(PauseGameForBonus:) userInfo:nil repeats:NO];
-            }
-        }
-    }
-    
-    
+
     
     tileGid = [darkBlue tileGIDAt:tileCoord];
     
@@ -728,23 +692,24 @@ CCSprite* PowerLabel;
         }
         
     }
+
     
     [[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
     
     player.position = position;
 }
 
-- (void) checkBonusStageIsReturned
-{
-    if (b_hud.visible == NO && self.touchEnabled == NO) {
-        bonusStageRunning = NO;
-        [self ResumeGameAfterBonus];
-        [self unschedule:@selector(checkBonusStageIsReturned)];
-    }
-    //NSLog(@"Checkbonus");
-    
-    
-}
+/*- (void) checkBonusStageIsReturned
+ {
+ if (b_hud.visible == NO && self.touchEnabled == NO) {
+ bonusStageRunning = NO;
+ [self ResumeGameAfterBonus];
+ [self unschedule:@selector(checkBonusStageIsReturned)];
+ }
+ //NSLog(@"Checkbonus");
+ 
+ 
+ }*/
 
 -(void)moveEnemyRandom:(CCSprite *) enemy1{
     
@@ -752,7 +717,7 @@ CCSprite* PowerLabel;
     int x = rand()%(int)screenSize2.width;
     int y = rand()%(int)screenSize2.height;
     [enemy1 runAction:[CCSequence actions:[CCMoveTo actionWithDuration:1 position:ccp(x, y)],[CCCallBlock actionWithBlock:^{
-       [self moveEnemyRandom:enemy1];
+        [self moveEnemyRandom:enemy1];
     }], nil]];
     
 }
@@ -762,23 +727,27 @@ CCSprite* PowerLabel;
 {
     //NSLog(@"Time %d",myTime - collideTime );
     
-    if((CGRectIntersectsRect([monster5 boundingBox], [player boundingBox]) || (CGRectIntersectsRect([monster13 boundingBox], [player boundingBox]) && c==0) ||  CGRectIntersectsRect([monster7 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster8 boundingBox], [player boundingBox])) && totalTime - collideTime >= immuneDuration && bonusStageRunning == NO)
+    if( (CGRectIntersectsRect([monster5 boundingBox], [player boundingBox]) && totalTime - collideTime >= immuneDuration )) //|| (CGRectIntersectsRect([monster13 boundingBox], [player boundingBox]) && c==0) ||  CGRectIntersectsRect([monster7 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster8 boundingBox], [player boundingBox])) && totalTime - collideTime >= immuneDuration && bonusStageRunning == NO)
         
     {
-        collideTime = totalTime;
-        CCBlink* blink = [CCBlink actionWithDuration:immuneDuration blinks:20];
-        lifeItem[lifeCount].visible = false;
-        
-        lifeCount--;
-        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp1"];
-        count = 0;
-        if (lifeCount < 0) {
+        if( immunePowerUp < 1)
+        {
+            
+            collideTime = totalTime;
+            CCBlink* blink = [CCBlink actionWithDuration:immuneDuration blinks:20];
+            lifeItem[lifeCount].visible = false;
+            
+            lifeCount--;
+            [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp1"];
+            count = 0;
+            if (lifeCount < 0) {
                 lifeCount = 2;
                 [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+totalScore forKey:@"Score"];
                 CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:currentLevelScore timeBonus:0 playerImage:_playerimage];
                 [[CCDirector sharedDirector] replaceScene:gameOverScene];
             }
             [player runAction:blink];
+        }
     }
     
 }
@@ -858,7 +827,6 @@ CCSprite* PowerLabel;
         p.scaleX=2.0f;
         p.endSize=10.0f;
         p.startSize = 8.0f;
-        //p.startColor = [ccColor4F colorWithRed:0 green:0 blue:255];
         [self addChild:p z:1];
         
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
@@ -884,34 +852,34 @@ CCSprite* PowerLabel;
         monster5 = [CCSprite spriteWithFile:@"bug_51x51.png"];
         monster5.position = ccp(winSize.width/3+435, winSize.height/2-10);
         [self addChild:monster5];
-       // nemy = [CCSprite spriteWithFile:@"Icon-72.png"];
+        // nemy = [CCSprite spriteWithFile:@"Icon-72.png"];
         screenSize2 = [CCDirector sharedDirector].winSize;
         //[self addChild:enemy];
-        [self moveEnemyRandom:monster5];
+        //[self moveEnemyRandom:monster5];
         
         
-//        monster6 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-//        monster6.position = ccp(75, winSize.height-150);
-//        [self addChild:monster6];
+        //        monster6 = [CCSprite spriteWithFile:@"bug_51x51.png"];
+        //        monster6.position = ccp(75, winSize.height-150);
+        //        [self addChild:monster6];
         
-        monster7 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-        monster7.position = ccp(winSize.width-45, winSize.height-50);
-        [self addChild:monster7];
-        
-        monster8 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-        monster8.position = ccp(125, 75);
-        [self addChild:monster8];
+        /* monster7 = [CCSprite spriteWithFile:@"bug_51x51.png"];
+         monster7.position = ccp(winSize.width-45, winSize.height-50);
+         [self addChild:monster7];
+         
+         monster8 = [CCSprite spriteWithFile:@"bug_51x51.png"];
+         monster8.position = ccp(125, 75);
+         [self addChild:monster8];*/
         
         //ghost1 = [CCSprite spriteWithFile:@"bug_51x51.png"];
         //ghost1.position = ccp(winSize.width-45,winSize.height/2);
         //[self addChild:ghost1];
         
-        [self performSelectorInBackground:@selector(actionmonster5) withObject:self];
+        // [self performSelectorInBackground:@selector(actionmonster1) withObject:self];
         //[self performSelectorInBackground:@selector(actionmonster6) withObject:self];
-        [self performSelectorInBackground:@selector(actionmonster7) withObject:self];
-        [self performSelectorInBackground:@selector(actionmonster8) withObject:self];
+        /* [self performSelectorInBackground:@selector(actionmonster7) withObject:self];
+         [self performSelectorInBackground:@selector(actionmonster8) withObject:self];*/
         
-        [self performSelectorInBackground:@selector(actionghost1) withObject:self];
+        //[self performSelectorInBackground:@selector(actionghost1) withObject:self];
         
         
         // Standard method to pause the game
@@ -927,21 +895,25 @@ CCSprite* PowerLabel;
         if(powerupArray[1]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp2"] >=1))
         {
             
-            shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png" target:self selector:Nil];
+            shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png" target:self selector:@selector(GhostImmunePower:)];
             shopPowerUp2.position = ccp(22, 600-9*40);
             shopPowerUp2.visible = true;
-            [self addChild:shopPowerUp2];
-        }
-        /* Ghost Pit Close PowerUp */
-        if(powerupArray[2]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp3"] >=1))
-        {
-            shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"NoMoreGhostPowerUp_45x45.png" selectedImage:@"NoMoreGhostPowerUp_45x45.png" target:self selector:@selector(Closepit:)];
-            shopPowerUp2.visible = true;
+            // [self addChild:shopPowerUp2];
             CCMenu *menu8 = [CCMenu menuWithItems: shopPowerUp2, nil];
-            menu8.position=ccp(22, 600-10*40);
+            menu8.position=ccp(22, 600-9*40);
             [menu8 alignItemsVerticallyWithPadding:15];
             [self addChild:menu8];
         }
+        /* Ghost Pit Close PowerUp */
+        /*if(powerupArray[2]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp3"] >=1))
+         {
+         shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"NoMoreGhostPowerUp_45x45.png" selectedImage:@"NoMoreGhostPowerUp_45x45.png" target:self selector:@selector(Closepit:)];
+         shopPowerUp2.visible = true;
+         CCMenu *menu8 = [CCMenu menuWithItems: shopPowerUp2, nil];
+         menu8.position=ccp(22, 600-10*40);
+         [menu8 alignItemsVerticallyWithPadding:15];
+         [self addChild:menu8];
+         }*/
         
         for (int i=0; i<5; i++) {
             lifeItem[i] = [CCMenuItemImage itemWithNormalImage:@"life.png" selectedImage:@"life.png" ];
@@ -962,7 +934,7 @@ CCSprite* PowerLabel;
         [self addChild:life];
         
         [self schedule:@selector(checkCollisionWithMonster)];
-        [self schedule:@selector(ShowBonuStageImage) ];
+        // [self schedule:@selector(ShowBonuStageImage) ];
         
         myTime = 0;
         
@@ -978,21 +950,21 @@ CCSprite* PowerLabel;
         
         //update
         
-        timeLabelBlue = [CCLabelTTF labelWithString:@"" fontName:@"Arial" fontSize:40];
-        timeLabelBlue.position =ccp(200 + timeLabelBlue.contentSize.width, timeLabelBlue.contentSize.height/2 + 46);
+        // timeLabelBlue = [CCLabelTTF labelWithString:@"" fontName:@"Arial" fontSize:40];
+        // timeLabelBlue.position =ccp(200 + timeLabelBlue.contentSize.width, timeLabelBlue.contentSize.height/2 + 46);
         // Adjust the label's anchorPoint's y position to make it align with the top.
-        timeLabelBlue.anchorPoint = CGPointMake(0.5f, 1.0f);
+        // timeLabelBlue.anchorPoint = CGPointMake(0.5f, 1.0f);
         
-        timeLabelBlue.color = ccBLACK;
+        //timeLabelBlue.color = ccBLACK;
         
         // Add the time label
-        timeLabelBlue.visible = FALSE;
+        //timeLabelBlue.visible = FALSE;
         /*collideTime = 0;*/
-        PowerLabel = [CCSprite spriteWithFile:@"powerup12.png"];
+        // PowerLabel = [CCSprite spriteWithFile:@"powerup12.png"];
         
-        PowerLabel.position =ccp(120 + timeLabelBlue.contentSize.width, timeLabelBlue.contentSize.height/2 + 27);
-        PowerLabel.visible = FALSE;
-        [self addChild:PowerLabel];
+        //  PowerLabel.position =ccp(120 + timeLabelBlue.contentSize.width, timeLabelBlue.contentSize.height/2 + 27);
+        // PowerLabel.visible = FALSE;
+        // [self addChild:PowerLabel];
         
         bubble = [CCSprite spriteWithFile:@"bubble4.png"];
         bubble.position = ccp(winSize.width - 420 , winSize.height - 340);
@@ -1002,7 +974,7 @@ CCSprite* PowerLabel;
         bubble2 = [CCSprite spriteWithFile:@"bubble5.png"];
         bubble2.position = ccp(winSize.width/2 , winSize.height/2);
         [self addChild:bubble2];
-        //bubble.visible = FALSE;
+        bubble.visible = FALSE;
         
         [self schedule:@selector(removeBubble2) interval:3 repeat:1 delay:5];
         
@@ -1011,267 +983,109 @@ CCSprite* PowerLabel;
         [self addChild:bubble3];
         bubble3.visible = FALSE;
         
-        [self addChild:timeLabelBlue];
+        //  [self addChild:timeLabelBlue];
         
         [self schedule:@selector(LevelTimer:)];
         
     }
     return self;
     
-    
-    //{
-    //            if( (self=[super init]) ) {
-    //                //[self setTouchEnabled:YES];
-    //                self.touchEnabled = YES;
-    //                isBonusDisplayed =  NO;
-    //                _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"tileMap3.tmx"];
-    //
-    //                snow = [_tileMap layerNamed:@"Snow"];
-    //                _playerimage = player1;
-    //                bonusStageRunning = NO;
-    //                bonusRoundPlayed = NO;
-    //
-    //                count = 90;
-    //                darkBlueCount = 0;
-    //                [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"funk.mp3"];
-    //
-    //
-    //                border = [_tileMap layerNamed:@"Border"];
-    //                //street  = [_tileMap layerNamed:@"Street"];
-    //                building = [_tileMap layerNamed:@"Building"];
-    //                darkBlue = [_tileMap layerNamed:@"DarkBlueTiles"];
-    //                powerBlueLayer = [_tileMap layerNamed:@"power_blue"];
-    //                powerGrenadeLayer = [_tileMap layerNamed:@"Grenade"];
-    //                powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
-    //                grenadeLayer = [_tileMap layerNamed:@"GrenadeWall"];
-    //                bonusLayer = [_tileMap layerNamed:@"Bonus"];
-    //                //bonusLayer.visible = NO;
-    //
-    //                powerLivesLayer.visible = FALSE;
-    //
-    //                playerDirection = 1;
-    //                bonusPointsLocation[0] = ccp(6, 14);
-    //                bonusPointsLocation[1] = ccp(12, 1);
-    //                bonusPointsLocation[2] = ccp(17, 10);
-    //                bonusPointsLocation[3] = ccp(6, 9);
-    //                bonusPointsLocation[4] = ccp(17, 13);
-    //
-    //
-    //                for (int i = 0; i<5; i++)
-    //        {
-    //                    [bonusLayer tileAt:bonusPointsLocation[i]].visible = NO;
-    //                }
-    //
-    //
-    //                winScore = 197;
-    //                //winScore = 10;
-    //                totalLives = 2;
-    //                //        totalLives = 1;
-    //                lifeCount = 2;
-    //
-    //                levelTimeLimit = 240;
-    //                powerLiveTimeLimit = 45;
-    //                collideTime =0;
-    //                immuneDuration = 2;
-    //
-    //                CGSize winSize = [[CCDirector sharedDirector] winSize];  // Request the current window size
-    //
-    //                for(CCTMXLayer *child in [_tileMap children])
-    //        {
-    //                    [[child texture] setAliasTexParameters];
-    //                }
-    //
-    //                [self addChild: _tileMap];
-    //
-    //                //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
-    //                if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 1)
-    //        {
-    //                    player = [CCSprite spriteWithFile:@"HyperPlayer_40x40.png"];
-    //                }
-    //                else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
-    //                    player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
-    //                }
-    //                else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 3)
-    //        {
-    //                    player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
-    //                }
-    //                [self spawnPlayer];
-    //                if(player == nil)
-    //        {
-    //                    printf("this is an error");
-    //                }
-    //                [self addChild:player];
-    //
-    //
-    //                monster5 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-    //                monster5.position = ccp(winSize.width/3+435, winSize.height/2-10);
-    //                [self addChild:monster5];
-    //
-    //                monster6 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-    //                monster6.position = ccp(winSize.width/3+185, winSize.height/2-10);
-    //                [self addChild:monster6];
-    //
-    //                monster7 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-    //                monster7.position = ccp(winSize.width-45, winSize.height-50);
-    //                [self addChild:monster7];
-    //
-    //                monster8 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-    //                monster8.position = ccp(125, 75);
-    //                [self addChild:monster8];
-    //
-    //                //ghost1 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-    //                //ghost1.position = ccp(winSize.width-45,winSize.height/2);
-    //                //[self addChild:ghost1];
-    //
-    //                [self performSelectorInBackground:@selector(actionmonster5) withObject:self];
-    //                [self performSelectorInBackground:@selector(actionmonster6) withObject:self];
-    //                [self performSelectorInBackground:@selector(actionmonster7) withObject:self];
-    //                [self performSelectorInBackground:@selector(actionmonster8) withObject:self];
-    //
-    //                [self performSelectorInBackground:@selector(actionghost1) withObject:self];
-    //
-    //
-    //
-    //                // Standard method to pause the game
-    //                CCMenuItem *starMenuItem = [CCMenuItemImage itemWithNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame:)];
-    //
-    //                //starMenuItem.position = ccp(870, 25);
-    //                starMenuItem.position = ccp(22, 680);
-    //                CCMenu *starMenu = [CCMenu menuWithItems:starMenuItem, nil];
-    //                starMenu.position = CGPointZero;
-    //                [self addChild:starMenu];
-    //
-    //                //NSLog(@"booleans : %d and %d: ",powerup1Check,powerup2Check);
-    //                /* Ghost Immune PowerUp */
-    //                if(powerupArray[1]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp2"] >=1))
-    //        {
-    //                    //NSLog(@"Powerup1 %d: ",powerup1Check);
-    //                    shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png" target:self selector:Nil];
-    //                    shopPowerUp2.position = ccp(22, 600-9*40);
-    //                    shopPowerUp2.visible = true;
-    //                    [self addChild:shopPowerUp2];
-    //                }
-    //                /* Ghost Pit Close PowerUp */
-    //                if(powerupArray[2]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp3"] >=1))
-    //        {
-    //                    //NSLog(@"Powerup2 %d: ",powerup1Check);
-    //                    CCParticleSmoke * p1 = [[CCParticleSmoke alloc]initWithTotalParticles:5];
-    //                    [p1 autorelease];
-    //                    p1.texture=[[CCTextureCache sharedTextureCache] addImage:@"smoke.png"];
-    //                    p1.autoRemoveOnFinish = YES;
-    //                    p1.duration = 20;
-    //                    //p1.life=1.0;
-    //                    p1.position=ccp(980,370);
-    //                    [self addChild:p1];
-    //
-    //                    shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"NoMoreGhostPowerUp_45x45.png" selectedImage:@"NoMoreGhostPowerUp_45x45.png" target:self selector:Nil];
-    //                    shopPowerUp2.position = ccp(22, 600-10*40);
-    //                    shopPowerUp2.visible = true;
-    //                    [self addChild:shopPowerUp2];
-    //                }
-    //
-    //                for (int i=0; i<5; i++) {
-    //                    lifeItem[i] = [CCMenuItemImage itemWithNormalImage:@"life.png" selectedImage:@"life.png" target:self selector:Nil];
-    //                    lifeItem[i].position = ccp(22, 600-i*40);
-    //                    lifeItem[i].visible = true;
-    //                }
-    //                lifeItem[3].visible = false;
-    //                lifeItem[4].visible = false;
-    //                /* Life Power Up */
-    //                if(powerupArray[0]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp1"] >=1))
-    //        {
-    //                    lifeItem[3].visible = true;
-    //                    lifeCount++;
-    //                }
-    //                life = [CCMenu menuWithItems:lifeItem[0],lifeItem[1],lifeItem[2],lifeItem[3],lifeItem[4], nil];
-    //
-    //                life.position = CGPointZero;
-    //                [self addChild:life];
-    //
-    //                [self schedule:@selector(checkCollisionWithMonster)];
-    //                [self schedule:@selector(ShowBonuStageImage)];
-    //
-    //                myTime = 0;
-    //
-    //                timeLabel = [CCLabelTTF labelWithString:@"" fontName:@"Arial" fontSize:30];
-    //                timeLabel.position = CGPointMake(winSize.width / 2+200, winSize.height);
-    //                // Adjust the label's anchorPoint's y position to make it align with the top.
-    //                timeLabel.anchorPoint = CGPointMake(0.5f, 1.0f);
-    //                // Add the time label
-    //                timeLabel.color=ccBLACK;
-    //                [self addChild:timeLabel];
-    //
-    //                //update
-    //
-    //                timeLabelBlue = [CCLabelTTF labelWithString:@"" fontName:@"Arial" fontSize:40];
-    //                timeLabelBlue.position =ccp(200 + timeLabelBlue.contentSize.width, timeLabelBlue.contentSize.height/2 + 46);
-    //                // Adjust the label's anchorPoint's y position to make it align with the top.
-    //                timeLabelBlue.anchorPoint = CGPointMake(0.5f, 1.0f);
-    //
-    //                timeLabelBlue.color = ccBLACK;
-    //
-    //                // Add the time label
-    //                timeLabelBlue.visible = FALSE;
-    //                /*collideTime = 0;*/
-    //                PowerLabel = [CCSprite spriteWithFile:@"powerup12.png"];
-    //
-    //                PowerLabel.position =ccp(120 + timeLabelBlue.contentSize.width, timeLabelBlue.contentSize.height/2 + 27);
-    //                PowerLabel.visible = FALSE;
-    //                [self addChild:PowerLabel];
-    //
-    //                bubble = [CCSprite spriteWithFile:@"bubble4.png"];
-    //                bubble.position = ccp(winSize.width - 420 , winSize.height - 340);
-    //                [self addChild:bubble];
-    //                bubble.visible = FALSE;
-    //
-    //                bubble2 = [CCSprite spriteWithFile:@"bubble5.png"];
-    //                bubble2.position = ccp(winSize.width/2 , winSize.height/2);
-    //                [self addChild:bubble2];
-    //                //bubble.visible = FALSE;
-    //
-    //                [self schedule:@selector(removeBubble2) interval:3 repeat:1 delay:5];
-    //
-    //                bubble3 = [CCSprite spriteWithFile:@"bubble6.png"];
-    //                bubble3.position = ccp(winSize.width - 550 , winSize.height - 530);
-    //                [self addChild:bubble3];
-    //                bubble3.visible = FALSE;
-    //
-    //                [self addChild:timeLabelBlue];
-    //
-    //                [self schedule:@selector(LevelTimer:)];
-    //            }
 }
-- (void) ShowBonuStageImage
+
+-(void) GhostImmunePower:(id)sender
 {
-    if (bonusRoundPlayed == NO)
+    shopPowerUp2.visible=false;
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp2"];
+    [self schedule:@selector(GhostImmunePowerTimer:) interval:1 repeat:1 delay:0];
+    
+    [self schedule:@selector(GhostImmunePowerTimerUp:) interval:11 repeat:1 delay:0];
+}
+
+-(void)GhostImmunePowerTimerUp:(ccTime)dt
+{
+    
+    totalTimeImmune += dt;
+    currentTimeImmune = (int)totalTimeImmune;
+    NSLog(@"Time: %d %d",currentTimeImmune,myTimeImmune);
+    
+    immunePowerUp=0;
+   CCFadeTo *fadeIn = [CCFadeTo actionWithDuration:0.25 opacity:0];
+    CCFadeTo *fadeOut = [CCFadeTo actionWithDuration:0.75 opacity:255];
+    
+    CCSequence *pulseSequence = [CCSequence actionOne:fadeIn two:fadeOut];
+   // CCRepeatForever *repeat = [CCRepeatForever actionWithAction:pulseSequence];
+    [player runAction:pulseSequence];
+    //CCBlink* blink = [CCBlink actionWithDuration:3 blinks:10];
+    //[player runAction:blink];
+    
+    if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 1)
     {
+        [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"HyperPlayer_40x40.png"]];
+    }
+    else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
+        [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"NormalPlayer_40x40.png"]];
+    }
+    else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 3)
+    {
+        [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"NormalPlayer_40x40.png"]];
+    }
+    
+    if( (CGRectIntersectsRect([monster5 boundingBox], [player boundingBox]) && totalTime - collideTime >= immuneDuration ))
+    {
+        /*immunePowerUp = 1;
+         [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
+         [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"playerImmune.png"]];*/
+    }
+    
+}
+-(void)GhostImmunePowerTimer:(ccTime)dt
+{
+    
+    totalTimeImmune += dt;
+    currentTimeImmune = (int)totalTimeImmune;
+    NSLog(@"Time: %d %d",currentTimeImmune,myTimeImmune);
+    if (myTimeImmune < currentTimeImmune)
+    {
+        myTimeImmune = currentTimeImmune;
         
-        if (myTime%20 == 0 && myTime !=0 && isBonusDisplayed == NO)
-        {
-            isBonusDisplayed = YES;
-            NSLog(@"Player pos:%f %f", player.position.x, player.position.y);
-            CGPoint tileCoord = [self tileCoordForPosition:player.position];
-            NSLog(@"Player pos1:%f %f", tileCoord.x, tileCoord.y);
-            do {
-                bonusIndex = rand() %5;
-            } while (bonusPointsLocation[bonusIndex].x == tileCoord.x && bonusPointsLocation[bonusIndex].y == tileCoord.y);
-            
-            [bonusLayer tileAt:bonusPointsLocation[bonusIndex]].visible = YES;
-            
-        }
-        else if ((myTime+11)%20 == 0) {
-            [bonusLayer tileAt:bonusPointsLocation[bonusIndex]].visible = NO;
-            isBonusDisplayed = NO;
-        }
-        
+        //[timeLabelBlue setString:[NSString stringWithFormat:@" %02d:%02d", (powerLiveTimeLimit - myTimeImmune)/60, (powerLiveTimeLimit-myTimeImmune)%60]];
+        immunePowerUp = 1;
+        [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
+        [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"playerImmune.png"]];
+        CCBlink* blink = [CCBlink actionWithDuration:10 blinks:20];
+        [player runAction:blink];
     }
 }
+/*
+ - (void) ShowBonuStageImage
+ {
+ if (bonusRoundPlayed == NO)
+ {
+ 
+ if (myTime%20 == 0 && myTime !=0 && isBonusDisplayed == NO)
+ {
+ isBonusDisplayed = YES;
+ NSLog(@"Player pos:%f %f", player.position.x, player.position.y);
+ CGPoint tileCoord = [self tileCoordForPosition:player.position];
+ NSLog(@"Player pos1:%f %f", tileCoord.x, tileCoord.y);
+ do {
+ bonusIndex = rand() %5;
+ } while (bonusPointsLocation[bonusIndex].x == tileCoord.x && bonusPointsLocation[bonusIndex].y == tileCoord.y);
+ 
+ [bonusLayer tileAt:bonusPointsLocation[bonusIndex]].visible = YES;
+ 
+ }
+ else if ((myTime+11)%20 == 0) {
+ [bonusLayer tileAt:bonusPointsLocation[bonusIndex]].visible = NO;
+ isBonusDisplayed = NO;
+ }
+ 
+ }
+ }*/
 -(void) MakeBubbleInvisible
 {
     bubble.visible = FALSE;
 }
-
-int livePowerEnabled1 = 0;
 
 -(void)LevelTimer:(ccTime)dt
 {
@@ -1452,16 +1266,18 @@ int livePowerEnabled1 = 0;
     
 }
 
--(void)ResumeGameAfterBonus
-{
-    [[CCDirector sharedDirector] stopAnimation];
-    [[CCDirector sharedDirector] resume];
-    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
-    [[CCDirector sharedDirector] startAnimation];
-    self.touchEnabled = YES;
-    self.visible = YES;
-    
-}
+/*
+ -(void)ResumeGameAfterBonus
+ {
+ [[CCDirector sharedDirector] stopAnimation];
+ [[CCDirector sharedDirector] resume];
+ [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+ [[CCDirector sharedDirector] startAnimation];
+ self.touchEnabled = YES;
+ self.visible = YES;
+ 
+ }
+ */
 
 -(void)RestartGame:(id)sender
 {
@@ -1485,7 +1301,7 @@ int livePowerEnabled1 = 0;
     
     [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+ totalScore forKey:@"Score"];
     [[CCDirector sharedDirector]
-     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:NO timeBonus:0 powerups:powerupArray playerSelected:playerSelectArray]]];
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level3 scene:NO timeBonus:0 powerups:powerupArray playerSelected:playerSelectArray]]];
 }
 
 

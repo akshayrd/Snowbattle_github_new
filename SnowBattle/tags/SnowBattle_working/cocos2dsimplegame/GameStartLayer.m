@@ -22,7 +22,7 @@
         bg.anchorPoint = ccp(0, 0);
         [self addChild:bg z:0];
         
-        CCParticleSnow * p = [[CCParticleSnow alloc]initWithTotalParticles:10000];
+        CCParticleRain * p = [[CCParticleRain alloc]initWithTotalParticles:10000];
         [p autorelease];
         p.texture=[[CCTextureCache sharedTextureCache] addImage:@"snowImage.png"];
         p.autoRemoveOnFinish = YES;
@@ -30,8 +30,8 @@
         p.duration = 1000;
         p.position=ccp(200,750);
         p.scaleX=2.0f;
-        p.endSize=18.0f;
-        p.startSize = 15.0f;
+        p.endSize=10.0f;
+        p.startSize = 8.0f;
         //p.startColor = [ccColor4F colorWithRed:0 green:0 blue:255];
         [self addChild:p z:1];
         
@@ -39,11 +39,11 @@
         
         [CCMenuItemFont setFontSize:40];
             
-        CCMenuItemFont *newGame = [CCMenuItemFont itemFromString:@"New Game"
+        CCMenuItemFont *newGame = [CCMenuItemFont itemWithString:@"New Game"
                                                           target:self
                                                         selector:@selector(startGame:)];
         [newGame setColor:ccBLUE];
-        CCMenuItemFont *shopNow = [CCMenuItemFont itemFromString:@"Go To Shop"
+        CCMenuItemFont *shopNow = [CCMenuItemFont itemWithString:@"Go To Shop"
                                                           target:self
                                                         selector:@selector(shopNow:)];
         [shopNow setColor:ccBLUE];

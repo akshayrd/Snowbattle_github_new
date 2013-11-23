@@ -9,6 +9,7 @@
 #import "LevelSelectLayer.h"
 #import "HelloWorldLayer.h"
 #import "HelloWorldLayer_Level2.h"
+#import "HelloWorldLayer_Level3.h"
 
 @implementation LevelSelectLayer
 
@@ -31,7 +32,7 @@
         bg.anchorPoint = ccp(0, 0);
         [self addChild:bg z:0];
         
-        CCParticleSnow * p = [[CCParticleSnow alloc]initWithTotalParticles:10000];
+        CCParticleRain * p = [[CCParticleRain alloc]initWithTotalParticles:10000];
         [p autorelease];
         p.texture=[[CCTextureCache sharedTextureCache] addImage:@"snowImage.png"];
         p.autoRemoveOnFinish = YES;
@@ -39,12 +40,12 @@
         p.duration = 1000;
         p.position=ccp(200,750);
         p.scaleX=2.0f;
-        p.endSize=18.0f;
-        p.startSize = 15.0f;
+        p.endSize=10.0f;
+        p.startSize = 8.0f;
         //p.startColor = [ccColor4F colorWithRed:0 green:0 blue:255];
         [self addChild:p z:1];
         
-        selectLevel = [CCMenuItemFont itemFromString:@"Select Level"
+        selectLevel = [CCMenuItemFont itemWithString:@"Select Level"
                                               target:self
                                             selector:@selector(nextLevelStart:)];
         selectLevel.tag=0;
@@ -59,29 +60,32 @@
         [CCMenuItemFont setFontName:@"Chalkduster"];
         [CCMenuItemFont setFontSize:38];
         
-        CCMenuItemFont *newGame = [CCMenuItemFont itemFromString:@"Level 1"
+        CCMenuItemFont *newGame = [CCMenuItemFont itemWithString:@"Level 1"
                                                           target:self
                                                         selector:@selector(showMap:)];
         powerupList=[[NSMutableArray alloc] initWithCapacity:2];
         powerupList[0]=[NSString stringWithFormat:@"1"];
         newGame.userData=powerupList;
         
-        CCMenuItemFont *newGame1 = [CCMenuItemFont itemFromString:@"Level 2"
+        CCMenuItemFont *newGame1 = [CCMenuItemFont itemWithString:@"Level 2"
                                                            target:self
                                                          selector:@selector(showMap:)];
         powerupList=[[NSMutableArray alloc] initWithCapacity:2];
         powerupList[0]=[NSString stringWithFormat:@"2"];
         newGame1.userData=powerupList;
         
-        CCMenuItemFont *newGame2 = [CCMenuItemFont itemFromString:@"Level 3"
+        CCMenuItemFont *newGame2 = [CCMenuItemFont itemWithString:@"Level 3"
                                                            target:self
                                                          selector:@selector(showMap:)];
-        CCMenuItemFont *newGame3 = [CCMenuItemFont itemFromString:@"Level 4"
+        powerupList=[[NSMutableArray alloc] initWithCapacity:2];
+        powerupList[0]=[NSString stringWithFormat:@"3"];
+        newGame2.userData=powerupList;
+        CCMenuItemFont *newGame3 = [CCMenuItemFont itemWithString:@"Level 4"
                                                            target:self
                                                          selector:@selector(showMap:)];
         [newGame setColor:ccBLUE];
         [newGame1 setColor:ccBLUE];
-        [newGame2 setColor:ccRED];
+        [newGame2 setColor:ccBLUE];
         [newGame3 setColor:ccRED];
         
         CCMenu *menu = [CCMenu menuWithItems: newGame, newGame1, newGame2,newGame3, nil];
@@ -105,7 +109,7 @@
     
     if(levelSelected==1)
     {
-        menuItem19 = [CCMenuItemImage itemFromNormalImage:[NSString stringWithFormat:@"level1_map.png"]
+        menuItem19 = [CCMenuItemImage itemWithNormalImage:[NSString stringWithFormat:@"level1_map.png"]
                                             selectedImage:[NSString stringWithFormat:@"level1_map.png"]
                                                    target:self selector:@selector(nextLevelStart:)];
         menuItem19.tag = levelSelected;
@@ -114,7 +118,7 @@
     }
     else if(levelSelected==2)
     {
-        menuItem19 = [CCMenuItemImage itemFromNormalImage:[NSString stringWithFormat:@"level2_map.png"]
+        menuItem19 = [CCMenuItemImage itemWithNormalImage:[NSString stringWithFormat:@"level2_map.png"]
                                             selectedImage:[NSString stringWithFormat:@"level2_map.png" ] target:self selector:@selector(nextLevelStart:)];
         menuItem19.tag = levelSelected;
         menu8 = [CCMenu menuWithItems: menuItem19, nil];
@@ -122,8 +126,9 @@
         
     }
     else{
-        menuItem19 = [CCMenuItemImage itemFromNormalImage:[NSString stringWithFormat:@"level1_map.png"]
-                                            selectedImage:[NSString stringWithFormat:@"level1_map.png"]];
+        menuItem19 = [CCMenuItemImage itemWithNormalImage:[NSString stringWithFormat:@"level1_map.png"]
+                                            selectedImage:[NSString stringWithFormat:@"level1_map.png"] target:self selector:@selector(nextLevelStart:)];
+        menuItem19.tag = levelSelected;
         menu8 = [CCMenu menuWithItems: menuItem19, nil];
         menu8.visible=false;
     }
@@ -159,6 +164,20 @@
         
         [[CCDirector sharedDirector]
          replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:player1Select timeBonus:0 powerups:powerupArray playerSelected:playerSelectArray]]];
+    }
+    else if(selectedLevel==3)
+    {
+        int powerupArray[3];
+        powerupArray[0]=0;
+        powerupArray[1]=0;
+        powerupArray[2]=0;
+        int playerSelectArray[3];
+        playerSelectArray[0]=1;
+        playerSelectArray[1]=0;
+        playerSelectArray[2]=0;
+        
+        [[CCDirector sharedDirector]
+         replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level3 scene:player1Select timeBonus:0 powerups:powerupArray playerSelected:playerSelectArray]]];
     }
     
 }

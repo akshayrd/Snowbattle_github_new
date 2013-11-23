@@ -43,7 +43,7 @@
         [CCMenuItemFont setFontName:@"Chalkduster"];
         [CCMenuItemFont setFontSize:38];
         
-        CCMenuItemFont *selectPlayer = [CCMenuItemFont itemFromString:@"Go back to Level 2"
+        CCMenuItemFont *selectPlayer = [CCMenuItemFont itemWithString:@"Go back to Level 2"
                                                                target:self
                                                              selector:@selector(startGameLevel2:)];
         selectPlayer.color=ccBLUE;

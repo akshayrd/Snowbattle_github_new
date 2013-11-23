@@ -30,7 +30,7 @@
         [CCMenuItemFont setFontName:@"Chalkduster"];
         [CCMenuItemFont setFontSize:38];
         player1 = false;
-        menuItem1 = [CCMenuItemImage itemFromNormalImage:@"HyperPlayer_40x40.png"
+        menuItem1 = [CCMenuItemImage itemWithNormalImage:@"HyperPlayer_40x40.png"
                                                             selectedImage:@"HyperPlayer_40x40.png"
                                                                    target:self selector:@selector(changePlayerImage1:)];
         //menuItem1.position=ccp(300,300);
@@ -40,7 +40,7 @@
         [self addChild:menu];
 
         
-        menuItem2 = [CCMenuItemImage itemFromNormalImage:@"NormalPlayer_40x40.png"
+        menuItem2 = [CCMenuItemImage itemWithNormalImage:@"NormalPlayer_40x40.png"
                                                             selectedImage:@"NormalPlayer_40x40.png"
                                                                    target:self selector:@selector(changePlayerImage2:)];
         //menuItem2.position=ccp(800,300);
@@ -49,7 +49,7 @@
         [menu1 alignItemsVerticallyWithPadding:15];
         [self addChild:menu1];
         
-        CCMenuItemFont *selectPlayer = [CCMenuItemFont itemFromString:@"SELECT PLAYER"
+        CCMenuItemFont *selectPlayer = [CCMenuItemFont itemWithString:@"SELECT PLAYER"
                                                           target:self
                                                         selector:@selector(startGame:)];
         selectPlayer.color=ccBLUE;
