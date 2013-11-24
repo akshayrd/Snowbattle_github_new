@@ -528,9 +528,10 @@ CCSprite* PowerLabel;
         NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         if (properties) {
             NSString *collectible = properties[@"Collectable"];
-            if (collectible && [collectible isEqualToString:@"True"]) {
-                [snow removeTileAt:tileCoord];
+            if (collectible && [collectible isEqualToString:@"True"] && [snow tileAt:tileCoord].visible == YES) {
+                //[snow removeTileAt:tileCoord];
                 
+                [snow tileAt:tileCoord].visible = NO;
                 currentLevelScore++;
                 [hud numCollectedChanged:currentLevelScore+totalScore];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"shoveling.mp3"];
@@ -828,23 +829,32 @@ CCSprite* PowerLabel;
         p.startSize = 8.0f;
         [self addChild:p z:1];
         
+        planeInitialX=220;
+        planeShadowInitialX=planeInitialX+5;
+        
+        planePointsLocation[0] = planeInitialX;
+        planePointsLocation[1] = planeInitialX+100;
+        planePointsLocation[2] = planeInitialX+100+100;
+        planePointsLocation[3] = planeInitialX+100+100+100;
+        planePointsLocation[4] = planeInitialX+100+100+100+100;
+        
         plane = [CCSprite spriteWithFile:@"plane.png"];
         plane.scale = 1.0;
         plane.zOrder = 2;
-        plane.position = ccp(200 , 745+5);
+        plane.position = ccp(planeInitialX , 745+5);
         [self addChild:plane];
+        plane.visible=false;
         
         _planeShadow = [CCSprite spriteWithFile:@"plane_shadow.png"];
         _planeShadow.scale = 1.0;
         _planeShadow.zOrder = 1;
-        _planeShadow.position = ccp(200+5,745);
+        _planeShadow.position = ccp(planeShadowInitialX,745);
         [self addChild:_planeShadow];
-        planeInitialX=200;
-        planeShadowInitialX=200+5;
+        _planeShadow.visible=false;
         
-        [self performSelectorInBackground:@selector(movePlaneInitial) withObject:self];
-        [self performSelectorInBackground:@selector(movePlaneShadowInitial) withObject:self];
-        [self performSelectorInBackground:@selector(randomPlaneXPos) withObject:self];
+        [self schedule:@selector(movePlaneInitial) interval:15 repeat:100 delay:40];
+        [self schedule:@selector(movePlaneShadowInitial) interval:15 repeat:100 delay:40];
+        [self schedule:@selector(randomPlaneXPos) interval:14 repeat:100 delay:40];
         
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
         if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 1)
@@ -1007,23 +1017,25 @@ CCSprite* PowerLabel;
         
     }
     return self;
-    
 }
 
 -(void)randomPlaneXPos
 {
-    CGSize winSize = [CCDirector sharedDirector].winSize;
-    planeInitialX = rand()%(int)winSize.width;
-    planeShadowInitialX = planeInitialX+5;
+    int randomPos = 0 + arc4random() % (4-0+1);
+    planeInitialX = planePointsLocation[randomPos];
+    planeShadowInitialX = planePointsLocation[randomPos]+5;
+    _planeShadow.position=ccp(planePointsLocation[randomPos]+5,745);
+    plane.position=ccp(planePointsLocation[randomPos],745+5);
+    _planeShadow.visible=false;
+    plane.visible=false;
 }
 
 -(void) movePlaneInitial
 {
-    [self schedule:@selector(movePlane) interval:1.5 repeat:10 delay:0];
+    [self schedule:@selector(movePlane) interval:0 repeat:1 delay:0];
 }
 
 -(void)movePlane{
-    //NSLog(@"one second");
    // CGSize winSize = [CCDirector sharedDirector].winSize;
     //int realX = winSize.width/3+435;
     int realY = 40;
@@ -1033,19 +1045,24 @@ CCSprite* PowerLabel;
     
     id actionMove = [CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest];
     
+    NSLog(@"Start Plane Pos: (%f,%f)",plane.position.x,plane.position.y);
+    [[SimpleAudioEngine sharedEngine] playEffect:@"plane_sound.mp3"];
+    plane.visible=true;
     [plane runAction:
      [CCSequence actions: actionMove,nil]];
+    NSLog(@"Last Plane Pos: (%f,%f)",plane.position.x,plane.position.y);
 }
 
 -(void) movePlaneShadowInitial
 {
-    [self schedule:@selector(movePlaneShadow) interval:1.5 repeat:10 delay:0];
+    [self schedule:@selector(movePlaneShadow) interval:0 repeat:1 delay:0];
 }
 
 -(void)movePlaneShadow{
     //NSLog(@"one second");
     // CGSize winSize = [CCDirector sharedDirector].winSize;
     //int realX = winSize.width/3+435;
+    
     int realY = 40;
     CGPoint realDest = ccp(planeShadowInitialX, realY);
     
@@ -1053,6 +1070,7 @@ CCSprite* PowerLabel;
     
     id actionMove = [CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest];
     
+    _planeShadow.visible=true;
     [_planeShadow runAction:
      [CCSequence actions: actionMove,nil]];
 }

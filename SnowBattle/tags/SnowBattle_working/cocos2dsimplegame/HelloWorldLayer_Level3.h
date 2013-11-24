@@ -78,6 +78,7 @@
     double currentMaxAccelY;
     int planeInitialX;
     int planeShadowInitialX;
+    int planePointsLocation[5];
     
     int playerDirection ;
     
