@@ -12,6 +12,8 @@
 		3F703EDA1838AC6900309DEB /* try1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3F703ED81838AC6900309DEB /* try1.gif */; };
 		3F703EDD1838B0F200309DEB /* powerUp_immuneGhost.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F703EDB1838B0F200309DEB /* powerUp_immuneGhost.png */; };
 		3F703EDE1838B0F200309DEB /* powerUp_ghostPitClose.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F703EDC1838B0F200309DEB /* powerUp_ghostPitClose.png */; };
+		3FACCF92184195600018FBFE /* plane.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FACCF90184195600018FBFE /* plane.png */; };
+		3FACCF93184195600018FBFE /* plane_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FACCF91184195600018FBFE /* plane_shadow.png */; };
 		BA3949D617F2EC450072E0C9 /* hit.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3949D217F2EC450072E0C9 /* hit.caf */; };
 		BA3FEDD617FE893800DD2E17 /* Raycast.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDD517FE893800DD2E17 /* Raycast.m4a */; };
 		BA3FEDDC17FE986800DD2E17 /* grey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDDB17FE986800DD2E17 /* grey.jpg */; };
@@ -249,6 +251,8 @@
 		3F703ED81838AC6900309DEB /* try1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = try1.gif; sourceTree = "<group>"; };
 		3F703EDB1838B0F200309DEB /* powerUp_immuneGhost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerUp_immuneGhost.png; sourceTree = "<group>"; };
 		3F703EDC1838B0F200309DEB /* powerUp_ghostPitClose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerUp_ghostPitClose.png; sourceTree = "<group>"; };
+		3FACCF90184195600018FBFE /* plane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plane.png; sourceTree = "<group>"; };
+		3FACCF91184195600018FBFE /* plane_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plane_shadow.png; sourceTree = "<group>"; };
 		BA3949CE17F2B6430072E0C9 /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "pew-pew-lei.caf"; path = "Resources/Sounds/pew-pew-lei.caf"; sourceTree = "<group>"; };
 		BA3949D217F2EC450072E0C9 /* hit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit.caf; path = Resources/Sounds/hit.caf; sourceTree = "<group>"; };
 		BA3949D317F2EC450072E0C9 /* move.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = move.caf; path = Resources/Sounds/move.caf; sourceTree = "<group>"; };
@@ -1352,6 +1356,8 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3FACCF90184195600018FBFE /* plane.png */,
+				3FACCF91184195600018FBFE /* plane_shadow.png */,
 				BEE3F3B318401F850001181C /* playerImmune.png */,
 				BEE3F3AE184017C00001181C /* rain1.png */,
 				BAB7805E183CCD3E000E1743 /* monster_white.png */,
@@ -1969,6 +1975,8 @@
 				BAB7805A183CA6C3000E1743 /* BonusCoin_45x45.png in Resources */,
 				BEE3F3AF184017C00001181C /* rain1.png in Resources */,
 				BEE3F3B418401F850001181C /* playerImmune.png in Resources */,
+				3FACCF92184195600018FBFE /* plane.png in Resources */,
+				3FACCF93184195600018FBFE /* plane_shadow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

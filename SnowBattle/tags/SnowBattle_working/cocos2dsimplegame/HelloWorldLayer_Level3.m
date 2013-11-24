@@ -817,7 +817,7 @@ CCSprite* PowerLabel;
         
         [self addChild: _tileMap];
         
-        CCParticleRain * p = [[CCParticleRain alloc]initWithTotalParticles:10000];
+        CCParticleRain *p = [[CCParticleRain alloc]initWithTotalParticles:10000];
         [p autorelease];
         p.texture=[[CCTextureCache sharedTextureCache] addImage:@"snowImage.png"];
         p.autoRemoveOnFinish = YES;
@@ -828,6 +828,18 @@ CCSprite* PowerLabel;
         p.endSize=10.0f;
         p.startSize = 8.0f;
         [self addChild:p z:1];
+        
+        plane = [CCSprite spriteWithFile:@"plane.png"];
+        plane.scale = 1.0;
+        plane.zOrder = 2;
+        plane.position = ccp(200 , 300+5);
+        [self addChild:plane];
+        
+        _planeShadow = [CCSprite spriteWithFile:@"plane_shadow.png"];
+        _planeShadow.scale = 1.0;
+        _planeShadow.zOrder = 1;
+        _planeShadow.position = ccp(200+5,300);
+        [self addChild:_planeShadow];
         
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
         if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 1)

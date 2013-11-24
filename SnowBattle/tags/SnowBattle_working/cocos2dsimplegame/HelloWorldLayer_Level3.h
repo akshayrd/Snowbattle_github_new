@@ -72,6 +72,8 @@
     int currentTimeBlue;
     CCMenuItemImage* shopPowerUp1;
     CCMenuItemImage* shopPowerUp2;
+    CCSprite *plane;
+    CCSprite *_planeShadow;
     
     int playerDirection ;
     
