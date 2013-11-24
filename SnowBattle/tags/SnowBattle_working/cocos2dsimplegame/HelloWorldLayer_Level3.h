@@ -74,6 +74,10 @@
     CCMenuItemImage* shopPowerUp2;
     CCSprite *plane;
     CCSprite *_planeShadow;
+    double currentMaxAccelX;
+    double currentMaxAccelY;
+    int planeInitialX;
+    int planeShadowInitialX;
     
     int playerDirection ;
     

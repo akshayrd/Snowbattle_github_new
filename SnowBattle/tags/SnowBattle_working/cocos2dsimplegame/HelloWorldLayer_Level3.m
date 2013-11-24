@@ -40,7 +40,6 @@
     
 }
 
-
 - (void) Monster1move:(ccTime)dt
 {
     
@@ -606,7 +605,7 @@ CCSprite* PowerLabel;
             }
         }
     }
-
+    
     
     tileGid = [darkBlue tileGIDAt:tileCoord];
     
@@ -692,7 +691,7 @@ CCSprite* PowerLabel;
         }
         
     }
-
+    
     
     [[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
     
@@ -832,21 +831,28 @@ CCSprite* PowerLabel;
         plane = [CCSprite spriteWithFile:@"plane.png"];
         plane.scale = 1.0;
         plane.zOrder = 2;
-        plane.position = ccp(200 , 300+5);
+        plane.position = ccp(200 , 745+5);
         [self addChild:plane];
         
         _planeShadow = [CCSprite spriteWithFile:@"plane_shadow.png"];
         _planeShadow.scale = 1.0;
         _planeShadow.zOrder = 1;
-        _planeShadow.position = ccp(200+5,300);
+        _planeShadow.position = ccp(200+5,745);
         [self addChild:_planeShadow];
+        planeInitialX=200;
+        planeShadowInitialX=200+5;
+        
+        [self performSelectorInBackground:@selector(movePlaneInitial) withObject:self];
+        [self performSelectorInBackground:@selector(movePlaneShadowInitial) withObject:self];
+        [self performSelectorInBackground:@selector(randomPlaneXPos) withObject:self];
         
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
         if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 1)
         {
             player = [CCSprite spriteWithFile:@"HyperPlayer_40x40.png"];
         }
-        else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
+        else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2)
+        {
             player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
         }
         else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 3)
@@ -1004,6 +1010,53 @@ CCSprite* PowerLabel;
     
 }
 
+-(void)randomPlaneXPos
+{
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    planeInitialX = rand()%(int)winSize.width;
+    planeShadowInitialX = planeInitialX+5;
+}
+
+-(void) movePlaneInitial
+{
+    [self schedule:@selector(movePlane) interval:1.5 repeat:10 delay:0];
+}
+
+-(void)movePlane{
+    //NSLog(@"one second");
+   // CGSize winSize = [CCDirector sharedDirector].winSize;
+    //int realX = winSize.width/3+435;
+    int realY = 40;
+    CGPoint realDest = ccp(planeInitialX, realY);
+    
+    float realMoveDuration = 20;
+    
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest];
+    
+    [plane runAction:
+     [CCSequence actions: actionMove,nil]];
+}
+
+-(void) movePlaneShadowInitial
+{
+    [self schedule:@selector(movePlaneShadow) interval:1.5 repeat:10 delay:0];
+}
+
+-(void)movePlaneShadow{
+    //NSLog(@"one second");
+    // CGSize winSize = [CCDirector sharedDirector].winSize;
+    //int realX = winSize.width/3+435;
+    int realY = 40;
+    CGPoint realDest = ccp(planeShadowInitialX, realY);
+    
+    float realMoveDuration = 20;
+    
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest];
+    
+    [_planeShadow runAction:
+     [CCSequence actions: actionMove,nil]];
+}
+
 -(void) GhostImmunePower:(id)sender
 {
     shopPowerUp2.visible=false;
@@ -1021,11 +1074,11 @@ CCSprite* PowerLabel;
     NSLog(@"Time: %d %d",currentTimeImmune,myTimeImmune);
     
     immunePowerUp=0;
-   CCFadeTo *fadeIn = [CCFadeTo actionWithDuration:0.25 opacity:0];
+    CCFadeTo *fadeIn = [CCFadeTo actionWithDuration:0.25 opacity:0];
     CCFadeTo *fadeOut = [CCFadeTo actionWithDuration:0.75 opacity:255];
     
     CCSequence *pulseSequence = [CCSequence actionOne:fadeIn two:fadeOut];
-   // CCRepeatForever *repeat = [CCRepeatForever actionWithAction:pulseSequence];
+    // CCRepeatForever *repeat = [CCRepeatForever actionWithAction:pulseSequence];
     [player runAction:pulseSequence];
     //CCBlink* blink = [CCBlink actionWithDuration:3 blinks:10];
     //[player runAction:blink];
