@@ -79,6 +79,12 @@
     int planeInitialX;
     int planeShadowInitialX;
     int planePointsLocation[5];
+    Boolean planeMoveFlag;
+    CCSprite *planeMonster1;
+    CCSprite *planeMonster2;
+    CCSprite *planeMonster3;
+    CCSprite *planeMonster4;
+    CCSprite *planeMonster5;
     
     int playerDirection ;
     

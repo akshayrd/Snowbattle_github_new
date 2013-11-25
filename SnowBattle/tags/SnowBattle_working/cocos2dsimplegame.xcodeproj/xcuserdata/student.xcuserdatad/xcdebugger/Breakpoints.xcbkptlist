@@ -34,12 +34,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "cocos2dsimplegame/HelloWorldLayer_Level3.m"
-         timestampString = "406973837.4245"
+         timestampString = "407048706.949127"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1042"
-         endingLineNumber = "1042"
-         landmarkName = "-setPlayerPosition:"
+         startingLineNumber = "1129"
+         endingLineNumber = "1129"
+         landmarkName = "-movePlane"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -53,6 +53,19 @@
          startingLineNumber = "532"
          endingLineNumber = "532"
          landmarkName = "-setPlayerPosition:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "cocos2dsimplegame/HelloWorldLayer_Level3.m"
+         timestampString = "407048706.949127"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1067"
+         endingLineNumber = "1067"
+         landmarkName = "-planeGetContPosition"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

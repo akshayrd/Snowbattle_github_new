@@ -838,6 +838,31 @@ CCSprite* PowerLabel;
         planePointsLocation[3] = planeInitialX+100+100+100;
         planePointsLocation[4] = planeInitialX+100+100+100+100;
         
+        planeMonster1 = [CCSprite spriteWithFile:@"monster-hd.png"];
+        planeMonster1.position = ccp(planePointsLocation[0], winSize.height-500);
+        [self addChild:planeMonster1];
+        planeMonster1.visible=false;
+        
+        planeMonster2 = [CCSprite spriteWithFile:@"monster-hd.png"];
+        planeMonster2.position = ccp(planePointsLocation[1], winSize.height-400);
+        [self addChild:planeMonster2];
+        planeMonster2.visible=false;
+        
+        planeMonster3 = [CCSprite spriteWithFile:@"monster-hd.png"];
+        planeMonster3.position = ccp(planePointsLocation[2], winSize.height-100);
+        [self addChild:planeMonster3];
+        planeMonster3.visible=false;
+        
+        planeMonster4 = [CCSprite spriteWithFile:@"monster-hd.png"];
+        planeMonster4.position = ccp(planePointsLocation[3], winSize.height-200);
+        [self addChild:planeMonster4];
+        planeMonster4.visible=false;
+        
+        planeMonster5 = [CCSprite spriteWithFile:@"monster-hd.png"];
+        planeMonster5.position = ccp(planePointsLocation[4], winSize.height-300);
+        [self addChild:planeMonster5];
+        planeMonster5.visible=false;
+        
         plane = [CCSprite spriteWithFile:@"plane.png"];
         plane.scale = 1.0;
         plane.zOrder = 2;
@@ -852,9 +877,10 @@ CCSprite* PowerLabel;
         [self addChild:_planeShadow];
         _planeShadow.visible=false;
         
-        [self schedule:@selector(movePlaneInitial) interval:15 repeat:100 delay:40];
-        [self schedule:@selector(movePlaneShadowInitial) interval:15 repeat:100 delay:40];
-        [self schedule:@selector(randomPlaneXPos) interval:14 repeat:100 delay:40];
+        [self schedule:@selector(movePlaneInitial) interval:15 repeat:100 delay:20];
+        [self schedule:@selector(movePlaneShadowInitial) interval:15 repeat:100 delay:20];
+        [self schedule:@selector(randomPlaneXPos) interval:14 repeat:100 delay:20];
+        [self schedule:@selector(planeGetContPosition) interval:0];
         
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
         if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 1)
@@ -1030,32 +1056,95 @@ CCSprite* PowerLabel;
     plane.visible=false;
 }
 
+-(void) planeGetContPosition
+{
+    if(planeMoveFlag==true && plane.position.y>=40)
+    {
+        
+        CGPoint tileCoord = [self tileCoordForPosition:plane.position];
+        
+        int tileGid = [snow tileGIDAt:tileCoord];
+        if (tileGid) {
+            if ([snow tileAt:tileCoord].visible == NO) {
+                [snow tileAt:tileCoord].visible = YES;
+                currentLevelScore--;
+                [hud numCollectedChanged:currentLevelScore+totalScore];
+                
+                NSLog(@"Current Score:%d",currentLevelScore);
+                NSLog(@"winscore Score:%d",winScore);
+            }
+         
+        }
+        
+        if( (CGRectIntersectsRect([planeMonster1 boundingBox], [plane boundingBox])) ||
+             (CGRectIntersectsRect([planeMonster2 boundingBox], [plane boundingBox])) ||
+              (CGRectIntersectsRect([planeMonster3 boundingBox], [plane boundingBox])) ||
+               (CGRectIntersectsRect([planeMonster4 boundingBox], [plane boundingBox])) ||
+                (CGRectIntersectsRect([planeMonster5 boundingBox], [plane boundingBox])) )
+        {
+            if((CGRectIntersectsRect([planeMonster1 boundingBox], [plane boundingBox])))
+            {
+                planeMonster1.visible=true;
+            }
+            else if((CGRectIntersectsRect([planeMonster2 boundingBox], [plane boundingBox])))
+            {
+                planeMonster2.visible=true;
+            }
+            else if((CGRectIntersectsRect([planeMonster3 boundingBox], [plane boundingBox])))
+            {
+                planeMonster3.visible=true;
+            }
+            else if((CGRectIntersectsRect([planeMonster4 boundingBox], [plane boundingBox])))
+            {
+                planeMonster4.visible=true;
+            }
+            else if((CGRectIntersectsRect([planeMonster5 boundingBox], [plane boundingBox])))
+            {
+                planeMonster5.visible=true;
+            }
+        }
+        
+        
+        NSLog(@"Plane pos: (%f,%f)",plane.position.x,plane.position.y);
+    }
+}
+
 -(void) movePlaneInitial
 {
+    planeMoveFlag=true;
     [self schedule:@selector(movePlane) interval:0 repeat:1 delay:0];
+    [self schedule:@selector(planeMovementFalse) interval:5 repeat:1 delay:0];
+    //planeMoveFlag=false;
+}
+
+-(void) planeMovementFalse
+{
+    planeMoveFlag=false;
 }
 
 -(void)movePlane{
-   // CGSize winSize = [CCDirector sharedDirector].winSize;
+    // CGSize winSize = [CCDirector sharedDirector].winSize;
     //int realX = winSize.width/3+435;
     int realY = 40;
     CGPoint realDest = ccp(planeInitialX, realY);
     
-    float realMoveDuration = 20;
+    float realMoveDuration = 30;
     
     id actionMove = [CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest];
     
-    NSLog(@"Start Plane Pos: (%f,%f)",plane.position.x,plane.position.y);
+    //NSLog(@"Start Plane Pos: (%f,%f)",plane.position.x,plane.position.y);
     [[SimpleAudioEngine sharedEngine] playEffect:@"plane_sound.mp3"];
     plane.visible=true;
     [plane runAction:
      [CCSequence actions: actionMove,nil]];
-    NSLog(@"Last Plane Pos: (%f,%f)",plane.position.x,plane.position.y);
+    // NSLog(@"Last Plane Pos: (%f,%f)",plane.position.x,plane.position.y);
 }
 
 -(void) movePlaneShadowInitial
 {
+    planeMoveFlag=true;
     [self schedule:@selector(movePlaneShadow) interval:0 repeat:1 delay:0];
+    //planeMoveFlag=false;
 }
 
 -(void)movePlaneShadow{
@@ -1066,7 +1155,7 @@ CCSprite* PowerLabel;
     int realY = 40;
     CGPoint realDest = ccp(planeShadowInitialX, realY);
     
-    float realMoveDuration = 20;
+    float realMoveDuration = 30;
     
     id actionMove = [CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest];
     
