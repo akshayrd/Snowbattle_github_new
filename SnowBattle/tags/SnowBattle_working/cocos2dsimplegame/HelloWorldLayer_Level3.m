@@ -487,7 +487,7 @@
         
         
     }
-    //[self setViewPointCenter:player.position];
+    [self setViewPointCenter:player.position];
 }
 
 //int livePowerEnabled = 0;
@@ -752,6 +752,21 @@ CCSprite* PowerLabel;
     
 }
 
+- (void)setViewPointCenter:(CGPoint) position {
+    
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    
+    int x = MAX(position.x, winSize.width/2);
+    int y = MAX(position.y, winSize.height/2);
+    x = MIN(x, (_tileMap.mapSize.width * _tileMap.tileSize.width) - winSize.width / 2);
+    y = MIN(y, (_tileMap.mapSize.height * _tileMap.tileSize.height) - winSize.height/2);
+    CGPoint actualPosition = ccp(x, y);
+    
+    CGPoint centerOfView = ccp(winSize.width/2, winSize.height/2);
+    CGPoint viewPoint = ccpSub(centerOfView, actualPosition);
+    self.position = viewPoint;
+}
+
 // on "init" you need to initialize your instance
 -(id) initWithPlayer:(BOOL)player1 timeBonus:(int) timeRemaining powerups:(int [])powerupArray playerSelected:(int [])playerSelectArray
 {
@@ -759,7 +774,7 @@ CCSprite* PowerLabel;
         //[self setTouchEnabled:YES];
         self.touchEnabled = YES;
         isBonusDisplayed =  NO;
-        _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"tileMap3.tmx"];
+        _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"big_tile.tmx"];
         
         snow = [_tileMap layerNamed:@"Snow"];
         _playerimage = player1;
@@ -901,7 +916,7 @@ CCSprite* PowerLabel;
             printf("this is an error");
         }
         [self addChild:player];
-        
+        [self setViewPointCenter:player.position];
         
         monster5 = [CCSprite spriteWithFile:@"bug_51x51.png"];
         monster5.position = ccp(winSize.width/3+435, winSize.height/2-10);

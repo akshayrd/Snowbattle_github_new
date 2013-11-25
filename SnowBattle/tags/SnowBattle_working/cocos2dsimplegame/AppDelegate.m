@@ -10,6 +10,7 @@
 
 #import "AppDelegate.h"
 #import "IntroLayer.h"
+#import "FacebookScorer.h"
 
 @implementation MyNavigationController
 
@@ -184,6 +185,13 @@
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    
+    return [[[FacebookScorer sharedInstance] facebook] handleOpenURL:url];
+    
+}
+
+
 - (void) dealloc
 {
 	[window_ release];
@@ -191,4 +199,5 @@
 	
 	[super dealloc];
 }
+
 @end

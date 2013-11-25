@@ -3,6 +3,7 @@
 #import "HelloWorldLayer_Level2.h"
 #import "ShopLayer.h"
 #import "LevelSelectLayer.h"
+#import "FacebookScorer.h"
 
 @implementation GameOverLayer
 +(CCScene *) sceneWithWon:(BOOL)won withscoreValue:(int)scoreValue timeBonus:(int) timeRemaining playerImage:(BOOL)playerimage{
@@ -28,6 +29,14 @@
         NSString * timeBonus;
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         
+        shareOnFacebook = [CCMenuItemImage itemWithNormalImage:@"facebook_share.gif"
+                                                 selectedImage:@"facebook_share.gif" target:self selector:@selector(shareOnFacebook:)];
+        shareOnFacebook.tag=timeRemaining+scoreValue;
+        CCMenu *menu20 = [CCMenu menuWithItems: shareOnFacebook, nil];
+        menu20.position=ccp(winSize.width/2-200,60);
+        [menu20 alignItemsVerticallyWithPadding:15];
+        [self addChild:menu20];
+        
         if (won) {
             message = @"Level Completed!";
             timeBonus = [NSString stringWithFormat:@"Time Bonus: %d", timeRemaining];
@@ -35,6 +44,7 @@
             bg.position=ccp(winSize.width/2,winSize.height/2-300);
             bg.anchorPoint = ccp(0, 0);
             [self addChild:bg z:0];
+            
         } else {
             message = @"Game Over!";
             timeBonus = [NSString stringWithFormat:@"Time Bonus: %d", timeRemaining];
@@ -42,6 +52,7 @@
             bg.position=ccp(winSize.width/2,0);
             bg.anchorPoint = ccp(0, 0);
             [self addChild:bg z:0];
+            
         }
         label4 = [CCLabelTTF labelWithString:@"Shop Now" fontName:@"Marker Felt" fontSize:32];
         label4.color = ccBLUE;
@@ -97,6 +108,14 @@
 
     }
     return self;
+}
+
+-(void) shareOnFacebook:(CCMenuItemImage *) sender
+{
+    [[[FacebookScorer sharedInstance] facebook] logout];
+    [[FacebookScorer sharedInstance] postToWallWithDialogNewHighscore:(int)sender.tag];
+    [[[FacebookScorer sharedInstance] facebook] logout];
+    
 }
 
 -(void) LevelSelector {

@@ -7,6 +7,7 @@
     CCLabelTTF *label4;
     int timeBonus1;
     BOOL _playerimage;
+    CCMenuItemImage *shareOnFacebook;
 }
 
 +(CCScene *) sceneWithWon:(BOOL)won withscoreValue:(int)scoreValue timeBonus:(int) timeRemaining playerImage:(BOOL)playerimage;
