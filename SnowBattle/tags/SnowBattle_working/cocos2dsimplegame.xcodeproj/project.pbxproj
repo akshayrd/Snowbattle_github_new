@@ -38,7 +38,6 @@
 		BA508748180BAD970097C021 /* POSTER.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA508746180BAD970097C021 /* POSTER.jpg */; };
 		BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */; };
 		BA608C4F18361C9F002F09EA /* bonus.png in Resources */ = {isa = PBXBuildFile; fileRef = BA608C4E18361C9F002F09EA /* bonus.png */; };
-		BA608C52183624CA002F09EA /* BonusStage.m in Sources */ = {isa = PBXBuildFile; fileRef = BA608C51183624CA002F09EA /* BonusStage.m */; };
 		BA6131EC1801046500ECF6D6 /* grassTexture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA6131EB1801046500ECF6D6 /* grassTexture.jpg */; };
 		BA68E5351814A9EF00F3F937 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E5331814A9EF00F3F937 /* pause.png */; };
 		BA68E5361814A9EF00F3F937 /* Play.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E5341814A9EF00F3F937 /* Play.png */; };
@@ -301,8 +300,6 @@
 		BA508746180BAD970097C021 /* POSTER.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = POSTER.jpg; path = Resources/POSTER.jpg; sourceTree = "<group>"; };
 		BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TileMap.tmx; sourceTree = "<group>"; };
 		BA608C4E18361C9F002F09EA /* bonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bonus.png; path = libs/bonus.png; sourceTree = "<group>"; };
-		BA608C50183624CA002F09EA /* BonusStage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonusStage.h; sourceTree = "<group>"; };
-		BA608C51183624CA002F09EA /* BonusStage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonusStage.m; sourceTree = "<group>"; };
 		BA6131EB1801046500ECF6D6 /* grassTexture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = grassTexture.jpg; path = Resources/grassTexture.jpg; sourceTree = "<group>"; };
 		BA68E5331814A9EF00F3F937 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/pause.png; sourceTree = "<group>"; };
 		BA68E5341814A9EF00F3F937 /* Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Play.png; path = Resources/Play.png; sourceTree = "<group>"; };
@@ -1423,8 +1420,6 @@
 				F53F5F79182703870044BBAC /* PlayerSelectLayer.m */,
 				BAADD3E918336FA1008E093A /* HudLayer.h */,
 				BAADD3EA18336FA1008E093A /* HudLayer.m */,
-				BA608C50183624CA002F09EA /* BonusStage.h */,
-				BA608C51183624CA002F09EA /* BonusStage.m */,
 				BAFF85A518372FF400149C47 /* Bonus_hud.m */,
 				BAFF85A418372FF400149C47 /* Bonus_hud.h */,
 				BEE3F3B0184019480001181C /* HelloWorldLayer_Level3.h */,
@@ -2185,7 +2180,6 @@
 				F55303C417E646CE00D1FD31 /* CCTransition.m in Sources */,
 				F55303C717E646CE00D1FD31 /* CCTransitionPageTurn.m in Sources */,
 				F55303CA17E646CE00D1FD31 /* CCTransitionProgress.m in Sources */,
-				BA608C52183624CA002F09EA /* BonusStage.m in Sources */,
 				F55303CE17E646CE00D1FD31 /* cocos2d.m in Sources */,
 				F55303D817E646CE00D1FD31 /* CCES2Renderer.m in Sources */,
 				BA99122C180F0DD1001C5562 /* plane.c in Sources */,

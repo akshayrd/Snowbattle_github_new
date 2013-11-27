@@ -75,156 +75,7 @@
     [monster5 runAction:
      [CCSequence actions: actionRotate360,actionMove,actionRotate90,actionMove1,actionRotate180,actionMove2,actionRotate270,actionMove3,nil]];
 }
-/*
- - (void) Monster6move:(ccTime)dt
- {
- 
- //ccp(75, winSize.height-150)
- 
- CGSize winSize = [CCDirector sharedDirector].winSize;
- int realX = 75;
- int realY = winSize.height-50;
- CGPoint realDest = ccp(realX, realY);
- 
- int realX1 = 175;
- int realY1 = winSize.height-50;
- 
- int realX2 = 175;
- int realY2 = winSize.height-150;
- 
- int realX3 = 75;
- int realY3 = winSize.height-150;
- CGPoint realDest1 = ccp(realX1, realY1);
- CGPoint realDest2 = ccp(realX2, realY2);
- CGPoint realDest3 = ccp(realX3, realY3);
- 
- float realMoveDuration = 0.25;
- 
- id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
- id actionRotate90 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:90];
- id actionRotate360 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:360];
- id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:180];
- id actionRotate270 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:270];
- id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest1];
- id actionMove2 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest2];
- id actionMove3 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest3];
- 
- [monster6 runAction:
- [CCSequence actions: actionRotate360,actionMove,actionRotate90,actionMove1,actionRotate180,actionMove2,actionRotate270,actionMove3,nil]];
- }
- 
- - (void) Monster8move:(ccTime)dt
- {
- CGSize winSize = [CCDirector sharedDirector].winSize;
- int realX = 125;
- int realY = winSize.height/2-10;
- CGPoint realDest = ccp(realX, realY);
- 
- int realX1 = winSize.width/2-40;
- int realY1 = winSize.height/2-10;
- 
- int realX2 = winSize.width/2-40;
- int realY2 = winSize.height-40;
- 
- int realX3 = 125;
- int realY3 = winSize.height-40;
- 
- int realX4 = 125;
- int realY4 = winSize.height/2+40;
- 
- int realX5 = winSize.width/2-40;
- int realY5 = winSize.height/2+40;
- 
- int realX6 = winSize.width/2-40;
- int realY6 = 75;
- 
- int realX7 = 125;
- int realY7 = 75;
- 
- CGPoint realDest1 = ccp(realX1, realY1);
- CGPoint realDest2 = ccp(realX2, realY2);
- CGPoint realDest3 = ccp(realX3, realY3);
- CGPoint realDest4 = ccp(realX4, realY4);
- CGPoint realDest5 = ccp(realX5, realY5);
- CGPoint realDest6 = ccp(realX6, realY6);
- CGPoint realDest7 = ccp(realX7, realY7);
- float realMoveDuration = 1.5;
- id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
- id actionRotate90 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:90];
- id actionRotate360 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:360];
- id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:180];
- id actionRotate270 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:270];
- id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest1];
- id actionMove2 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest2];
- id actionMove3 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest3];
- id actionMove4 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest4];
- id actionMove5 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest5];
- id actionMove6 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest6];
- id actionMove7 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest7];
- 
- [monster8 runAction:
- [CCSequence actions: actionRotate360,actionMove,actionRotate90,actionMove1,actionRotate360,actionMove2,actionRotate270,actionMove3,actionRotate180,actionMove4,actionRotate90,actionMove5,actionRotate180,actionMove6,actionRotate270,actionMove7,actionRotate360,nil]];
- }
- 
- - (void) Monster7move:(ccTime)dt
- {
- CGSize winSize = [CCDirector sharedDirector].winSize;
- int realX = winSize.width-45;
- int realY = 75;
- CGPoint realDest = ccp(realX, realY);
- int realX1 = winSize.width-200;
- int realY1 = 75;
- int realX2 = winSize.width-200;
- int realY2 = 125;
- int realX3 = winSize.width-95;
- int realY3 = 125;
- int realX4 = winSize.width-95;
- int realY4 = winSize.height-90;
- 
- int realX5 = winSize.width-200;
- int realY5 = winSize.height-90;
- 
- int realX6 = winSize.width-200;
- int realY6 = winSize.height-50;
- 
- int realX7 = winSize.width-45;
- int realY7 = winSize.height-50;
- CGPoint realDest1 = ccp(realX1, realY1);
- CGPoint realDest2 = ccp(realX2, realY2);
- CGPoint realDest3 = ccp(realX3, realY3);
- CGPoint realDest4 = ccp(realX4, realY4);
- CGPoint realDest5 = ccp(realX5, realY5);
- CGPoint realDest6 = ccp(realX6, realY6);
- CGPoint realDest7 = ccp(realX7, realY7);
- 
- float realMoveDuration = 1.5;
- id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
- id actionRotate90 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:90];
- id actionRotate360 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:360];
- id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:180];
- id actionRotate270 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:270];
- id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration/4 position:realDest1];
- id actionMove2 = [CCMoveTo actionWithDuration:realMoveDuration/6 position:realDest2];
- id actionMove3 = [CCMoveTo actionWithDuration:realMoveDuration/6 position:realDest3];
- id actionMove4 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest4];
- id actionMove5 = [CCMoveTo actionWithDuration:realMoveDuration/6 position:realDest5];
- id actionMove6 = [CCMoveTo actionWithDuration:realMoveDuration/6 position:realDest6];
- id actionMove7 = [CCMoveTo actionWithDuration:realMoveDuration/4 position:realDest7];
- 
- [monster7 runAction:
- [CCSequence actions: actionRotate180,actionMove,actionRotate270,actionMove1,actionRotate360,actionMove2,actionRotate90,actionMove3,actionRotate360,actionMove4,actionRotate270,actionMove5,actionRotate360,actionMove6,actionRotate90,actionMove7,actionRotate180,nil]];
- 
- 
- }
- - (void) Monster5Freeze
- {
- float realMoveDuration = 6;
- id actionRotate = [CCRotateBy actionWithDuration:realMoveDuration/10 angle:90];
- // id actionRotate1 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:0];
- [monster5 runAction:
- [CCSequence actions: actionRotate,actionRotate,actionRotate,actionRotate,actionRotate,nil]];
- }
- */
+
 - (void) Monster6Freeze
 {
     float realMoveDuration = 6;
@@ -234,127 +85,13 @@
      [CCSequence actions: actionRotate,actionRotate,actionRotate,actionRotate,nil]];
     
 }
-/*
- - (void) Monster7Freeze
- {
- float realMoveDuration = 6;
- id actionRotate = [CCRotateBy actionWithDuration:realMoveDuration/10 angle:90];
- // id actionRotate1 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:0];
- [monster7 runAction:
- [CCSequence actions: actionRotate,actionRotate,actionRotate,actionRotate,actionRotate,actionRotate,nil]];
- }
- 
- - (void) Monster8Freeze
- {
- 
- float realMoveDuration = 6;
- id actionRotate = [CCRotateBy actionWithDuration:realMoveDuration/10 angle:90];
- // id actionRotate1 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:0];
- [monster8 runAction:
- [CCSequence actions: actionRotate,actionRotate,actionRotate,actionRotate,nil]];
- 
- }
- 
- CGPoint currentposition;
- */
-/*
- - (void) Ghost1move:(ccTime)dt {
- 
- 
- monster13 = [CCSprite spriteWithFile:@"monster-hd.png"];
- 
- // Determine where to spawn the monster along the Y axis
- CGSize winSize = [CCDirector sharedDirector].winSize;
- int minY = 100;
- int maxY = winSize.height - 100;
- int rangeY = maxY - minY;
- int actualY = (arc4random() % rangeY) + minY;*/
-/*
- int minX = 100;
- int maxX = winSize.width - 100;
- int rangeX = maxX - minX;
- int actualX = (arc4random() % rangeX) + minX;
- */
 
-// Create the monster slightly off-screen along the right edge,
-// and along a random position along the Y axis as calculated above
-/*    monster13.position = ccp(winSize.width - 100, winSize.height/2);
- if (c==0)
- [self addChild:monster13];
- 
- if(myTime > pitTime + 25  && c )
- {
- c = 0;
- ghostpitLayer.visible  = YES;
- }
- 
- if((myTime > pitTime + 5) && c)
- {
- ghostpitLayer.visible  = NO;
- }
- 
- 
- // Determine speed of the monster
- int minDuration = 2.0;
- int maxDuration = 4.0;
- int rangeDuration = maxDuration - minDuration;
- int actualDuration = (arc4random() % rangeDuration) + minDuration;
- currentposition = ghost1.position;
- 
- // Create the actions
- //CCMoveTo * actionMove = nil;
- 
- CCMoveTo * actionMove = [CCMoveTo actionWithDuration:actualDuration*2
- position:ccp(-monster13.contentSize.width/2, actualY)];
- 
- CCCallBlockN * actionMoveDone = [CCCallBlockN actionWithBlock:^(CCNode *node) {
- [node removeFromParentAndCleanup:YES];
- }];
- 
- //if(c==0)
- [monster13 runAction:[CCSequence actions:actionMove,actionMoveDone, nil]];
- 
- }*/
 - (void) actionmonster1
 {
     [self Monster6Freeze];
     [self schedule:@selector(Monster1move:) interval:1.5 repeat:250 delay:0];
 }
-/*
- - (void) actionmonster6
- {
- 
- [self schedule:@selector(Monster6move: ) interval:1.15 repeat:250 delay:0 ];
- }
- 
- - (void) actionmonster7
- {
- [self Monster7Freeze];
- [self schedule:@selector(Monster7move: ) interval:6 repeat:250 delay:0 ];
- }
- 
- - (void) actionmonster8
- {
- [self Monster8Freeze];
- [self schedule:@selector(Monster8move: ) interval:13 repeat:250 delay:0 ];
- }
- 
- - (void) actionghost1
- {
- [self schedule:@selector(Ghost1move: ) interval:4 repeat:150 delay:0 ];
- }
- 
- CCSprite *monster5;
- CCSprite *monster6;
- CCSprite *monster7;
- CCSprite *monster8;
- 
- CCSprite *ghost1;
- CCSprite *ghost2;
- CCSprite *ghost3;
- 
- 
- */
+
 #pragma mark - handle touches
 
 -(void)registerWithTouchDispatcher
@@ -385,7 +122,6 @@
     if ( abs(diff.x) > abs(diff.y) ) {
         if (diff.x > 0) {
             playerPos.x += _tileMap.tileSize.width;
-            //player.flipX = YES;
             if (playerDirection != 2) {
                 if ( playerDirection==1)
                 {
@@ -923,34 +659,7 @@ CCSprite* PowerLabel;
         [self addChild:monster5];
         // nemy = [CCSprite spriteWithFile:@"Icon-72.png"];
         screenSize2 = [CCDirector sharedDirector].winSize;
-        //[self addChild:enemy];
-        //[self moveEnemyRandom:monster5];
-        
-        
-        //        monster6 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-        //        monster6.position = ccp(75, winSize.height-150);
-        //        [self addChild:monster6];
-        
-        /* monster7 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-         monster7.position = ccp(winSize.width-45, winSize.height-50);
-         [self addChild:monster7];
-         
-         monster8 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-         monster8.position = ccp(125, 75);
-         [self addChild:monster8];*/
-        
-        //ghost1 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-        //ghost1.position = ccp(winSize.width-45,winSize.height/2);
-        //[self addChild:ghost1];
-        
-        // [self performSelectorInBackground:@selector(actionmonster1) withObject:self];
-        //[self performSelectorInBackground:@selector(actionmonster6) withObject:self];
-        /* [self performSelectorInBackground:@selector(actionmonster7) withObject:self];
-         [self performSelectorInBackground:@selector(actionmonster8) withObject:self];*/
-        
-        //[self performSelectorInBackground:@selector(actionghost1) withObject:self];
-        
-        
+               
         // Standard method to pause the game
         starMenuItem = [CCMenuItemImage itemWithNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame:)];
         
@@ -973,20 +682,11 @@ CCSprite* PowerLabel;
             [menu8 alignItemsVerticallyWithPadding:15];
             [self addChild:menu8];
         }
-        /* Ghost Pit Close PowerUp */
-        /*if(powerupArray[2]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp3"] >=1))
-         {
-         shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"NoMoreGhostPowerUp_45x45.png" selectedImage:@"NoMoreGhostPowerUp_45x45.png" target:self selector:@selector(Closepit:)];
-         shopPowerUp2.visible = true;
-         CCMenu *menu8 = [CCMenu menuWithItems: shopPowerUp2, nil];
-         menu8.position=ccp(22, 600-10*40);
-         [menu8 alignItemsVerticallyWithPadding:15];
-         [self addChild:menu8];
-         }*/
         
         for (int i=0; i<5; i++) {
             lifeItem[i] = [CCMenuItemImage itemWithNormalImage:@"life.png" selectedImage:@"life.png" ];
-            lifeItem[i].position = ccp(22, 600-i*40);
+            //lifeItem[i].position = ccp(22, 600-i*40);
+            lifeItem[i].position = ccp(winSize.width - 500, winSize.height/2-200i*40);
             lifeItem[i].visible = true;
         }
         lifeItem[3].visible = false;
@@ -1004,7 +704,6 @@ CCSprite* PowerLabel;
         
         [self schedule:@selector(checkCollisionWithMonster)];
         //[self schedule:@selector(moveSensingMonster) interval:1 ];
-        
         // [self schedule:@selector(ShowBonuStageImage) ];
         
         myTime = 0;

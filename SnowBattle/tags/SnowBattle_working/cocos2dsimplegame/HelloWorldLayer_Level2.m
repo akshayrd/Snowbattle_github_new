@@ -4,7 +4,6 @@
 #import "GameOverLayer.h"
 #import "GameStartLayer.h"
 #import "LevelSelectLayer.h"
-//#import "BonusStage.h"
 #import "Bonus_hud.h"
 
 @interface HelloWorldLayer_Level2 ()
@@ -504,7 +503,7 @@ CCSprite *ghost3;
     
     
     BOOL corner = NO;
-
+    
     CGPoint p_pos = player.position;
     CGPoint m_pos = monster5.position;
     
@@ -535,11 +534,10 @@ CCSprite *ghost3;
     CGPoint actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
     
     CGPoint realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
-
+    
     CGPoint tileCoord = [self tileCoordForPosition:realDest];
     
     //NSLog(@"%f %f",tileCoord.x,tileCoord.y);
-        
     
     int tileGid = [building tileGIDAt:tileCoord];
     if (tileGid) {
@@ -575,7 +573,7 @@ CCSprite *ghost3;
                     
                 }
                 
-               
+                
             }
             
         }
@@ -628,9 +626,6 @@ CCSprite *ghost3;
         
     }
     
-    
-    
-    
     //tileCoord = [self tileCoordForPosition:position];
     tileGid = [border tileGIDAt:tileCoord];
     if (tileGid) {
@@ -667,24 +662,15 @@ CCSprite *ghost3;
                         new_y = m_pos.y - 50;
                         new_x = m_pos.x;
                     }
-                    
                 }
-                
-                
             }
-            
         }
-        
     }
     
     
     actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
     
     realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
-    
-    
-   
-
     
     float realMoveDuration = 1;
     id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
@@ -814,8 +800,6 @@ CCSprite* PowerLabel;
         }
     }
     
-    
-    
     tileGid = [bonusLayer tileGIDAt:tileCoord];
     if (tileGid) {
         
@@ -899,8 +883,7 @@ CCSprite* PowerLabel;
         }
         
     }
-    
-    
+
     tileGid = [grenadeLayer tileGIDAt:tileCoord];
     
     if (tileGid) {
@@ -926,18 +909,20 @@ CCSprite* PowerLabel;
                 //[grenadeLayer removeFromParent];
                 [grenadeLayer removeTileAt:tileCoord];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"explosion-01.mp3"];
-                
-                
-                
             }
-            
         }
-        
     }
     
     [[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
     
+    id actionMove = [CCMoveTo actionWithDuration:0.5 position:position];
+    
+    [player runAction:
+     [CCSequence actions: actionMove,nil]];
+    
     player.position = position;
+    
+    //player.position = position;
 }
 
 - (void) checkBonusStageIsReturned
@@ -958,7 +943,7 @@ CCSprite* PowerLabel;
     int x = rand()%(int)screenSize2.width;
     int y = rand()%(int)screenSize2.height;
     [enemy1 runAction:[CCSequence actions:[CCMoveTo actionWithDuration:1 position:ccp(x, y)],[CCCallBlock actionWithBlock:^{
-       [self moveEnemyRandom:enemy1];
+        [self moveEnemyRandom:enemy1];
     }], nil]];
     
 }
@@ -1093,12 +1078,12 @@ CCSprite* PowerLabel;
         CGPoint actualPos = [self tileCoordForPosition:ccp(300, winSize.height/2-10)];
         
         monster5.position = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
-
+        
         
         
         [self addChild:monster5];
         screenSize2 = [CCDirector sharedDirector].winSize;
-
+        
         
         monster7 = [CCSprite spriteWithFile:@"bug_51x51.png"];
         monster7.position = ccp(winSize.width-45, winSize.height-50);
@@ -1221,233 +1206,10 @@ CCSprite* PowerLabel;
         [self addChild:timeLabelBlue];
         
         [self schedule:@selector(LevelTimer:)];
-
+        
         
     }
     return self;
-    
-    
-    //{
-    //            if( (self=[super init]) ) {
-    //                //[self setTouchEnabled:YES];
-    //                self.touchEnabled = YES;
-    //                isBonusDisplayed =  NO;
-    //                _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"tileMap3.tmx"];
-    //
-    //                snow = [_tileMap layerNamed:@"Snow"];
-    //                _playerimage = player1;
-    //                bonusStageRunning = NO;
-    //                bonusRoundPlayed = NO;
-    //
-    //                count = 90;
-    //                darkBlueCount = 0;
-    //                [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"funk.mp3"];
-    //
-    //
-    //                border = [_tileMap layerNamed:@"Border"];
-    //                //street  = [_tileMap layerNamed:@"Street"];
-    //                building = [_tileMap layerNamed:@"Building"];
-    //                darkBlue = [_tileMap layerNamed:@"DarkBlueTiles"];
-    //                powerBlueLayer = [_tileMap layerNamed:@"power_blue"];
-    //                powerGrenadeLayer = [_tileMap layerNamed:@"Grenade"];
-    //                powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
-    //                grenadeLayer = [_tileMap layerNamed:@"GrenadeWall"];
-    //                bonusLayer = [_tileMap layerNamed:@"Bonus"];
-    //                //bonusLayer.visible = NO;
-    //
-    //                powerLivesLayer.visible = FALSE;
-    //
-    //                playerDirection = 1;
-    //                bonusPointsLocation[0] = ccp(6, 14);
-    //                bonusPointsLocation[1] = ccp(12, 1);
-    //                bonusPointsLocation[2] = ccp(17, 10);
-    //                bonusPointsLocation[3] = ccp(6, 9);
-    //                bonusPointsLocation[4] = ccp(17, 13);
-    //
-    //
-    //                for (int i = 0; i<5; i++)
-    //        {
-    //                    [bonusLayer tileAt:bonusPointsLocation[i]].visible = NO;
-    //                }
-    //
-    //
-    //                winScore = 197;
-    //                //winScore = 10;
-    //                totalLives = 2;
-    //                //        totalLives = 1;
-    //                lifeCount = 2;
-    //
-    //                levelTimeLimit = 240;
-    //                powerLiveTimeLimit = 45;
-    //                collideTime =0;
-    //                immuneDuration = 2;
-    //
-    //                CGSize winSize = [[CCDirector sharedDirector] winSize];  // Request the current window size
-    //
-    //                for(CCTMXLayer *child in [_tileMap children])
-    //        {
-    //                    [[child texture] setAliasTexParameters];
-    //                }
-    //
-    //                [self addChild: _tileMap];
-    //
-    //                //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
-    //                if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 1)
-    //        {
-    //                    player = [CCSprite spriteWithFile:@"HyperPlayer_40x40.png"];
-    //                }
-    //                else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
-    //                    player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
-    //                }
-    //                else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 3)
-    //        {
-    //                    player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
-    //                }
-    //                [self spawnPlayer];
-    //                if(player == nil)
-    //        {
-    //                    printf("this is an error");
-    //                }
-    //                [self addChild:player];
-    //
-    //
-    //                monster5 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-    //                monster5.position = ccp(winSize.width/3+435, winSize.height/2-10);
-    //                [self addChild:monster5];
-    //
-    //                monster6 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-    //                monster6.position = ccp(winSize.width/3+185, winSize.height/2-10);
-    //                [self addChild:monster6];
-    //
-    //                monster7 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-    //                monster7.position = ccp(winSize.width-45, winSize.height-50);
-    //                [self addChild:monster7];
-    //
-    //                monster8 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-    //                monster8.position = ccp(125, 75);
-    //                [self addChild:monster8];
-    //
-    //                //ghost1 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-    //                //ghost1.position = ccp(winSize.width-45,winSize.height/2);
-    //                //[self addChild:ghost1];
-    //
-    //                [self performSelectorInBackground:@selector(actionmonster5) withObject:self];
-    //                [self performSelectorInBackground:@selector(actionmonster6) withObject:self];
-    //                [self performSelectorInBackground:@selector(actionmonster7) withObject:self];
-    //                [self performSelectorInBackground:@selector(actionmonster8) withObject:self];
-    //
-    //                [self performSelectorInBackground:@selector(actionghost1) withObject:self];
-    //
-    //
-    //
-    //                // Standard method to pause the game
-    //                CCMenuItem *starMenuItem = [CCMenuItemImage itemWithNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame:)];
-    //
-    //                //starMenuItem.position = ccp(870, 25);
-    //                starMenuItem.position = ccp(22, 680);
-    //                CCMenu *starMenu = [CCMenu menuWithItems:starMenuItem, nil];
-    //                starMenu.position = CGPointZero;
-    //                [self addChild:starMenu];
-    //
-    //                //NSLog(@"booleans : %d and %d: ",powerup1Check,powerup2Check);
-    //                /* Ghost Immune PowerUp */
-    //                if(powerupArray[1]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp2"] >=1))
-    //        {
-    //                    //NSLog(@"Powerup1 %d: ",powerup1Check);
-    //                    shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png" target:self selector:Nil];
-    //                    shopPowerUp2.position = ccp(22, 600-9*40);
-    //                    shopPowerUp2.visible = true;
-    //                    [self addChild:shopPowerUp2];
-    //                }
-    //                /* Ghost Pit Close PowerUp */
-    //                if(powerupArray[2]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp3"] >=1))
-    //        {
-    //                    //NSLog(@"Powerup2 %d: ",powerup1Check);
-    //                    CCParticleSmoke * p1 = [[CCParticleSmoke alloc]initWithTotalParticles:5];
-    //                    [p1 autorelease];
-    //                    p1.texture=[[CCTextureCache sharedTextureCache] addImage:@"smoke.png"];
-    //                    p1.autoRemoveOnFinish = YES;
-    //                    p1.duration = 20;
-    //                    //p1.life=1.0;
-    //                    p1.position=ccp(980,370);
-    //                    [self addChild:p1];
-    //
-    //                    shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"NoMoreGhostPowerUp_45x45.png" selectedImage:@"NoMoreGhostPowerUp_45x45.png" target:self selector:Nil];
-    //                    shopPowerUp2.position = ccp(22, 600-10*40);
-    //                    shopPowerUp2.visible = true;
-    //                    [self addChild:shopPowerUp2];
-    //                }
-    //
-    //                for (int i=0; i<5; i++) {
-    //                    lifeItem[i] = [CCMenuItemImage itemWithNormalImage:@"life.png" selectedImage:@"life.png" target:self selector:Nil];
-    //                    lifeItem[i].position = ccp(22, 600-i*40);
-    //                    lifeItem[i].visible = true;
-    //                }
-    //                lifeItem[3].visible = false;
-    //                lifeItem[4].visible = false;
-    //                /* Life Power Up */
-    //                if(powerupArray[0]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp1"] >=1))
-    //        {
-    //                    lifeItem[3].visible = true;
-    //                    lifeCount++;
-    //                }
-    //                life = [CCMenu menuWithItems:lifeItem[0],lifeItem[1],lifeItem[2],lifeItem[3],lifeItem[4], nil];
-    //
-    //                life.position = CGPointZero;
-    //                [self addChild:life];
-    //
-    //                [self schedule:@selector(checkCollisionWithMonster)];
-    //                [self schedule:@selector(ShowBonuStageImage)];
-    //
-    //                myTime = 0;
-    //
-    //                timeLabel = [CCLabelTTF labelWithString:@"" fontName:@"Arial" fontSize:30];
-    //                timeLabel.position = CGPointMake(winSize.width / 2+200, winSize.height);
-    //                // Adjust the label's anchorPoint's y position to make it align with the top.
-    //                timeLabel.anchorPoint = CGPointMake(0.5f, 1.0f);
-    //                // Add the time label
-    //                timeLabel.color=ccBLACK;
-    //                [self addChild:timeLabel];
-    //
-    //                //update
-    //
-    //                timeLabelBlue = [CCLabelTTF labelWithString:@"" fontName:@"Arial" fontSize:40];
-    //                timeLabelBlue.position =ccp(200 + timeLabelBlue.contentSize.width, timeLabelBlue.contentSize.height/2 + 46);
-    //                // Adjust the label's anchorPoint's y position to make it align with the top.
-    //                timeLabelBlue.anchorPoint = CGPointMake(0.5f, 1.0f);
-    //
-    //                timeLabelBlue.color = ccBLACK;
-    //
-    //                // Add the time label
-    //                timeLabelBlue.visible = FALSE;
-    //                /*collideTime = 0;*/
-    //                PowerLabel = [CCSprite spriteWithFile:@"powerup12.png"];
-    //
-    //                PowerLabel.position =ccp(120 + timeLabelBlue.contentSize.width, timeLabelBlue.contentSize.height/2 + 27);
-    //                PowerLabel.visible = FALSE;
-    //                [self addChild:PowerLabel];
-    //
-    //                bubble = [CCSprite spriteWithFile:@"bubble4.png"];
-    //                bubble.position = ccp(winSize.width - 420 , winSize.height - 340);
-    //                [self addChild:bubble];
-    //                bubble.visible = FALSE;
-    //
-    //                bubble2 = [CCSprite spriteWithFile:@"bubble5.png"];
-    //                bubble2.position = ccp(winSize.width/2 , winSize.height/2);
-    //                [self addChild:bubble2];
-    //                //bubble.visible = FALSE;
-    //
-    //                [self schedule:@selector(removeBubble2) interval:3 repeat:1 delay:5];
-    //
-    //                bubble3 = [CCSprite spriteWithFile:@"bubble6.png"];
-    //                bubble3.position = ccp(winSize.width - 550 , winSize.height - 530);
-    //                [self addChild:bubble3];
-    //                bubble3.visible = FALSE;
-    //
-    //                [self addChild:timeLabelBlue];
-    //
-    //                [self schedule:@selector(LevelTimer:)];
-    //            }
 }
 - (void) ShowBonuStageImage
 {

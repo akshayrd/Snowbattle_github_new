@@ -883,6 +883,7 @@ int playerDirection = 1;
         for (int i=0; i<5; i++) {
             lifeItem[i] = [CCMenuItemImage itemWithNormalImage:@"life.png" selectedImage:@"life.png"];
             lifeItem[i].position = ccp(22, 600-i*40);
+            //lifeItem[i].position = ccp(winSize.width/2 - 100, winSize.height/2-i*40);
             lifeItem[i].visible = true;
         }
         lifeItem[3].visible = false;
