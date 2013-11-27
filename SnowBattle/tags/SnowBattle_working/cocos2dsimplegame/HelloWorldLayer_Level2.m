@@ -491,6 +491,212 @@ CCSprite *ghost3;
     //[self setViewPointCenter:player.position];
 }
 
+
+
+- (void) moveSensingMonster   // every 1 sec called
+{
+    // Get player pos
+    // get current pos
+    //check diffx > diffy
+    // move 1 tile to diffx
+    
+    //CGSize winSize = [CCDirector sharedDirector].winSize;
+    
+    
+    BOOL corner = NO;
+
+    CGPoint p_pos = player.position;
+    CGPoint m_pos = monster5.position;
+    
+    int diff_x = m_pos.x - p_pos.x;
+    int diff_y = m_pos.y - p_pos.y;
+    int new_x = m_pos.x, new_y= m_pos.y;
+    if (abs(diff_x) > abs(diff_y))
+    {
+        if (diff_x > 0) {
+            new_x = m_pos.x - 50;
+        }
+        else
+        {
+            new_x = m_pos.x + 50;
+        }
+    }
+    else
+    {
+        if (diff_y > 0) {
+            new_y = m_pos.y - 50;
+        }
+        else
+        {
+            new_y = m_pos.y + 50;
+        }
+        
+    }
+    CGPoint actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    CGPoint realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+
+    CGPoint tileCoord = [self tileCoordForPosition:realDest];
+    
+    //NSLog(@"%f %f",tileCoord.x,tileCoord.y);
+        
+    
+    int tileGid = [building tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collision = properties[@"Collidable"];
+            if (collision && [collision isEqualToString:@"True"]) {
+                corner = YES;
+                if (abs(diff_x) < abs(diff_y))
+                {
+                    if (diff_x > 0) {
+                        new_x = m_pos.x - 50;
+                        new_y = m_pos.y;
+                        
+                    }
+                    else
+                    {
+                        new_x = m_pos.x + 50;
+                        new_y = m_pos.y;
+                    }
+                }
+                else
+                {
+                    if (diff_y > 0) {
+                        new_y = m_pos.y - 50;
+                        new_x = m_pos.x;
+                    }
+                    else
+                    {
+                        new_y = m_pos.y + 50;
+                        new_x = m_pos.x;
+                    }
+                    
+                }
+                
+               
+            }
+            
+        }
+        
+    }
+    
+    actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    
+    
+    tileGid = [building tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collision = properties[@"Collidable"];
+            if (collision && [collision isEqualToString:@"True"]) {
+                
+                if (abs(diff_x) < abs(diff_y))
+                {
+                    if (diff_x > 0) {
+                        new_x = m_pos.x - 50;
+                        new_y = m_pos.y;
+                        
+                    }
+                    else
+                    {
+                        new_x = m_pos.x + 50;
+                        new_y = m_pos.y;
+                    }
+                }
+                else
+                {
+                    if (diff_y > 0) {
+                        new_y = m_pos.y - 50;
+                        new_x = m_pos.x;
+                    }
+                    else
+                    {
+                        new_y = m_pos.y + 50;
+                        new_x = m_pos.x;
+                    }
+                    
+                }
+                
+                
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    
+    //tileCoord = [self tileCoordForPosition:position];
+    tileGid = [border tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collision = properties[@"Collidable"];
+            if (collision && [collision isEqualToString:@"True"]) {
+                if (corner == YES) {
+                    return;
+                }
+                else
+                    corner = NO;
+                
+                if (abs(diff_x) < abs(diff_y))
+                {
+                    if (diff_x > 0) {
+                        new_x = m_pos.x + 50;
+                        new_y = m_pos.y;
+                    }
+                    else
+                    {
+                        new_x = m_pos.x - 50;
+                        new_y = m_pos.y;
+                    }
+                }
+                else
+                {
+                    if (diff_y > 0) {
+                        new_y = m_pos.y + 50;
+                        new_x = m_pos.x;
+                    }
+                    else
+                    {
+                        new_y = m_pos.y - 50;
+                        new_x = m_pos.x;
+                    }
+                    
+                }
+                
+                
+            }
+            
+        }
+        
+    }
+    
+    
+    actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    
+    
+   
+
+    
+    float realMoveDuration = 1;
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+    
+    [monster5 runAction: [CCSequence actions: actionMove, nil]];
+    //monster5.position = realDest;
+    
+}
+
+
+
+
 //int livePowerEnabled = 0;
 CCSprite* PowerLabel;
 
@@ -772,13 +978,14 @@ CCSprite* PowerLabel;
         lifeCount--;
         [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp1"];
         count = 0;
-        if (lifeCount < 0) {
-                lifeCount = 2;
-                [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+totalScore forKey:@"Score"];
-                CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:currentLevelScore timeBonus:0 playerImage:_playerimage];
-                [[CCDirector sharedDirector] replaceScene:gameOverScene];
-            }
-            [player runAction:blink];
+        if (lifeCount < 0)
+        {
+            lifeCount = 2;
+            [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+totalScore forKey:@"Score"];
+            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:currentLevelScore timeBonus:0 playerImage:_playerimage];
+            [[CCDirector sharedDirector] replaceScene:gameOverScene];
+        }
+        [player runAction:blink];
     }
     
 }
@@ -881,18 +1088,17 @@ CCSprite* PowerLabel;
         [self addChild:player];
         
         
-        monster5 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-        monster5.position = ccp(winSize.width/3+435, winSize.height/2-10);
+        monster5 = [CCSprite spriteWithFile:@"ghosts.png"];
+        
+        CGPoint actualPos = [self tileCoordForPosition:ccp(300, winSize.height/2-10)];
+        
+        monster5.position = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+
+        
+        
         [self addChild:monster5];
-       // nemy = [CCSprite spriteWithFile:@"Icon-72.png"];
         screenSize2 = [CCDirector sharedDirector].winSize;
-        //[self addChild:enemy];
-        [self moveEnemyRandom:monster5];
-        
-        
-//        monster6 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-//        monster6.position = ccp(75, winSize.height-150);
-//        [self addChild:monster6];
+
         
         monster7 = [CCSprite spriteWithFile:@"bug_51x51.png"];
         monster7.position = ccp(winSize.width-45, winSize.height-50);
@@ -906,7 +1112,7 @@ CCSprite* PowerLabel;
         //ghost1.position = ccp(winSize.width-45,winSize.height/2);
         //[self addChild:ghost1];
         
-        [self performSelectorInBackground:@selector(actionmonster5) withObject:self];
+        //[self performSelectorInBackground:@selector(actionmonster5) withObject:self];
         //[self performSelectorInBackground:@selector(actionmonster6) withObject:self];
         [self performSelectorInBackground:@selector(actionmonster7) withObject:self];
         [self performSelectorInBackground:@selector(actionmonster8) withObject:self];
@@ -963,6 +1169,7 @@ CCSprite* PowerLabel;
         
         [self schedule:@selector(checkCollisionWithMonster)];
         [self schedule:@selector(ShowBonuStageImage) ];
+        [self schedule:@selector(moveSensingMonster) interval:1];
         
         myTime = 0;
         
@@ -1014,6 +1221,7 @@ CCSprite* PowerLabel;
         [self addChild:timeLabelBlue];
         
         [self schedule:@selector(LevelTimer:)];
+
         
     }
     return self;

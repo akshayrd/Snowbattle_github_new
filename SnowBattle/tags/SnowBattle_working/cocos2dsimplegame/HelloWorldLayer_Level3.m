@@ -1003,6 +1003,8 @@ CCSprite* PowerLabel;
         [self addChild:life];
         
         [self schedule:@selector(checkCollisionWithMonster)];
+        //[self schedule:@selector(moveSensingMonster) interval:1 ];
+        
         // [self schedule:@selector(ShowBonuStageImage) ];
         
         myTime = 0;
