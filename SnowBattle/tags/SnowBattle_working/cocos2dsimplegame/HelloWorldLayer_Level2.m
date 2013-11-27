@@ -915,10 +915,10 @@ CCSprite* PowerLabel;
     
     [[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
     
-    id actionMove = [CCMoveTo actionWithDuration:0.5 position:position];
+    //id actionMove = [CCMoveTo actionWithDuration:0.5 position:position];
     
-    [player runAction:
-     [CCSequence actions: actionMove,nil]];
+//    [player runAction:
+//     [CCSequence actions: actionMove,nil]];
     
     player.position = position;
     
