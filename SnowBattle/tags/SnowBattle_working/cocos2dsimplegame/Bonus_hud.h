@@ -66,8 +66,6 @@
     int currentLevelScore;
     
     
-
-    
 }
 
 -(void) setTouch;

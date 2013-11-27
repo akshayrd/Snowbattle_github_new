@@ -1,16 +1,9 @@
-//
-//  BonusStage.m
-//  cocos2dsimplegame
-//
-//  Created by Akshay Dani on 11/15/13.
-//  Copyright 2013 gpadmin. All rights reserved.
-//
-
 #import "BonusStage.h"
 #include "HelloWorldLayer_Level2.h"
 
 
 @implementation BonusStage
+
 
 
 +(CCScene *) scene
@@ -37,6 +30,8 @@
 
 -(id) init
 {
+        
+    
     if( (self=[super init]) ) {
         //[self setTouchEnabled:YES];
         //self.isTouchEnabled = YES;
@@ -57,6 +52,7 @@
         NSLog(@"Bonus: %d", test);
         [userDafs removeObjectForKey:@"player"];
         
+
     }
     return self;
 }
@@ -73,9 +69,10 @@
     playerSelectArray[0]=1;
     playerSelectArray[1]=0;
     playerSelectArray[2]=0;
-
+    
     [[CCDirector sharedDirector]
      replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:YES timeBonus:0 powerups:powerupArray playerSelected:playerSelectArray]]];
     
 }
 @end
+

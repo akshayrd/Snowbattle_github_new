@@ -18,6 +18,210 @@
     return YES;
 }
 
+CCSprite * Bonusmonster1;
+CCSprite * Bonusmonster2;
+CCSprite * Bonusmonster3;
+CCSprite * Bonusmonster4;
+CCSprite * Bonusmonster5;
+CCSprite * Bonusmonster6;
+CCSprite * Bonusmonster7;
+CCSprite * Bonusmonster8;
+
+
+
+
+- (void) Movemonster1:(ccTime)dt
+{
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    int realX = 375;
+    int realY = 625;
+    CGPoint realDest = ccp(realX, realY);
+    
+    
+    int realX1 = 375;
+    int realY1 = 225;
+    
+    
+    CGPoint realDest1 = ccp(realX1, realY1);
+    
+    float realMoveDuration = 2.5;
+    
+    
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+    id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest1];
+    
+    [Bonusmonster1 runAction:
+     [CCSequence actions: actionMove,actionMove1,nil]];
+}
+
+- (void) Movemonster2:(ccTime)dt
+{
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    int realX = 525;
+    int realY = 625;
+    CGPoint realDest = ccp(realX, realY);
+    
+
+    int realX1 = 525;
+    int realY1 = 225;
+    
+    
+    CGPoint realDest1 = ccp(realX1, realY1);
+    
+    float realMoveDuration = 2.5;
+    
+    
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+    id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest1];
+    
+    [Bonusmonster2 runAction:
+     [CCSequence actions: actionMove,actionMove1,nil]];
+}
+
+- (void) Movemonster3:(ccTime)dt
+{
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    int realX = 675;
+    int realY = 625;
+    CGPoint realDest = ccp(realX, realY);
+    
+    
+    int realX1 = 675;
+    int realY1 = 225;
+    
+    
+    CGPoint realDest1 = ccp(realX1, realY1);
+    
+    float realMoveDuration = 2.5;
+    
+    
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+    id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest1];
+    
+    [Bonusmonster3 runAction:
+     [CCSequence actions: actionMove,actionMove1,nil]];
+}
+
+- (void) Movemonster4:(ccTime)dt
+{
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    int realX = 775;
+    int realY = 225;
+    CGPoint realDest = ccp(realX, realY);
+    
+    int realX1 = 275;
+    int realY1 = 225;
+    
+    
+    CGPoint realDest1 = ccp(realX1, realY1);
+    
+    float realMoveDuration = 2.5;
+    
+    
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+    id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest1];
+    
+    [Bonusmonster4 runAction:
+     [CCSequence actions: actionMove,actionMove1,nil]];
+}
+
+
+- (void) Movemonster5:(ccTime)dt
+{
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    int realX = 775;
+    int realY = 325;
+    CGPoint realDest = ccp(realX, realY);
+    
+    
+    int realX1 = 275;
+    int realY1 = 325;
+    
+    
+    CGPoint realDest1 = ccp(realX1, realY1);
+    
+    float realMoveDuration = 2.5;
+    
+    
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+    id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest1];
+    
+    [Bonusmonster5 runAction:
+     [CCSequence actions: actionMove,actionMove1,nil]];
+}
+
+- (void) Movemonster6:(ccTime)dt
+{
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    int realX = 775;
+    int realY = 425;
+    CGPoint realDest = ccp(realX, realY);
+    
+    
+    int realX1 = 275;
+    int realY1 = 425;
+    
+    
+    CGPoint realDest1 = ccp(realX1, realY1);
+    
+    float realMoveDuration = 2.5;
+    
+    
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+    id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest1];
+    
+    [Bonusmonster6 runAction:
+     [CCSequence actions: actionMove,actionMove1,nil]];
+}
+
+- (void) Movemonster7:(ccTime)dt
+{
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    int realX = 775;
+    int realY = 525;
+    CGPoint realDest = ccp(realX, realY);
+    
+    
+    int realX1 = 275;
+    int realY1 = 525;
+    
+    
+    CGPoint realDest1 = ccp(realX1, realY1);
+    
+    float realMoveDuration = 2.5;
+    
+    
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+    id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest1];
+    
+    [Bonusmonster7 runAction:
+     [CCSequence actions: actionMove,actionMove1,nil]];
+}
+
+- (void) Movemonster8:(ccTime)dt
+{
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    int realX = 775;
+    int realY = 625;
+    CGPoint realDest = ccp(realX, realY);
+    
+    
+    int realX1 = 275;
+    int realY1 = 625;
+    
+    
+    CGPoint realDest1 = ccp(realX1, realY1);
+    
+    float realMoveDuration = 2.5;
+    
+    
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+    id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest1];
+    
+    [Bonusmonster8 runAction:
+     [CCSequence actions: actionMove,actionMove1,nil]];
+}
+
 -(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 
 {
@@ -151,7 +355,7 @@ CCSprite *monster9,*monster10, *monster11, *monster12;
 {
     //NSLog(@"Time %d",myTime - collideTime );
     
-    if((CGRectIntersectsRect([monster9 boundingBox] , [playerB boundingBox]) || CGRectIntersectsRect([monster10 boundingBox], [playerB boundingBox]) || CGRectIntersectsRect([monster11 boundingBox], [playerB boundingBox])||CGRectIntersectsRect([monster12 boundingBox], [playerB boundingBox]))&& inBonusStage == YES )
+    if((CGRectIntersectsRect([Bonusmonster1 boundingBox] , [playerB boundingBox]) || CGRectIntersectsRect([Bonusmonster2 boundingBox], [playerB boundingBox]) || CGRectIntersectsRect([Bonusmonster3 boundingBox], [playerB boundingBox])||CGRectIntersectsRect([Bonusmonster4 boundingBox], [playerB boundingBox]) || CGRectIntersectsRect([Bonusmonster5 boundingBox] , [playerB boundingBox]) || CGRectIntersectsRect([Bonusmonster6 boundingBox] , [playerB boundingBox]) || CGRectIntersectsRect([Bonusmonster7 boundingBox] , [playerB boundingBox]) || CGRectIntersectsRect([Bonusmonster8 boundingBox] , [playerB boundingBox]) )&& inBonusStage == YES )
         
     {
         self.visible = NO;
@@ -288,275 +492,58 @@ CCSprite *monster9,*monster10, *monster11, *monster12;
         [self schedule:@selector(checkBonusStage) interval:1];
         
         
-        monster9 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-        monster9.position = ccp(winSize.width/3+435, winSize.height/2-10);
-        monster9.position = ccp(125, 75);
-        [self addChild:monster9];
+        Bonusmonster1 = [CCSprite spriteWithFile:@"ghosts.png"];
+        Bonusmonster1.position = ccp(375, 225);
+        [self addChild:Bonusmonster1];
         
-        monster10 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-        monster10.position = ccp(winSize.width/3+185, winSize.height/2-10);
-        monster10.position = ccp(125, 75);
-        [self addChild:monster10];
         
-        monster11 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-        monster11.position = ccp(winSize.width-45, winSize.height-50);
-        monster11.position = ccp(125, 75);
-        [self addChild:monster11];
+        Bonusmonster2 = [CCSprite spriteWithFile:@"ghosts.png"];
+        Bonusmonster2.position = ccp( 525, 225);
+        [self addChild:Bonusmonster2];
         
-        monster12 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-        monster12.position = ccp(125, 75);
-        [self addChild:monster12];
         
-        //ghost1 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-        //ghost1.position = ccp(winSize.width-45,winSize.height/2);
-        //[self addChild:ghost1];
+        Bonusmonster3 = [CCSprite spriteWithFile:@"ghosts.png"];
+        Bonusmonster3.position = ccp(675, 225);
+        [self addChild:Bonusmonster3];
         
-        //[self performSelectorInBackground:@selector(actionmonster9) withObject:self];
-        //[self performSelectorInBackground:@selector(actionmonster10) withObject:self];
-        //[self performSelectorInBackground:@selector(actionmonster11) withObject:self];
-        //[self performSelectorInBackground:@selector(actionmonster12) withObject:self];
-
+        
+        Bonusmonster4 = [CCSprite spriteWithFile:@"ghosts.png"];
+        Bonusmonster4.position = ccp(275, 225);
+        [self addChild:Bonusmonster4    ];
+        
+        Bonusmonster5 = [CCSprite spriteWithFile:@"ghosts.png"];
+        Bonusmonster5.position = ccp(275, 325);
+        [self addChild:Bonusmonster5];
+        
+        
+        Bonusmonster6 = [CCSprite spriteWithFile:@"ghosts.png"];
+        Bonusmonster6.position = ccp(275, 425);
+        [self addChild:Bonusmonster6];
+        
+        
+        Bonusmonster7 = [CCSprite spriteWithFile:@"ghosts.png"];
+        Bonusmonster7.position = ccp(275, 525);
+        [self addChild:Bonusmonster7];
+        
+        
+        Bonusmonster8 = [CCSprite spriteWithFile:@"ghosts.png"];
+        Bonusmonster8.position = ccp(275, 625);
+        [self addChild:Bonusmonster8    ];
+        
+        [self schedule:@selector(Movemonster1:) interval:5 repeat:250 delay:0.3];
+        [self schedule:@selector(Movemonster2:) interval:5 repeat:250 delay:0.2];
+        [self schedule:@selector(Movemonster3:) interval:5 repeat:250 delay:0.4];
+        [self schedule:@selector(Movemonster4:) interval:5 repeat:250 delay:0.2];
+        [self schedule:@selector(Movemonster5:) interval:5 repeat:250 delay:0.1];
+        [self schedule:@selector(Movemonster6:) interval:5 repeat:250 delay:0.3];
+        [self schedule:@selector(Movemonster7:) interval:5 repeat:250 delay:0.4];
+        [self schedule:@selector(Movemonster8:) interval:5 repeat:250 delay:0.5];
+        
+    
     }
     return self;
 }
 
-
-- (void) Monster5move:(ccTime)dt
-{
-    
-    CGSize winSize = [CCDirector sharedDirector].winSize;
-    int realX = winSize.width/3+435;
-    int realY = winSize.height/2+40;
-    CGPoint realDest = ccp(realX, realY);
-    
-    
-    int realX1 = winSize.width/3+635;
-    int realY1 = winSize.height/2+40;
-    
-    int realX2 = winSize.width/3+635;
-    int realY2 = winSize.height/2-10;
-    
-    int realX3 = winSize.width/3+435;
-    int realY3 = winSize.height/2-10;
-    CGPoint realDest1 = ccp(realX1, realY1);
-    CGPoint realDest2 = ccp(realX2, realY2);
-    CGPoint realDest3 = ccp(realX3, realY3);
-    
-    float realMoveDuration = 0.5;
-    
-    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest];
-    id actionRotate90 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:90];
-    id actionRotate360 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:360];
-    id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:180];
-    id actionRotate270 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:270];
-    id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest1];
-    id actionMove2 = [CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest2];
-    id actionMove3 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest3];
-    
-    [monster9 runAction:
-     [CCSequence actions: actionRotate360,actionMove,actionRotate90,actionMove1,actionRotate180,actionMove2,actionRotate270,actionMove3,nil]];
-}
-
-- (void) monster10move:(ccTime)dt
-{
-    
-    CGSize winSize = [CCDirector sharedDirector].winSize;
-    int realX = winSize.width/3+185;
-    int realY = winSize.height/2+90;
-    CGPoint realDest = ccp(realX, realY);
-    
-    int realX1 = winSize.width/3+285;
-    int realY1 = winSize.height/2+90;
-    
-    int realX2 = winSize.width/3+285;
-    int realY2 = winSize.height/2-10;
-    
-    int realX3 = winSize.width/3+185;
-    int realY3 = winSize.height/2-10;
-    CGPoint realDest1 = ccp(realX1, realY1);
-    CGPoint realDest2 = ccp(realX2, realY2);
-    CGPoint realDest3 = ccp(realX3, realY3);
-    
-    float realMoveDuration = 0.25;
-    
-    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
-    id actionRotate90 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:90];
-    id actionRotate360 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:360];
-    id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:180];
-    id actionRotate270 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:270];
-    id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest1];
-    id actionMove2 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest2];
-    id actionMove3 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest3];
-    
-    [monster10 runAction:
-     [CCSequence actions: actionRotate360,actionMove,actionRotate90,actionMove1,actionRotate180,actionMove2,actionRotate270,actionMove3,nil]];
-}
-
-- (void) monster11move:(ccTime)dt
-{
-    CGSize winSize = [CCDirector sharedDirector].winSize;
-    int realX = 125;
-    int realY = winSize.height/2-5;
-    CGPoint realDest = ccp(realX, realY);
-    
-    int realX1 = winSize.width/2-40;
-    int realY1 = winSize.height/2-5;
-    
-    int realX2 = winSize.width/2-40;
-    int realY2 = winSize.height-50;
-    
-    int realX3 = 125;
-    int realY3 = winSize.height-50;
-    
-    int realX4 = 125;
-    int realY4 = winSize.height/2+50;
-    
-    int realX5 = winSize.width/2-40;
-    int realY5 = winSize.height/2+50;
-    
-    int realX6 = winSize.width/2-40;
-    int realY6 = 75;
-    
-    int realX7 = 125;
-    int realY7 = 75;
-    
-    CGPoint realDest1 = ccp(realX1, realY1);
-    CGPoint realDest2 = ccp(realX2, realY2);
-    CGPoint realDest3 = ccp(realX3, realY3);
-    CGPoint realDest4 = ccp(realX4, realY4);
-    CGPoint realDest5 = ccp(realX5, realY5);
-    CGPoint realDest6 = ccp(realX6, realY6);
-    CGPoint realDest7 = ccp(realX7, realY7);
-    float realMoveDuration = 1.5;
-    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
-    id actionRotate90 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:90];
-    id actionRotate360 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:360];
-    id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:180];
-    id actionRotate270 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:270];
-    id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest1];
-    id actionMove2 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest2];
-    id actionMove3 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest3];
-    id actionMove4 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest4];
-    id actionMove5 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest5];
-    id actionMove6 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest6];
-    id actionMove7 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest7];
-    
-    [monster11 runAction:
-     [CCSequence actions: actionRotate360,actionMove,actionRotate90,actionMove1,actionRotate360,actionMove2,actionRotate270,actionMove3,actionRotate180,actionMove4,actionRotate90,actionMove5,actionRotate180,actionMove6,actionRotate270,actionMove7,actionRotate360,nil]];
-}
-
-- (void) monster12move:(ccTime)dt
-{
-    CGSize winSize = [CCDirector sharedDirector].winSize;
-    int realX = winSize.width-45;
-    int realY = 75;
-    CGPoint realDest = ccp(realX, realY);
-    int realX1 = winSize.width-200;
-    int realY1 = 75;
-    int realX2 = winSize.width-200;
-    int realY2 = 125;
-    int realX3 = winSize.width-95;
-    int realY3 = 125;
-    int realX4 = winSize.width-95;
-    int realY4 = winSize.height-90;
-    
-    int realX5 = winSize.width-200;
-    int realY5 = winSize.height-90;
-    
-    int realX6 = winSize.width-200;
-    int realY6 = winSize.height-50;
-    
-    int realX7 = winSize.width-45;
-    int realY7 = winSize.height-50;
-    CGPoint realDest1 = ccp(realX1, realY1);
-    CGPoint realDest2 = ccp(realX2, realY2);
-    CGPoint realDest3 = ccp(realX3, realY3);
-    CGPoint realDest4 = ccp(realX4, realY4);
-    CGPoint realDest5 = ccp(realX5, realY5);
-    CGPoint realDest6 = ccp(realX6, realY6);
-    CGPoint realDest7 = ccp(realX7, realY7);
-    
-    float realMoveDuration = 1.5;
-    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
-    id actionRotate90 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:90];
-    id actionRotate360 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:360];
-    id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:180];
-    id actionRotate270 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:270];
-    id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration/4 position:realDest1];
-    id actionMove2 = [CCMoveTo actionWithDuration:realMoveDuration/6 position:realDest2];
-    id actionMove3 = [CCMoveTo actionWithDuration:realMoveDuration/6 position:realDest3];
-    id actionMove4 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest4];
-    id actionMove5 = [CCMoveTo actionWithDuration:realMoveDuration/6 position:realDest5];
-    id actionMove6 = [CCMoveTo actionWithDuration:realMoveDuration/6 position:realDest6];
-    id actionMove7 = [CCMoveTo actionWithDuration:realMoveDuration/4 position:realDest7];
-    
-    [monster12 runAction:
-     [CCSequence actions: actionRotate180,actionMove,actionRotate270,actionMove1,actionRotate360,actionMove2,actionRotate90,actionMove3,actionRotate360,actionMove4,actionRotate270,actionMove5,actionRotate360,actionMove6,actionRotate90,actionMove7,actionRotate180,nil]];
-    
-    
-}
-- (void) Monster5Freeze
-{
-    float realMoveDuration = 6;
-    id actionRotate = [CCRotateBy actionWithDuration:realMoveDuration/10 angle:90];
-    // id actionRotate1 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:0];
-    [monster9 runAction:
-     [CCSequence actions: actionRotate,actionRotate,actionRotate,actionRotate,actionRotate,nil]];
-}
-
-- (void) monster10Freeze
-{
-    float realMoveDuration = 6;
-    id actionRotate = [CCRotateBy actionWithDuration:realMoveDuration/10 angle:90];
-    // id actionRotate1 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:0];
-    [monster9 runAction:
-     [CCSequence actions: actionRotate,actionRotate,actionRotate,actionRotate,nil]];
-    
-}
-
-- (void) monster12Freeze
-{
-    float realMoveDuration = 6;
-    id actionRotate = [CCRotateBy actionWithDuration:realMoveDuration/10 angle:90];
-    // id actionRotate1 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:0];
-    [monster12 runAction:
-     [CCSequence actions: actionRotate,actionRotate,actionRotate,actionRotate,actionRotate,actionRotate,nil]];
-}
-
-- (void) monster11Freeze
-{
-    
-    float realMoveDuration = 6;
-    id actionRotate = [CCRotateBy actionWithDuration:realMoveDuration/10 angle:90];
-    // id actionRotate1 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:0];
-    [monster11 runAction:
-     [CCSequence actions: actionRotate,actionRotate,actionRotate,actionRotate,nil]];
-    
-}
-
-- (void) actionmonster9
-{
-    [self monster10Freeze];
-    [self schedule:@selector(Monster5move: ) interval:1.5 repeat:250 delay:0];
-}
-
-- (void) actionmonster10
-{
-    
-    [self schedule:@selector(monster10move: ) interval:1.15 repeat:250 delay:0 ];
-}
-
-- (void) actionmonster12
-{
-    [self monster12Freeze];
-    [self schedule:@selector(monster12move: ) interval:6 repeat:250 delay:0 ];
-}
-
-- (void) actionmonster11
-{
-    [self monster11Freeze];
-    [self schedule:@selector(monster11move: ) interval:13 repeat:250 delay:0 ];
-}
 
 -(void) spawnPlayer
 {
