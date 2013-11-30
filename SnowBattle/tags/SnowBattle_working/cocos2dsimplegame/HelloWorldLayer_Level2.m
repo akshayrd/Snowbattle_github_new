@@ -773,7 +773,8 @@ CCSprite* PowerLabel;
                 [powerLivesLayer removeTileAt:tileCoord];
                 if (lifeCount<4)
                     lifeCount++;
-                lifeItem[lifeCount].visible = true;
+                [hud lifeItemsAdd:lifeCount];
+                //lifeItem[lifeCount].visible = true;
                 
             }
         }
@@ -958,8 +959,8 @@ CCSprite* PowerLabel;
     {
         collideTime = totalTime;
         CCBlink* blink = [CCBlink actionWithDuration:immuneDuration blinks:20];
-        lifeItem[lifeCount].visible = false;
-        
+        //lifeItem[lifeCount].visible = false;
+        [hud lifeItemsDelete:lifeCount];
         lifeCount--;
         [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp1"];
         count = 0;
@@ -1134,23 +1135,24 @@ CCSprite* PowerLabel;
             [self addChild:menu8];
         }
         
-        for (int i=0; i<5; i++) {
+        /*for (int i=0; i<5; i++) {
             lifeItem[i] = [CCMenuItemImage itemWithNormalImage:@"life.png" selectedImage:@"life.png" ];
             lifeItem[i].position = ccp(22, 600-i*40);
             lifeItem[i].visible = true;
         }
         lifeItem[3].visible = false;
-        lifeItem[4].visible = false;
+        lifeItem[4].visible = false;*/
         /* Life Power Up */
         if(powerupArray[0]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp1"] >=1))
         {
-            lifeItem[3].visible = true;
+            //lifeItem[3].visible = true;
+            [hud lifeItemsAdd:lifeCount];
             lifeCount++;
         }
-        life = [CCMenu menuWithItems:lifeItem[0],lifeItem[1],lifeItem[2],lifeItem[3],lifeItem[4], nil];
+        /*life = [CCMenu menuWithItems:lifeItem[0],lifeItem[1],lifeItem[2],lifeItem[3],lifeItem[4], nil];
         
         life.position = CGPointZero;
-        [self addChild:life];
+        [self addChild:life];*/
         
         [self schedule:@selector(checkCollisionWithMonster)];
         [self schedule:@selector(ShowBonuStageImage) ];

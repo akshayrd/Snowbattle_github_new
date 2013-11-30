@@ -24,6 +24,7 @@
     CCTMXLayer *powerGrenadeLayer;
     CCTMXLayer *grenadeLayer;
     CCTMXLayer *bonusLayer;
+    CCTMXLayer *riverLayer;
     int livePowerEnabled1;
     
     CCTMXLayer *ghostpitLayer;
@@ -85,6 +86,15 @@
     CCSprite *planeMonster3;
     CCSprite *planeMonster4;
     CCSprite *planeMonster5;
+    int boat1_InitialX;
+    int boat1_InitialY;
+    int boat2_InitialX;
+    int boat2_InitialY;
+    int boat3_InitialX;
+    int boat3_InitialY;
+    CCSprite *boat_1;
+    CCSprite *boat_2;
+    CCSprite *boat_3;
     
     int playerDirection ;
     

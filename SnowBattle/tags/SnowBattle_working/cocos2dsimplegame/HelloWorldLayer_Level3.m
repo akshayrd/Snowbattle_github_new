@@ -316,8 +316,11 @@ CCSprite* PowerLabel;
                 [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
                 [powerLivesLayer removeTileAt:tileCoord];
                 if (lifeCount<4)
+                {
                     lifeCount++;
-                lifeItem[lifeCount].visible = true;
+                }
+                [hud lifeItemsAdd:lifeCount];
+                // lifeItem[lifeCount].visible = true;
                 
             }
         }
@@ -392,6 +395,28 @@ CCSprite* PowerLabel;
             
         }
         
+    }
+    
+    tileGid = [riverLayer tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSLog(@"Heree000 (%f,%f)",player.position.x,player.position.y);
+        /*NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+         if (properties) {
+         NSLog(@"Heree111");
+         NSString *collision = properties[@"River"];
+         if (collision && [collision isEqualToString:@"True"]) {*/
+        //[hud lifeItemsDelete:lifeCount];
+        //lifeCount--;
+        if (lifeCount < 0) {
+            lifeCount = 2;
+            [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+totalScore forKey:@"Score"];
+            CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:currentLevelScore timeBonus:0 playerImage:_playerimage];
+            [[CCDirector sharedDirector] replaceScene:gameOverScene];
+        }
+        // lifeItem[lifeCount].visible = true;
+        
+        //    }
+        //}
     }
     
     
@@ -471,8 +496,8 @@ CCSprite* PowerLabel;
             
             collideTime = totalTime;
             CCBlink* blink = [CCBlink actionWithDuration:immuneDuration blinks:20];
-            lifeItem[lifeCount].visible = false;
-            
+            //lifeItem[lifeCount].visible = false;
+            [hud lifeItemsDelete:lifeCount];
             lifeCount--;
             [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp1"];
             count = 0;
@@ -510,7 +535,7 @@ CCSprite* PowerLabel;
         //[self setTouchEnabled:YES];
         self.touchEnabled = YES;
         isBonusDisplayed =  NO;
-        _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"big_tile.tmx"];
+        _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"tileMap4-Level3.tmx"];
         
         snow = [_tileMap layerNamed:@"Snow"];
         _playerimage = player1;
@@ -532,7 +557,7 @@ CCSprite* PowerLabel;
         grenadeLayer = [_tileMap layerNamed:@"GrenadeWall"];
         bonusLayer = [_tileMap layerNamed:@"Bonus"];
         ghostpitLayer = [_tileMap layerNamed:@"ghostPit"];
-        
+        riverLayer = [_tileMap layerNamed:@"River"];
         powerLivesLayer.visible = FALSE;
         
         playerDirection = 1;
@@ -583,6 +608,36 @@ CCSprite* PowerLabel;
         planeInitialX=220;
         planeShadowInitialX=planeInitialX+5;
         
+        boat1_InitialX=875;
+        boat1_InitialY=525;
+        
+        boat2_InitialX=1025;
+        boat2_InitialY=475;
+        
+        boat3_InitialX=boat2_InitialX;
+        boat3_InitialY=275;
+        
+        boat_1 = [CCSprite spriteWithFile:@"boat1.png"];
+        boat_1.position = ccp(boat1_InitialX, boat1_InitialY);
+        [self addChild:boat_1];
+        //boat_1.visible=false;
+        
+        [self schedule:@selector(moveBoat1) interval:1.5 repeat:250 delay:0];
+        
+        boat_2 = [CCSprite spriteWithFile:@"boat2.png"];
+        boat_2.position = ccp(boat2_InitialX, boat2_InitialY);
+        [self addChild:boat_2];
+        //boat_2.visible=false;
+        
+        //[self schedule:@selector(moveBoat2)];
+        
+        boat_3 = [CCSprite spriteWithFile:@"boat1.png"];
+        boat_3.position = ccp(boat3_InitialX, boat3_InitialY);
+        [self addChild:boat_3];
+        //boat_3.visible=false;
+        
+        //[self schedule:@selector(moveBoat3)];
+
         planePointsLocation[0] = planeInitialX;
         planePointsLocation[1] = planeInitialX+100;
         planePointsLocation[2] = planeInitialX+100+100;
@@ -659,7 +714,7 @@ CCSprite* PowerLabel;
         [self addChild:monster5];
         // nemy = [CCSprite spriteWithFile:@"Icon-72.png"];
         screenSize2 = [CCDirector sharedDirector].winSize;
-               
+        
         // Standard method to pause the game
         starMenuItem = [CCMenuItemImage itemWithNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame:)];
         
@@ -683,24 +738,25 @@ CCSprite* PowerLabel;
             [self addChild:menu8];
         }
         
-        for (int i=0; i<5; i++) {
-            lifeItem[i] = [CCMenuItemImage itemWithNormalImage:@"life.png" selectedImage:@"life.png" ];
-            //lifeItem[i].position = ccp(22, 600-i*40);
-            lifeItem[i].position = ccp(winSize.width - 500, winSize.height/2-200i*40);
-            lifeItem[i].visible = true;
-        }
-        lifeItem[3].visible = false;
-        lifeItem[4].visible = false;
+        /*for (int i=0; i<5; i++) {
+         lifeItem[i] = [CCMenuItemImage itemWithNormalImage:@"life.png" selectedImage:@"life.png" ];
+         //lifeItem[i].position = ccp(22, 600-i*40);
+         lifeItem[i].position = ccp(winSize.width - 500, winSize.height/2-200i*40);
+         lifeItem[i].visible = true;
+         }
+         lifeItem[3].visible = false;
+         lifeItem[4].visible = false;*/
         /* Life Power Up */
         if(powerupArray[0]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp1"] >=1))
         {
-            lifeItem[3].visible = true;
+            //lifeItem[3].visible = true;
             lifeCount++;
+            [hud lifeItemsAdd:lifeCount];
         }
-        life = [CCMenu menuWithItems:lifeItem[0],lifeItem[1],lifeItem[2],lifeItem[3],lifeItem[4], nil];
+        //life = [CCMenu menuWithItems:lifeItem[0],lifeItem[1],lifeItem[2],lifeItem[3],lifeItem[4], nil];
         
-        life.position = CGPointZero;
-        [self addChild:life];
+        //life.position = CGPointZero;
+        //[self addChild:life];
         
         [self schedule:@selector(checkCollisionWithMonster)];
         //[self schedule:@selector(moveSensingMonster) interval:1 ];
@@ -789,14 +845,14 @@ CCSprite* PowerLabel;
                 NSLog(@"Current Score:%d",currentLevelScore);
                 NSLog(@"winscore Score:%d",winScore);
             }
-         
+            
         }
         
         if( (CGRectIntersectsRect([planeMonster1 boundingBox], [plane boundingBox])) ||
-             (CGRectIntersectsRect([planeMonster2 boundingBox], [plane boundingBox])) ||
-              (CGRectIntersectsRect([planeMonster3 boundingBox], [plane boundingBox])) ||
-               (CGRectIntersectsRect([planeMonster4 boundingBox], [plane boundingBox])) ||
-                (CGRectIntersectsRect([planeMonster5 boundingBox], [plane boundingBox])) )
+           (CGRectIntersectsRect([planeMonster2 boundingBox], [plane boundingBox])) ||
+           (CGRectIntersectsRect([planeMonster3 boundingBox], [plane boundingBox])) ||
+           (CGRectIntersectsRect([planeMonster4 boundingBox], [plane boundingBox])) ||
+           (CGRectIntersectsRect([planeMonster5 boundingBox], [plane boundingBox])) )
         {
             if((CGRectIntersectsRect([planeMonster1 boundingBox], [plane boundingBox])))
             {
@@ -831,6 +887,66 @@ CCSprite* PowerLabel;
     [self schedule:@selector(movePlane) interval:0 repeat:1 delay:0];
     [self schedule:@selector(planeMovementFalse) interval:5 repeat:1 delay:0];
     //planeMoveFlag=false;
+}
+
+-(void)moveBoat1
+{
+    int realX = boat1_InitialX+75;
+    CGPoint realDest = ccp(realX, boat1_InitialY);
+    
+    float realMoveDuration = 100;
+    
+    int realX_Initial = boat1_InitialX;
+    CGPoint realDest1 = ccp(realX_Initial, boat1_InitialY);
+    
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest];
+    id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/5 angle:180];
+    id actionMove1=[CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest1];
+    //NSLog(@"Start Plane Pos: (%f,%f)",plane.position.x,plane.position.y);
+    //[[SimpleAudioEngine sharedEngine] playEffect:@"plane_sound.mp3"];
+    [boat_1 runAction:
+     [CCSequence actions: actionMove,actionRotate180,actionMove1,nil]];
+    // NSLog(@"Last Plane Pos: (%f,%f)",plane.position.x,plane.position.y);
+}
+
+-(void)moveBoat2
+{
+    int realY = boat2_InitialY-75;
+    CGPoint realDest = ccp(boat2_InitialX, realY);
+    
+    float realMoveDuration = 100;
+    
+    int realY_Initial = boat2_InitialY;
+    CGPoint realDest1 = ccp(boat2_InitialX, realY_Initial);
+    
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest];
+    id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/5 angle:180];
+    id actionMove1=[CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest1];
+    //NSLog(@"Start Plane Pos: (%f,%f)",plane.position.x,plane.position.y);
+    //[[SimpleAudioEngine sharedEngine] playEffect:@"plane_sound.mp3"];
+    [boat_2 runAction:
+     [CCSequence actions: actionMove,actionRotate180,actionMove1,nil]];
+    // NSLog(@"Last Plane Pos: (%f,%f)",plane.position.x,plane.position.y);
+}
+
+-(void)moveBoat3
+{
+    int realX = boat3_InitialX+75;
+    CGPoint realDest = ccp(realX, boat3_InitialY);
+    
+    float realMoveDuration = 100;
+    
+    int realX_Initial = boat3_InitialX;
+    CGPoint realDest1 = ccp(realX_Initial, boat3_InitialY);
+    
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest];
+    id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/5 angle:180];
+    id actionMove1=[CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest1];
+    //NSLog(@"Start Plane Pos: (%f,%f)",plane.position.x,plane.position.y);
+    //[[SimpleAudioEngine sharedEngine] playEffect:@"plane_sound.mp3"];
+    [boat_3 runAction:
+     [CCSequence actions: actionMove,actionRotate180,actionMove1,nil]];
+    // NSLog(@"Last Plane Pos: (%f,%f)",plane.position.x,plane.position.y);
 }
 
 -(void) planeMovementFalse

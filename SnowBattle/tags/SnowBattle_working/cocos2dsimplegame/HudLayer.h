@@ -10,9 +10,15 @@
 #import "cocos2d.h"
 
 @interface HudLayer : CCLayer
+{
+    CCMenuItem *lifeItem[5];
+    CCMenu *life;
+    //int lifeCount;
+}
 
 - (void)numCollectedChanged:(int)numCollected;
-
+-(void) lifeItemsAdd:(int)lifeCount;
+-(void) lifeItemsDelete:(int)lifeCount;
 
 @end
 

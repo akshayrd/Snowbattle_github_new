@@ -32,7 +32,7 @@ CCSprite * Bonusmonster8;
 
 - (void) Movemonster1:(ccTime)dt
 {
-    CGSize winSize = [CCDirector sharedDirector].winSize;
+    //CGSize winSize = [CCDirector sharedDirector].winSize;
     int realX = 375;
     int realY = 625;
     CGPoint realDest = ccp(realX, realY);
@@ -80,7 +80,7 @@ CCSprite * Bonusmonster8;
 
 - (void) Movemonster3:(ccTime)dt
 {
-    CGSize winSize = [CCDirector sharedDirector].winSize;
+    //CGSize winSize = [CCDirector sharedDirector].winSize;
     int realX = 675;
     int realY = 625;
     CGPoint realDest = ccp(realX, realY);
@@ -128,7 +128,7 @@ CCSprite * Bonusmonster8;
 
 - (void) Movemonster5:(ccTime)dt
 {
-    CGSize winSize = [CCDirector sharedDirector].winSize;
+   // CGSize winSize = [CCDirector sharedDirector].winSize;
     int realX = 775;
     int realY = 325;
     CGPoint realDest = ccp(realX, realY);
