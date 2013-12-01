@@ -37,10 +37,13 @@
 		BA508745180BAAB60097C021 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BA508744180BAAB60097C021 /* GameOverLayer.m */; };
 		BA508748180BAD970097C021 /* POSTER.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA508746180BAD970097C021 /* POSTER.jpg */; };
 		BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */; };
+		BA5FC12A184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA5FC128184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50.jpg */; };
+		BA5FC12B184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50(2).jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA5FC129184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50(2).jpg */; };
+		BA5FC12D184B460C00CDF20E /* JumpMusicMp3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA5FC12C184B460C00CDF20E /* JumpMusicMp3.mp3 */; };
+		BA5FC12F184B478800CDF20E /* jumpFailed.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA5FC12E184B478800CDF20E /* jumpFailed.mp3 */; };
 		BA608C4F18361C9F002F09EA /* bonus.png in Resources */ = {isa = PBXBuildFile; fileRef = BA608C4E18361C9F002F09EA /* bonus.png */; };
 		BA6131EC1801046500ECF6D6 /* grassTexture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA6131EB1801046500ECF6D6 /* grassTexture.jpg */; };
 		BA68E5351814A9EF00F3F937 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E5331814A9EF00F3F937 /* pause.png */; };
-		BA68E5361814A9EF00F3F937 /* Play.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E5341814A9EF00F3F937 /* Play.png */; };
 		BA68E5391814AC3000F3F937 /* Play40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E5371814AC3000F3F937 /* Play40x40.png */; };
 		BA68E53A1814AC3000F3F937 /* player_pause40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E5381814AC3000F3F937 /* player_pause40x40.png */; };
 		BA68E53D1814AEDC00F3F937 /* HyperPlayer_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E53B1814AEDC00F3F937 /* HyperPlayer_40x40.png */; };
@@ -126,12 +129,6 @@
 		BABF081C18177F7F0014367F /* bubble5.png in Resources */ = {isa = PBXBuildFile; fileRef = BABF081B18177F7F0014367F /* bubble5.png */; };
 		BABF081E181780240014367F /* bubble6.png in Resources */ = {isa = PBXBuildFile; fileRef = BABF081D181780240014367F /* bubble6.png */; };
 		BAC875FC18459C04001B2CE4 /* ghosts.png in Resources */ = {isa = PBXBuildFile; fileRef = BAC875FB18459C04001B2CE4 /* ghosts.png */; };
-		BAD926141849747A00C1017A /* pause1-150x150.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD9260C1849747A00C1017A /* pause1-150x150.png */; };
-		BAD926151849747A00C1017A /* Play.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD9260D1849747A00C1017A /* Play.png */; };
-		BAD926161849747A00C1017A /* Play.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD9260F1849747A00C1017A /* Play.png */; };
-		BAD926171849747A00C1017A /* player_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD926101849747A00C1017A /* player_pause.png */; };
-		BAD926181849747A00C1017A /* pause-button1.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD926121849747A00C1017A /* pause-button1.png */; };
-		BAD926191849747A00C1017A /* playbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD926131849747A00C1017A /* playbutton.png */; };
 		BAD9261B184975EE00C1017A /* water4.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD9261A184975ED00C1017A /* water4.png */; };
 		BAD9261F1849E1F800C1017A /* boat1.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD9261E1849E1F800C1017A /* boat1.png */; };
 		BAD926211849E2D900C1017A /* boat2.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD926201849E2D900C1017A /* boat2.png */; };
@@ -313,10 +310,13 @@
 		BA508744180BAAB60097C021 /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
 		BA508746180BAD970097C021 /* POSTER.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = POSTER.jpg; path = Resources/POSTER.jpg; sourceTree = "<group>"; };
 		BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TileMap.tmx; sourceTree = "<group>"; };
+		BA5FC128184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = GreenPlayerOnWoodenLog_50x50.jpg; path = Resources/GreenPlayerOnWoodenLog_50x50.jpg; sourceTree = "<group>"; };
+		BA5FC129184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50(2).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GreenPlayerOnWoodenLog_50x50(2).jpg"; path = "Resources/GreenPlayerOnWoodenLog_50x50(2).jpg"; sourceTree = "<group>"; };
+		BA5FC12C184B460C00CDF20E /* JumpMusicMp3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = JumpMusicMp3.mp3; path = Resources/JumpMusicMp3.mp3; sourceTree = "<group>"; };
+		BA5FC12E184B478800CDF20E /* jumpFailed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = jumpFailed.mp3; path = Resources/jumpFailed.mp3; sourceTree = "<group>"; };
 		BA608C4E18361C9F002F09EA /* bonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bonus.png; path = libs/bonus.png; sourceTree = "<group>"; };
 		BA6131EB1801046500ECF6D6 /* grassTexture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = grassTexture.jpg; path = Resources/grassTexture.jpg; sourceTree = "<group>"; };
 		BA68E5331814A9EF00F3F937 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/pause.png; sourceTree = "<group>"; };
-		BA68E5341814A9EF00F3F937 /* Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Play.png; path = Resources/Play.png; sourceTree = "<group>"; };
 		BA68E5371814AC3000F3F937 /* Play40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Play40x40.png; path = Resources/Play40x40.png; sourceTree = "<group>"; };
 		BA68E5381814AC3000F3F937 /* player_pause40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = player_pause40x40.png; path = Resources/player_pause40x40.png; sourceTree = "<group>"; };
 		BA68E53B1814AEDC00F3F937 /* HyperPlayer_40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HyperPlayer_40x40.png; path = Resources/HyperPlayer_40x40.png; sourceTree = "<group>"; };
@@ -601,12 +601,6 @@
 		BABF081B18177F7F0014367F /* bubble5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble5.png; sourceTree = "<group>"; };
 		BABF081D181780240014367F /* bubble6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble6.png; sourceTree = "<group>"; };
 		BAC875FB18459C04001B2CE4 /* ghosts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ghosts.png; path = Resources/ghosts.png; sourceTree = "<group>"; };
-		BAD9260C1849747A00C1017A /* pause1-150x150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause1-150x150.png"; sourceTree = "<group>"; };
-		BAD9260D1849747A00C1017A /* Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Play.png; sourceTree = "<group>"; };
-		BAD9260F1849747A00C1017A /* Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Play.png; sourceTree = "<group>"; };
-		BAD926101849747A00C1017A /* player_pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_pause.png; sourceTree = "<group>"; };
-		BAD926121849747A00C1017A /* pause-button1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause-button1.png"; sourceTree = "<group>"; };
-		BAD926131849747A00C1017A /* playbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbutton.png; sourceTree = "<group>"; };
 		BAD9261A184975ED00C1017A /* water4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water4.png; sourceTree = "<group>"; };
 		BAD9261E1849E1F800C1017A /* boat1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boat1.png; sourceTree = "<group>"; };
 		BAD926201849E2D900C1017A /* boat2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boat2.png; sourceTree = "<group>"; };
@@ -1355,44 +1349,6 @@
 			path = GL;
 			sourceTree = "<group>";
 		};
-		BAD9260A1849747A00C1017A /* PlayPause */ = {
-			isa = PBXGroup;
-			children = (
-				BAD9260B1849747A00C1017A /* Set1 */,
-				BAD9260E1849747A00C1017A /* Set2 */,
-				BAD926111849747A00C1017A /* Set3 */,
-			);
-			name = PlayPause;
-			path = Resources/PlayPause;
-			sourceTree = "<group>";
-		};
-		BAD9260B1849747A00C1017A /* Set1 */ = {
-			isa = PBXGroup;
-			children = (
-				BAD9260C1849747A00C1017A /* pause1-150x150.png */,
-				BAD9260D1849747A00C1017A /* Play.png */,
-			);
-			path = Set1;
-			sourceTree = "<group>";
-		};
-		BAD9260E1849747A00C1017A /* Set2 */ = {
-			isa = PBXGroup;
-			children = (
-				BAD9260F1849747A00C1017A /* Play.png */,
-				BAD926101849747A00C1017A /* player_pause.png */,
-			);
-			path = Set2;
-			sourceTree = "<group>";
-		};
-		BAD926111849747A00C1017A /* Set3 */ = {
-			isa = PBXGroup;
-			children = (
-				BAD926121849747A00C1017A /* pause-button1.png */,
-				BAD926131849747A00C1017A /* playbutton.png */,
-			);
-			path = Set3;
-			sourceTree = "<group>";
-		};
 		F520706B18432CDE0057A846 /* FacebookScorer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1516,6 +1472,10 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA5FC12E184B478800CDF20E /* jumpFailed.mp3 */,
+				BA5FC12C184B460C00CDF20E /* JumpMusicMp3.mp3 */,
+				BA5FC128184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50.jpg */,
+				BA5FC129184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50(2).jpg */,
 				BAF0F14D184AD97500EB9A5B /* AdvancedPlayer_150x150.png */,
 				BAF0F14E184AD97500EB9A5B /* NormalPlayer_150x150.png */,
 				BAF0F14B184AB9F300EB9A5B /* SnowBattle.jpg */,
@@ -1524,7 +1484,6 @@
 				BAD926201849E2D900C1017A /* boat2.png */,
 				BAD9261E1849E1F800C1017A /* boat1.png */,
 				BAD9261A184975ED00C1017A /* water4.png */,
-				BAD9260A1849747A00C1017A /* PlayPause */,
 				BAC875FB18459C04001B2CE4 /* ghosts.png */,
 				BA6131EB1801046500ECF6D6 /* grassTexture.jpg */,
 				F5207096184331060057A846 /* facebook_share.gif */,
@@ -1578,7 +1537,6 @@
 				BA68E5381814AC3000F3F937 /* player_pause40x40.png */,
 				BA68E5331814A9EF00F3F937 /* pause.png */,
 				BA608C4E18361C9F002F09EA /* bonus.png */,
-				BA68E5341814A9EF00F3F937 /* Play.png */,
 				F53576E318134C360003E30F /* levelscreen_final.jpg */,
 				F53576E418134C360003E30F /* POSTER_1.jpg */,
 				F53576D9181338500003E30F /* background.jpg */,
@@ -2068,14 +2026,13 @@
 				BABF0818181779E00014367F /* bubble3.png in Resources */,
 				BA991235180F0DD1001C5562 /* LICENSE_Kazmath.txt in Resources */,
 				BA3FEDF417FEA36100DD2E17 /* h2.jpg in Resources */,
-				BAD926171849747A00C1017A /* player_pause.png in Resources */,
 				BAF0F14C184AB9F300EB9A5B /* SnowBattle.jpg in Resources */,
 				F55302DC17E646CD00D1FD31 /* Default-568h@2x.png in Resources */,
 				BAC875FC18459C04001B2CE4 /* ghosts.png in Resources */,
 				BAB78055183CA517000E1743 /* Black.jpg in Resources */,
-				BAD926191849747A00C1017A /* playbutton.png in Resources */,
 				BA68E5581814B7D900F3F937 /* shoveling.mp3 in Resources */,
 				BA508748180BAD970097C021 /* POSTER.jpg in Resources */,
+				BA5FC12A184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50.jpg in Resources */,
 				BA3949D617F2EC450072E0C9 /* hit.caf in Resources */,
 				BA3FEDF817FEA36100DD2E17 /* h7.jpg in Resources */,
 				BAB655EE180117DE0062BE70 /* bug_51x51.png in Resources */,
@@ -2084,10 +2041,10 @@
 				BA3FEDFD17FEA36100DD2E17 /* pew-pew-lei.caf in Resources */,
 				BA608C4F18361C9F002F09EA /* bonus.png in Resources */,
 				F55302DE17E646CD00D1FD31 /* Default-Landscape~ipad.png in Resources */,
-				BAD926161849747A00C1017A /* Play.png in Resources */,
 				F55302E017E646CD00D1FD31 /* Icon-72.png in Resources */,
 				BA3FEDF617FEA36100DD2E17 /* h4.jpg in Resources */,
 				BA991233180F0DD1001C5562 /* LICENSE_cocos2d.txt in Resources */,
+				BA5FC12F184B478800CDF20E /* jumpFailed.mp3 in Resources */,
 				BABF0816181777AF0014367F /* bubble2.png in Resources */,
 				F55302E217E646CD00D1FD31 /* Icon-Small-50.png in Resources */,
 				F55302E417E646CD00D1FD31 /* Icon-Small.png in Resources */,
@@ -2096,11 +2053,11 @@
 				F55302E617E646CD00D1FD31 /* Icon-Small@2x.png in Resources */,
 				BA3FEDD617FE893800DD2E17 /* Raycast.m4a in Resources */,
 				BA3FEDDC17FE986800DD2E17 /* grey.jpg in Resources */,
+				BA5FC12D184B460C00CDF20E /* JumpMusicMp3.mp3 in Resources */,
 				F55302E817E646CD00D1FD31 /* Icon.png in Resources */,
 				BABF081A18177DAB0014367F /* bubble4.png in Resources */,
 				F55302EA17E646CD00D1FD31 /* Icon@2x.png in Resources */,
 				BA3FEDFC17FEA36100DD2E17 /* move.caf in Resources */,
-				BAD926141849747A00C1017A /* pause1-150x150.png in Resources */,
 				BA3FEDF717FEA36100DD2E17 /* h6.jpg in Resources */,
 				F55302ED17E646CD00D1FD31 /* iTunesArtwork in Resources */,
 				BA68E53D1814AEDC00F3F937 /* HyperPlayer_40x40.png in Resources */,
@@ -2114,6 +2071,7 @@
 				BA6131EC1801046500ECF6D6 /* grassTexture.jpg in Resources */,
 				BA3FEDFA17FEA36100DD2E17 /* background-music-aac.caf in Resources */,
 				BAB7805B183CA6C3000E1743 /* bonusMap_new.tmx in Resources */,
+				BA5FC12B184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50(2).jpg in Resources */,
 				F5CCB29717E6965000D56915 /* player.jpg in Resources */,
 				BA991226180F0DD1001C5562 /* CMakeLists.txt in Resources */,
 				BA3FEDF517FEA36100DD2E17 /* h3.jpg in Resources */,
@@ -2134,8 +2092,6 @@
 				F53576DF181338500003E30F /* level.png in Resources */,
 				BA68E5501814B7D900F3F937 /* GameWonPng.png in Resources */,
 				F53576E0181338500003E30F /* life.png in Resources */,
-				BA68E5361814A9EF00F3F937 /* Play.png in Resources */,
-				BAD926151849747A00C1017A /* Play.png in Resources */,
 				F53576E518134C360003E30F /* levelscreen_final.jpg in Resources */,
 				BA45C40A183B1AB200818656 /* monster-hd.png in Resources */,
 				BA68E53E1814AEDC00F3F937 /* NormalPlayer_40x40.png in Resources */,
@@ -2168,7 +2124,6 @@
 				F520702D184328450057A846 /* big_tile.tmx in Resources */,
 				F520708B18432CDE0057A846 /* FBDialog.bundle in Resources */,
 				F5207097184331060057A846 /* facebook_share.gif in Resources */,
-				BAD926181849747A00C1017A /* pause-button1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

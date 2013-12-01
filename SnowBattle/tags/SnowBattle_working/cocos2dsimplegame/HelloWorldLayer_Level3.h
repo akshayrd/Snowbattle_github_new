@@ -95,6 +95,7 @@
     CCSprite *boat_1;
     CCSprite *boat_2;
     CCSprite *boat_3;
+    Boolean down;
     
     int playerDirection ;
     int randomPos;
@@ -114,6 +115,7 @@
     CCSprite * monster13;
     int c;
     int immunePowerUp;
+    int  nextBoatToGo;
     
 }
 

@@ -176,14 +176,14 @@
         [menu8 alignItemsVerticallyWithPadding:15];
         [self addChild:menu8];
         
-        menuItem4 = [CCMenuItemImage itemWithNormalImage:@"try1.gif"
-                                           selectedImage:@"try1.gif"
+        menuItem4 = [CCMenuItemImage itemWithNormalImage:@"NormalPlayer_150x150.png"
+                                           selectedImage:@"NormalPlayer_150x150.png"
                                                   target:self selector:@selector(addToCartPlayer:)];
         //menuItem2.position=ccp(800,300);
         powerupList=[[NSMutableArray alloc] initWithCapacity:3];
         powerupList[0]=[NSString stringWithFormat:@"1"];
         powerupList[1]=[NSString stringWithFormat:@"0"];
-        powerupList[2]=[NSString stringWithFormat:@"try1.gif"];
+        powerupList[2]=[NSString stringWithFormat:@"NormalPlayer_150x150.png"];
         menuItem4.userData=powerupList;
         CCMenu *menu10 = [CCMenu menuWithItems: menuItem4, nil];
         menu10.position=ccp(700,210);
@@ -212,18 +212,18 @@
         powerupList[2]=[NSString stringWithFormat:@"player2.png"];
         menuItem5.userData=powerupList;
         CCMenu *menu11 = [CCMenu menuWithItems: menuItem5, nil];
-        menu11.position=ccp(800,210);
+        menu11.position=ccp(900,210);
         [menu11 alignItemsVerticallyWithPadding:15];
         [self addChild:menu11];
         
         CCMenuItemFont *player2Points = [CCMenuItemFont itemWithString:[NSString stringWithFormat:@"%d", player2cost]];
         player2Points.color=ccORANGE;
         CCMenu *menu13 = [CCMenu menuWithItems: player2Points, nil];
-        menu13.position=ccp(800,110);
+        menu13.position=ccp(880,110);
         [menu13 alignItemsVerticallyWithPadding:15];
         [self addChild:menu13];
         
-        menuItem7 = [CCMenuItemImage itemWithNormalImage:@"player3.gif"
+        /*menuItem7 = [CCMenuItemImage itemWithNormalImage:@"player3.gif"
                                            selectedImage:@"player3.gif"
                                             disabledImage:@"big_lock.png" 
                                                   target:self selector:@selector(addToCartPlayer:)];
@@ -247,7 +247,7 @@
         CCMenu *menu18 = [CCMenu menuWithItems: player3Points, nil];
         menu18.position=ccp(900,110);
         [menu18 alignItemsVerticallyWithPadding:15];
-        [self addChild:menu18];
+        [self addChild:menu18];*/
         
         
         CCMenuItemFont *selectPlayer = [CCMenuItemFont itemWithString:@"Select Level"
@@ -441,24 +441,6 @@
         menuItem5.position=ccp(800-dx,300-dy);
         [menuItem4 setScale:1];
         [menuItem7 setScale:1];
-    }
-    else if(playerSelectCheck==3)
-    {
-        if(remainingTimeBonus>0)
-        {
-            playerCount++;
-        }
-        player3=true;
-        [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"Shop_PlayerImage"];
-        player1=false;
-        player2=false;
-        [menuItem7 setScale:2];
-        //menuItem2.position=ccp(800/2+40,300*1.5);
-        double dx=(800*2-800);
-        double dy=(300*2-300);
-        menuItem7.position=ccp(800-dx,300-dy);
-        [menuItem4 setScale:1];
-        [menuItem5 setScale:1];
     }
     
     CCMenuItemImage *menuItem9 = [CCMenuItemImage itemWithNormalImage:[NSString stringWithFormat:@"%s",playerSelectImageName]
