@@ -106,7 +106,7 @@
     CGPoint bonusPointsLocation[5];
     bool isBonusDisplayed;
     int bonusIndex;
-    
+    CCSprite *temp;
     int currentLevelScore;
     int totalScore;
     

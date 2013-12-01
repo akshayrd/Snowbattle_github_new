@@ -40,6 +40,615 @@
     
 }
 
+- (void) moveSensingMonster1  // every 1 sec called
+{
+    // Get player pos
+    // get current pos
+    //check diffx > diffy
+    // move 1 tile to diffx
+    
+    //CGSize winSize = [CCDirector sharedDirector].winSize;
+    
+    
+    BOOL corner = NO;
+    
+    CGPoint p_pos = player.position;
+    CGPoint m_pos = planeMonster1.position;
+    
+    int diff_x = m_pos.x - p_pos.x;
+    int diff_y = m_pos.y - p_pos.y;
+    int new_x = m_pos.x, new_y= m_pos.y;
+    if (abs(diff_x) > abs(diff_y))
+    {
+        if (diff_x > 0) {
+            new_x = m_pos.x - 50;
+        }
+        else
+        {
+            new_x = m_pos.x + 50;
+        }
+    }
+    else
+    {
+        if (diff_y > 0) {
+            new_y = m_pos.y - 50;
+        }
+        else
+        {
+            new_y = m_pos.y + 50;
+        }
+        
+    }
+    CGPoint actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    CGPoint realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    
+    CGPoint tileCoord = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    //NSLog(@"%f %f",tileCoord.x,tileCoord.y);
+    
+    int tileGid = [building tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+//        if (properties) {
+//            NSString *collision = properties[@"Collidable"];
+//            if (collision && [collision isEqualToString:@"True"]) {
+                corner = YES;
+                if (abs(diff_x) < abs(diff_y))
+                {
+                    if (diff_x > 0) {
+                        new_x = m_pos.x - 50;
+                        new_y = m_pos.y;
+                        
+                    }
+                    else
+                    {
+                        new_x = m_pos.x + 50;
+                        new_y = m_pos.y;
+                    }
+                }
+                else
+                {
+                    if (diff_y > 0) {
+                        new_y = m_pos.y - 50;
+                        new_x = m_pos.x;
+                    }
+                    else
+                    {
+                        new_y = m_pos.y + 50;
+                        new_x = m_pos.x;
+                    }
+                    
+                }
+                
+                
+            }
+            
+//        }
+//        
+//    }
+    
+    actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    
+    tileCoord = [self tileCoordForPosition:realDest];
+    tileGid = [building tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+//        if (properties) {
+//            NSString *collision = properties[@"Collidable"];
+//            if (collision && [collision isEqualToString:@"True"]) {
+        return;
+        
+            }
+            
+//        }
+//        
+//    }
+    
+    //tileCoord = [self tileCoordForPosition:position];
+    tileGid = [border tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collision = properties[@"Collidable"];
+            if (collision && [collision isEqualToString:@"True"]) {
+                if (corner == YES) {
+                    return;
+                }
+                else
+                    corner = NO;
+                
+                if (abs(diff_x) < abs(diff_y))
+                {
+                    if (diff_x > 0) {
+                        new_x = m_pos.x + 50;
+                        new_y = m_pos.y;
+                    }
+                    else
+                    {
+                        new_x = m_pos.x - 50;
+                        new_y = m_pos.y;
+                    }
+                }
+                else
+                {
+                    if (diff_y > 0) {
+                        new_y = m_pos.y + 50;
+                        new_x = m_pos.x;
+                    }
+                    else
+                    {
+                        new_y = m_pos.y - 50;
+                        new_x = m_pos.x;
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    
+    float realMoveDuration = 1;
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+    
+    [planeMonster1 runAction: [CCSequence actions: actionMove, nil]];
+    //monster5.position = realDest;
+    
+}
+
+- (void) moveSensingMonster2  // every 1 sec called
+{
+    // Get player pos
+    // get current pos
+    //check diffx > diffy
+    // move 1 tile to diffx
+    
+    //CGSize winSize = [CCDirector sharedDirector].winSize;
+    
+    
+    BOOL corner = NO;
+    
+    CGPoint p_pos = player.position;
+    CGPoint m_pos = planeMonster2.position;
+    
+    int diff_x = m_pos.x - p_pos.x;
+    int diff_y = m_pos.y - p_pos.y;
+    int new_x = m_pos.x, new_y= m_pos.y;
+    if (abs(diff_x) > abs(diff_y))
+    {
+        if (diff_x > 0) {
+            new_x = m_pos.x - 50;
+        }
+        else
+        {
+            new_x = m_pos.x + 50;
+        }
+    }
+    else
+    {
+        if (diff_y > 0) {
+            new_y = m_pos.y - 50;
+        }
+        else
+        {
+            new_y = m_pos.y + 50;
+        }
+        
+    }
+    CGPoint actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    CGPoint realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    
+    CGPoint tileCoord = [self tileCoordForPosition:realDest];
+    
+    //NSLog(@"%f %f",tileCoord.x,tileCoord.y);
+    
+    int tileGid = [building tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+//        if (properties) {
+//            NSString *collision = properties[@"Collidable"];
+//            if (collision && [collision isEqualToString:@"True"]) {
+                corner = YES;
+                if (abs(diff_x) < abs(diff_y))
+                {
+                    if (diff_x > 0) {
+                        new_x = m_pos.x - 50;
+                        new_y = m_pos.y;
+                        
+                    }
+                    else
+                    {
+                        new_x = m_pos.x + 50;
+                        new_y = m_pos.y;
+                    }
+                }
+                else
+                {
+                    if (diff_y > 0) {
+                        new_y = m_pos.y - 50;
+                        new_x = m_pos.x;
+                    }
+                    else
+                    {
+                        new_y = m_pos.y + 50;
+                        new_x = m_pos.x;
+                    }
+                    
+                }
+                
+                
+            }
+            
+//        }
+//        
+//    }
+    
+    actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    tileCoord = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    
+    tileGid = [building tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+//        if (properties) {
+//            NSString *collision = properties[@"Collidable"];
+//            if (collision && [collision isEqualToString:@"True"]) {
+        
+        return;
+        
+            }
+            
+//        }
+//        
+//    }
+    
+    //tileCoord = [self tileCoordForPosition:position];
+    tileGid = [border tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collision = properties[@"Collidable"];
+            if (collision && [collision isEqualToString:@"True"]) {
+                if (corner == YES) {
+                    return;
+                }
+                else
+                    corner = NO;
+                
+                if (abs(diff_x) < abs(diff_y))
+                {
+                    if (diff_x > 0) {
+                        new_x = m_pos.x + 50;
+                        new_y = m_pos.y;
+                    }
+                    else
+                    {
+                        new_x = m_pos.x - 50;
+                        new_y = m_pos.y;
+                    }
+                }
+                else
+                {
+                    if (diff_y > 0) {
+                        new_y = m_pos.y + 50;
+                        new_x = m_pos.x;
+                    }
+                    else
+                    {
+                        new_y = m_pos.y - 50;
+                        new_x = m_pos.x;
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    
+    float realMoveDuration = 1;
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+    
+    [planeMonster2 runAction: [CCSequence actions: actionMove, nil]];
+    //monster5.position = realDest;
+    
+}
+
+- (void) moveSensingMonster3  // every 1 sec called
+{
+    // Get player pos
+    // get current pos
+    //check diffx > diffy
+    // move 1 tile to diffx
+    
+    //CGSize winSize = [CCDirector sharedDirector].winSize;
+    
+    
+    BOOL corner = NO;
+    
+    CGPoint p_pos = player.position;
+    CGPoint m_pos = planeMonster3.position;
+    
+    int diff_x = m_pos.x - p_pos.x;
+    int diff_y = m_pos.y - p_pos.y;
+    int new_x = m_pos.x, new_y= m_pos.y;
+    if (abs(diff_x) > abs(diff_y))
+    {
+        if (diff_x > 0) {
+            new_x = m_pos.x - 50;
+        }
+        else
+        {
+            new_x = m_pos.x + 50;
+        }
+    }
+    else
+    {
+        if (diff_y > 0) {
+            new_y = m_pos.y - 50;
+        }
+        else
+        {
+            new_y = m_pos.y + 50;
+        }
+        
+    }
+    CGPoint actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    CGPoint realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    
+    CGPoint tileCoord = [self tileCoordForPosition:realDest];
+    
+    //NSLog(@"%f %f",tileCoord.x,tileCoord.y);
+    
+    int tileGid = [building tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+//        if (properties) {
+//            NSString *collision = properties[@"Collidable"];
+//            if (collision && [collision isEqualToString:@"True"]) {
+                corner = YES;
+                if (abs(diff_x) < abs(diff_y))
+                {
+                    if (diff_x > 0) {
+                        new_x = m_pos.x - 50;
+                        new_y = m_pos.y;
+                        
+                    }
+                    else
+                    {
+                        new_x = m_pos.x + 50;
+                        new_y = m_pos.y;
+                    }
+                }
+                else
+                {
+                    if (diff_y > 0) {
+                        new_y = m_pos.y - 50;
+                        new_x = m_pos.x;
+                    }
+                    else
+                    {
+                        new_y = m_pos.y + 50;
+                        new_x = m_pos.x;
+                    }
+                    
+                }
+                
+                
+            }
+            
+//        }
+//        
+//    }
+    
+    actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    
+    tileCoord = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    tileGid = [building tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+//        if (properties) {
+//            NSString *collision = properties[@"Collidable"];
+//            if (collision && [collision isEqualToString:@"True"]) {
+        
+        return;
+        
+            }
+            
+//        }
+//        
+//    }
+    
+    //tileCoord = [self tileCoordForPosition:position];
+    tileGid = [border tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collision = properties[@"Collidable"];
+            if (collision && [collision isEqualToString:@"True"]) {
+                if (corner == YES) {
+                    return;
+                }
+                else
+                    corner = NO;
+                
+                if (abs(diff_x) < abs(diff_y))
+                {
+                    if (diff_x > 0) {
+                        new_x = m_pos.x + 50;
+                        new_y = m_pos.y;
+                    }
+                    else
+                    {
+                        new_x = m_pos.x - 50;
+                        new_y = m_pos.y;
+                    }
+                }
+                else
+                {
+                    if (diff_y > 0) {
+                        new_y = m_pos.y + 50;
+                        new_x = m_pos.x;
+                    }
+                    else
+                    {
+                        new_y = m_pos.y - 50;
+                        new_x = m_pos.x;
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    
+    float realMoveDuration = 1;
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+    
+    [planeMonster3 runAction: [CCSequence actions: actionMove, nil]];
+    //monster5.position = realDest;
+    
+}
+
+- (void) moveSensingMonster4  // every 1 sec called
+{
+    // Get player pos
+    // get current pos
+    //check diffx > diffy
+    // move 1 tile to diffx
+    
+    //CGSize winSize = [CCDirector sharedDirector].winSize;
+    
+    
+    BOOL corner = NO;
+    
+    CGPoint p_pos = player.position;
+    CGPoint m_pos = planeMonster4.position;
+    
+    int diff_x = m_pos.x - p_pos.x;
+    int diff_y = m_pos.y - p_pos.y;
+    int new_x = m_pos.x, new_y= m_pos.y;
+    if (abs(diff_x) > abs(diff_y))
+    {
+        if (diff_x > 0) {
+            new_x = m_pos.x - 50;
+        }
+        else
+        {
+            new_x = m_pos.x + 50;
+        }
+    }
+    else
+    {
+        if (diff_y > 0) {
+            new_y = m_pos.y - 50;
+        }
+        else
+        {
+            new_y = m_pos.y + 50;
+        }
+        
+    }
+    CGPoint actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    CGPoint realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    
+    CGPoint tileCoord = [self tileCoordForPosition:realDest];
+    
+    //NSLog(@"%f %f",tileCoord.x,tileCoord.y);
+    
+    int tileGid = [building tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+//        if (properties) {
+//            NSString *collision = properties[@"Collidable"];
+//            if (collision && [collision isEqualToString:@"True"]) {
+                corner = YES;
+                if (abs(diff_x) < abs(diff_y))
+                {
+                    if (diff_x > 0) {
+                        new_x = m_pos.x - 50;
+                        new_y = m_pos.y;
+                        
+                    }
+                    else
+                    {
+                        new_x = m_pos.x + 50;
+                        new_y = m_pos.y;
+                    }
+                }
+                else
+                {
+                    if (diff_y > 0) {
+                        new_y = m_pos.y - 50;
+                        new_x = m_pos.x;
+                    }
+                    else
+                    {
+                        new_y = m_pos.y + 50;
+                        new_x = m_pos.x;
+                    }
+                    
+                }
+                
+                
+            }
+            
+//        }
+//        
+//    }
+    
+    actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    tileCoord = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    
+    tileGid = [building tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+//        if (properties) {
+//            NSString *collision = properties[@"Collidable"];
+//            if (collision && [collision isEqualToString:@"True"]) {
+//                
+        return;
+        
+            }
+            
+//        }
+//        
+//    }
+//
+    
+    actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    
+    float realMoveDuration = 1;
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+    
+    [planeMonster4 runAction: [CCSequence actions: actionMove, nil]];
+    //monster5.position = realDest;
+    
+}
+
 - (void) Monster1move:(ccTime)dt
 {
     
@@ -238,15 +847,15 @@ CCSprite* PowerLabel;
     int tileGid = [building tileGIDAt:tileCoord];
     if (tileGid) {
         NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
-        if (properties) {
-            NSString *collision = properties[@"Collidable"];
-            if (collision && [collision isEqualToString:@"True"]) {
-                return;
+//        if (properties) {
+//            NSString *collision = properties[@"Collidable"];
+//            if (collision && [collision isEqualToString:@"True"]) {
+        return;
             }
-            
-        }
-        
-    }
+//            
+//        }
+//        
+//    }
     
     tileCoord = [self tileCoordForPosition:position];
     tileGid = [border tileGIDAt:tileCoord];
@@ -644,27 +1253,27 @@ CCSprite* PowerLabel;
         planePointsLocation[3] = planeInitialX+100+100+100;
         planePointsLocation[4] = planeInitialX+100+100+100+100;
         
-        planeMonster1 = [CCSprite spriteWithFile:@"monster-hd.png"];
+        planeMonster1 = [CCSprite spriteWithFile:@"ghosts.png"];
         planeMonster1.position = ccp(planePointsLocation[0], winSize.height-500);
         [self addChild:planeMonster1];
         planeMonster1.visible=false;
         
-        planeMonster2 = [CCSprite spriteWithFile:@"monster-hd.png"];
+        planeMonster2 = [CCSprite spriteWithFile:@"ghosts.png"];
         planeMonster2.position = ccp(planePointsLocation[1], winSize.height-400);
         [self addChild:planeMonster2];
         planeMonster2.visible=false;
         
-        planeMonster3 = [CCSprite spriteWithFile:@"monster-hd.png"];
+        planeMonster3 = [CCSprite spriteWithFile:@"ghosts.png"];
         planeMonster3.position = ccp(planePointsLocation[2], winSize.height-100);
         [self addChild:planeMonster3];
         planeMonster3.visible=false;
         
-        planeMonster4 = [CCSprite spriteWithFile:@"monster-hd.png"];
+        planeMonster4 = [CCSprite spriteWithFile:@"ghosts.png"];
         planeMonster4.position = ccp(planePointsLocation[3], winSize.height-200);
         [self addChild:planeMonster4];
         planeMonster4.visible=false;
         
-        planeMonster5 = [CCSprite spriteWithFile:@"monster-hd.png"];
+        planeMonster5 = [CCSprite spriteWithFile:@"ghosts.png"];
         planeMonster5.position = ccp(planePointsLocation[4], winSize.height-300);
         [self addChild:planeMonster5];
         planeMonster5.visible=false;
@@ -857,22 +1466,26 @@ CCSprite* PowerLabel;
             if((CGRectIntersectsRect([planeMonster1 boundingBox], [plane boundingBox])))
             {
                 planeMonster1.visible=true;
+                temp = planeMonster1;
+                [self schedule:@selector(moveSensingMonster1) interval:1];
             }
             else if((CGRectIntersectsRect([planeMonster2 boundingBox], [plane boundingBox])))
             {
                 planeMonster2.visible=true;
+                temp = planeMonster2;
+                [self schedule:@selector(moveSensingMonster2) interval:1];
             }
             else if((CGRectIntersectsRect([planeMonster3 boundingBox], [plane boundingBox])))
             {
                 planeMonster3.visible=true;
+                temp = planeMonster3;
+                [self schedule:@selector(moveSensingMonster3) interval:1];
             }
             else if((CGRectIntersectsRect([planeMonster4 boundingBox], [plane boundingBox])))
             {
                 planeMonster4.visible=true;
-            }
-            else if((CGRectIntersectsRect([planeMonster5 boundingBox], [plane boundingBox])))
-            {
-                planeMonster5.visible=true;
+                temp = planeMonster4;
+                [self schedule:@selector(moveSensingMonster4) interval:1];
             }
         }
         

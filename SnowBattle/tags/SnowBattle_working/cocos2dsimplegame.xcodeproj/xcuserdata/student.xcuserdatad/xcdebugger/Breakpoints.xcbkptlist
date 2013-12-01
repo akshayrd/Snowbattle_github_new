@@ -34,12 +34,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "cocos2dsimplegame/HelloWorldLayer_Level3.m"
-         timestampString = "407048706.949127"
+         timestampString = "407556563.062284"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1129"
-         endingLineNumber = "1129"
-         landmarkName = "-movePlaneInitial"
+         startingLineNumber = "1742"
+         endingLineNumber = "1742"
+         landmarkName = "-LevelTimer:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -47,12 +47,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "cocos2dsimplegame/HelloWorldLayer_Level3.m"
-         timestampString = "406973466.597194"
+         timestampString = "407556563.062284"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "532"
-         endingLineNumber = "532"
-         landmarkName = "-setPlayerPosition:"
+         startingLineNumber = "1141"
+         endingLineNumber = "1141"
+         landmarkName = "-initWithPlayer:timeBonus:powerups:playerSelected:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -60,13 +60,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "cocos2dsimplegame/HelloWorldLayer_Level3.m"
-         timestampString = "407048706.949127"
+         timestampString = "407556563.062284"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1067"
-         endingLineNumber = "1067"
-         landmarkName = "-randomPlaneXPos"
-         landmarkType = "5">
+         startingLineNumber = "1680"
+         endingLineNumber = "1680"
+         landmarkName = "@implementation HelloWorldLayer_Level3"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -105,6 +105,97 @@
          startingLineNumber = "39"
          endingLineNumber = "39"
          landmarkName = "-init"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "cocos2dsimplegame/HelloWorldLayer_Level3.m"
+         timestampString = "407556563.062284"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1140"
+         endingLineNumber = "1140"
+         landmarkName = "@implementation HelloWorldLayer_Level3"
+         landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "cocos2dsimplegame/HelloWorldLayer_Level3.m"
+         timestampString = "407556563.062284"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1470"
+         endingLineNumber = "1470"
+         landmarkName = "-planeGetContPosition"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "cocos2dsimplegame/HelloWorldLayer_Level3.m"
+         timestampString = "407555154.268963"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "100"
+         endingLineNumber = "100"
+         landmarkName = "-moveSensingMonster1"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "cocos2dsimplegame/HelloWorldLayer_Level3.m"
+         timestampString = "407555322.40469"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "91"
+         endingLineNumber = "91"
+         landmarkName = "-moveSensingMonster1"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "cocos2dsimplegame/HelloWorldLayer_Level3.m"
+         timestampString = "407555398.544437"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "113"
+         endingLineNumber = "113"
+         landmarkName = "-moveSensingMonster1"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "cocos2dsimplegame/HelloWorldLayer_Level3.m"
+         timestampString = "407555525.018054"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "101"
+         endingLineNumber = "101"
+         landmarkName = "-moveSensingMonster1"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "cocos2dsimplegame/HelloWorldLayer_Level3.m"
+         timestampString = "407555731.036307"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "142"
+         endingLineNumber = "142"
+         landmarkName = "-moveSensingMonster1"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
