@@ -175,11 +175,6 @@
    eJy11TdTw0AQhmGZZApEckGmIJqCTEGmIFOQKcgUZAoyv593i2s0d7rx7fmbeZr9rBtppB0XkiSpQS3qUI+CYlatNCFFM1rQGjAzsd13A4pozOl810k60IkudKMnYJb3zG1oRymn810nGcAghjCMkYCZie1ZetGH/pzOd51kHBOYxBSmM7PUMsv+ziT0vfs619mVzkxC37uvc50dukeh793Xuc4O3SPbNzyKMsYUnets3yxN7Htk+4ZnMIs5Rec6u9KZyTwWsIglLGMFq1hTdJKYe7SODWxiC9vYwS72FJ0k5h7t4wCHOMIxTnCKM0UniblH57jAJa5wjRvc4k7RSWL+H93jAY94wjNe8Io3RSeJuUfv+MAnvvCNH/ziT9FJYuxRdlaN/AO6VlVU
   </data>
  </layer>
- <layer name="Building" width="42" height="16">
-  <data encoding="base64" compression="zlib">
-   eJztlWkOgjAQhZn7X0pxSdyiILigoMbdU/gandiUFloD0R98yUvKdEpfM4XxvIY6aJHntSGfPrEZxgEUQnMogmJoAS2hFZnfp2OE/LFmjRrvYtyD+prcgWHPBPENtIVSKIN20N7Ro4DPaRufamLhF/vWjWu9qkDcp45U3yHl6+07+IqlGvBYflZzbWFP8pqI8jkuPtVxFT5VT4KUynOKMPkr810Ef4OZtOZC+Rxbf7o6V+FTeLq+xQSkz7lB9z/8rl1Qz8bw/Z/84Hy6/1Ji8CH3IIb7lAtFvc3EQTN3ROwEnaU57kGmPW1Z00u2vY3v58Px/jfY8wSk/GqJ
-  </data>
- </layer>
  <layer name="Border" width="42" height="16">
   <data encoding="base64" compression="zlib">
    eJztzsEJAAAMg8BMntm7hI8GPPBvk3Sk7/xk+cnyk+Uny0+Wn6y1z4UO8a83IQ==
@@ -187,7 +182,12 @@
  </layer>
  <layer name="Snow" width="42" height="16">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20LL6AAAOBnCoAAAQ==
+   eJzV09sKwCAMA1D/25/fq5QmzeINhTEmXT3W2to7o08+O3P3kCvLre5RdSI7WzdzurVa7RznVefNc8+cu/szzqGYqj+Vns1iXSfLx+qQxUbfrBOdq1NP5mNvxVnZVWfMdcPJ/j1xj1bk/9vDp5yjzXGib+Z09oKclcd1KoPVBjmUO3ijP18YHz4WoHs=
+  </data>
+ </layer>
+ <layer name="Building" width="42" height="16">
+  <data encoding="base64" compression="zlib">
+   eJztlWkOgjAQhZn7X0pxSdyiILigoMbdU/gandiUFloD0R98yQtlmNLXTGE8r6EOWuR5bcinT2yGcQCF0ByKoBhaQEtoReb36Rghf6yZo8a7GPegviZ3YFgzQXwDbaEUyqAdtHf0KOB92sanmlj4xbp141qvKhDnqSPVd0j5evsOvmKpBjyW79VcW9iTPCeifI6LT3VchU/VkyCl8pwiTP7KfBfB32AmzblQPsfWn67OVfgUnq5vMQHpc27Q/Q+/axfUvTF8/ic/2J/uv5QYfMg9iPsTX10o6m0mDppnR8RO0Fl6xj3ItKYta3rJtrfx+Xw4nv8Ge56lymws
   </data>
  </layer>
  <layer name="DarkBlueTiles" width="42" height="16">
