@@ -80,15 +80,15 @@
         powerupList=[[NSMutableArray alloc] initWithCapacity:2];
         powerupList[0]=[NSString stringWithFormat:@"3"];
         newGame2.userData=powerupList;
-        CCMenuItemFont *newGame3 = [CCMenuItemFont itemWithString:@"Level 4"
-                                                           target:self
-                                                         selector:@selector(showMap:)];
+//        CCMenuItemFont *newGame3 = [CCMenuItemFont itemWithString:@"Level 4"
+//                                                           target:self
+//                                                         selector:@selector(showMap:)];
         [newGame setColor:ccBLUE];
         [newGame1 setColor:ccBLUE];
         [newGame2 setColor:ccBLUE];
-        [newGame3 setColor:ccRED];
+        //[newGame3 setColor:ccRED];
         
-        CCMenu *menu = [CCMenu menuWithItems: newGame, newGame1, newGame2,newGame3, nil];
+        CCMenu *menu = [CCMenu menuWithItems: newGame, newGame1, newGame2, nil];
         menu.position=ccp(140,200);
         [menu alignItemsVerticallyWithPadding:15];
         [self addChild:menu];

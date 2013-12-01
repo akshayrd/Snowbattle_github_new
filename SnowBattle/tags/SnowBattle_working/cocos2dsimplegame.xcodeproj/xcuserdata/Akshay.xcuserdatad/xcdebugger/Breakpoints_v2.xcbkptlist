@@ -105,22 +105,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "cocos2dsimplegame/LevelSelectLayer.m"
-            timestampString = "405422885.307772"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "-initW:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "cocos2dsimplegame/BonusStage.m"
             timestampString = "406277842.11741"
             startingColumnNumber = "9223372036854775807"
@@ -493,7 +477,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "412"
             endingLineNumber = "412"
-            landmarkName = "-setPlayerPosition:"
+            landmarkName = "-moveSensingMonster3"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

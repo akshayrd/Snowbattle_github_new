@@ -954,7 +954,7 @@ CCSprite* PowerLabel;
 {
     //NSLog(@"Time %d",myTime - collideTime );
     
-    if((CGRectIntersectsRect([monster5 boundingBox], [player boundingBox]) || (CGRectIntersectsRect([monster13 boundingBox], [player boundingBox]) && c==0) ||  CGRectIntersectsRect([monster7 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster8 boundingBox], [player boundingBox])) && totalTime - collideTime >= immuneDuration && bonusStageRunning == NO)
+    if(((CGRectIntersectsRect([monster13 boundingBox], [player boundingBox]) && c==0) ||  CGRectIntersectsRect([monster7 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster8 boundingBox], [player boundingBox])) && totalTime - collideTime >= immuneDuration && bonusStageRunning == NO)
         
     {
         collideTime = totalTime;
@@ -1082,7 +1082,7 @@ CCSprite* PowerLabel;
         
         
         
-        [self addChild:monster5];
+        //[self addChild:monster5];
         screenSize2 = [CCDirector sharedDirector].winSize;
         
         
@@ -1156,7 +1156,7 @@ CCSprite* PowerLabel;
         
         [self schedule:@selector(checkCollisionWithMonster)];
         [self schedule:@selector(ShowBonuStageImage) ];
-        [self schedule:@selector(moveSensingMonster) interval:1];
+        //[self schedule:@selector(moveSensingMonster) interval:1];
         
         myTime = 0;
         
