@@ -193,6 +193,25 @@
     
     realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
     
+    tileCoord = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    
+    tileGid = [riverLayer tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        //        if (properties) {
+        //            NSString *collision = properties[@"Collidable"];
+        //            if (collision && [collision isEqualToString:@"True"]) {
+        
+        return;
+        
+    }
+    
+    //        }
+    //
+    //    }
+
+    
     float realMoveDuration = 1;
     id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
     
@@ -355,6 +374,27 @@
     actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
     
     realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    
+    
+    
+    tileCoord = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    
+    tileGid = [riverLayer tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        //        if (properties) {
+        //            NSString *collision = properties[@"Collidable"];
+        //            if (collision && [collision isEqualToString:@"True"]) {
+        
+        return;
+        
+    }
+    
+    //        }
+    //
+    //    }
+
     
     float realMoveDuration = 1;
     id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
@@ -519,6 +559,25 @@
     
     realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
     
+    tileCoord = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    
+    tileGid = [riverLayer tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        //        if (properties) {
+        //            NSString *collision = properties[@"Collidable"];
+        //            if (collision && [collision isEqualToString:@"True"]) {
+        
+        return;
+        
+    }
+    
+    //        }
+    //
+    //    }
+
+    
     float realMoveDuration = 1;
     id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
     
@@ -640,6 +699,25 @@
     actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
     
     realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    
+    tileCoord = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    
+    tileGid = [riverLayer tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        //        if (properties) {
+        //            NSString *collision = properties[@"Collidable"];
+        //            if (collision && [collision isEqualToString:@"True"]) {
+        
+        return;
+        
+    }
+    
+    //        }
+    //
+    //    }
+
     
     float realMoveDuration = 1;
     id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
@@ -841,8 +919,6 @@ CCSprite* PowerLabel;
 -(void)setPlayerPosition:(CGPoint)position {
     CGPoint tileCoord = [self tileCoordForPosition:position];
     
-    //NSLog(@"%f %f",tileCoord.x,tileCoord.y);
-    
     
     int tileGid = [building tileGIDAt:tileCoord];
     if (tileGid) {
@@ -1008,14 +1084,14 @@ CCSprite* PowerLabel;
     
     tileGid = [riverLayer tileGIDAt:tileCoord];
     if (tileGid) {
-        NSLog(@"Heree000 (%f,%f)",player.position.x,player.position.y);
+        //NSLog(@"Heree000 (%f,%f)",player.position.x,player.position.y);
         /*NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
          if (properties) {
          NSLog(@"Heree111");
          NSString *collision = properties[@"River"];
          if (collision && [collision isEqualToString:@"True"]) {*/
-        //[hud lifeItemsDelete:lifeCount];
-        //lifeCount--;
+        [hud lifeItemsDelete:lifeCount];
+        lifeCount--;
         if (lifeCount < 0) {
             lifeCount = 2;
             [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+totalScore forKey:@"Score"];
@@ -1097,7 +1173,7 @@ CCSprite* PowerLabel;
 {
     //NSLog(@"Time %d",myTime - collideTime );
     
-    if( (CGRectIntersectsRect([monster5 boundingBox], [player boundingBox]) && totalTime - collideTime >= immuneDuration )) //|| (CGRectIntersectsRect([monster13 boundingBox], [player boundingBox]) && c==0) ||  CGRectIntersectsRect([monster7 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster8 boundingBox], [player boundingBox])) && totalTime - collideTime >= immuneDuration && bonusStageRunning == NO)
+    if( ( (CGRectIntersectsRect([monster5 boundingBox], [player boundingBox] ) || (CGRectIntersectsRect([planeMonster1 boundingBox], [player boundingBox]) && planeMonster1.visible==TRUE ) ||  (CGRectIntersectsRect([planeMonster2 boundingBox], [player boundingBox]) && planeMonster2.visible==TRUE ) || (CGRectIntersectsRect([planeMonster3 boundingBox], [player boundingBox]) && planeMonster3.visible==TRUE ) || (CGRectIntersectsRect([planeMonster4 boundingBox], [player boundingBox]) && planeMonster4.visible==TRUE ))&& totalTime - collideTime >= immuneDuration ))
         
     {
         if( immunePowerUp < 1)
@@ -1151,7 +1227,7 @@ CCSprite* PowerLabel;
         bonusStageRunning = NO;
         bonusRoundPlayed = NO;
         currentLevelScore = 0;
-        
+        randomPos = 0;
         count = 90;
         darkBlueCount = 0;
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"funk.mp3"];
@@ -1247,14 +1323,13 @@ CCSprite* PowerLabel;
         
         [self schedule:@selector(moveBoat3) interval:4 repeat:250 delay:0];
 
-        planePointsLocation[0] = planeInitialX;
-        planePointsLocation[1] = planeInitialX+100;
-        planePointsLocation[2] = planeInitialX+100+100;
-        planePointsLocation[3] = planeInitialX+100+100+100;
-        planePointsLocation[4] = planeInitialX+100+100+100+100;
+        planePointsLocation[2] = 1475;
+        planePointsLocation[0] = planeInitialX+100;
+        planePointsLocation[3] = 1725;
+        planePointsLocation[1] = planeInitialX+100+100+100;
         
         planeMonster1 = [CCSprite spriteWithFile:@"ghosts.png"];
-        planeMonster1.position = ccp(planePointsLocation[0], winSize.height-500);
+        planeMonster1.position = ccp(planePointsLocation[0], 475);
         [self addChild:planeMonster1];
         planeMonster1.visible=false;
         
@@ -1264,7 +1339,7 @@ CCSprite* PowerLabel;
         planeMonster2.visible=false;
         
         planeMonster3 = [CCSprite spriteWithFile:@"ghosts.png"];
-        planeMonster3.position = ccp(planePointsLocation[2], winSize.height-100);
+        planeMonster3.position = ccp(planePointsLocation[2], 375);
         [self addChild:planeMonster3];
         planeMonster3.visible=false;
         
@@ -1272,11 +1347,6 @@ CCSprite* PowerLabel;
         planeMonster4.position = ccp(planePointsLocation[3], winSize.height-200);
         [self addChild:planeMonster4];
         planeMonster4.visible=false;
-        
-        planeMonster5 = [CCSprite spriteWithFile:@"ghosts.png"];
-        planeMonster5.position = ccp(planePointsLocation[4], winSize.height-300);
-        [self addChild:planeMonster5];
-        planeMonster5.visible=false;
         
         plane = [CCSprite spriteWithFile:@"plane.png"];
         plane.scale = 1.0;
@@ -1292,9 +1362,9 @@ CCSprite* PowerLabel;
         [self addChild:_planeShadow];
         _planeShadow.visible=false;
         
-        [self schedule:@selector(movePlaneInitial) interval:15 repeat:100 delay:20];
-        [self schedule:@selector(movePlaneShadowInitial) interval:15 repeat:100 delay:20];
-        [self schedule:@selector(randomPlaneXPos) interval:14 repeat:100 delay:20];
+        [self schedule:@selector(movePlaneInitial) interval:40 repeat:100 delay:20];
+        [self schedule:@selector(movePlaneShadowInitial) interval:40 repeat:100 delay:20];
+        [self schedule:@selector(randomPlaneXPos) interval:39 repeat:100 delay:20];
         [self schedule:@selector(planeGetContPosition) interval:0];
         
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
@@ -1428,34 +1498,20 @@ CCSprite* PowerLabel;
 
 -(void)randomPlaneXPos
 {
-    int randomPos = 0 + arc4random() % (4-0+1);
+
     planeInitialX = planePointsLocation[randomPos];
     planeShadowInitialX = planePointsLocation[randomPos]+5;
     _planeShadow.position=ccp(planePointsLocation[randomPos]+5,745);
     plane.position=ccp(planePointsLocation[randomPos],745+5);
     _planeShadow.visible=false;
     plane.visible=false;
+    randomPos++;
 }
 
 -(void) planeGetContPosition
 {
     if(planeMoveFlag==true && plane.position.y>=40)
     {
-        
-        CGPoint tileCoord = [self tileCoordForPosition:plane.position];
-        
-        int tileGid = [snow tileGIDAt:tileCoord];
-        if (tileGid) {
-            if ([snow tileAt:tileCoord].visible == NO) {
-                [snow tileAt:tileCoord].visible = YES;
-                currentLevelScore--;
-                [hud numCollectedChanged:currentLevelScore+totalScore];
-                
-                NSLog(@"Current Score:%d",currentLevelScore);
-                NSLog(@"winscore Score:%d",winScore);
-            }
-            
-        }
         
         if( (CGRectIntersectsRect([planeMonster1 boundingBox], [plane boundingBox])) ||
            (CGRectIntersectsRect([planeMonster2 boundingBox], [plane boundingBox])) ||
@@ -1490,7 +1546,7 @@ CCSprite* PowerLabel;
         }
         
         
-        NSLog(@"Plane pos: (%f,%f)",plane.position.x,plane.position.y);
+       // NSLog(@"Plane pos: (%f,%f)",plane.position.x,plane.position.y);
     }
 }
 

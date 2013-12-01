@@ -79,7 +79,7 @@
     double currentMaxAccelY;
     int planeInitialX;
     int planeShadowInitialX;
-    int planePointsLocation[5];
+    int planePointsLocation[4];
     Boolean planeMoveFlag;
     CCSprite *planeMonster1;
     CCSprite *planeMonster2;
@@ -97,7 +97,7 @@
     CCSprite *boat_3;
     
     int playerDirection ;
-    
+    int randomPos;
     int collideTime;
     int immuneDuration;
     CCLabelTTF *timeLabelBlue;
