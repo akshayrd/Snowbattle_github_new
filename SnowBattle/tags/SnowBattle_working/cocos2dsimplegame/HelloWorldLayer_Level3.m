@@ -617,26 +617,26 @@ CCSprite* PowerLabel;
         boat3_InitialX=boat2_InitialX;
         boat3_InitialY=275;
         
-        boat_1 = [CCSprite spriteWithFile:@"boat1.png"];
+        boat_1 = [CCSprite spriteWithFile:@"boat1.jpg"];
         boat_1.position = ccp(boat1_InitialX, boat1_InitialY);
         [self addChild:boat_1];
         //boat_1.visible=false;
         
-        [self schedule:@selector(moveBoat1) interval:1.5 repeat:250 delay:0];
+        [self schedule:@selector(moveBoat1) interval:4 repeat:250 delay:0];
         
-        boat_2 = [CCSprite spriteWithFile:@"boat2.png"];
+        boat_2 = [CCSprite spriteWithFile:@"boat1.jpg"];
         boat_2.position = ccp(boat2_InitialX, boat2_InitialY);
         [self addChild:boat_2];
         //boat_2.visible=false;
         
-        //[self schedule:@selector(moveBoat2)];
+        [self schedule:@selector(moveBoat2) interval:4 repeat:250 delay:2];
         
-        boat_3 = [CCSprite spriteWithFile:@"boat1.png"];
+        boat_3 = [CCSprite spriteWithFile:@"boat1.jpg"];
         boat_3.position = ccp(boat3_InitialX, boat3_InitialY);
         [self addChild:boat_3];
         //boat_3.visible=false;
         
-        //[self schedule:@selector(moveBoat3)];
+        [self schedule:@selector(moveBoat3) interval:4 repeat:250 delay:0];
 
         planePointsLocation[0] = planeInitialX;
         planePointsLocation[1] = planeInitialX+100;
@@ -891,61 +891,57 @@ CCSprite* PowerLabel;
 
 -(void)moveBoat1
 {
-    int realX = boat1_InitialX+75;
+    int realX = boat2_InitialX;
     CGPoint realDest = ccp(realX, boat1_InitialY);
     
-    float realMoveDuration = 100;
+    float realMoveDuration = 4;
+
     
     int realX_Initial = boat1_InitialX;
     CGPoint realDest1 = ccp(realX_Initial, boat1_InitialY);
     
-    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest];
-    id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/5 angle:180];
-    id actionMove1=[CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest1];
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration/2 position:realDest];
+    id actionMove1=[CCMoveTo actionWithDuration:realMoveDuration/2 position:realDest1];
     //NSLog(@"Start Plane Pos: (%f,%f)",plane.position.x,plane.position.y);
     //[[SimpleAudioEngine sharedEngine] playEffect:@"plane_sound.mp3"];
     [boat_1 runAction:
-     [CCSequence actions: actionMove,actionRotate180,actionMove1,nil]];
+     [CCSequence actions: actionMove,actionMove1,nil]];
     // NSLog(@"Last Plane Pos: (%f,%f)",plane.position.x,plane.position.y);
 }
 
 -(void)moveBoat2
 {
-    int realY = boat2_InitialY-75;
+    int realY = boat3_InitialY+50;
     CGPoint realDest = ccp(boat2_InitialX, realY);
     
-    float realMoveDuration = 100;
+    float realMoveDuration = 4;
     
     int realY_Initial = boat2_InitialY;
     CGPoint realDest1 = ccp(boat2_InitialX, realY_Initial);
     
-    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest];
-    id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/5 angle:180];
-    id actionMove1=[CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest1];
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration/2 position:realDest];
+    id actionMove1=[CCMoveTo actionWithDuration:realMoveDuration/2 position:realDest1];
     //NSLog(@"Start Plane Pos: (%f,%f)",plane.position.x,plane.position.y);
     //[[SimpleAudioEngine sharedEngine] playEffect:@"plane_sound.mp3"];
     [boat_2 runAction:
-     [CCSequence actions: actionMove,actionRotate180,actionMove1,nil]];
+     [CCSequence actions: actionMove,actionMove1,nil]];
     // NSLog(@"Last Plane Pos: (%f,%f)",plane.position.x,plane.position.y);
 }
 
 -(void)moveBoat3
 {
-    int realX = boat3_InitialX+75;
+    int realX = boat3_InitialX+150;
     CGPoint realDest = ccp(realX, boat3_InitialY);
     
-    float realMoveDuration = 100;
+    float realMoveDuration = 4;
     
     int realX_Initial = boat3_InitialX;
     CGPoint realDest1 = ccp(realX_Initial, boat3_InitialY);
     
-    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest];
-    id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/5 angle:180];
-    id actionMove1=[CCMoveTo actionWithDuration:realMoveDuration/5 position:realDest1];
-    //NSLog(@"Start Plane Pos: (%f,%f)",plane.position.x,plane.position.y);
-    //[[SimpleAudioEngine sharedEngine] playEffect:@"plane_sound.mp3"];
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration/2 position:realDest];
+    id actionMove1=[CCMoveTo actionWithDuration:realMoveDuration/2 position:realDest1];
     [boat_3 runAction:
-     [CCSequence actions: actionMove,actionRotate180,actionMove1,nil]];
+     [CCSequence actions: actionMove,actionMove1,nil]];
     // NSLog(@"Last Plane Pos: (%f,%f)",plane.position.x,plane.position.y);
 }
 

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="21" height="16" tilewidth="50" tileheight="50">
+ <tileset firstgid="1" name="grassTexture" tilewidth="50" tileheight="50">
+  <image source="grassTexture.jpg" width="590" height="590"/>
+ </tileset>
+ <tileset firstgid="122" name="3" tilewidth="50" tileheight="50" spacing="1" margin="1">
+  <image source="3.jpg" width="128" height="128"/>
+  <tile id="1">
+   <properties>
+    <property name="Collectable" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="126" name="wall2" tilewidth="50" tileheight="50" spacing="1" margin="1">
+  <image source="wall2.jpg" width="100" height="100"/>
+  <tile id="0">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="127" name="h1" tilewidth="50" tileheight="50">
+  <image source="h1.jpg" width="111" height="100"/>
+  <tile id="0">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="131" name="dark-blue" tilewidth="50" tileheight="50">
+  <tileoffset x="0" y="2"/>
+  <image source="dark-blue.jpg" width="800" height="600"/>
+  <tile id="0">
+   <properties>
+    <property name="collectible2x" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="323" name="powerup12" tilewidth="45" tileheight="45">
+  <image source="powerup12.png" width="45" height="45"/>
+  <tile id="0">
+   <properties>
+    <property name="Power_blue" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="324" name="life" tilewidth="45" tileheight="45">
+  <image source="life.png" width="45" height="45"/>
+  <tile id="0">
+   <properties>
+    <property name="lives" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="325" name="HandGernade_45x45" tilewidth="45" tileheight="45">
+  <image source="HandGernade_45x45.png" width="45" height="45"/>
+  <tile id="0">
+   <properties>
+    <property name="Grenade" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="326" name="bonus" tilewidth="40" tileheight="40">
+  <image source="bonus.png" width="43" height="45"/>
+  <tile id="0">
+   <properties>
+    <property name="Bonus" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="327" name="ghostPit" tilewidth="44" tileheight="44">
+  <image source="ghostPit.png" width="45" height="44"/>
+ </tileset>
+ <layer name="Street" width="21" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzt0ykSgDAQBdEkgCOAY4ljc2z3vxwtKSoGMmBAPNM17tdopZRBhBgJdGBLYZEhRyHQSlSo0cAJtBYdegwYBdqEGQtWbKdmPc13d2yhe3xtIxu40dVm/o1e/6M77YmNds3RHn0=
+  </data>
+ </layer>
+ <layer name="Building" width="21" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBg8oBGIm0hQXw/EDVRQQ6obiHUnzG50mhi1hOxGp4lRSw1AangSA6jpPloCYv1OSrwT63dS4p3YtISunhT7CQFi1A2HtAQAkR4hJA==
+  </data>
+ </layer>
+ <layer name="Border" width="21" height="16">
+  <data encoding="base64" compression="zlib">
+   eJyrY2BgqKMBpiagl5l1ONiUmEkpGDVz1ExamjnS0jy1MQASqCRt
+  </data>
+ </layer>
+ <layer name="Snow" width="21" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4C6oJoITI6ZlMjj0kNtd46CkQUAWYgJnQ==
+  </data>
+ </layer>
+ <objectgroup name="Objects" width="21" height="16">
+  <object name="SpawnPoint" x="560" y="409" width="32" height="35"/>
+ </objectgroup>
+</map>

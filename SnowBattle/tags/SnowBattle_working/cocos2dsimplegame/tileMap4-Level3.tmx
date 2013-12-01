@@ -166,41 +166,9 @@
     <property name="River" value="True"/>
    </properties>
   </tile>
-  <tile id="26">
-   <properties>
-    <property name="River" value="True"/>
-   </properties>
-  </tile>
-  <tile id="27">
-   <properties>
-    <property name="River" value="True"/>
-   </properties>
-  </tile>
-  <tile id="28">
-   <properties>
-    <property name="River" value="True"/>
-   </properties>
-  </tile>
-  <tile id="29">
-   <properties>
-    <property name="River" value="True"/>
-   </properties>
-  </tile>
-  <tile id="30">
-   <properties>
-    <property name="River" value="True"/>
-   </properties>
-  </tile>
-  <tile id="31">
-   <properties>
-    <property name="River" value="True"/>
-   </properties>
-  </tile>
-  <tile id="32">
-   <properties>
-    <property name="River" value="True"/>
-   </properties>
-  </tile>
+ </tileset>
+ <tileset firstgid="446" name="snowBattle" tilewidth="50" tileheight="50">
+  <image source="SnowBattle.jpg" width="450" height="291"/>
  </tileset>
  <layer name="Street" width="42" height="16">
   <data encoding="base64" compression="zlib">
@@ -209,7 +177,7 @@
  </layer>
  <layer name="Building" width="42" height="16">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20LL6AAAOBnCoAAAQ==
+   eJztlWkOgjAQhZn7X0pxSdyiILigoMbdU/gandiUFloD0R98yUvKdEpfM4XxvIY6aJHntSGfPrEZxgEUQnMogmJoAS2hFZnfp2OE/LFmjRrvYtyD+prcgWHPBPENtIVSKIN20N7Ro4DPaRufamLhF/vWjWu9qkDcp45U3yHl6+07+IqlGvBYflZzbWFP8pqI8jkuPtVxFT5VT4KUynOKMPkr810Ef4OZtOZC+Rxbf7o6V+FTeLq+xQSkz7lB9z/8rl1Qz8bw/Z/84Hy6/1Ji8CH3IIb7lAtFvc3EQTN3ROwEnaU57kGmPW1Z00u2vY3v58Px/jfY8wSk/GqJ
   </data>
  </layer>
  <layer name="Border" width="42" height="16">

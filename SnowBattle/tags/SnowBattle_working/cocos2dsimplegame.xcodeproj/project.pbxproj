@@ -133,10 +133,12 @@
 		BAD926181849747A00C1017A /* pause-button1.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD926121849747A00C1017A /* pause-button1.png */; };
 		BAD926191849747A00C1017A /* playbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD926131849747A00C1017A /* playbutton.png */; };
 		BAD9261B184975EE00C1017A /* water4.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD9261A184975ED00C1017A /* water4.png */; };
-		BAD9261D184976DC00C1017A /* tileMap4-Level3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BAD9261C184976DC00C1017A /* tileMap4-Level3.tmx */; };
 		BAD9261F1849E1F800C1017A /* boat1.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD9261E1849E1F800C1017A /* boat1.png */; };
 		BAD926211849E2D900C1017A /* boat2.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD926201849E2D900C1017A /* boat2.png */; };
 		BAEB785417FC93A300B9663A /* player2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAEB785317FC93A300B9663A /* player2.jpg */; };
+		BAF0F148184AB58100EB9A5B /* boat1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAF0F147184AB58100EB9A5B /* boat1.jpg */; };
+		BAF0F14A184AB7A700EB9A5B /* tileMap4-Level3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BAF0F149184AB7A700EB9A5B /* tileMap4-Level3.tmx */; };
+		BAF0F14C184AB9F300EB9A5B /* SnowBattle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAF0F14B184AB9F300EB9A5B /* SnowBattle.jpg */; };
 		BAFF85A618372FF400149C47 /* Bonus_hud.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF85A518372FF400149C47 /* Bonus_hud.m */; };
 		BAFF85A81837387300149C47 /* ghostPit.png in Resources */ = {isa = PBXBuildFile; fileRef = BAFF85A71837387300149C47 /* ghostPit.png */; };
 		BAFF85AA1837510000149C47 /* BonusMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BAFF85A91837510000149C47 /* BonusMap.tmx */; };
@@ -604,10 +606,12 @@
 		BAD926121849747A00C1017A /* pause-button1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause-button1.png"; sourceTree = "<group>"; };
 		BAD926131849747A00C1017A /* playbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbutton.png; sourceTree = "<group>"; };
 		BAD9261A184975ED00C1017A /* water4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water4.png; sourceTree = "<group>"; };
-		BAD9261C184976DC00C1017A /* tileMap4-Level3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "tileMap4-Level3.tmx"; sourceTree = "<group>"; };
 		BAD9261E1849E1F800C1017A /* boat1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boat1.png; sourceTree = "<group>"; };
 		BAD926201849E2D900C1017A /* boat2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boat2.png; sourceTree = "<group>"; };
 		BAEB785317FC93A300B9663A /* player2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = player2.jpg; sourceTree = "<group>"; };
+		BAF0F147184AB58100EB9A5B /* boat1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = boat1.jpg; path = Resources/boat1.jpg; sourceTree = "<group>"; };
+		BAF0F149184AB7A700EB9A5B /* tileMap4-Level3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "tileMap4-Level3.tmx"; path = "Resources/tileMap4-Level3.tmx"; sourceTree = "<group>"; };
+		BAF0F14B184AB9F300EB9A5B /* SnowBattle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = SnowBattle.jpg; path = Resources/SnowBattle.jpg; sourceTree = "<group>"; };
 		BAFF85A418372FF400149C47 /* Bonus_hud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bonus_hud.h; sourceTree = "<group>"; };
 		BAFF85A518372FF400149C47 /* Bonus_hud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bonus_hud.m; sourceTree = "<group>"; };
 		BAFF85A71837387300149C47 /* ghostPit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ghostPit.png; path = Resources/ghostPit.png; sourceTree = "<group>"; };
@@ -1508,9 +1512,11 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BAF0F14B184AB9F300EB9A5B /* SnowBattle.jpg */,
+				BAF0F149184AB7A700EB9A5B /* tileMap4-Level3.tmx */,
+				BAF0F147184AB58100EB9A5B /* boat1.jpg */,
 				BAD926201849E2D900C1017A /* boat2.png */,
 				BAD9261E1849E1F800C1017A /* boat1.png */,
-				BAD9261C184976DC00C1017A /* tileMap4-Level3.tmx */,
 				BAD9261A184975ED00C1017A /* water4.png */,
 				BAD9260A1849747A00C1017A /* PlayPause */,
 				BAC875FB18459C04001B2CE4 /* ghosts.png */,
@@ -2048,7 +2054,6 @@
 				F55302DA17E646CD00D1FD31 /* Default@2x.png in Resources */,
 				BA90FCAB182DF58D001D3A61 /* HandGernade_45x45.png in Resources */,
 				BA3FEDE117FE98A000DD2E17 /* 2.jpg in Resources */,
-				BAD9261D184976DC00C1017A /* tileMap4-Level3.tmx in Resources */,
 				BA68E5391814AC3000F3F937 /* Play40x40.png in Resources */,
 				BAFF85AA1837510000149C47 /* BonusMap.tmx in Resources */,
 				BA3FEDFE17FEA36100DD2E17 /* pickup.caf in Resources */,
@@ -2058,6 +2063,7 @@
 				BA991235180F0DD1001C5562 /* LICENSE_Kazmath.txt in Resources */,
 				BA3FEDF417FEA36100DD2E17 /* h2.jpg in Resources */,
 				BAD926171849747A00C1017A /* player_pause.png in Resources */,
+				BAF0F14C184AB9F300EB9A5B /* SnowBattle.jpg in Resources */,
 				F55302DC17E646CD00D1FD31 /* Default-568h@2x.png in Resources */,
 				BAC875FC18459C04001B2CE4 /* ghosts.png in Resources */,
 				BAB78055183CA517000E1743 /* Black.jpg in Resources */,
@@ -2109,6 +2115,7 @@
 				BAB7805F183CCD3E000E1743 /* monster_white.png in Resources */,
 				BA90FCA7182DF0A9001D3A61 /* tileMap3.tmx in Resources */,
 				BAB655F418011D5D0062BE70 /* dark-blue.jpg in Resources */,
+				BAF0F14A184AB7A700EB9A5B /* tileMap4-Level3.tmx in Resources */,
 				BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */,
 				BAD9261F1849E1F800C1017A /* boat1.png in Resources */,
 				BA68E53A1814AC3000F3F937 /* player_pause40x40.png in Resources */,
@@ -2129,6 +2136,7 @@
 				F53576E618134C360003E30F /* POSTER_1.jpg in Resources */,
 				F5F5C6C31820F47C005CD95C /* wall1.jpg in Resources */,
 				3F473CBB1835B8F900D73022 /* fire.png in Resources */,
+				BAF0F148184AB58100EB9A5B /* boat1.jpg in Resources */,
 				F5E9DC6018360090002C145E /* explosion-01.mp3 in Resources */,
 				BAFF85A81837387300149C47 /* ghostPit.png in Resources */,
 				3F703ED91838AC6900309DEB /* shop2.png in Resources */,
