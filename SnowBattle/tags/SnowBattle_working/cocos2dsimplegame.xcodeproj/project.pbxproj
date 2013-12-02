@@ -41,6 +41,7 @@
 		BA5FC12B184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50(2).jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA5FC129184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50(2).jpg */; };
 		BA5FC12D184B460C00CDF20E /* JumpMusicMp3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA5FC12C184B460C00CDF20E /* JumpMusicMp3.mp3 */; };
 		BA5FC12F184B478800CDF20E /* jumpFailed.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA5FC12E184B478800CDF20E /* jumpFailed.mp3 */; };
+		BA5FC131184C10B300CDF20E /* pause_2.png in Resources */ = {isa = PBXBuildFile; fileRef = BA5FC130184C10B300CDF20E /* pause_2.png */; };
 		BA608C4F18361C9F002F09EA /* bonus.png in Resources */ = {isa = PBXBuildFile; fileRef = BA608C4E18361C9F002F09EA /* bonus.png */; };
 		BA6131EC1801046500ECF6D6 /* grassTexture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA6131EB1801046500ECF6D6 /* grassTexture.jpg */; };
 		BA68E5351814A9EF00F3F937 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68E5331814A9EF00F3F937 /* pause.png */; };
@@ -314,6 +315,7 @@
 		BA5FC129184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50(2).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GreenPlayerOnWoodenLog_50x50(2).jpg"; path = "Resources/GreenPlayerOnWoodenLog_50x50(2).jpg"; sourceTree = "<group>"; };
 		BA5FC12C184B460C00CDF20E /* JumpMusicMp3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = JumpMusicMp3.mp3; path = Resources/JumpMusicMp3.mp3; sourceTree = "<group>"; };
 		BA5FC12E184B478800CDF20E /* jumpFailed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = jumpFailed.mp3; path = Resources/jumpFailed.mp3; sourceTree = "<group>"; };
+		BA5FC130184C10B300CDF20E /* pause_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_2.png; sourceTree = "<group>"; };
 		BA608C4E18361C9F002F09EA /* bonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bonus.png; path = libs/bonus.png; sourceTree = "<group>"; };
 		BA6131EB1801046500ECF6D6 /* grassTexture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = grassTexture.jpg; path = Resources/grassTexture.jpg; sourceTree = "<group>"; };
 		BA68E5331814A9EF00F3F937 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/pause.png; sourceTree = "<group>"; };
@@ -1472,6 +1474,7 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA5FC130184C10B300CDF20E /* pause_2.png */,
 				BA5FC12E184B478800CDF20E /* jumpFailed.mp3 */,
 				BA5FC12C184B460C00CDF20E /* JumpMusicMp3.mp3 */,
 				BA5FC128184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50.jpg */,
@@ -2059,6 +2062,7 @@
 				F55302EA17E646CD00D1FD31 /* Icon@2x.png in Resources */,
 				BA3FEDFC17FEA36100DD2E17 /* move.caf in Resources */,
 				BA3FEDF717FEA36100DD2E17 /* h6.jpg in Resources */,
+				BA5FC131184C10B300CDF20E /* pause_2.png in Resources */,
 				F55302ED17E646CD00D1FD31 /* iTunesArtwork in Resources */,
 				BA68E53D1814AEDC00F3F937 /* HyperPlayer_40x40.png in Resources */,
 				BA68E54F1814B7D900F3F937 /* GameLostPng.png in Resources */,

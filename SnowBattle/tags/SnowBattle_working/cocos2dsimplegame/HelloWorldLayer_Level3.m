@@ -89,7 +89,7 @@
     
     int tileGid = [building tileGIDAt:tileCoord];
     if (tileGid) {
-        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        //NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         //        if (properties) {
         //            NSString *collision = properties[@"Collidable"];
         //            if (collision && [collision isEqualToString:@"True"]) {
@@ -135,7 +135,7 @@
     tileCoord = [self tileCoordForPosition:realDest];
     tileGid = [building tileGIDAt:tileCoord];
     if (tileGid) {
-        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        //NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         //        if (properties) {
         //            NSString *collision = properties[@"Collidable"];
         //            if (collision && [collision isEqualToString:@"True"]) {
@@ -198,7 +198,7 @@
     
     tileGid = [riverLayer tileGIDAt:tileCoord];
     if (tileGid) {
-        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        //NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         //        if (properties) {
         //            NSString *collision = properties[@"Collidable"];
         //            if (collision && [collision isEqualToString:@"True"]) {
@@ -269,7 +269,7 @@
     
     int tileGid = [building tileGIDAt:tileCoord];
     if (tileGid) {
-        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+       // NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         //        if (properties) {
         //            NSString *collision = properties[@"Collidable"];
         //            if (collision && [collision isEqualToString:@"True"]) {
@@ -316,7 +316,7 @@
     
     tileGid = [building tileGIDAt:tileCoord];
     if (tileGid) {
-        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        //NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         //        if (properties) {
         //            NSString *collision = properties[@"Collidable"];
         //            if (collision && [collision isEqualToString:@"True"]) {
@@ -382,7 +382,7 @@
     
     tileGid = [riverLayer tileGIDAt:tileCoord];
     if (tileGid) {
-        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        //NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         //        if (properties) {
         //            NSString *collision = properties[@"Collidable"];
         //            if (collision && [collision isEqualToString:@"True"]) {
@@ -453,7 +453,7 @@
     
     int tileGid = [building tileGIDAt:tileCoord];
     if (tileGid) {
-        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+       // NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         //        if (properties) {
         //            NSString *collision = properties[@"Collidable"];
         //            if (collision && [collision isEqualToString:@"True"]) {
@@ -500,7 +500,7 @@
     
     tileGid = [building tileGIDAt:tileCoord];
     if (tileGid) {
-        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        //NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         //        if (properties) {
         //            NSString *collision = properties[@"Collidable"];
         //            if (collision && [collision isEqualToString:@"True"]) {
@@ -564,7 +564,7 @@
     
     tileGid = [riverLayer tileGIDAt:tileCoord];
     if (tileGid) {
-        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        //NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         //        if (properties) {
         //            NSString *collision = properties[@"Collidable"];
         //            if (collision && [collision isEqualToString:@"True"]) {
@@ -635,7 +635,7 @@
     
     int tileGid = [building tileGIDAt:tileCoord];
     if (tileGid) {
-        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+       // NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         //        if (properties) {
         //            NSString *collision = properties[@"Collidable"];
         //            if (collision && [collision isEqualToString:@"True"]) {
@@ -682,7 +682,7 @@
     
     tileGid = [building tileGIDAt:tileCoord];
     if (tileGid) {
-        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        //NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         //        if (properties) {
         //            NSString *collision = properties[@"Collidable"];
         //            if (collision && [collision isEqualToString:@"True"]) {
@@ -705,7 +705,7 @@
     
     tileGid = [riverLayer tileGIDAt:tileCoord];
     if (tileGid) {
-        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        //NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         //        if (properties) {
         //            NSString *collision = properties[@"Collidable"];
         //            if (collision && [collision isEqualToString:@"True"]) {
@@ -933,7 +933,7 @@ CCSprite* PowerLabel;
     
     int tileGid = [building tileGIDAt:tileCoord];
     if (tileGid) {
-        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        //NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         //        if (properties) {
         //            NSString *collision = properties[@"Collidable"];
         //            if (collision && [collision isEqualToString:@"True"]) {
@@ -1076,9 +1076,13 @@ CCSprite* PowerLabel;
             return;
         }
         else if((tileCoord.x==17 && tileCoord.y==5) && (boat_1.position.x >= boat1_InitialX  && boat_1.position.x<=boat1_InitialX+50) && nextBoatToGo == 1) {
+            
             player.visible=false;
+            
             NSLog(@"Hereee");
             player.position=ccp(1025,boat1_InitialY);
+            
+            
             [boat_1 setTexture:[[CCTextureCache sharedTextureCache] addImage:@"GreenPlayerOnWoodenLog_50x50.jpg"]];
             //NSLog(@"DONEEE");
             nextBoatToGo = 2;
@@ -1408,6 +1412,22 @@ CCSprite* PowerLabel;
         
         [self addChild: _tileMap];
         
+        //NSLog(@"powerup %d",[[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp1"]);
+        /* Life Power Up */
+        if(powerupArray[0]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp1"] >=1))
+        {
+           // NSLog(@"life");
+            //lifeItem[3].visible = true;
+            [self schedule:@selector(shopPowerUpIncreaseLife) interval:0 repeat:0 delay:0];
+            
+        }
+        
+        CCRipple3D* ripple = [CCRipple3D  actionWithPosition: riverLayer.position radius:
+                              riverLayer.contentSize.width  waves:10 amplitude:15 grid: ccg(40,40) duration:8.0];
+        
+        CCRepeatForever* repeat = [CCRepeatForever actionWithAction: ripple];
+        [riverLayer runAction: repeat];
+        
         CCParticleRain *p = [[CCParticleRain alloc]initWithTotalParticles:10000];
         [p autorelease];
         p.texture=[[CCTextureCache sharedTextureCache] addImage:@"snowImage.png"];
@@ -1525,13 +1545,13 @@ CCSprite* PowerLabel;
         screenSize2 = [CCDirector sharedDirector].winSize;
         
         // Standard method to pause the game
-        starMenuItem = [CCMenuItemImage itemWithNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame:)];
+       /* starMenuItem = [CCMenuItemImage itemWithNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame:)];
         
         //starMenuItem.position = ccp(870, 25);
         starMenuItem.position = ccp(22, 680);
         CCMenu *starMenu = [CCMenu menuWithItems:starMenuItem, nil];
         starMenu.position = CGPointZero;
-        [self addChild:starMenu];
+        [self addChild:starMenu];*/
         
         /* Ghost Immune PowerUp */
         if(powerupArray[1]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp2"] >=1))
@@ -1555,13 +1575,7 @@ CCSprite* PowerLabel;
          }
          lifeItem[3].visible = false;
          lifeItem[4].visible = false;*/
-        /* Life Power Up */
-        if(powerupArray[0]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp1"] >=1))
-        {
-            //lifeItem[3].visible = true;
-            lifeCount++;
-            [hud lifeItemsAdd:lifeCount];
-        }
+        
         //life = [CCMenu menuWithItems:lifeItem[0],lifeItem[1],lifeItem[2],lifeItem[3],lifeItem[4], nil];
         
         //life.position = CGPointZero;
@@ -1625,6 +1639,12 @@ CCSprite* PowerLabel;
         
     }
     return self;
+}
+
+-(void)shopPowerUpIncreaseLife
+{
+    lifeCount++;
+    [hud lifeItemsAdd:lifeCount];
 }
 
 -(void)randomPlaneXPos
@@ -1832,7 +1852,7 @@ CCSprite* PowerLabel;
     
     if( (CGRectIntersectsRect([monster5 boundingBox], [player boundingBox]) && totalTime - collideTime >= immuneDuration ))
     {
-        /*immunePowerUp = 1;
+         /*immunePowerUp = 1;
          [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
          [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"playerImmune.png"]];*/
     }

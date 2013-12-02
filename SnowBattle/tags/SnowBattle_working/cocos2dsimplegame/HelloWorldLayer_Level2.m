@@ -884,7 +884,7 @@ CCSprite* PowerLabel;
         }
         
     }
-
+    
     tileGid = [grenadeLayer tileGIDAt:tileCoord];
     
     if (tileGid) {
@@ -918,8 +918,8 @@ CCSprite* PowerLabel;
     
     //id actionMove = [CCMoveTo actionWithDuration:0.5 position:position];
     
-//    [player runAction:
-//     [CCSequence actions: actionMove,nil]];
+    //    [player runAction:
+    //     [CCSequence actions: actionMove,nil]];
     
     player.position = position;
     
@@ -1062,10 +1062,10 @@ CCSprite* PowerLabel;
         else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
             player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
         }
-//        else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 3)
-//        {
-//            player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
-//        }
+        //        else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 3)
+        //        {
+        //            player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
+        //        }
         [self spawnPlayer];
         if(player == nil)
         {
@@ -1107,13 +1107,13 @@ CCSprite* PowerLabel;
         
         
         // Standard method to pause the game
-        starMenuItem = [CCMenuItemImage itemWithNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame:)];
-        
-        //starMenuItem.position = ccp(870, 25);
-        starMenuItem.position = ccp(22, 680);
-        CCMenu *starMenu = [CCMenu menuWithItems:starMenuItem, nil];
-        starMenu.position = CGPointZero;
-        [self addChild:starMenu];
+        /*starMenuItem = [CCMenuItemImage itemWithNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame:)];
+         
+         //starMenuItem.position = ccp(870, 25);
+         starMenuItem.position = ccp(22, 680);
+         CCMenu *starMenu = [CCMenu menuWithItems:starMenuItem, nil];
+         starMenu.position = CGPointZero;
+         [self addChild:starMenu];*/
         
         /* Ghost Immune PowerUp */
         if(powerupArray[1]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp2"] >=1))
@@ -1136,23 +1136,22 @@ CCSprite* PowerLabel;
         }
         
         /*for (int i=0; i<5; i++) {
-            lifeItem[i] = [CCMenuItemImage itemWithNormalImage:@"life.png" selectedImage:@"life.png" ];
-            lifeItem[i].position = ccp(22, 600-i*40);
-            lifeItem[i].visible = true;
-        }
-        lifeItem[3].visible = false;
-        lifeItem[4].visible = false;*/
+         lifeItem[i] = [CCMenuItemImage itemWithNormalImage:@"life.png" selectedImage:@"life.png" ];
+         lifeItem[i].position = ccp(22, 600-i*40);
+         lifeItem[i].visible = true;
+         }
+         lifeItem[3].visible = false;
+         lifeItem[4].visible = false;*/
         /* Life Power Up */
         if(powerupArray[0]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp1"] >=1))
         {
             //lifeItem[3].visible = true;
-            [hud lifeItemsAdd:lifeCount];
-            lifeCount++;
+            [self schedule:@selector(shopPowerUpIncreaseLife) interval:0 repeat:0 delay:0];
         }
         /*life = [CCMenu menuWithItems:lifeItem[0],lifeItem[1],lifeItem[2],lifeItem[3],lifeItem[4], nil];
-        
-        life.position = CGPointZero;
-        [self addChild:life];*/
+         
+         life.position = CGPointZero;
+         [self addChild:life];*/
         
         [self schedule:@selector(checkCollisionWithMonster)];
         [self schedule:@selector(ShowBonuStageImage) ];
@@ -1213,6 +1212,13 @@ CCSprite* PowerLabel;
     }
     return self;
 }
+
+-(void)shopPowerUpIncreaseLife
+{
+    lifeCount++;
+    [hud lifeItemsAdd:lifeCount];
+}
+
 - (void) ShowBonuStageImage
 {
     if (bonusRoundPlayed == NO)

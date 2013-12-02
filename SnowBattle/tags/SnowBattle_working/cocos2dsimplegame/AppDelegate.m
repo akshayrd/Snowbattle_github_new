@@ -78,12 +78,18 @@
 	// numberOfSamples: Only valid if multisampling is enabled
 	//  - Possible values: 0 to glGetIntegerv(GL_MAX_SAMPLES_APPLE)
 	CCGLView *glView = [CCGLView viewWithFrame:[window_ bounds]
-								   pixelFormat:kEAGLColorFormatRGB565
-								   depthFormat:0
+								   //pixelFormat:kEAGLColorFormatRGB565
+								   pixelFormat:kEAGLColorFormatRGBA8
+                                   depthFormat:0
+                            preserveBackbuffer:NO
+                                    sharegroup:nil
+                                 multiSampling:NO
+                               numberOfSamples:0];
+                                   /*depthFormat:0
 							preserveBackbuffer:NO
 									sharegroup:nil
 								 multiSampling:NO
-							   numberOfSamples:0];
+							   numberOfSamples:0];*/
 	
 	director_ = (CCDirectorIOS*) [CCDirector sharedDirector];
 	
@@ -96,11 +102,11 @@
 	[director_ setAnimationInterval:1.0/60];
 	
 	// attach the openglView to the director
-	[director_ setView:glView];
+	[director_ setOpenGLView:glView];
 	
 	// 2D projection
-	[director_ setProjection:kCCDirectorProjection2D];
-	//	[director setProjection:kCCDirectorProjection3D];
+	//[director_ setProjection:kCCDirectorProjection2D];
+	[director_ setProjection:kCCDirectorProjection3D];
 	
 	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
 	if( ! [director_ enableRetinaDisplay:NO] )

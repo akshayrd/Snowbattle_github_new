@@ -56,7 +56,7 @@ CCSprite * Bonusmonster8;
 
 - (void) Movemonster2:(ccTime)dt
 {
-    CGSize winSize = [CCDirector sharedDirector].winSize;
+    //CGSize winSize = [CCDirector sharedDirector].winSize;
     int realX = 525;
     int realY = 625;
     CGPoint realDest = ccp(realX, realY);
@@ -104,7 +104,7 @@ CCSprite * Bonusmonster8;
 
 - (void) Movemonster4:(ccTime)dt
 {
-    CGSize winSize = [CCDirector sharedDirector].winSize;
+    //CGSize winSize = [CCDirector sharedDirector].winSize;
     int realX = 775;
     int realY = 225;
     CGPoint realDest = ccp(realX, realY);
@@ -152,7 +152,7 @@ CCSprite * Bonusmonster8;
 
 - (void) Movemonster6:(ccTime)dt
 {
-    CGSize winSize = [CCDirector sharedDirector].winSize;
+    //CGSize winSize = [CCDirector sharedDirector].winSize;
     int realX = 775;
     int realY = 425;
     CGPoint realDest = ccp(realX, realY);
@@ -176,7 +176,7 @@ CCSprite * Bonusmonster8;
 
 - (void) Movemonster7:(ccTime)dt
 {
-    CGSize winSize = [CCDirector sharedDirector].winSize;
+    //CGSize winSize = [CCDirector sharedDirector].winSize;
     int realX = 775;
     int realY = 525;
     CGPoint realDest = ccp(realX, realY);
@@ -200,7 +200,7 @@ CCSprite * Bonusmonster8;
 
 - (void) Movemonster8:(ccTime)dt
 {
-    CGSize winSize = [CCDirector sharedDirector].winSize;
+   // CGSize winSize = [CCDirector sharedDirector].winSize;
     int realX = 775;
     int realY = 625;
     CGPoint realDest = ccp(realX, realY);
@@ -472,7 +472,7 @@ CCSprite *monster9,*monster10, *monster11, *monster12;
         
         playerB = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
         
-        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        //CGSize winSize = [[CCDirector sharedDirector] winSize];
         
         for(CCTMXLayer *child in [_tileMap children])
         {

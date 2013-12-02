@@ -13,6 +13,10 @@
 {
     CCMenuItem *lifeItem[5];
     CCMenu *life;
+    CCMenuItemImage *starMenuItem;
+    CCMenu *pauseResumeMenu;
+    int totalScore;
+    CCMenuItemImage *shopPowerUp2;
     //int lifeCount;
 }
 

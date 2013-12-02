@@ -48,7 +48,7 @@
         int powerup2Cost=20;
         int powerup3Cost=30;
         int player2cost=500;
-        int player3cost=700;
+        //int player3cost=700;
         
         remainingTimeBonus=timeBonus;
         

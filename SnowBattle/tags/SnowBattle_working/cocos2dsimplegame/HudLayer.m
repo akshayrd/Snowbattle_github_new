@@ -1,4 +1,7 @@
 #import "HudLayer.h"
+#import "SimpleAudioEngine.h"
+#import "LevelSelectLayer.h"
+#import "HelloWorldLayer_Level3.h"
 
 @implementation HudLayer
 {
@@ -22,6 +25,27 @@
         //_livesLabel.position = ccp(winSize.width/2 - 2, winSize.height/2 - 20);
         [self addChild:_label];
         
+        
+//        /* Shop PowerUps */
+//        shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png" target:self selector:@selector(GhostImmunePower:)];
+//        shopPowerUp2.position = ccp(22, 600-9*40);
+//        shopPowerUp2.visible = true;
+//        // [self addChild:shopPowerUp2];
+//        CCMenu *menu8 = [CCMenu menuWithItems: shopPowerUp2, nil];
+//        menu8.position=ccp(22, 600-9*40);
+//        [menu8 alignItemsVerticallyWithPadding:15];
+//        [self addChild:menu8];
+//        menu8.visible=false;
+        
+        // Standard method to pause the game
+        starMenuItem = [CCMenuItemImage itemWithNormalImage:@"pause_2.png" selectedImage:@"pause_2.png" target:self selector:@selector(PauseResumeGame:)];
+        
+        //starMenuItem.position = ccp(870, 25);
+        starMenuItem.position = ccp(800, 740);
+        CCMenu *starMenu = [CCMenu menuWithItems:starMenuItem, nil];
+        starMenu.position = CGPointZero;
+        [self addChild:starMenu];
+        
         for (int i=0; i<5; i++) {
             lifeItem[i] = [CCMenuItemImage itemWithNormalImage:@"life.png" selectedImage:@"life.png" ];
             //lifeItem[i].position = ccp(22, 600-i*40);
@@ -41,18 +65,136 @@
     
 }
 
--(void) lifeItemsAdd:(int)lifeCount
-{
-    lifeItem[lifeCount].visible=true;
-}
-
 -(void) lifeItemsDelete:(int)lifeCount
 {
+    //NSLog(@"Life delete: ");
     lifeItem[lifeCount].visible=false;
+}
+
+-(void) lifeItemsAdd:(int)lifeCount
+{
+  //  NSLog(@"COUNtsss %d ",lifeCount);
+    lifeItem[lifeCount].visible=true;
 }
 
 -(void)numCollectedChanged:(int)numCollected
 {
+    totalScore=numCollected;
     _label.string = [NSString stringWithFormat:@"Score : %d", numCollected];
 }
+
+
+-(void) PauseGame:(id)sender
+{
+    [[CCDirector sharedDirector] stopAnimation];
+    [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
+    [[CCDirector sharedDirector] pause];
+    self.touchEnabled = NO;
+    starMenuItem.visible = NO;
+    
+}
+
+-(void)startAnimation:(CGPoint)position
+{
+    CCLabelTTF *label = [CCLabelTTF labelWithString:@"Zoom!" fontName:@"Marker Felt" fontSize:48];
+    [self addChild:label];
+    NSLog(@"In start");
+    // Animate the text from the current position to the end position
+    CCSequence *sequence = [CCSequence actions:
+                            [CCMoveTo actionWithDuration:3 position:position],
+                            [CCCallFuncN actionWithTarget:self selector:@selector(afterAnimation:)],
+                            nil];
+    
+    [label runAction:sequence];
+}
+
+-(void)afterAnimation:(id)sender
+{
+    NSLog(@"afterAnimation");
+    [self removeChild:sender cleanup:YES];
+}
+
+-(void) PauseResumeGame:(id) sender
+{
+    //NSLog(@"helloo");
+    [CCMenuItemFont setFontName:@"chalkduster"];
+    
+    [CCMenuItemFont setFontSize:50];
+    
+    
+    CCMenuItemFont *resumeGame = [CCMenuItemFont itemWithString:@"Resume"
+                                                         target:self
+                                                       selector:@selector(ResumeGame:)];
+    [resumeGame setColor:ccBLUE];
+    CCMenuItemFont *restartGame = [CCMenuItemFont itemWithString:@"Restart Level"
+                                                          target:self
+                                                        selector:@selector(RestartGame:)];
+    [restartGame setColor:ccBLUE];
+    CCMenuItemFont *menuGame = [CCMenuItemFont itemWithString:@"Select Level"
+                                                       target:self
+                                                     selector:@selector(MenuGame:)];
+    [menuGame setColor:ccBLUE];
+    
+    pauseResumeMenu = [CCMenu menuWithItems: resumeGame,restartGame,menuGame, nil];
+    pauseResumeMenu.position=ccp(500,300);
+    [pauseResumeMenu alignItemsVerticallyWithPadding:15];
+    [self addChild:pauseResumeMenu];
+    
+    [NSTimer scheduledTimerWithTimeInterval:.06 target:self selector:@selector(PauseGame:) userInfo:nil repeats:NO];
+}
+
+
+-(void)ResumeGame:(id)sender
+{
+    [[CCDirector sharedDirector] stopAnimation];
+    [[CCDirector sharedDirector] resume];
+    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+    [[CCDirector sharedDirector] startAnimation];
+    [self removeChild:pauseResumeMenu];
+    self.touchEnabled = YES;
+    starMenuItem.visible = YES;
+    
+}
+
+-(void)RestartGame:(id)sender
+{
+    [[CCDirector sharedDirector] stopAnimation];
+    
+    [[CCDirector sharedDirector] resume];
+    
+    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+    
+    [[CCDirector sharedDirector] startAnimation];
+    
+    int powerupArray[3];
+    powerupArray[0]=0;
+    powerupArray[1]=0;
+    powerupArray[2]=0;
+    
+    int playerSelectArray[3];
+    playerSelectArray[0]=1;
+    playerSelectArray[1]=0;
+    playerSelectArray[2]=0;
+    
+    [[NSUserDefaults standardUserDefaults] setInteger:totalScore forKey:@"Score"];
+    [[CCDirector sharedDirector]
+     replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level3 scene:NO timeBonus:0 powerups:powerupArray playerSelected:playerSelectArray]]];
+}
+
+
+-(void)MenuGame:(id)sender
+{
+    [[CCDirector sharedDirector] stopAnimation];
+    [[CCDirector sharedDirector] resume];
+    
+    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+    
+    [[CCDirector sharedDirector] startAnimation];
+    
+    [[NSUserDefaults standardUserDefaults] setInteger:totalScore forKey:@"Score"];
+    [[CCDirector sharedDirector]
+     replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[LevelSelectLayer firstScene:YES]]];
+}
+
+
 @end

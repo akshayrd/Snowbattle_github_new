@@ -873,13 +873,13 @@ int playerDirection = 1;
         [self performSelectorInBackground:@selector(actionmonster4) withObject:self];
         
         // Standard method to pause the game
-        starMenuItem = [CCMenuItemImage itemWithNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame)];
+        /*starMenuItem = [CCMenuItemImage itemWithNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame)];
         
         //starMenuItem.position = ccp(870, 25);
         starMenuItem.position = ccp(22, 680);
         CCMenu *starMenu = [CCMenu menuWithItems:starMenuItem, nil];
         starMenu.position = CGPointZero;
-        [self addChild:starMenu];
+        [self addChild:starMenu];*/
         
         /*for (int i=0; i<5; i++) {
             lifeItem[i] = [CCMenuItemImage itemWithNormalImage:@"life.png" selectedImage:@"life.png"];
@@ -893,8 +893,8 @@ int playerDirection = 1;
         if(([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp1"] >=1))
         {
             //lifeItem[3].visible = true;
-            [hud lifeItemsAdd:lifeCount];
-            lifeCount++;
+            [self schedule:@selector(shopPowerUpIncreaseLife) interval:0 repeat:0 delay:0];
+            
         }
         /*life = [CCMenu menuWithItems:lifeItem[0],lifeItem[1],lifeItem[2],lifeItem[3],lifeItem[4], nil];
         
@@ -956,6 +956,12 @@ int playerDirection = 1;
     }
     return self;
     
+}
+
+-(void)shopPowerUpIncreaseLife
+{
+    lifeCount++;
+    [hud lifeItemsAdd:lifeCount];
 }
 
 -(void) removeBubble2
