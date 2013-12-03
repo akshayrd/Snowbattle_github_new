@@ -160,7 +160,7 @@
     BOOL corner = NO;
     
     CGPoint p_pos = player.position;
-    CGPoint m_pos = planeMonster1.position;
+    CGPoint m_pos = planeMonster3.position;
     
     int diff_x = m_pos.x - p_pos.x;
     int diff_y = m_pos.y - p_pos.y;
@@ -1589,7 +1589,7 @@ CCSprite* PowerLabel;
 {
     //NSLog(@"Time %d",myTime - collideTime );
     
-    if( ( (CGRectIntersectsRect([monster5 boundingBox], [player boundingBox] ) || (CGRectIntersectsRect([planeMonster1 boundingBox], [player boundingBox]) && planeMonster1.visible==TRUE ) ||  (CGRectIntersectsRect([planeMonster2 boundingBox], [player boundingBox]) && planeMonster2.visible==TRUE ) || (CGRectIntersectsRect([planeMonster3 boundingBox], [player boundingBox]) && planeMonster3.visible==TRUE )|| (CGRectIntersectsRect([planeMonster5 boundingBox], [player boundingBox])) || (CGRectIntersectsRect([planeMonster4 boundingBox], [player boundingBox]) && planeMonster4.visible==TRUE ))&& totalTime - collideTime >= immuneDuration ))
+    if( ( (CGRectIntersectsRect([monster5 boundingBox], [player boundingBox] ) || CGRectIntersectsRect([monster6 boundingBox], [player boundingBox] )|| (CGRectIntersectsRect([planeMonster1 boundingBox], [player boundingBox]) && planeMonster1.visible==TRUE ) ||  (CGRectIntersectsRect([planeMonster2 boundingBox], [player boundingBox]) && planeMonster2.visible==TRUE ) || (CGRectIntersectsRect([planeMonster3 boundingBox], [player boundingBox]) && planeMonster3.visible==TRUE )|| (CGRectIntersectsRect([planeMonster5 boundingBox], [player boundingBox])) || (CGRectIntersectsRect([planeMonster4 boundingBox], [player boundingBox]) && planeMonster4.visible==TRUE ))&& totalTime - collideTime >= immuneDuration ))
         
     {
         if( immunePowerUp < 1)
