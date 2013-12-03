@@ -39,6 +39,295 @@
     return scene;
 }
 
+- (void) Monster1movelevel3:(ccTime)dt
+{
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    int realX = winSize.width-545;
+    int realY = 75;
+    CGPoint realDest = ccp(realX, realY);
+    int realX1 = winSize.width-545;
+    int realY1 = 125;
+    int realX2 = winSize.width-395;
+    int realY2 = 125;
+    int realX3 = winSize.width-395;
+    int realY3 = 75;
+    int realX4 = winSize.width-395+150;
+    int realY4 = 75;
+    
+    int realX5 = winSize.width-395+150;
+    int realY5 = 275;
+    
+    int realX6 = winSize.width-295;
+    int realY6 = 275;
+    
+    int realX7 = winSize.width-295;
+    int realY7 = 525;
+    
+    int realX8 = winSize.width-195;
+    int realY8 = 525;
+    
+    int realX9 = winSize.width-195;
+    int realY9 = 725;
+    
+    
+    int realX10 = winSize.width-195;
+    int realY10 = 75;
+    CGPoint realDest1 = ccp(realX1, realY1);
+    CGPoint realDest2 = ccp(realX2, realY2);
+    CGPoint realDest3 = ccp(realX3, realY3);
+    CGPoint realDest4 = ccp(realX4, realY4);
+    CGPoint realDest5 = ccp(realX5, realY5);
+    CGPoint realDest6 = ccp(realX6, realY6);
+    CGPoint realDest7 = ccp(realX7, realY7);
+    
+    CGPoint realDest8 = ccp(realX8, realY8);
+    CGPoint realDest9 = ccp(realX9, realY9);
+    CGPoint realDest10 = ccp(realX10, realY10);
+    
+    float realMoveDuration = 1.5;
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+    id actionRotate90 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:90];
+    id actionRotate360 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:360];
+    id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:180];
+    id actionRotate270 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:270];
+    id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration/4 position:realDest1];
+    id actionMove2 = [CCMoveTo actionWithDuration:realMoveDuration/2 position:realDest2];
+    id actionMove3 = [CCMoveTo actionWithDuration:realMoveDuration/4 position:realDest3];
+    id actionMove4 = [CCMoveTo actionWithDuration:realMoveDuration/4 position:realDest4];
+    id actionMove5 = [CCMoveTo actionWithDuration:realMoveDuration/2 position:realDest5];
+    id actionMove6 = [CCMoveTo actionWithDuration:realMoveDuration/6 position:realDest6];
+    id actionMove7 = [CCMoveTo actionWithDuration:realMoveDuration/2 position:realDest7];
+    id actionMove8 = [CCMoveTo actionWithDuration:realMoveDuration/6 position:realDest8];
+    id actionMove9 = [CCMoveTo actionWithDuration:realMoveDuration/2 position:realDest9];
+    id actionMove10 = [CCMoveTo actionWithDuration:realMoveDuration*2 position:realDest10];
+    
+    
+    [monster5 runAction:
+     [CCSequence actions: actionRotate270,actionMove,actionRotate360,actionMove1,actionRotate90,actionMove2,actionRotate180,actionMove3,actionRotate90,actionMove4,actionRotate360,actionMove5,actionRotate270,actionMove6,actionRotate360,actionMove7,actionRotate90,actionMove8,actionRotate360,actionMove9,actionRotate180,actionMove10,nil]];
+    
+    
+}
+
+- (void) Monster1movelevel4:(ccTime)dt
+{
+    int realX = 1725;
+    int realY = 75;
+    CGPoint realDest = ccp(realX, realY);
+    int realX1 = 1725;
+    int realY1 = 225;
+    int realX2 = 1225;
+    int realY2 = 225;
+    int realX3 = 1225;
+    int realY3 = 525;
+    int realX4 = 1225;
+    int realY4 = 75;
+    
+    CGPoint realDest1 = ccp(realX1, realY1);
+    CGPoint realDest2 = ccp(realX2, realY2);
+    CGPoint realDest3 = ccp(realX3, realY3);
+    CGPoint realDest4 = ccp(realX4, realY4);
+    
+    float realMoveDuration = 1.5;
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+    id actionRotate90 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:90];
+    id actionRotate360 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:360];
+    id actionRotate180 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:180];
+    id actionRotate270 = [CCRotateTo actionWithDuration:realMoveDuration/10 angle:270];
+    id actionMove1 = [CCMoveTo actionWithDuration:realMoveDuration/2 position:realDest1];
+    id actionMove2 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest2];
+    id actionMove3 = [CCMoveTo actionWithDuration:realMoveDuration position:realDest3];
+    id actionMove4 = [CCMoveTo actionWithDuration:realMoveDuration*1.25 position:realDest4];
+    
+    
+    [monster6 runAction:
+     [CCSequence actions: actionRotate90,actionMove,actionRotate360,actionMove1,actionRotate270,actionMove2,actionRotate360,actionMove3,actionRotate180,actionMove4,actionRotate90,nil]];
+    
+    
+}
+
+
+
+- (void) moveSensingMonster3  // every 1 sec called
+{
+    // Get player pos
+    // get current pos
+    //check diffx > diffy
+    // move 1 tile to diffx
+    
+    //CGSize winSize = [CCDirector sharedDirector].winSize;
+    
+    
+    BOOL corner = NO;
+    
+    CGPoint p_pos = player.position;
+    CGPoint m_pos = planeMonster1.position;
+    
+    int diff_x = m_pos.x - p_pos.x;
+    int diff_y = m_pos.y - p_pos.y;
+    int new_x = m_pos.x, new_y= m_pos.y;
+    if (abs(diff_x) > abs(diff_y))
+    {
+        if (diff_x > 0) {
+            new_x = m_pos.x - 50;
+        }
+        else
+        {
+            new_x = m_pos.x + 50;
+        }
+    }
+    else
+    {
+        if (diff_y > 0) {
+            new_y = m_pos.y - 50;
+        }
+        else
+        {
+            new_y = m_pos.y + 50;
+        }
+        
+    }
+    CGPoint actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    CGPoint realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    
+    CGPoint tileCoord = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    //NSLog(@"%f %f",tileCoord.x,tileCoord.y);
+    
+    int tileGid = [building tileGIDAt:tileCoord];
+    if (tileGid) {
+        //NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        //        if (properties) {
+        //            NSString *collision = properties[@"Collidable"];
+        //            if (collision && [collision isEqualToString:@"True"]) {
+        corner = YES;
+        if (abs(diff_x) < abs(diff_y))
+        {
+            if (diff_x > 0) {
+                new_x = m_pos.x - 50;
+                new_y = m_pos.y;
+                
+            }
+            else
+            {
+                new_x = m_pos.x + 50;
+                new_y = m_pos.y;
+            }
+        }
+        else
+        {
+            if (diff_y > 0) {
+                new_y = m_pos.y - 50;
+                new_x = m_pos.x;
+            }
+            else
+            {
+                new_y = m_pos.y + 50;
+                new_x = m_pos.x;
+            }
+            
+        }
+        
+        
+    }
+    
+    //        }
+    //
+    //    }
+    
+    actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    
+    tileCoord = [self tileCoordForPosition:realDest];
+    tileGid = [building tileGIDAt:tileCoord];
+    if (tileGid) {
+        //NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        //        if (properties) {
+        //            NSString *collision = properties[@"Collidable"];
+        //            if (collision && [collision isEqualToString:@"True"]) {
+        return;
+        
+    }
+    
+    //        }
+    //
+    //    }
+    
+    //tileCoord = [self tileCoordForPosition:position];
+    tileGid = [border tileGIDAt:tileCoord];
+    if (tileGid) {
+        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        if (properties) {
+            NSString *collision = properties[@"Collidable"];
+            if (collision && [collision isEqualToString:@"True"]) {
+                if (corner == YES) {
+                    return;
+                }
+                else
+                    corner = NO;
+                
+                if (abs(diff_x) < abs(diff_y))
+                {
+                    if (diff_x > 0) {
+                        new_x = m_pos.x + 50;
+                        new_y = m_pos.y;
+                    }
+                    else
+                    {
+                        new_x = m_pos.x - 50;
+                        new_y = m_pos.y;
+                    }
+                }
+                else
+                {
+                    if (diff_y > 0) {
+                        new_y = m_pos.y + 50;
+                        new_x = m_pos.x;
+                    }
+                    else
+                    {
+                        new_y = m_pos.y - 50;
+                        new_x = m_pos.x;
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    actualPos = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    realDest  = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
+    
+    tileCoord = [self tileCoordForPosition:ccp(new_x, new_y)];
+    
+    
+    tileGid = [riverLayer tileGIDAt:tileCoord];
+    if (tileGid) {
+        //NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        //        if (properties) {
+        //            NSString *collision = properties[@"Collidable"];
+        //            if (collision && [collision isEqualToString:@"True"]) {
+        
+        return;
+        
+    }
+    
+    //        }
+    //
+    //    }
+    
+    
+    float realMoveDuration = 1;
+    id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
+    
+    [planeMonster3 runAction: [CCSequence actions: actionMove, nil]];
+    //monster5.position = realDest;
+    
+}
+
+
 - (void) moveSensingMonster1  // every 1 sec called
 {
     // Get player pos
@@ -218,7 +507,6 @@
     //monster5.position = realDest;
     
 }
-
 - (void) moveSensingMonster2  // every 1 sec called
 {
     // Get player pos
@@ -403,7 +691,7 @@
     
 }
 
-- (void) moveSensingMonster3  // every 1 sec called
+- (void) moveSensingMonster5  // every 1 sec called
 {
     // Get player pos
     // get current pos
@@ -416,7 +704,7 @@
     BOOL corner = NO;
     
     CGPoint p_pos = player.position;
-    CGPoint m_pos = planeMonster3.position;
+    CGPoint m_pos = planeMonster5.position;
     
     int diff_x = m_pos.x - p_pos.x;
     int diff_y = m_pos.y - p_pos.y;
@@ -580,7 +868,7 @@
     float realMoveDuration = 1;
     id actionMove = [CCMoveTo actionWithDuration:realMoveDuration position:realDest];
     
-    [planeMonster3 runAction: [CCSequence actions: actionMove, nil]];
+    [planeMonster5 runAction: [CCSequence actions: actionMove, nil]];
     //monster5.position = realDest;
     
 }
@@ -930,6 +1218,7 @@ CCSprite* PowerLabel;
     CGPoint tileCoord = [self tileCoordForPosition:position];
     
     
+    NSLog(@"%f %f",player.position.x,player.position.y);
     int tileGid = [building tileGIDAt:tileCoord];
     if (tileGid) {
         //NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
@@ -1300,7 +1589,7 @@ CCSprite* PowerLabel;
 {
     //NSLog(@"Time %d",myTime - collideTime );
     
-    if( ( (CGRectIntersectsRect([monster5 boundingBox], [player boundingBox] ) || (CGRectIntersectsRect([planeMonster1 boundingBox], [player boundingBox]) && planeMonster1.visible==TRUE ) ||  (CGRectIntersectsRect([planeMonster2 boundingBox], [player boundingBox]) && planeMonster2.visible==TRUE ) || (CGRectIntersectsRect([planeMonster3 boundingBox], [player boundingBox]) && planeMonster3.visible==TRUE ) || (CGRectIntersectsRect([planeMonster4 boundingBox], [player boundingBox]) && planeMonster4.visible==TRUE ))&& totalTime - collideTime >= immuneDuration ))
+    if( ( (CGRectIntersectsRect([monster5 boundingBox], [player boundingBox] ) || (CGRectIntersectsRect([planeMonster1 boundingBox], [player boundingBox]) && planeMonster1.visible==TRUE ) ||  (CGRectIntersectsRect([planeMonster2 boundingBox], [player boundingBox]) && planeMonster2.visible==TRUE ) || (CGRectIntersectsRect([planeMonster3 boundingBox], [player boundingBox]) && planeMonster3.visible==TRUE )|| (CGRectIntersectsRect([planeMonster5 boundingBox], [player boundingBox])) || (CGRectIntersectsRect([planeMonster4 boundingBox], [player boundingBox]) && planeMonster4.visible==TRUE ))&& totalTime - collideTime >= immuneDuration ))
         
     {
         if( immunePowerUp < 1)
@@ -1516,6 +1805,7 @@ CCSprite* PowerLabel;
         [self schedule:@selector(randomPlaneXPos) interval:39 repeat:100 delay:20];
         [self schedule:@selector(planeGetContPosition) interval:0];
         
+        
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
         if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 1)
         {
@@ -1534,9 +1824,26 @@ CCSprite* PowerLabel;
         [self setViewPointCenter:player.position];
         
         monster5 = [CCSprite spriteWithFile:@"bug_51x51.png"];
-        monster5.position = ccp(winSize.width/3+435, winSize.height/2-10);
+        
+        monster5.position = ccp(winSize.width-45-150, 75);
         [self addChild:monster5];
-        // nemy = [CCSprite spriteWithFile:@"Icon-72.png"];
+        [self schedule:@selector(Monster1movelevel3: ) interval:11 repeat:250 delay:0 ];
+        
+        
+        monster6 = [CCSprite spriteWithFile:@"bug_51x51.png"];
+        
+        monster6.position = ccp(1225, 75);
+        [self addChild:monster6];
+        [self schedule:@selector(Monster1movelevel4: ) interval:8 repeat:250 delay:0 ];
+        
+        
+        
+        planeMonster5 = [CCSprite spriteWithFile:@"ghosts.png"];
+        planeMonster5.position = ccp(150,100);
+        [self addChild:planeMonster5];
+        
+        [self schedule:@selector(moveSensingMonster5) interval:1];
+        
         screenSize2 = [CCDirector sharedDirector].winSize;
         
         // Standard method to pause the game
@@ -1867,32 +2174,6 @@ CCSprite* PowerLabel;
         [player runAction:blink];
     }
 }
-/*
- - (void) ShowBonuStageImage
- {
- if (bonusRoundPlayed == NO)
- {
- 
- if (myTime%20 == 0 && myTime !=0 && isBonusDisplayed == NO)
- {
- isBonusDisplayed = YES;
- NSLog(@"Player pos:%f %f", player.position.x, player.position.y);
- CGPoint tileCoord = [self tileCoordForPosition:player.position];
- NSLog(@"Player pos1:%f %f", tileCoord.x, tileCoord.y);
- do {
- bonusIndex = rand() %5;
- } while (bonusPointsLocation[bonusIndex].x == tileCoord.x && bonusPointsLocation[bonusIndex].y == tileCoord.y);
- 
- [bonusLayer tileAt:bonusPointsLocation[bonusIndex]].visible = YES;
- 
- }
- else if ((myTime+11)%20 == 0) {
- [bonusLayer tileAt:bonusPointsLocation[bonusIndex]].visible = NO;
- isBonusDisplayed = NO;
- }
- 
- }
- }*/
 -(void) MakeBubbleInvisible
 {
     bubble.visible = FALSE;
