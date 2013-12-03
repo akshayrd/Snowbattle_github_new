@@ -1,26 +1,28 @@
-#import "HudLayer.h"
+//
+//  Pause_HudLayer.m
+//  cocos2dsimplegame
+//
+//  Created by Akshay Dani on 12/2/13.
+//  Copyright 2013 gpadmin. All rights reserved.
+//
+
+#import "Pause_HudLayer.h"
 #import "SimpleAudioEngine.h"
-#import "LevelSelectLayer.h"
 #import "HelloWorldLayer_Level3.h"
+#import "LevelSelectLayer.h"
 
-@implementation HudLayer
-{
-    CCLabelTTF *_label;
-    CCLabelTTF *_livesLabel;
-}
-
+@implementation Pause_HudLayer
 - (id)init
 {
     self = [super init];
     if (self) {
-        CGSize winSize = [[CCDirector sharedDirector] winSize];
-        NSString *score = [NSString stringWithFormat:@"Score : %d", [[NSUserDefaults standardUserDefaults] integerForKey:@"Score"]];
-        _label = [CCLabelTTF labelWithString:score fontName:@"Verdana-Bold" fontSize:18.0];
-        _label.color = ccc3(0,0,0);
-        int margin = 10;
-        _label.position = ccp(winSize.width/2 - (_label.contentSize.width/2) + 30, _label.contentSize.height/2 + margin);
-        [self addChild:_label];
+         bg =[CCSprite spriteWithFile:@"level.png"];
+         bg.position=ccp(0,0);
+         bg.anchorPoint = ccp(0, 0);
+         [self addChild:bg z:0];
+         bg.visible=false;
         
+       // CGSize winSize = [[CCDirector sharedDirector] winSize];
         
         // Standard method to pause the game
         starMenuItem = [CCMenuItemImage itemWithNormalImage:@"PausePng_45x45.png" selectedImage:@"PausePng_45x45.png" target:self selector:@selector(PauseResumeGame:)];
@@ -31,43 +33,10 @@
         starMenu.position = CGPointZero;
         [self addChild:starMenu];
         
-        for (int i=0; i<5; i++) {
-            lifeItem[i] = [CCMenuItemImage itemWithNormalImage:@"life.png" selectedImage:@"life.png" ];
-            //lifeItem[i].position = ccp(22, 600-i*40);
-            lifeItem[i].position = ccp(500 + i*40, 740);
-            lifeItem[i].visible = true;
-        }
-        lifeItem[3].visible = false;
-        lifeItem[4].visible = false;
-        
-        life = [CCMenu menuWithItems:lifeItem[0],lifeItem[1],lifeItem[2],lifeItem[3],lifeItem[4], nil];
-        
-        life.position = CGPointZero;
-        [self addChild:life];
-        //[self addChild:_livesLabel];
     }
     return self;
     
 }
-
--(void) lifeItemsDelete:(int)lifeCount
-{
-    //NSLog(@"Life delete: ");
-    lifeItem[lifeCount].visible=false;
-}
-
--(void) lifeItemsAdd:(int)lifeCount
-{
-    //  NSLog(@"COUNtsss %d ",lifeCount);
-    lifeItem[lifeCount].visible=true;
-}
-
--(void)numCollectedChanged:(int)numCollected
-{
-    totalScore=numCollected;
-    _label.string = [NSString stringWithFormat:@"Score : %d", numCollected];
-}
-
 
 -(void) PauseGame:(id)sender
 {
@@ -102,34 +71,72 @@
 -(void) PauseResumeGame:(id) sender
 {
     //NSLog(@"helloo");
+    bg.visible=true;
     [CCMenuItemFont setFontName:@"chalkduster"];
     
-    [CCMenuItemFont setFontSize:50];
+    [CCMenuItemFont setFontSize:30];
     
+    CCMenuItemImage *resumeGame = [CCMenuItemImage itemWithNormalImage:@"Play_Original.png" selectedImage:@"Play_Original.png" target:self selector:@selector(ResumeGame:)];
     
-    CCMenuItemFont *resumeGame = [CCMenuItemFont itemWithString:@"Resume"
+    resumeGame1 = [CCMenuItemFont itemWithString:@"Resume"
                                                          target:self
                                                        selector:@selector(ResumeGame:)];
-    [resumeGame setColor:ccBLUE];
-    CCMenuItemFont *restartGame = [CCMenuItemFont itemWithString:@"Restart Level"
+    //resumeGame1.position=ccp(600,400);
+    
+    [resumeGame1 setColor:ccBLUE];
+    //[self addChild:resumeGame1];
+   
+    CCMenuItemImage *restartGame = [CCMenuItemImage itemWithNormalImage:@"RestartPNG_100x100.png" selectedImage:@"RestartPNG_100x100.png" target:self selector:@selector(RestartGame:)];
+    restartGame1 = [CCMenuItemFont itemWithString:@"Restart Level"
                                                           target:self
                                                         selector:@selector(RestartGame:)];
-    [restartGame setColor:ccBLUE];
-    CCMenuItemFont *menuGame = [CCMenuItemFont itemWithString:@"Select Level"
+    //restartGame1.position=ccp(600,300);
+    
+    [restartGame1 setColor:ccBLUE];
+    //[self addChild:restartGame1];
+    
+    CCMenuItemImage *menuGame = [CCMenuItemImage itemWithNormalImage:@"LevelSelectPNG_100x100.png" selectedImage:@"LevelSelectPNG_100x100.png" target:self selector:@selector(MenuGame:)];
+
+    menuGame1 = [CCMenuItemFont itemWithString:@"Select Level"
                                                        target:self
                                                      selector:@selector(MenuGame:)];
-    [menuGame setColor:ccBLUE];
+    //menuGame1.position=ccp(600,200);
+    
+    [menuGame1 setColor:ccBLUE];
+    //[self addChild:menuGame1];
+    
+    pauseResumeMenu1 = [CCMenu menuWithItems: resumeGame1,restartGame1,menuGame1, nil];
+    pauseResumeMenu1.position=ccp(600,300);
+    [pauseResumeMenu1 alignItemsVerticallyWithPadding:70];
+    [self addChild:pauseResumeMenu1];
+    
     pauseResumeMenu = [CCMenu menuWithItems: resumeGame,restartGame,menuGame, nil];
-    pauseResumeMenu.position=ccp(500,300);
+    pauseResumeMenu.position=ccp(400,300);
     [pauseResumeMenu alignItemsVerticallyWithPadding:15];
     [self addChild:pauseResumeMenu];
+    
+    pauseResumeMenu.visible=true;
+    menuGame1.visible=true;
+    resumeGame1.visible=true;
+    restartGame1.visible=true;
     
     [NSTimer scheduledTimerWithTimeInterval:.06 target:self selector:@selector(PauseGame:) userInfo:nil repeats:NO];
 }
 
+-(void)numCollectedChanged:(int)numCollected
+{
+    totalScore=numCollected;
+    //_label.string = [NSString stringWithFormat:@"Score : %d", numCollected];
+}
 
 -(void)ResumeGame:(id)sender
 {
+    bg.visible=false;
+    pauseResumeMenu.visible=false;
+    menuGame1.visible=false;
+    resumeGame1.visible=false;
+    restartGame1.visible=false;
+    
     [[CCDirector sharedDirector] stopAnimation];
     [[CCDirector sharedDirector] resume];
     [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];

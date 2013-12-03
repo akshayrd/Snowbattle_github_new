@@ -5,6 +5,7 @@
 #import "GameStartLayer.h"
 #import "LevelSelectLayer.h"
 //#import "BonusStage.h"
+#import "Pause_HudLayer.h"
 
 @interface HelloWorldLayer_Level3 ()
 @property (assign) int numCollected;
@@ -31,11 +32,10 @@
     [scene addChild:hud];
     layer->hud = hud;
     
-    /*Bonus_hud *bhud = [Bonus_hud scene:YES];
-     [scene2 addChild:bhud];
+     Pause_HudLayer *bhud = [Pause_HudLayer node];
+     [scene addChild:bhud];
      layer->b_hud = bhud;
-     bhud.visible = NO;*/
-    
+     //bhud.visible = NO;
     return scene;
 }
 
@@ -1254,6 +1254,7 @@ CCSprite* PowerLabel;
                 [snow tileAt:tileCoord].visible = NO;
                 currentLevelScore++;
                 [hud numCollectedChanged:currentLevelScore+totalScore];
+                [b_hud numCollectedChanged:currentLevelScore+totalScore];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"shoveling.mp3"];
                 
                 //NSLog(@"Current Score:%d",currentLevelScore);
@@ -1681,7 +1682,7 @@ CCSprite* PowerLabel;
             [bonusLayer tileAt:bonusPointsLocation[i]].visible = NO;
         }
         
-        winScore = 195 ;
+        winScore = 332;
         //winScore = 10;
         totalLives = 2;
         //        totalLives = 1;

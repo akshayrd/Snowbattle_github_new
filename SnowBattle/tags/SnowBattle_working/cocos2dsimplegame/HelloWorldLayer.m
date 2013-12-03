@@ -4,7 +4,7 @@
 #import "GameOverLayer.h"
 #import "GameStartLayer.h"
 #import "LevelSelectLayer.h"
-
+#import "Pause_HudLayer.h"
 
 
 #pragma mark - HelloWorldLayer
@@ -26,6 +26,10 @@
     HudLayer *hud = [HudLayer node];
     [scene addChild:hud];
     layer->hud = hud;
+    
+    Pause_HudLayer *pausebhud = [Pause_HudLayer node];
+    [scene addChild:pausebhud];
+    layer->pause_hud = pausebhud;
     
     return scene;
     
@@ -516,6 +520,7 @@ int playerDirection = 1;
                 [snow removeTileAt:tileCoord];
                 currentLevelScore++;
                 [hud numCollectedChanged:currentLevelScore+totalScore];
+                [pause_hud numCollectedChanged:currentLevelScore+totalScore];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"shoveling.mp3"];
                 
                 if (currentLevelScore > winScore) {

@@ -9,6 +9,7 @@
 #import "ShopLayer.h"
 #import "HelloWorldLayer_Level2.h"
 #import "LevelSelectLayer.h"
+#import "SimpleAudioEngine.h"
 
 @implementation ShopLayer
 
@@ -304,7 +305,7 @@
             powerup1++;
             [[NSUserDefaults standardUserDefaults] setInteger:powerup1 forKey:@"Shop_PowerUp1"];
         }
-
+        [[SimpleAudioEngine sharedEngine] playEffect:@"Coin_Effect.mp3"];
         [menuItem1 setScale:2];
         //menuItem1.position=ccp(300/2+40,300*1.5);
         double dx=(300*2-300);
@@ -320,6 +321,7 @@
             powerup2++;
             [[NSUserDefaults standardUserDefaults] setInteger:powerup2 forKey:@"Shop_PowerUp2"];
         }
+        [[SimpleAudioEngine sharedEngine] playEffect:@"Coin_Effect.mp3"];
         [menuItem6 setScale:2];
         //menuItem2.position=ccp(800/2+40,300*1.5);
         double dx=(800*2-800);
@@ -335,6 +337,7 @@
             powerup3++;
             [[NSUserDefaults standardUserDefaults] setInteger:powerup3 forKey:@"Shop_PowerUp3"];
         }
+        [[SimpleAudioEngine sharedEngine] playEffect:@"Coin_Effect.mp3"];
         [menuItem2 setScale:2];
         //menuItem2.position=ccp(800/2+40,300*1.5);
         double dx=(800*2-800);
@@ -412,6 +415,7 @@
     if(playerSelectCheck==1)
     {
         playerCount++;
+        [[SimpleAudioEngine sharedEngine] playEffect:@"Coin_Effect.mp3"];
         [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"Shop_PlayerImage"];
         player1=true;
         player2=false;
@@ -431,6 +435,7 @@
             playerCount++;
         }
         player2=true;
+        [[SimpleAudioEngine sharedEngine] playEffect:@"Coin_Effect.mp3"];
         [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"Shop_PlayerImage"];
         player1=false;
         player3=false;

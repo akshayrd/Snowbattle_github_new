@@ -3,6 +3,7 @@
 #import "cocos2d.h"
 #import "HudLayer.h"
 #import "Bonus_hud.h"
+#import "Pause_HudLayer.h"
 
 @interface HelloWorldLayer_Level2 : CCLayer {
     CCTMXTiledMap *_tileMap;
@@ -41,6 +42,7 @@
     CCMenu *life;
     HudLayer *hud;
     Bonus_hud *b_hud;
+    Pause_HudLayer *pause_hud;
     BOOL bonusStageRunning;
     
     

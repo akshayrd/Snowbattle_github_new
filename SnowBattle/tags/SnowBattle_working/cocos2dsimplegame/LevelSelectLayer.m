@@ -24,8 +24,6 @@
 -(id) initW:(BOOL)start
 {
     if( (self=[super init] )) {
-        
-        
         player1Select=start;
         CCSprite *bg =[CCSprite spriteWithFile:@"levelscreen_final.jpg"];
         bg.position=ccp(0,0);
@@ -126,8 +124,8 @@
         
     }
     else{
-        menuItem19 = [CCMenuItemImage itemWithNormalImage:[NSString stringWithFormat:@"level1_map.png"]
-                                            selectedImage:[NSString stringWithFormat:@"level1_map.png"] target:self selector:@selector(nextLevelStart:)];
+        menuItem19 = [CCMenuItemImage itemWithNormalImage:[NSString stringWithFormat:@"level3_map.png"]
+                                            selectedImage:[NSString stringWithFormat:@"level3_map.png"] target:self selector:@selector(nextLevelStart:)];
         menuItem19.tag = levelSelected;
         menu8 = [CCMenu menuWithItems: menuItem19, nil];
         menu8.visible=false;

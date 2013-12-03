@@ -5,6 +5,7 @@
 #import "GameStartLayer.h"
 #import "LevelSelectLayer.h"
 #import "Bonus_hud.h"
+#import "Pause_HudLayer.h"
 
 @interface HelloWorldLayer_Level2 ()
 @property (assign) int numCollected;
@@ -35,6 +36,10 @@
     [scene2 addChild:bhud];
     layer->b_hud = bhud;
     bhud.visible = NO;
+    
+    Pause_HudLayer *pausebhud = [Pause_HudLayer node];
+    [scene2 addChild:pausebhud];
+    layer->pause_hud = pausebhud;
     
     return scene2;
     
@@ -726,6 +731,7 @@ CCSprite* PowerLabel;
                 
                 currentLevelScore++;
                 [hud numCollectedChanged:currentLevelScore+totalScore];
+                [pause_hud numCollectedChanged:currentLevelScore+totalScore];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"shoveling.mp3"];
                 
                 NSLog(@"Current Score:%d",currentLevelScore);
