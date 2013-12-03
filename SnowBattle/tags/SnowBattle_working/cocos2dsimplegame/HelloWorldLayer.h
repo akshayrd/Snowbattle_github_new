@@ -4,7 +4,7 @@
 
 #import "cocos2d.h"
 #import "HudLayer.h"
-
+#import "Pause_HudLayer.h"
 
 
 @interface HelloWorldLayer : CCLayer
@@ -35,6 +35,7 @@
     CCMenuItem *starMenuItem;
     
     HudLayer *hud;
+    Pause_HudLayer *pause_hud;
     
     CCMenu *life;
     
