@@ -30,6 +30,10 @@
 		BA1B1E42184DE1D900AD8C82 /* Player2_TopView_Version2_45x45.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E40184DE1D900AD8C82 /* Player2_TopView_Version2_45x45.png */; };
 		BA1B1E44184DE46A00AD8C82 /* Instructions_1024x768.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E43184DE46A00AD8C82 /* Instructions_1024x768.png */; };
 		BA1B1E46184DE7EF00AD8C82 /* GreenArrow_100x200.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E45184DE7EF00AD8C82 /* GreenArrow_100x200.png */; };
+		BA1B1E49184DEB7D00AD8C82 /* StoryLineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1B1E48184DEB7D00AD8C82 /* StoryLineLayer.m */; };
+		BA1B1E4B184DEE5F00AD8C82 /* GameLstSound_Clipped.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E4A184DEE5F00AD8C82 /* GameLstSound_Clipped.mp3 */; };
+		BA1B1E4D184DF30E00AD8C82 /* AwesomeGamePlaySound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E4C184DF30E00AD8C82 /* AwesomeGamePlaySound.mp3 */; };
+		BA1B1E4F184DF37700AD8C82 /* CoolWinningSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E4E184DF37700AD8C82 /* CoolWinningSound.mp3 */; };
 		BA3949D617F2EC450072E0C9 /* hit.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3949D217F2EC450072E0C9 /* hit.caf */; };
 		BA3FEDD617FE893800DD2E17 /* Raycast.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDD517FE893800DD2E17 /* Raycast.m4a */; };
 		BA3FEDDC17FE986800DD2E17 /* grey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDDB17FE986800DD2E17 /* grey.jpg */; };
@@ -312,6 +316,11 @@
 		BA1B1E40184DE1D900AD8C82 /* Player2_TopView_Version2_45x45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player2_TopView_Version2_45x45.png; sourceTree = "<group>"; };
 		BA1B1E43184DE46A00AD8C82 /* Instructions_1024x768.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instructions_1024x768.png; sourceTree = "<group>"; };
 		BA1B1E45184DE7EF00AD8C82 /* GreenArrow_100x200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenArrow_100x200.png; sourceTree = "<group>"; };
+		BA1B1E47184DEB7D00AD8C82 /* StoryLineLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryLineLayer.h; sourceTree = "<group>"; };
+		BA1B1E48184DEB7D00AD8C82 /* StoryLineLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryLineLayer.m; sourceTree = "<group>"; };
+		BA1B1E4A184DEE5F00AD8C82 /* GameLstSound_Clipped.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GameLstSound_Clipped.mp3; sourceTree = "<group>"; };
+		BA1B1E4C184DF30E00AD8C82 /* AwesomeGamePlaySound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AwesomeGamePlaySound.mp3; sourceTree = "<group>"; };
+		BA1B1E4E184DF37700AD8C82 /* CoolWinningSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CoolWinningSound.mp3; sourceTree = "<group>"; };
 		BA3949CE17F2B6430072E0C9 /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "pew-pew-lei.caf"; path = "Resources/Sounds/pew-pew-lei.caf"; sourceTree = "<group>"; };
 		BA3949D217F2EC450072E0C9 /* hit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit.caf; path = Resources/Sounds/hit.caf; sourceTree = "<group>"; };
 		BA3949D317F2EC450072E0C9 /* move.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = move.caf; path = Resources/Sounds/move.caf; sourceTree = "<group>"; };
@@ -1469,6 +1478,8 @@
 			children = (
 				BA7C53DD182A136E009BA09F /* ShopLayer.h */,
 				BA7C53DE182A136E009BA09F /* ShopLayer.m */,
+				BA1B1E47184DEB7D00AD8C82 /* StoryLineLayer.h */,
+				BA1B1E48184DEB7D00AD8C82 /* StoryLineLayer.m */,
 				F53F5F78182703870044BBAC /* PlayerSelectLayer.h */,
 				F53F5F79182703870044BBAC /* PlayerSelectLayer.m */,
 				BA1B1E2C184DC01D00AD8C82 /* Pause_HudLayer.h */,
@@ -1505,6 +1516,9 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA1B1E4E184DF37700AD8C82 /* CoolWinningSound.mp3 */,
+				BA1B1E4C184DF30E00AD8C82 /* AwesomeGamePlaySound.mp3 */,
+				BA1B1E4A184DEE5F00AD8C82 /* GameLstSound_Clipped.mp3 */,
 				BA1B1E45184DE7EF00AD8C82 /* GreenArrow_100x200.png */,
 				BA1B1E43184DE46A00AD8C82 /* Instructions_1024x768.png */,
 				BA1B1E3F184DE1D900AD8C82 /* Player2_TopView_Version1_45x45.png */,
@@ -2099,6 +2113,7 @@
 				F55302E217E646CD00D1FD31 /* Icon-Small-50.png in Resources */,
 				F55302E417E646CD00D1FD31 /* Icon-Small.png in Resources */,
 				BA1B1E36184DCC6C00AD8C82 /* Play_Original.png in Resources */,
+				BA1B1E4D184DF30E00AD8C82 /* AwesomeGamePlaySound.mp3 in Resources */,
 				BAB655E8180112BD0062BE70 /* FinalOne.jpg in Resources */,
 				BAEB785417FC93A300B9663A /* player2.jpg in Resources */,
 				F55302E617E646CD00D1FD31 /* Icon-Small@2x.png in Resources */,
@@ -2139,6 +2154,7 @@
 				BA1B1E41184DE1D900AD8C82 /* Player2_TopView_Version1_45x45.png in Resources */,
 				BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */,
 				BAD9261F1849E1F800C1017A /* boat1.png in Resources */,
+				BA1B1E4B184DEE5F00AD8C82 /* GameLstSound_Clipped.mp3 in Resources */,
 				BA68E53A1814AC3000F3F937 /* player_pause40x40.png in Resources */,
 				F54BA66A1802986400FCDA16 /* pause1.png in Resources */,
 				F54BA66B1802986400FCDA16 /* resume1.jpg in Resources */,
@@ -2165,6 +2181,7 @@
 				BAF0F14F184AD97500EB9A5B /* AdvancedPlayer_150x150.png in Resources */,
 				3F703EDD1838B0F200309DEB /* powerUp_immuneGhost.png in Resources */,
 				3F703EDE1838B0F200309DEB /* powerUp_ghostPitClose.png in Resources */,
+				BA1B1E4F184DF37700AD8C82 /* CoolWinningSound.mp3 in Resources */,
 				BE67AD6518398BCF00E806B1 /* smoke.png in Resources */,
 				BE67AD681839989600E806B1 /* player2.png in Resources */,
 				BE67AD691839989600E806B1 /* player3.gif in Resources */,
@@ -2265,6 +2282,7 @@
 				F553037217E646CE00D1FD31 /* CCParticleSystemQuad.m in Sources */,
 				F553037517E646CE00D1FD31 /* CCPhysicsDebugNode.m in Sources */,
 				F553037B17E646CE00D1FD31 /* CCProgressTimer.m in Sources */,
+				BA1B1E49184DEB7D00AD8C82 /* StoryLineLayer.m in Sources */,
 				BA9911F6180F0DD1001C5562 /* ccShaders.m in Sources */,
 				F553037F17E646CE00D1FD31 /* CCRenderTexture.m in Sources */,
 				F553038217E646CE00D1FD31 /* CCScene.m in Sources */,

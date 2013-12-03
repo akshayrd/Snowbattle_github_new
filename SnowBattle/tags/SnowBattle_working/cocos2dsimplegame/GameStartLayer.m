@@ -4,6 +4,7 @@
 #import "PlayerSelectLayer.h"
 #import "ShopLayer.h"
 #import "SimpleAudioEngine.h"
+#import "StoryLineLayer.h"
 
 @implementation GameStartLayer
 
@@ -45,16 +46,40 @@
                                                         selector:@selector(startGame:)];
         [newGame setColor:ccBLUE];
         
+        NSString *labelString = @"•";
+        CCMenuItemFont *bulletLabel = [CCMenuItemFont itemWithString:labelString];
+        //CCLabelTTF *bulletLabel = [CCLabelTTF labelWithString:labelString];
+        bulletLabel.color=ccBLUE;
+        //[bulletLabel setString:labelString];
+        //[self addChild:bulletLabel];
+        
         CCMenuItemFont *instructions = [CCMenuItemFont itemWithString:@"Instructions"
                                                           target:self
                                                         selector:@selector(instructions:)];
         [instructions setColor:ccBLUE];
+        CCMenuItemFont *bulletLabel2 = [CCMenuItemFont itemWithString:labelString];
+        //CCLabelTTF *bulletLabel = [CCLabelTTF labelWithString:labelString];
+        bulletLabel2.color=ccBLUE;
+        //[bulletLabel setString:labelString];
+        //[self addChild:bulletLabel2];
         
-        /*CCMenuItemFont *shopNow = [CCMenuItemFont itemWithString:@"Go To Shop"
+        CCMenuItemFont *story = [CCMenuItemFont itemWithString:@"Our Story"
                                                           target:self
-                                                        selector:@selector(shopNow:)];
-        [shopNow setColor:ccBLUE];*/
-        CCMenu *menu = [CCMenu menuWithItems: newGame,instructions, nil];
+                                                        selector:@selector(storyLine:)];
+        [story setColor:ccBLUE];
+        CCMenuItemFont *bulletLabel3 = [CCMenuItemFont itemWithString:labelString];
+        //CCLabelTTF *bulletLabel = [CCLabelTTF labelWithString:labelString];
+        bulletLabel3.color=ccBLUE;
+        //[bulletLabel setString:labelString];
+        //[self addChild:bulletLabel3];
+        
+        CCMenu *menu1 = [CCMenu menuWithItems: bulletLabel,bulletLabel2,bulletLabel3, nil];
+        //CCMenu *menu = [CCMenu menuWithItems: newGame, nil];
+        menu1.position=ccp(520,120);
+        [menu1 alignItemsVerticallyWithPadding:15];
+        [self addChild:menu1];
+        
+        CCMenu *menu = [CCMenu menuWithItems: newGame,instructions,story, nil];
         //CCMenu *menu = [CCMenu menuWithItems: newGame, nil];
         menu.position=ccp(680,120);
         [menu alignItemsVerticallyWithPadding:15];
@@ -108,6 +133,10 @@
 
 -(void) goBack: (id) sender {
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameStartLayer firstScene:YES] ]];
+}
+
+-(void) storyLine: (id) sender {
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[StoryLineLayer scene] ]];
 }
 
 @end

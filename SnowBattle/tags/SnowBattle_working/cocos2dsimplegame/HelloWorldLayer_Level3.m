@@ -1559,7 +1559,7 @@ CCSprite* PowerLabel;
         randomPos = 0;
         count = 90;
         darkBlueCount = 0;
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"funk.mp3"];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"AwesomeGamePlaySound.mp3"];
         totalScore = [[NSUserDefaults standardUserDefaults] integerForKey:@"Score"];
         
         border = [_tileMap layerNamed:@"Border"];

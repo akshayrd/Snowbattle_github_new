@@ -4,6 +4,7 @@
 #import "ShopLayer.h"
 #import "LevelSelectLayer.h"
 #import "FacebookScorer.h"
+#import "SimpleAudioEngine.h"
 
 @implementation GameOverLayer
 +(CCScene *) sceneWithWon:(BOOL)won withscoreValue:(int)scoreValue timeBonus:(int) timeRemaining playerImage:(BOOL)playerimage{
@@ -40,6 +41,7 @@
         if (won) {
             message = @"Level Completed!";
             timeBonus = [NSString stringWithFormat:@"Time Bonus: %d", timeRemaining];
+            [[SimpleAudioEngine sharedEngine] playEffect:@"CoolWinningSound.mp3"];
             CCSprite *bg =[CCSprite spriteWithFile:@"GameWonPng.png"];
             bg.position=ccp(winSize.width/2,winSize.height/2-300);
             bg.anchorPoint = ccp(0, 0);
@@ -47,6 +49,7 @@
             
         } else {
             message = @"Game Over!";
+            [[SimpleAudioEngine sharedEngine] playEffect:@"GameLstSound_Clipped.mp3"];
             timeBonus = [NSString stringWithFormat:@"Time Bonus: %d", timeRemaining];
             CCSprite *bg =[CCSprite spriteWithFile:@"GameLostPng.png"];
             bg.position=ccp(winSize.width/2,0);

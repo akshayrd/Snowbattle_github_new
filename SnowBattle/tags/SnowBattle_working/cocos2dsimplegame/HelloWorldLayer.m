@@ -767,7 +767,7 @@ int playerDirection = 1;
         _playerimage = player1;
         count = 90;
         darkBlueCount = 0;
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"funk.mp3"];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"AwesomeGamePlaySound.mp3"];
         _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"tileMap2.tmx"];
         snow = [_tileMap layerNamed:@"Snow"];
         border = [_tileMap layerNamed:@"Border"];
