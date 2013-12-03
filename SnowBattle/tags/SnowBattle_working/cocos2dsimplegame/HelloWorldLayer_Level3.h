@@ -31,8 +31,6 @@
     CCTMXLayer *ghostpitLayer;
     CCSprite *monster5;
     CCSprite *monster6;
-    CCSprite *monster7;
-    CCSprite *monster8;
     int darkBlueCount;
     int powerBlue;
     int powerGrenade;
@@ -114,7 +112,6 @@
     int totalScore;
     
     int pitTime;
-    CCSprite * monster13;
     int c;
     int immunePowerUp;
     int  nextBoatToGo;
