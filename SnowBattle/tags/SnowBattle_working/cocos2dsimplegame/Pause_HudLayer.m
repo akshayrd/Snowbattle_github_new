@@ -106,13 +106,13 @@
     //[self addChild:menuGame1];
     
     pauseResumeMenu1 = [CCMenu menuWithItems: resumeGame1,restartGame1,menuGame1, nil];
-    pauseResumeMenu1.position=ccp(600,300);
-    [pauseResumeMenu1 alignItemsVerticallyWithPadding:70];
+    pauseResumeMenu1.position=ccp(600,400);
+    [pauseResumeMenu1 alignItemsVerticallyWithPadding:85];
     [self addChild:pauseResumeMenu1];
     
     pauseResumeMenu = [CCMenu menuWithItems: resumeGame,restartGame,menuGame, nil];
-    pauseResumeMenu.position=ccp(400,300);
-    [pauseResumeMenu alignItemsVerticallyWithPadding:15];
+    pauseResumeMenu.position=ccp(400,400);
+    [pauseResumeMenu alignItemsVerticallyWithPadding:30];
     [self addChild:pauseResumeMenu];
     
     pauseResumeMenu.visible=true;

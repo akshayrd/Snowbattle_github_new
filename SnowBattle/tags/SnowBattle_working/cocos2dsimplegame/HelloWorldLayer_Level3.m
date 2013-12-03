@@ -1860,7 +1860,7 @@ CCSprite* PowerLabel;
         if(powerupArray[1]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp2"] >=1))
         {
             
-            shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png" target:self selector:@selector(GhostImmunePower:)];
+            shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"ImmunizationPower_45x45.png" selectedImage:@"ImmunizationPower_45x45.png" target:self selector:@selector(GhostImmunePower:)];
             shopPowerUp2.position = ccp(22, 600-9*40);
             shopPowerUp2.visible = true;
             // [self addChild:shopPowerUp2];
@@ -2170,7 +2170,7 @@ CCSprite* PowerLabel;
         //[timeLabelBlue setString:[NSString stringWithFormat:@" %02d:%02d", (powerLiveTimeLimit - myTimeImmune)/60, (powerLiveTimeLimit-myTimeImmune)%60]];
         immunePowerUp = 1;
         [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
-        [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"playerImmune.png"]];
+        //[player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"playerImmune.png"]];
         CCBlink* blink = [CCBlink actionWithDuration:10 blinks:20];
         [player runAction:blink];
     }

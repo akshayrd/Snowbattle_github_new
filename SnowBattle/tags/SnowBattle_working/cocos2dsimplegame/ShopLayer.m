@@ -48,7 +48,7 @@
         int powerup1Cost=10;
         int powerup2Cost=20;
         int powerup3Cost=30;
-        int player2cost=500;
+        int player2cost=100;
         //int player3cost=700;
         
         remainingTimeBonus=timeBonus;
@@ -114,8 +114,8 @@
         [menu4 alignItemsVerticallyWithPadding:15];
         [self addChild:menu4];
         
-        menuItem6 = [CCMenuItemImage itemWithNormalImage:@"powerUp_immuneGhost.png"
-                                           selectedImage:@"powerUp_immuneGhost.png"
+        menuItem6 = [CCMenuItemImage itemWithNormalImage:@"ImmunizationPower_45x45.png"
+                                           selectedImage:@"ImmunizationPower_45x45.png"
                                             disabledImage:@"locked.png" 
                                                   target:self selector:@selector(addToCartPowerUp:)];
         //menuItem1.position=ccp(300,300);
@@ -126,7 +126,7 @@
         {
             [menuItem6 setIsEnabled:NO];
         }
-        powerupList[2]=[NSString stringWithFormat:@"powerUp_immuneGhost.png"];
+        powerupList[2]=[NSString stringWithFormat:@"ImmunizationPower_45x45.png"];
         menuItem6.userData=powerupList;
         CCMenu *menu15 = [CCMenu menuWithItems: menuItem6, nil];
         menu15.position=ccp(150,200);
@@ -198,8 +198,8 @@
         [menu12 alignItemsVerticallyWithPadding:15];
         [self addChild:menu12];
         
-        menuItem5 = [CCMenuItemImage itemWithNormalImage:@"player2.png"
-                                           selectedImage:@"player2.png"
+        menuItem5 = [CCMenuItemImage itemWithNormalImage:@"Player2_Version1_150x150.png"
+                                           selectedImage:@"Player2_Version1_150x150.png"
                                             disabledImage:@"big_lock.png" 
                                                   target:self selector:@selector(addToCartPlayer:)];
         //menuItem2.position=ccp(800,300);
@@ -210,7 +210,7 @@
         {
             [menuItem5 setIsEnabled:NO];
         }
-        powerupList[2]=[NSString stringWithFormat:@"player2.png"];
+        powerupList[2]=[NSString stringWithFormat:@"Player2_Version1_150x150.png"];
         menuItem5.userData=powerupList;
         CCMenu *menu11 = [CCMenu menuWithItems: menuItem5, nil];
         menu11.position=ccp(900,210);

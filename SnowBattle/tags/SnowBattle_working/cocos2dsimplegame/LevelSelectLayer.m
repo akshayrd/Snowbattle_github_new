@@ -10,6 +10,7 @@
 #import "HelloWorldLayer.h"
 #import "HelloWorldLayer_Level2.h"
 #import "HelloWorldLayer_Level3.h"
+#import "SimpleAudioEngine.h"
 
 @implementation LevelSelectLayer
 
@@ -29,6 +30,8 @@
         bg.position=ccp(0,0);
         bg.anchorPoint = ccp(0, 0);
         [self addChild:bg z:0];
+        
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"GameSound.mp3"];
         
         CCParticleRain * p = [[CCParticleRain alloc]initWithTotalParticles:10000];
         [p autorelease];

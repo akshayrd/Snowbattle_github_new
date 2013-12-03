@@ -3,7 +3,7 @@
 #import "LevelSelectLayer.h"
 #import "PlayerSelectLayer.h"
 #import "ShopLayer.h"
-
+#import "SimpleAudioEngine.h"
 
 @implementation GameStartLayer
 
@@ -21,6 +21,7 @@
         bg.position=ccp(0,0);
         bg.anchorPoint = ccp(0, 0);
         [self addChild:bg z:0];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"GameSound.mp3"];
         
         CCParticleRain * p = [[CCParticleRain alloc]initWithTotalParticles:10000];
         [p autorelease];
