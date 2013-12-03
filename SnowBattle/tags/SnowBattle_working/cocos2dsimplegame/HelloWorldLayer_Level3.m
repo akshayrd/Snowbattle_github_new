@@ -1990,7 +1990,7 @@ CCSprite* PowerLabel;
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp2"];
     [self schedule:@selector(GhostImmunePowerTimer:) interval:1 repeat:1 delay:0];
     
-    [self schedule:@selector(GhostImmunePowerTimerUp:) interval:11 repeat:1 delay:0];
+    [self schedule:@selector(GhostImmunePowerTimerUp:) interval:21 repeat:1 delay:0];
 }
 
 -(void)GhostImmunePowerTimerUp:(ccTime)dt
@@ -2004,9 +2004,9 @@ CCSprite* PowerLabel;
     CCFadeTo *fadeIn = [CCFadeTo actionWithDuration:0.25 opacity:0];
     CCFadeTo *fadeOut = [CCFadeTo actionWithDuration:0.75 opacity:255];
     
-    CCSequence *pulseSequence = [CCSequence actionOne:fadeIn two:fadeOut];
+   // CCSequence *pulseSequence = [CCSequence actionOne:fadeIn two:fadeOut];
     // CCRepeatForever *repeat = [CCRepeatForever actionWithAction:pulseSequence];
-    [player runAction:pulseSequence];
+    //[player runAction:pulseSequence];
     //CCBlink* blink = [CCBlink actionWithDuration:3 blinks:10];
     //[player runAction:blink];
     
@@ -2040,7 +2040,7 @@ CCSprite* PowerLabel;
         immunePowerUp = 1;
         [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
         //[player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"playerImmune.png"]];
-        CCBlink* blink = [CCBlink actionWithDuration:10 blinks:20];
+        CCBlink* blink = [CCBlink actionWithDuration:20 blinks:60];
         [player runAction:blink];
     }
 }
