@@ -818,13 +818,15 @@ int playerDirection = 1;
         CGSize winSize = [CCDirector sharedDirector].winSize;
         
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
+        //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
         if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 1)
         {
-            [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"NormalPlayer_40x40.png"]];
+            player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"] ;
         }
         else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
-            [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"HyperPlayer_40x40.png"]];
+            player = [CCSprite spriteWithFile:@"HyperPlayer_40x40.png"] ;
         }
+
 
         [self spawnPlayer];
         if(player == nil)

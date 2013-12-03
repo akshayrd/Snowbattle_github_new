@@ -149,7 +149,7 @@
     if(selectedLevel==1)
     {
         [[CCDirector sharedDirector]
-         replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer scene:player1Select]]];
+         replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer scene:YES]]];
     }
     else if(selectedLevel==2)
     {
