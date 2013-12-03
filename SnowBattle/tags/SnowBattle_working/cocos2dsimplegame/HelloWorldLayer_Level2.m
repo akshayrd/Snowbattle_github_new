@@ -1004,13 +1004,13 @@ CCSprite* PowerLabel;
         
         border = [_tileMap layerNamed:@"Border"];
         building = [_tileMap layerNamed:@"Building"];
-        darkBlue = [_tileMap layerNamed:@"DarkBlueTiles"];
-        powerBlueLayer = [_tileMap layerNamed:@"power_blue"];
-        powerGrenadeLayer = [_tileMap layerNamed:@"Grenade"];
-        powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
-        grenadeLayer = [_tileMap layerNamed:@"GrenadeWall"];
+        //darkBlue = [_tileMap layerNamed:@"DarkBlueTiles"];
+        //powerBlueLayer = [_tileMap layerNamed:@"power_blue"];
+        //powerGrenadeLayer = [_tileMap layerNamed:@"Grenade"];
+        //powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
+        //grenadeLayer = [_tileMap layerNamed:@"GrenadeWall"];
         bonusLayer = [_tileMap layerNamed:@"Bonus"];
-        ghostpitLayer = [_tileMap layerNamed:@"ghostPit"];
+        //ghostpitLayer = [_tileMap layerNamed:@"ghostPit"];
         
         powerLivesLayer.visible = FALSE;
         
@@ -1067,7 +1067,7 @@ CCSprite* PowerLabel;
             player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"] ;
         }
         else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
-            player = [CCSprite spriteWithFile:@"HyperPlayer_40x40.png"] ;
+            player = [CCSprite spriteWithFile:@"Player2_TopView_Version1_45x45.png"] ;
         }
 
         [self spawnPlayer];

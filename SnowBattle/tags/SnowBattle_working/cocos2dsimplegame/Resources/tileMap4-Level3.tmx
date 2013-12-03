@@ -190,37 +190,7 @@
    eJztlWkOgjAQhZn7X0pxSdyiILigoMbdU/gandiUFloD0R98yQtlmNLXTGE8r6EOWuR5bcinT2yGcQCF0ByKoBhaQEtoReb36Rghf6yZo8a7GPegviZ3YFgzQXwDbaEUyqAdtHf0KOB92sanmlj4xbp141qvKhDnqSPVd0j5evsOvmKpBjyW79VcW9iTPCeifI6LT3VchU/VkyCl8pwiTP7KfBfB32AmzblQPsfWn67OVfgUnq5vMQHpc27Q/Q+/axfUvTF8/ic/2J/uv5QYfMg9iPsTX10o6m0mDppnR8RO0Fl6xj3ItKYta3rJtrfx+Xw4nv8Ge56lymws
   </data>
  </layer>
- <layer name="DarkBlueTiles" width="42" height="16">
-  <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20LL6AAAOBnCoAAAQ==
-  </data>
- </layer>
- <layer name="power_blue" width="42" height="16">
-  <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20LL6AAAOBnCoAAAQ==
-  </data>
- </layer>
  <layer name="Power_lives" width="42" height="16">
-  <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20LL6AAAOBnCoAAAQ==
-  </data>
- </layer>
- <layer name="Grenade" width="42" height="16">
-  <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20LL6AAAOBnCoAAAQ==
-  </data>
- </layer>
- <layer name="GrenadeWall" width="42" height="16">
-  <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20LL6AAAOBnCoAAAQ==
-  </data>
- </layer>
- <layer name="Bonus" width="42" height="16">
-  <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20LL6AAAOBnCoAAAQ==
-  </data>
- </layer>
- <layer name="ghostPit" width="42" height="16">
   <data encoding="base64" compression="zlib">
    eJztwTEBAAAAwqD1T20LL6AAAOBnCoAAAQ==
   </data>

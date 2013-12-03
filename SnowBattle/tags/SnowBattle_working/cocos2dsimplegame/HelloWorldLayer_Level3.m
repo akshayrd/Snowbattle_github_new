@@ -32,10 +32,10 @@
     [scene addChild:hud];
     layer->hud = hud;
     
-     Pause_HudLayer *bhud = [Pause_HudLayer node];
-     [scene addChild:bhud];
-     layer->b_hud = bhud;
-     //bhud.visible = NO;
+    Pause_HudLayer *bhud = [Pause_HudLayer node];
+    [scene addChild:bhud];
+    layer->b_hud = bhud;
+    //bhud.visible = NO;
     return scene;
 }
 
@@ -1273,56 +1273,6 @@ CCSprite* PowerLabel;
         }
     }
     
-    //    tileGid = [darkBlue tileGIDAt:tileCoord];
-    //
-    //    if (tileGid) {
-    //
-    //        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
-    //
-    //        if (properties) {
-    //
-    //            NSString *collectible = properties[@"collectible2x"];
-    //
-    //            if(powerBlue!=1)
-    //            {
-    //                bubble3.visible=TRUE;
-    //                [self schedule:@selector(removeBubble3) interval:3 repeat:1 delay:5];
-    //            }
-    //
-    //            if (collectible && [collectible isEqualToString:@"True"] && powerBlue == 1) {
-    //
-    //                [darkBlue removeTileAt:tileCoord];
-    //
-    //                currentLevelScore++;
-    //                darkBlueCount++;
-    //                if(darkBlueCount == 42)
-    //                {
-    //                    //[player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"FinalTwo_51x51x.png"]];
-    //                    [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"NormalPlayer_40x40.png"]];
-    //                    powerBlue = 0;
-    //                    PowerLabel.visible=FALSE;
-    //                    timeLabelBlue.visible=FALSE;
-    //                }
-    //
-    //                [hud numCollectedChanged:currentLevelScore];
-    //
-    //                [[SimpleAudioEngine sharedEngine] playEffect:@"shoveling.mp3"];
-    //
-    //                if (currentLevelScore > winScore) {
-    //
-    //                    [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+totalScore forKey:@"Score"];
-    //                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:currentLevelScore timeBonus:levelTimeLimit-myTime playerImage:_playerimage];
-    //
-    //                    [[CCDirector sharedDirector] replaceScene:gameOverScene];
-    //
-    //                }
-    //
-    //            }
-    //
-    //        }
-    //
-    //    }
-    
     tileGid = [riverLayer tileGIDAt:tileCoord];
     if (tileGid) {
         NSLog(@"Heree000 (%f,%f)",tileCoord.x,tileCoord.y);
@@ -1513,47 +1463,9 @@ CCSprite* PowerLabel;
         return;
         
     }
-    
-    
-    //    tileGid = [grenadeLayer tileGIDAt:tileCoord];
-    //
-    //    if (tileGid) {
-    //
-    //        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
-    //
-    //        if (properties) {
-    //
-    //            NSString *collision = properties[@"Collidable"];
-    //            if (collision && [collision isEqualToString:@"True"] && powerGrenade!=1) {
-    //                return;
-    //            }
-    //
-    //            if (powerGrenade == 1) {
-    //                //NSLog(@"Inside grenade %f %f",tileCoord.x,tileCoord.y);
-    //                CCParticleFire * p = [[CCParticleFire alloc]initWithTotalParticles:500];
-    //                [p autorelease];
-    //                p.texture=[[CCTextureCache sharedTextureCache] addImage:@"fire.png"];
-    //                p.autoRemoveOnFinish = YES;
-    //                p.duration = 1;
-    //                p.position=ccp(700,350);
-    //                [self addChild:p];
-    //                //[grenadeLayer removeFromParent];
-    //                [grenadeLayer removeTileAt:tileCoord];
-    //                [[SimpleAudioEngine sharedEngine] playEffect:@"explosion-01.mp3"];
-    //
-    //            }
-    //
-    //        }
-    //
-    //    }
-    
-    
     [[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
     
-    // tileGid = [riverLayer tileGIDAt:tileCoord];
-    // if (!tileGid) {
     player.position = position;
-    // }
 }
 - (void) JumpFailed
 {
@@ -1813,7 +1725,7 @@ CCSprite* PowerLabel;
             player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"] ;
         }
         else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
-            player = [CCSprite spriteWithFile:@"HyperPlayer_40x40.png"] ;
+            player = [CCSprite spriteWithFile:@"Player2_TopView_Version1_45x45.png"] ;
         }
         
         [self spawnPlayer];
@@ -1847,15 +1759,6 @@ CCSprite* PowerLabel;
         
         screenSize2 = [CCDirector sharedDirector].winSize;
         
-        // Standard method to pause the game
-        /* starMenuItem = [CCMenuItemImage itemWithNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame:)];
-         
-         //starMenuItem.position = ccp(870, 25);
-         starMenuItem.position = ccp(22, 680);
-         CCMenu *starMenu = [CCMenu menuWithItems:starMenuItem, nil];
-         starMenu.position = CGPointZero;
-         [self addChild:starMenu];*/
-        
         /* Ghost Immune PowerUp */
         if(powerupArray[1]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp2"] >=1))
         {
@@ -1870,23 +1773,7 @@ CCSprite* PowerLabel;
             [self addChild:menu8];
         }
         
-        /*for (int i=0; i<5; i++) {
-         lifeItem[i] = [CCMenuItemImage itemWithNormalImage:@"life.png" selectedImage:@"life.png" ];
-         //lifeItem[i].position = ccp(22, 600-i*40);
-         lifeItem[i].position = ccp(winSize.width - 500, winSize.height/2-200i*40);
-         lifeItem[i].visible = true;
-         }
-         lifeItem[3].visible = false;
-         lifeItem[4].visible = false;*/
-        
-        //life = [CCMenu menuWithItems:lifeItem[0],lifeItem[1],lifeItem[2],lifeItem[3],lifeItem[4], nil];
-        
-        //life.position = CGPointZero;
-        //[self addChild:life];
-        
         [self schedule:@selector(checkCollisionWithMonster)];
-        //[self schedule:@selector(moveSensingMonster) interval:1 ];
-        // [self schedule:@selector(ShowBonuStageImage) ];
         
         myTime = 0;
         nextBoatToGo  = 1;
@@ -1900,24 +1787,6 @@ CCSprite* PowerLabel;
         // Add the time label
         timeLabel.color=ccBLACK;
         [self addChild:timeLabel];
-        
-        //update
-        
-        // timeLabelBlue = [CCLabelTTF labelWithString:@"" fontName:@"Arial" fontSize:40];
-        // timeLabelBlue.position =ccp(200 + timeLabelBlue.contentSize.width, timeLabelBlue.contentSize.height/2 + 46);
-        // Adjust the label's anchorPoint's y position to make it align with the top.
-        // timeLabelBlue.anchorPoint = CGPointMake(0.5f, 1.0f);
-        
-        //timeLabelBlue.color = ccBLACK;
-        
-        // Add the time label
-        //timeLabelBlue.visible = FALSE;
-        /*collideTime = 0;*/
-        // PowerLabel = [CCSprite spriteWithFile:@"powerup12.png"];
-        
-        //  PowerLabel.position =ccp(120 + timeLabelBlue.contentSize.width, timeLabelBlue.contentSize.height/2 + 27);
-        // PowerLabel.visible = FALSE;
-        // [self addChild:PowerLabel];
         
         bubble = [CCSprite spriteWithFile:@"bubble4.png"];
         bubble.position = ccp(winSize.width - 420 , winSize.height - 340);
@@ -2146,7 +2015,7 @@ CCSprite* PowerLabel;
         [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"NormalPlayer_40x40.png"]];
     }
     else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
-        [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"HyperPlayer_40x40.png"]];
+        [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"Player2_TopView_Version1_45x45.png"]];
     }
     
     if( (CGRectIntersectsRect([monster5 boundingBox], [player boundingBox]) && totalTime - collideTime >= immuneDuration ))

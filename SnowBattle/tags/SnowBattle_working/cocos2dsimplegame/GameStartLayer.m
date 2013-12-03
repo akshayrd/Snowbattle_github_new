@@ -44,11 +44,17 @@
                                                           target:self
                                                         selector:@selector(startGame:)];
         [newGame setColor:ccBLUE];
-        CCMenuItemFont *shopNow = [CCMenuItemFont itemWithString:@"Go To Shop"
+        
+        CCMenuItemFont *instructions = [CCMenuItemFont itemWithString:@"Instructions"
+                                                          target:self
+                                                        selector:@selector(instructions:)];
+        [instructions setColor:ccBLUE];
+        
+        /*CCMenuItemFont *shopNow = [CCMenuItemFont itemWithString:@"Go To Shop"
                                                           target:self
                                                         selector:@selector(shopNow:)];
-        [shopNow setColor:ccBLUE];
-        CCMenu *menu = [CCMenu menuWithItems: newGame,shopNow, nil];
+        [shopNow setColor:ccBLUE];*/
+        CCMenu *menu = [CCMenu menuWithItems: newGame,instructions, nil];
         //CCMenu *menu = [CCMenu menuWithItems: newGame, nil];
         menu.position=ccp(680,120);
         [menu alignItemsVerticallyWithPadding:15];
@@ -73,6 +79,24 @@
     
 }
 
+-(void) instructions: (id) sender {
+    CCSprite *bg =[CCSprite spriteWithFile:@"Instructions_1024x768.png"];
+    bg.position=ccp(0,0);
+    bg.anchorPoint = ccp(0, 0);
+    [self addChild:bg z:0];
+    
+    CCMenuItemImage *selectLevel = [CCMenuItemImage itemWithNormalImage:@"GreenArrow_100x200.png"
+                                       selectedImage:@"GreenArrow_100x200.png"
+                                          target:self
+                                        selector:@selector(goBack:)];
+    //selectLevel.color=ccBLUE;
+    //selectLevel.visible=false;
+    CCMenu *menu2 = [CCMenu menuWithItems: selectLevel, nil];
+    menu2.position=ccp(450,90);
+    [menu2 alignItemsVerticallyWithPadding:15];
+    [self addChild:menu2 z:1];
+}
+
 -(void) shopNow: (id) sender {
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp1"];
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Shop_PowerUp2"];
@@ -80,6 +104,10 @@
     [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"Shop_PlayerImage"];
     [[CCDirector sharedDirector]
      replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[ShopLayer scene3:0]]];
+}
+
+-(void) goBack: (id) sender {
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameStartLayer firstScene:YES] ]];
 }
 
 @end

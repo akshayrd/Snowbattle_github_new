@@ -829,7 +829,7 @@ int playerDirection = 1;
             player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"] ;
         }
         else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
-            player = [CCSprite spriteWithFile:@"HyperPlayer_40x40.png"] ;
+            player = [CCSprite spriteWithFile:@"Player2_TopView_Version1_45x45.png"] ;
         }
 
 

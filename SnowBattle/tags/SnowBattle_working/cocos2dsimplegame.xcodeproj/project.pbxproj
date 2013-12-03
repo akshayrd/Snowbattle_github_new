@@ -26,6 +26,10 @@
 		BA1B1E3A184DCE5200AD8C82 /* level.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E39184DCE5200AD8C82 /* level.png */; };
 		BA1B1E3C184DD62000AD8C82 /* ImmunizationPower_45x45.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E3B184DD62000AD8C82 /* ImmunizationPower_45x45.png */; };
 		BA1B1E3E184DD9E100AD8C82 /* Player2_Version1_150x150.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E3D184DD9E100AD8C82 /* Player2_Version1_150x150.png */; };
+		BA1B1E41184DE1D900AD8C82 /* Player2_TopView_Version1_45x45.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E3F184DE1D900AD8C82 /* Player2_TopView_Version1_45x45.png */; };
+		BA1B1E42184DE1D900AD8C82 /* Player2_TopView_Version2_45x45.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E40184DE1D900AD8C82 /* Player2_TopView_Version2_45x45.png */; };
+		BA1B1E44184DE46A00AD8C82 /* Instructions_1024x768.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E43184DE46A00AD8C82 /* Instructions_1024x768.png */; };
+		BA1B1E46184DE7EF00AD8C82 /* GreenArrow_100x200.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E45184DE7EF00AD8C82 /* GreenArrow_100x200.png */; };
 		BA3949D617F2EC450072E0C9 /* hit.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3949D217F2EC450072E0C9 /* hit.caf */; };
 		BA3FEDD617FE893800DD2E17 /* Raycast.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDD517FE893800DD2E17 /* Raycast.m4a */; };
 		BA3FEDDC17FE986800DD2E17 /* grey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDDB17FE986800DD2E17 /* grey.jpg */; };
@@ -304,6 +308,10 @@
 		BA1B1E39184DCE5200AD8C82 /* level.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level.png; sourceTree = "<group>"; };
 		BA1B1E3B184DD62000AD8C82 /* ImmunizationPower_45x45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImmunizationPower_45x45.png; sourceTree = "<group>"; };
 		BA1B1E3D184DD9E100AD8C82 /* Player2_Version1_150x150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player2_Version1_150x150.png; sourceTree = "<group>"; };
+		BA1B1E3F184DE1D900AD8C82 /* Player2_TopView_Version1_45x45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player2_TopView_Version1_45x45.png; sourceTree = "<group>"; };
+		BA1B1E40184DE1D900AD8C82 /* Player2_TopView_Version2_45x45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player2_TopView_Version2_45x45.png; sourceTree = "<group>"; };
+		BA1B1E43184DE46A00AD8C82 /* Instructions_1024x768.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instructions_1024x768.png; sourceTree = "<group>"; };
+		BA1B1E45184DE7EF00AD8C82 /* GreenArrow_100x200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenArrow_100x200.png; sourceTree = "<group>"; };
 		BA3949CE17F2B6430072E0C9 /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "pew-pew-lei.caf"; path = "Resources/Sounds/pew-pew-lei.caf"; sourceTree = "<group>"; };
 		BA3949D217F2EC450072E0C9 /* hit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit.caf; path = Resources/Sounds/hit.caf; sourceTree = "<group>"; };
 		BA3949D317F2EC450072E0C9 /* move.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = move.caf; path = Resources/Sounds/move.caf; sourceTree = "<group>"; };
@@ -1497,6 +1505,10 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA1B1E45184DE7EF00AD8C82 /* GreenArrow_100x200.png */,
+				BA1B1E43184DE46A00AD8C82 /* Instructions_1024x768.png */,
+				BA1B1E3F184DE1D900AD8C82 /* Player2_TopView_Version1_45x45.png */,
+				BA1B1E40184DE1D900AD8C82 /* Player2_TopView_Version2_45x45.png */,
 				BA1B1E3D184DD9E100AD8C82 /* Player2_Version1_150x150.png */,
 				BA1B1E3B184DD62000AD8C82 /* ImmunizationPower_45x45.png */,
 				BA1B1E39184DCE5200AD8C82 /* level.png */,
@@ -2068,6 +2080,7 @@
 				BAC875FC18459C04001B2CE4 /* ghosts.png in Resources */,
 				BAB78055183CA517000E1743 /* Black.jpg in Resources */,
 				BA68E5581814B7D900F3F937 /* shoveling.mp3 in Resources */,
+				BA1B1E42184DE1D900AD8C82 /* Player2_TopView_Version2_45x45.png in Resources */,
 				BA508748180BAD970097C021 /* POSTER.jpg in Resources */,
 				BA5FC12A184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50.jpg in Resources */,
 				BA3949D617F2EC450072E0C9 /* hit.caf in Resources */,
@@ -2118,10 +2131,12 @@
 				BA3FEDF517FEA36100DD2E17 /* h3.jpg in Resources */,
 				BA991225180F0DD1001C5562 /* ChangeLog in Resources */,
 				F5CCB29917E6970D00D56915 /* monster.jpg in Resources */,
+				BA1B1E44184DE46A00AD8C82 /* Instructions_1024x768.png in Resources */,
 				BAB7805F183CCD3E000E1743 /* monster_white.png in Resources */,
 				BA90FCA7182DF0A9001D3A61 /* tileMap3.tmx in Resources */,
 				BAB655F418011D5D0062BE70 /* dark-blue.jpg in Resources */,
 				BAF0F14A184AB7A700EB9A5B /* tileMap4-Level3.tmx in Resources */,
+				BA1B1E41184DE1D900AD8C82 /* Player2_TopView_Version1_45x45.png in Resources */,
 				BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */,
 				BAD9261F1849E1F800C1017A /* boat1.png in Resources */,
 				BA68E53A1814AC3000F3F937 /* player_pause40x40.png in Resources */,
@@ -2165,6 +2180,7 @@
 				BEE3F3B418401F850001181C /* playerImmune.png in Resources */,
 				3FACCF92184195600018FBFE /* plane.png in Resources */,
 				3FACCF93184195600018FBFE /* plane_shadow.png in Resources */,
+				BA1B1E46184DE7EF00AD8C82 /* GreenArrow_100x200.png in Resources */,
 				3F02BEC31841E58A0061FD04 /* plane_sound.mp3 in Resources */,
 				F520702D184328450057A846 /* big_tile.tmx in Resources */,
 				F520708B18432CDE0057A846 /* FBDialog.bundle in Resources */,
