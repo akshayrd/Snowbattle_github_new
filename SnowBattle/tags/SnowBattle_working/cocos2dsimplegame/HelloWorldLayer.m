@@ -820,15 +820,12 @@ int playerDirection = 1;
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
         if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 1)
         {
-            player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
+            [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"NormalPlayer_40x40.png"]];
         }
         else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
-            player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
+            [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"HyperPlayer_40x40.png"]];
         }
-//        else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 3)
-//        {
-//            player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
-//        }
+
         [self spawnPlayer];
         if(player == nil)
         {

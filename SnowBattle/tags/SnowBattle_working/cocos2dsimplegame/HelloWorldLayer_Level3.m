@@ -37,7 +37,6 @@
      bhud.visible = NO;*/
     
     return scene;
-    
 }
 
 - (void) moveSensingMonster1  // every 1 sec called
@@ -269,7 +268,7 @@
     
     int tileGid = [building tileGIDAt:tileCoord];
     if (tileGid) {
-       // NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        // NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         //        if (properties) {
         //            NSString *collision = properties[@"Collidable"];
         //            if (collision && [collision isEqualToString:@"True"]) {
@@ -453,7 +452,7 @@
     
     int tileGid = [building tileGIDAt:tileCoord];
     if (tileGid) {
-       // NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        // NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         //        if (properties) {
         //            NSString *collision = properties[@"Collidable"];
         //            if (collision && [collision isEqualToString:@"True"]) {
@@ -635,7 +634,7 @@
     
     int tileGid = [building tileGIDAt:tileCoord];
     if (tileGid) {
-       // NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+        // NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         //        if (properties) {
         //            NSString *collision = properties[@"Collidable"];
         //            if (collision && [collision isEqualToString:@"True"]) {
@@ -984,55 +983,55 @@ CCSprite* PowerLabel;
         }
     }
     
-//    tileGid = [darkBlue tileGIDAt:tileCoord];
-//    
-//    if (tileGid) {
-//        
-//        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
-//        
-//        if (properties) {
-//            
-//            NSString *collectible = properties[@"collectible2x"];
-//            
-//            if(powerBlue!=1)
-//            {
-//                bubble3.visible=TRUE;
-//                [self schedule:@selector(removeBubble3) interval:3 repeat:1 delay:5];
-//            }
-//            
-//            if (collectible && [collectible isEqualToString:@"True"] && powerBlue == 1) {
-//                
-//                [darkBlue removeTileAt:tileCoord];
-//                
-//                currentLevelScore++;
-//                darkBlueCount++;
-//                if(darkBlueCount == 42)
-//                {
-//                    //[player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"FinalTwo_51x51x.png"]];
-//                    [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"NormalPlayer_40x40.png"]];
-//                    powerBlue = 0;
-//                    PowerLabel.visible=FALSE;
-//                    timeLabelBlue.visible=FALSE;
-//                }
-//                
-//                [hud numCollectedChanged:currentLevelScore];
-//                
-//                [[SimpleAudioEngine sharedEngine] playEffect:@"shoveling.mp3"];
-//                
-//                if (currentLevelScore > winScore) {
-//                    
-//                    [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+totalScore forKey:@"Score"];
-//                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:currentLevelScore timeBonus:levelTimeLimit-myTime playerImage:_playerimage];
-//                    
-//                    [[CCDirector sharedDirector] replaceScene:gameOverScene];
-//                    
-//                }
-//                
-//            }
-//            
-//        }
-//        
-//    }
+    //    tileGid = [darkBlue tileGIDAt:tileCoord];
+    //
+    //    if (tileGid) {
+    //
+    //        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+    //
+    //        if (properties) {
+    //
+    //            NSString *collectible = properties[@"collectible2x"];
+    //
+    //            if(powerBlue!=1)
+    //            {
+    //                bubble3.visible=TRUE;
+    //                [self schedule:@selector(removeBubble3) interval:3 repeat:1 delay:5];
+    //            }
+    //
+    //            if (collectible && [collectible isEqualToString:@"True"] && powerBlue == 1) {
+    //
+    //                [darkBlue removeTileAt:tileCoord];
+    //
+    //                currentLevelScore++;
+    //                darkBlueCount++;
+    //                if(darkBlueCount == 42)
+    //                {
+    //                    //[player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"FinalTwo_51x51x.png"]];
+    //                    [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"NormalPlayer_40x40.png"]];
+    //                    powerBlue = 0;
+    //                    PowerLabel.visible=FALSE;
+    //                    timeLabelBlue.visible=FALSE;
+    //                }
+    //
+    //                [hud numCollectedChanged:currentLevelScore];
+    //
+    //                [[SimpleAudioEngine sharedEngine] playEffect:@"shoveling.mp3"];
+    //
+    //                if (currentLevelScore > winScore) {
+    //
+    //                    [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+totalScore forKey:@"Score"];
+    //                    CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:currentLevelScore timeBonus:levelTimeLimit-myTime playerImage:_playerimage];
+    //
+    //                    [[CCDirector sharedDirector] replaceScene:gameOverScene];
+    //
+    //                }
+    //
+    //            }
+    //
+    //        }
+    //
+    //    }
     
     tileGid = [riverLayer tileGIDAt:tileCoord];
     if (tileGid) {
@@ -1045,7 +1044,7 @@ CCSprite* PowerLabel;
         // boat 1
         if( (tileCoord.x==17 && tileCoord.y==5) && !(boat_1.position.x >= boat1_InitialX  && boat_1.position.x<=boat1_InitialX+50) && nextBoatToGo == 1)//&& player.visible==true)
         {
-           // NSLog(@"000Initial X,Y: (%f,%f)",boat_1.position.x,boat_1.position.y);
+            // NSLog(@"000Initial X,Y: (%f,%f)",boat_1.position.x,boat_1.position.y);
             //NSLog(@"111Initial X,Y: (%d,%d)",boat1_InitialX,boat1_InitialY);
             [hud lifeItemsDelete:lifeCount];
             lifeCount--;
@@ -1068,7 +1067,7 @@ CCSprite* PowerLabel;
             [boat_1 setTexture:[[CCTextureCache sharedTextureCache] addImage:@"boat1.jpg"]];
             [boat_2 setTexture:[[CCTextureCache sharedTextureCache] addImage:@"boat1.jpg"]];
             [boat_3 setTexture:[[CCTextureCache sharedTextureCache] addImage:@"boat1.jpg"]];
-
+            
             [[SimpleAudioEngine sharedEngine] playEffect:@"jumpFailed.mp3"];
             
             [self schedule:@selector(JumpFailed) interval:1 repeat:1 delay:1];
@@ -1103,7 +1102,7 @@ CCSprite* PowerLabel;
                 [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+totalScore forKey:@"Score"];
                 CCScene *gameOverScene = [GameOverLayer sceneWithWon:NO withscoreValue:currentLevelScore timeBonus:0 playerImage:_playerimage];
                 [[CCDirector sharedDirector] replaceScene:gameOverScene];
-               
+                
             }
             player.visible = TRUE;
             
@@ -1150,7 +1149,7 @@ CCSprite* PowerLabel;
                 [[CCDirector sharedDirector] replaceScene:gameOverScene];
                 
             }
-        
+            
             player.visible = TRUE;
             
             player.position =  position;
@@ -1175,7 +1174,7 @@ CCSprite* PowerLabel;
             //player.visible = TRUE;
             [[SimpleAudioEngine sharedEngine] playEffect:@"JumpMusicMp3.mp3"];
             
-
+            
             return;
         }
         
@@ -1191,7 +1190,7 @@ CCSprite* PowerLabel;
             nextBoatToGo = -1;
             return;
         }
-
+        
         [hud lifeItemsDelete:lifeCount];
         lifeCount--;
         if (lifeCount < 0) {
@@ -1204,7 +1203,7 @@ CCSprite* PowerLabel;
         [boat_1 setTexture:[[CCTextureCache sharedTextureCache] addImage:@"boat1.jpg"]];
         [boat_2 setTexture:[[CCTextureCache sharedTextureCache] addImage:@"boat1.jpg"]];
         [boat_3 setTexture:[[CCTextureCache sharedTextureCache] addImage:@"boat1.jpg"]];
-       
+        
         if (nextBoatToGo == -1) {
             
             player.position = ccp(player.position.x - 50, player.position.y);
@@ -1212,7 +1211,7 @@ CCSprite* PowerLabel;
         }
         else
         {
-           
+            
             player.position = ccp(player.position.x + 50, player.position.y);
         }
         player.visible = TRUE;
@@ -1222,55 +1221,55 @@ CCSprite* PowerLabel;
         
         [self schedule:@selector(JumpFailed) interval:1 repeat:1 delay:1];
         return;
-       
+        
     }
     
     
-//    tileGid = [grenadeLayer tileGIDAt:tileCoord];
-//    
-//    if (tileGid) {
-//        
-//        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
-//        
-//        if (properties) {
-//            
-//            NSString *collision = properties[@"Collidable"];
-//            if (collision && [collision isEqualToString:@"True"] && powerGrenade!=1) {
-//                return;
-//            }
-//            
-//            if (powerGrenade == 1) {
-//                //NSLog(@"Inside grenade %f %f",tileCoord.x,tileCoord.y);
-//                CCParticleFire * p = [[CCParticleFire alloc]initWithTotalParticles:500];
-//                [p autorelease];
-//                p.texture=[[CCTextureCache sharedTextureCache] addImage:@"fire.png"];
-//                p.autoRemoveOnFinish = YES;
-//                p.duration = 1;
-//                p.position=ccp(700,350);
-//                [self addChild:p];
-//                //[grenadeLayer removeFromParent];
-//                [grenadeLayer removeTileAt:tileCoord];
-//                [[SimpleAudioEngine sharedEngine] playEffect:@"explosion-01.mp3"];
-//            
-//            }
-//            
-//        }
-//        
-//    }
+    //    tileGid = [grenadeLayer tileGIDAt:tileCoord];
+    //
+    //    if (tileGid) {
+    //
+    //        NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+    //
+    //        if (properties) {
+    //
+    //            NSString *collision = properties[@"Collidable"];
+    //            if (collision && [collision isEqualToString:@"True"] && powerGrenade!=1) {
+    //                return;
+    //            }
+    //
+    //            if (powerGrenade == 1) {
+    //                //NSLog(@"Inside grenade %f %f",tileCoord.x,tileCoord.y);
+    //                CCParticleFire * p = [[CCParticleFire alloc]initWithTotalParticles:500];
+    //                [p autorelease];
+    //                p.texture=[[CCTextureCache sharedTextureCache] addImage:@"fire.png"];
+    //                p.autoRemoveOnFinish = YES;
+    //                p.duration = 1;
+    //                p.position=ccp(700,350);
+    //                [self addChild:p];
+    //                //[grenadeLayer removeFromParent];
+    //                [grenadeLayer removeTileAt:tileCoord];
+    //                [[SimpleAudioEngine sharedEngine] playEffect:@"explosion-01.mp3"];
+    //
+    //            }
+    //
+    //        }
+    //
+    //    }
     
     
     [[SimpleAudioEngine sharedEngine] playEffect:@"move.caf"];
     
-   // tileGid = [riverLayer tileGIDAt:tileCoord];
-   // if (!tileGid) {
+    // tileGid = [riverLayer tileGIDAt:tileCoord];
+    // if (!tileGid) {
     player.position = position;
-   // }
+    // }
 }
 - (void) JumpFailed
 {
     player.position = ccp(boat1_InitialX - 50, boat1_InitialY + 200);
     player.visible = TRUE;
-
+    
 }
 
 /*- (void) checkBonusStageIsReturned
@@ -1416,14 +1415,14 @@ CCSprite* PowerLabel;
         /* Life Power Up */
         if(powerupArray[0]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp1"] >=1))
         {
-           // NSLog(@"life");
+            // NSLog(@"life");
             //lifeItem[3].visible = true;
             [self schedule:@selector(shopPowerUpIncreaseLife) interval:0 repeat:0 delay:0];
             
         }
         
         CCRipple3D* ripple = [CCRipple3D  actionWithPosition: riverLayer.position radius:
-                              riverLayer.contentSize.width  waves:10 amplitude:15 grid: ccg(40,40) duration:8.0];
+                              riverLayer.contentSize.width  waves:15 amplitude:15 grid: ccg(40,40) duration:8.0];
         
         CCRepeatForever* repeat = [CCRepeatForever actionWithAction: ripple];
         [riverLayer runAction: repeat];
@@ -1520,16 +1519,12 @@ CCSprite* PowerLabel;
         //player = [CCSprite spriteWithFile:@"FinalTwo_51x51x.png"] ;
         if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 1)
         {
-            player = [CCSprite spriteWithFile:@"HyperPlayer_40x40.png"];
+            [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"NormalPlayer_40x40.png"]];
         }
-        else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2)
-        {
-            player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
+        else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
+            [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"HyperPlayer_40x40.png"]];
         }
-        //        else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 3)
-        //        {
-        //            player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"];
-        //        }
+        
         [self spawnPlayer];
         if(player == nil)
         {
@@ -1545,13 +1540,13 @@ CCSprite* PowerLabel;
         screenSize2 = [CCDirector sharedDirector].winSize;
         
         // Standard method to pause the game
-       /* starMenuItem = [CCMenuItemImage itemWithNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame:)];
-        
-        //starMenuItem.position = ccp(870, 25);
-        starMenuItem.position = ccp(22, 680);
-        CCMenu *starMenu = [CCMenu menuWithItems:starMenuItem, nil];
-        starMenu.position = CGPointZero;
-        [self addChild:starMenu];*/
+        /* starMenuItem = [CCMenuItemImage itemWithNormalImage:@"player_pause40x40.png" selectedImage:@"player_pause40x40.png" target:self selector:@selector(PauseResumeGame:)];
+         
+         //starMenuItem.position = ccp(870, 25);
+         starMenuItem.position = ccp(22, 680);
+         CCMenu *starMenu = [CCMenu menuWithItems:starMenuItem, nil];
+         starMenu.position = CGPointZero;
+         [self addChild:starMenu];*/
         
         /* Ghost Immune PowerUp */
         if(powerupArray[1]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp2"] >=1))
@@ -1840,19 +1835,15 @@ CCSprite* PowerLabel;
     
     if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 1)
     {
-        [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"HyperPlayer_40x40.png"]];
+        [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"NormalPlayer_40x40.png"]];
     }
     else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
-        [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"NormalPlayer_40x40.png"]];
-    }
-    else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 3)
-    {
-        [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"NormalPlayer_40x40.png"]];
+        [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"HyperPlayer_40x40.png"]];
     }
     
     if( (CGRectIntersectsRect([monster5 boundingBox], [player boundingBox]) && totalTime - collideTime >= immuneDuration ))
     {
-         /*immunePowerUp = 1;
+        /*immunePowerUp = 1;
          [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
          [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"playerImmune.png"]];*/
     }

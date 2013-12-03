@@ -19,23 +19,8 @@
         _label.color = ccc3(0,0,0);
         int margin = 10;
         _label.position = ccp(winSize.width/2 - (_label.contentSize.width/2) + 30, _label.contentSize.height/2 + margin);
-        //_livesLabel = [CCLabelTTF labelWithString:@"Lives" fontName:@"Verdana-Bold" fontSize:18.0];
-        //_livesLabel.color = ccc3(0,0,0);
-        //_livesLabel.position = ccp(winSize.width - (_livesLabel.contentSize.width/2) - 480, _livesLabel.contentSize.height/2 + margin);
-        //_livesLabel.position = ccp(winSize.width/2 - 2, winSize.height/2 - 20);
         [self addChild:_label];
         
-        
-//        /* Shop PowerUps */
-//        shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png" target:self selector:@selector(GhostImmunePower:)];
-//        shopPowerUp2.position = ccp(22, 600-9*40);
-//        shopPowerUp2.visible = true;
-//        // [self addChild:shopPowerUp2];
-//        CCMenu *menu8 = [CCMenu menuWithItems: shopPowerUp2, nil];
-//        menu8.position=ccp(22, 600-9*40);
-//        [menu8 alignItemsVerticallyWithPadding:15];
-//        [self addChild:menu8];
-//        menu8.visible=false;
         
         // Standard method to pause the game
         starMenuItem = [CCMenuItemImage itemWithNormalImage:@"pause_2.png" selectedImage:@"pause_2.png" target:self selector:@selector(PauseResumeGame:)];
@@ -73,7 +58,7 @@
 
 -(void) lifeItemsAdd:(int)lifeCount
 {
-  //  NSLog(@"COUNtsss %d ",lifeCount);
+    //  NSLog(@"COUNtsss %d ",lifeCount);
     lifeItem[lifeCount].visible=true;
 }
 
