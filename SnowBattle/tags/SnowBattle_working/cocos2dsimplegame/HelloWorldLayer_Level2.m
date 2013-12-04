@@ -738,10 +738,9 @@ CCSprite* PowerLabel;
                 NSLog(@"Current Score:%d",currentLevelScore);
                 NSLog(@"winscore Score:%d",winScore);
                 
-                if (currentLevelScore >= winScore) {
+                if (currentLevelScore > winScore) {
                     
                     [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+totalScore forKey:@"Score"];
-                    
                     CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES
                                                           withscoreValue:currentLevelScore timeBonus:levelTimeLimit-myTime playerImage:_playerimage];
                     [[CCDirector sharedDirector] replaceScene:gameOverScene];
@@ -753,7 +752,6 @@ CCSprite* PowerLabel;
     
     tileGid = [powerBlueLayer tileGIDAt:tileCoord];
     if (tileGid) {
-        
         NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
         if (properties) {
             NSString *collision = properties[@"Power_blue"];
@@ -877,7 +875,7 @@ CCSprite* PowerLabel;
                 
                 [[SimpleAudioEngine sharedEngine] playEffect:@"shoveling.mp3"];
                 
-                if (currentLevelScore > winScore) {
+                if (currentLevelScore >= winScore) {
                     
                     [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+totalScore forKey:@"Score"];
                     CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES withscoreValue:currentLevelScore timeBonus:levelTimeLimit-myTime playerImage:_playerimage];
@@ -978,11 +976,6 @@ CCSprite* PowerLabel;
 {
     //NSLog(@"Time %d",myTime - collideTime );
     
-    
-    if (CGRectIntersectsRect([monster13 boundingBox], [player boundingBox])) {
-        NSLog(@"hi");
-    }
-    
     if((( c==0 && CGRectIntersectsRect([monster13 boundingBox], [player boundingBox])) ||  CGRectIntersectsRect([monster7 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster8 boundingBox], [player boundingBox])) && totalTime - collideTime >= immuneDuration && bonusStageRunning == NO)
     {
         collideTime = totalTime;
@@ -1050,10 +1043,10 @@ CCSprite* PowerLabel;
             [bonusLayer tileAt:bonusPointsLocation[i]].visible = NO;
         }
         
-        winScore = 195 ;
+        winScore = 194 ;
         //winScore = 10;
         totalLives = 2;
-        //        totalLives = 1;
+        //totalLives = 1;
         lifeCount = 2;
         levelTimeLimit = 240;
         powerLiveTimeLimit = 45;
@@ -1105,8 +1098,6 @@ CCSprite* PowerLabel;
         CGPoint actualPos = [self tileCoordForPosition:ccp(300, winSize.height/2-10)];
         
         monster5.position = ccp(actualPos.x*_tileMap.tileSize.width + _tileMap.tileSize.width/2, (_tileMap.mapSize.height- actualPos.y-1) *_tileMap.tileSize.height + _tileMap.tileSize.height/2);
-        
-        
         
         //[self addChild:monster5];
         screenSize2 = [CCDirector sharedDirector].winSize;

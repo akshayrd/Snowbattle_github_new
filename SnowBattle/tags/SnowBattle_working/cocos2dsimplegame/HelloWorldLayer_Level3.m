@@ -1374,7 +1374,7 @@ CCSprite* PowerLabel;
                 [boat_1 setTexture:[[CCTextureCache sharedTextureCache] addImage:@"GreenPlayerOnWoodenLog_50x50.jpg"]];
             }
             else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
-                [boat_1 setTexture:[[CCTextureCache sharedTextureCache] addImage:@"GreenPlayerOnWoodenLog_50x50.jpg"]];
+                [boat_1 setTexture:[[CCTextureCache sharedTextureCache] addImage:@"Player2OnWoodenLog.png"]];
             }
             else
             {
@@ -1432,7 +1432,7 @@ CCSprite* PowerLabel;
             }
             else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2)
             {
-                [boat_2 setTexture:[[CCTextureCache sharedTextureCache] addImage:@"GreenPlayerOnWoodenLog_50x50(2).jpg"]];
+                [boat_2 setTexture:[[CCTextureCache sharedTextureCache] addImage:@"Player2OnWoodenLog(2).png"]];
             }
             else
             {
@@ -1483,7 +1483,7 @@ CCSprite* PowerLabel;
                 [boat_3 setTexture:[[CCTextureCache sharedTextureCache] addImage:@"GreenPlayerOnWoodenLog_50x50.jpg"]];
             }
             else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
-                [boat_3 setTexture:[[CCTextureCache sharedTextureCache] addImage:@"GreenPlayerOnWoodenLog_50x50.jpg"]];
+                [boat_3 setTexture:[[CCTextureCache sharedTextureCache] addImage:@"Player2OnWoodenLog(2).png"]];
             }
             else
             {

@@ -69,6 +69,8 @@
 		BA45C40A183B1AB200818656 /* monster-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = BA45C409183B1AB200818656 /* monster-hd.png */; };
 		BA508745180BAAB60097C021 /* GameOverLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BA508744180BAAB60097C021 /* GameOverLayer.m */; };
 		BA508748180BAD970097C021 /* POSTER.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA508746180BAD970097C021 /* POSTER.jpg */; };
+		BA541118184F6462007FA030 /* Plater2OnWoodenLog.png in Resources */ = {isa = PBXBuildFile; fileRef = BA541116184F6462007FA030 /* Plater2OnWoodenLog.png */; };
+		BA541119184F6462007FA030 /* Player2OnWoodenLog(2).png in Resources */ = {isa = PBXBuildFile; fileRef = BA541117184F6462007FA030 /* Player2OnWoodenLog(2).png */; };
 		BA5ED73E17FA402A00F7DB42 /* TileMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */; };
 		BA5FC12A184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA5FC128184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50.jpg */; };
 		BA5FC12B184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50(2).jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA5FC129184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50(2).jpg */; };
@@ -377,6 +379,8 @@
 		BA508743180BAAB60097C021 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
 		BA508744180BAAB60097C021 /* GameOverLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverLayer.m; sourceTree = "<group>"; };
 		BA508746180BAD970097C021 /* POSTER.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = POSTER.jpg; path = Resources/POSTER.jpg; sourceTree = "<group>"; };
+		BA541116184F6462007FA030 /* Plater2OnWoodenLog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Plater2OnWoodenLog.png; path = Resources/Plater2OnWoodenLog.png; sourceTree = "<group>"; };
+		BA541117184F6462007FA030 /* Player2OnWoodenLog(2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Player2OnWoodenLog(2).png"; path = "Resources/Player2OnWoodenLog(2).png"; sourceTree = "<group>"; };
 		BA5ED73D17FA402A00F7DB42 /* TileMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TileMap.tmx; sourceTree = "<group>"; };
 		BA5FC128184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = GreenPlayerOnWoodenLog_50x50.jpg; path = Resources/GreenPlayerOnWoodenLog_50x50.jpg; sourceTree = "<group>"; };
 		BA5FC129184B310300CDF20E /* GreenPlayerOnWoodenLog_50x50(2).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GreenPlayerOnWoodenLog_50x50(2).jpg"; path = "Resources/GreenPlayerOnWoodenLog_50x50(2).jpg"; sourceTree = "<group>"; };
@@ -1544,6 +1548,8 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA541116184F6462007FA030 /* Plater2OnWoodenLog.png */,
+				BA541117184F6462007FA030 /* Player2OnWoodenLog(2).png */,
 				3F5691A6184F346A0043D73F /* Level1.png */,
 				3F5691A7184F346A0043D73F /* Level2.png */,
 				3F5691A8184F346A0043D73F /* Level3.png */,
@@ -2155,6 +2161,7 @@
 				F55302E217E646CD00D1FD31 /* Icon-Small-50.png in Resources */,
 				F55302E417E646CD00D1FD31 /* Icon-Small.png in Resources */,
 				BA1B1E36184DCC6C00AD8C82 /* Play_Original.png in Resources */,
+				BA541119184F6462007FA030 /* Player2OnWoodenLog(2).png in Resources */,
 				BA1B1E4D184DF30E00AD8C82 /* AwesomeGamePlaySound.mp3 in Resources */,
 				BAB655E8180112BD0062BE70 /* FinalOne.jpg in Resources */,
 				BAEB785417FC93A300B9663A /* player2.jpg in Resources */,
@@ -2209,6 +2216,7 @@
 				F53576E518134C360003E30F /* levelscreen_final.jpg in Resources */,
 				BA45C40A183B1AB200818656 /* monster-hd.png in Resources */,
 				BA1B1E2B184DAE5700AD8C82 /* RestartPNG_100x100.png in Resources */,
+				BA541118184F6462007FA030 /* Plater2OnWoodenLog.png in Resources */,
 				BA68E53E1814AEDC00F3F937 /* NormalPlayer_40x40.png in Resources */,
 				BA7C53E1182A1BC1009BA09F /* shop1.png in Resources */,
 				F53576E618134C360003E30F /* POSTER_1.jpg in Resources */,
