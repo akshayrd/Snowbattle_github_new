@@ -36,8 +36,8 @@
         
         [self addChild:label];
         
-        //int rangeDuration = 30;
-        int rangeDuration = 3;
+        int rangeDuration = 30;
+        //int rangeDuration = 3;
         
         id actionMove = [CCMoveTo actionWithDuration:rangeDuration position:ccp(3*winSize.width/4-30,winSize.height*2)];
         
@@ -45,8 +45,8 @@
         
         [label runAction:[CCSequence actions:actionMove, nil]];
         
-        //[self schedule:@selector(gameScreen) interval:23];
-        [self schedule:@selector(gameScreen) interval:2];
+        [self schedule:@selector(gameScreen) interval:23];
+        //[self schedule:@selector(gameScreen) interval:2];
     }
     return self;
 }
