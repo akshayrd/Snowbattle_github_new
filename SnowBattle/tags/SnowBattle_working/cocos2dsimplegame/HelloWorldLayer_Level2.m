@@ -1161,8 +1161,8 @@ CCSprite* PowerLabel;
             [menu8 alignItemsVerticallyWithPadding:15];
             [self addChild:menu8];
             
-            bubble4.visible=TRUE;
-            [self schedule:@selector(removeBubble4_GhostPitClose) interval:0 repeat:1 delay:0];
+            bubble4.visible=YES;
+            [self schedule:@selector(removeBubble4_GhostPitClose) interval:3 repeat:1 delay:3];
         }
         
         /*for (int i=0; i<5; i++) {
@@ -1229,7 +1229,7 @@ CCSprite* PowerLabel;
         bubble4 = [CCSprite spriteWithFile:@"bubble_ghostPitClose.png"];
         bubble4.position = ccp(180, 270);
         [self addChild:bubble4];
-        bubble4.visible = FALSE;
+        //bubble4.visible = FALSE;
         
         bubble5 = [CCSprite spriteWithFile:@"bubble_grenadeTake.png"];
         bubble5.position = ccp(170,550);
@@ -1258,12 +1258,13 @@ CCSprite* PowerLabel;
 
 -(void)removeBubble4_GhostPitClose
 {
-    [self schedule:@selector(removeBubble4) interval:3 repeat:1 delay:2];
+    //[self schedule:@selector(removeBubble4) interval:3 repeat:1 delay:2];
+    bubble4.visible=false;
 }
 
 -(void) removeBubble4
 {
-    bubble4.visible=false;
+    
 }
 
 -(void)shopPowerUpIncreaseLife

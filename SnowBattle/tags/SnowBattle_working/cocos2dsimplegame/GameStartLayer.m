@@ -84,7 +84,7 @@
         menu.position=ccp(680,120);
         [menu alignItemsVerticallyWithPadding:15];
         [self addChild:menu];
-        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Score"];
+        [[NSUserDefaults standardUserDefaults] setInteger:60 forKey:@"Score"];
     }
     return self;
 }
