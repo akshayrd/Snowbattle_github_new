@@ -1016,6 +1016,7 @@ CCSprite* PowerLabel;
         bonusStageRunning = NO;
         bonusRoundPlayed = NO;
         currentLevelScore = 0;
+        [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"Level_Selected"];
         
         count = 90;
         darkBlueCount = 0;
@@ -1151,6 +1152,7 @@ CCSprite* PowerLabel;
         /* Ghost Pit Close PowerUp */
         if(powerupArray[2]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp3"] >=1))
         {
+            NSLog(@"PowerUp1111");
             shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"NoMoreGhostPowerUp_45x45.png" selectedImage:@"NoMoreGhostPowerUp_45x45.png" target:self selector:@selector(Closepit:)];
             shopPowerUp2.visible = true;
             
@@ -1158,9 +1160,8 @@ CCSprite* PowerLabel;
             menu8.position=ccp(22, 600-10*40);
             [menu8 alignItemsVerticallyWithPadding:15];
             [self addChild:menu8];
-            
             bubble4.visible=TRUE;
-            [self schedule:@selector(removeBubble4_GhostPitClose) interval:0 repeat:1 delay:0];
+            //[self schedule:@selector(removeBubble4_GhostPitClose) interval:0 repeat:1 delay:0];
         }
         
         /*for (int i=0; i<5; i++) {

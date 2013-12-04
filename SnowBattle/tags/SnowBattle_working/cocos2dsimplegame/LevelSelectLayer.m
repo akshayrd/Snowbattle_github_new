@@ -102,7 +102,7 @@
         //selectLevel.color=ccBLUE;
         //selectLevel.visible=false;
         CCMenu *menu12 = [CCMenu menuWithItems: selectLevel1, nil];
-        menu12.position=ccp(160,50);
+        menu12.position=ccp(120,50);
         [menu12 alignItemsVerticallyWithPadding:15];
         [self addChild:menu12 z:1];
     }
