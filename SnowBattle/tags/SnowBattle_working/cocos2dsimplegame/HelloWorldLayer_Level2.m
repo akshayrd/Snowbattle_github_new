@@ -266,7 +266,7 @@ CGPoint currentposition;
 - (void) Ghost1move:(ccTime)dt {
     
     
-    monster13 = [CCSprite spriteWithFile:@"monster-hd.png"];
+    monster13 = [[CCSprite spriteWithFile:@"monster-hd.png"] retain];
     
     // Determine where to spawn the monster along the Y axis
     CGSize winSize = [CCDirector sharedDirector].winSize;
@@ -274,6 +274,7 @@ CGPoint currentposition;
     int maxY = winSize.height - 100;
     int rangeY = maxY - minY;
     int actualY = (arc4random() % rangeY) + minY;
+    
     /*
      int minX = 100;
      int maxX = winSize.width - 100;
@@ -976,12 +977,13 @@ CCSprite* PowerLabel;
 - (void) checkCollisionWithMonster
 {
     //NSLog(@"Time %d",myTime - collideTime );
+    
+    
     if (CGRectIntersectsRect([monster13 boundingBox], [player boundingBox])) {
         NSLog(@"hi");
     }
     
     if((( c==0 && CGRectIntersectsRect([monster13 boundingBox], [player boundingBox])) ||  CGRectIntersectsRect([monster7 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster8 boundingBox], [player boundingBox])) && totalTime - collideTime >= immuneDuration && bonusStageRunning == NO)
-        
     {
         collideTime = totalTime;
         CCBlink* blink = [CCBlink actionWithDuration:immuneDuration blinks:20];
