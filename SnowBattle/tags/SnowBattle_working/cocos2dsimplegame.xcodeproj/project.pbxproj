@@ -15,6 +15,10 @@
 		3F703EDE1838B0F200309DEB /* powerUp_ghostPitClose.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F703EDC1838B0F200309DEB /* powerUp_ghostPitClose.png */; };
 		3FACCF92184195600018FBFE /* plane.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FACCF90184195600018FBFE /* plane.png */; };
 		3FACCF93184195600018FBFE /* plane_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FACCF91184195600018FBFE /* plane_shadow.png */; };
+		3FC99439184F00A60034AEF7 /* bubble_blowWall.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC99435184F00A60034AEF7 /* bubble_blowWall.png */; };
+		3FC9943A184F00A60034AEF7 /* bubble_ghostPitClose.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC99436184F00A60034AEF7 /* bubble_ghostPitClose.png */; };
+		3FC9943B184F00A60034AEF7 /* bubble_grenadeTake.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC99437184F00A60034AEF7 /* bubble_grenadeTake.png */; };
+		3FC9943C184F00A60034AEF7 /* bubble_BonusStage.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC99438184F00A60034AEF7 /* bubble_BonusStage.png */; };
 		BA1B1E29184DAE5700AD8C82 /* LevelSelectPNG_100x100.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E26184DAE5700AD8C82 /* LevelSelectPNG_100x100.png */; };
 		BA1B1E2A184DAE5700AD8C82 /* PausePng_45x45.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E27184DAE5700AD8C82 /* PausePng_45x45.png */; };
 		BA1B1E2B184DAE5700AD8C82 /* RestartPNG_100x100.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E28184DAE5700AD8C82 /* RestartPNG_100x100.png */; };
@@ -300,6 +304,10 @@
 		3F703EDC1838B0F200309DEB /* powerUp_ghostPitClose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerUp_ghostPitClose.png; sourceTree = "<group>"; };
 		3FACCF90184195600018FBFE /* plane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plane.png; sourceTree = "<group>"; };
 		3FACCF91184195600018FBFE /* plane_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plane_shadow.png; sourceTree = "<group>"; };
+		3FC99435184F00A60034AEF7 /* bubble_blowWall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble_blowWall.png; sourceTree = "<group>"; };
+		3FC99436184F00A60034AEF7 /* bubble_ghostPitClose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble_ghostPitClose.png; sourceTree = "<group>"; };
+		3FC99437184F00A60034AEF7 /* bubble_grenadeTake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble_grenadeTake.png; sourceTree = "<group>"; };
+		3FC99438184F00A60034AEF7 /* bubble_BonusStage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble_BonusStage.png; sourceTree = "<group>"; };
 		BA1B1E26184DAE5700AD8C82 /* LevelSelectPNG_100x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LevelSelectPNG_100x100.png; sourceTree = "<group>"; };
 		BA1B1E27184DAE5700AD8C82 /* PausePng_45x45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PausePng_45x45.png; sourceTree = "<group>"; };
 		BA1B1E28184DAE5700AD8C82 /* RestartPNG_100x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RestartPNG_100x100.png; sourceTree = "<group>"; };
@@ -1516,6 +1524,10 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3FC99435184F00A60034AEF7 /* bubble_blowWall.png */,
+				3FC99436184F00A60034AEF7 /* bubble_ghostPitClose.png */,
+				3FC99437184F00A60034AEF7 /* bubble_grenadeTake.png */,
+				3FC99438184F00A60034AEF7 /* bubble_BonusStage.png */,
 				BA1B1E4E184DF37700AD8C82 /* CoolWinningSound.mp3 */,
 				BA1B1E4C184DF30E00AD8C82 /* AwesomeGamePlaySound.mp3 */,
 				BA1B1E4A184DEE5F00AD8C82 /* GameLstSound_Clipped.mp3 */,
@@ -2202,6 +2214,10 @@
 				F520702D184328450057A846 /* big_tile.tmx in Resources */,
 				F520708B18432CDE0057A846 /* FBDialog.bundle in Resources */,
 				F5207097184331060057A846 /* facebook_share.gif in Resources */,
+				3FC99439184F00A60034AEF7 /* bubble_blowWall.png in Resources */,
+				3FC9943A184F00A60034AEF7 /* bubble_ghostPitClose.png in Resources */,
+				3FC9943B184F00A60034AEF7 /* bubble_grenadeTake.png in Resources */,
+				3FC9943C184F00A60034AEF7 /* bubble_BonusStage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

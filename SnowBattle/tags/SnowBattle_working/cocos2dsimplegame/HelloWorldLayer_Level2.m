@@ -1196,7 +1196,7 @@ CCSprite* PowerLabel;
         [self addChild:bubble];
         bubble.visible = FALSE;
         
-        bubble2 = [CCSprite spriteWithFile:@"bubble5.png"];
+        bubble2 = [CCSprite spriteWithFile:@"bubble_BonusStage.png"];
         bubble2.position = ccp(winSize.width/2 , winSize.height/2);
         [self addChild:bubble2];
         //bubble.visible = FALSE;
@@ -1207,7 +1207,7 @@ CCSprite* PowerLabel;
         bubble3.position = ccp(winSize.width - 550 , winSize.height - 530);
         [self addChild:bubble3];
         bubble3.visible = FALSE;
-        
+
         [self addChild:timeLabelBlue];
         
         [self schedule:@selector(LevelTimer:)];
