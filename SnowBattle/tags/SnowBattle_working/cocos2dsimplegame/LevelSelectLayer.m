@@ -11,6 +11,7 @@
 #import "HelloWorldLayer_Level2.h"
 #import "HelloWorldLayer_Level3.h"
 #import "SimpleAudioEngine.h"
+#import "GameStartLayer.h"
 
 @implementation LevelSelectLayer
 
@@ -94,8 +95,22 @@
         [menu alignItemsVerticallyWithPadding:15];
         [self addChild:menu];
         
+        CCMenuItemImage *selectLevel1 = [CCMenuItemImage itemWithNormalImage:@"GameArrowBlue_Modified.png"
+                                                              selectedImage:@"GameArrowBlue_Modified.png"
+                                                                     target:self
+                                                                   selector:@selector(goBack:)];
+        //selectLevel.color=ccBLUE;
+        //selectLevel.visible=false;
+        CCMenu *menu12 = [CCMenu menuWithItems: selectLevel1, nil];
+        menu12.position=ccp(160,50);
+        [menu12 alignItemsVerticallyWithPadding:15];
+        [self addChild:menu12 z:1];
     }
     return self;
+}
+
+-(void) goBack: (id) sender {
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameStartLayer firstScene:YES] ]];
 }
 
 -(void) showMap: (CCMenuItemFont *) sender{

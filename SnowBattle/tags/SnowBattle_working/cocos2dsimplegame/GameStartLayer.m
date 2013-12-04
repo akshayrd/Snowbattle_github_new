@@ -63,23 +63,23 @@
         //[bulletLabel setString:labelString];
         //[self addChild:bulletLabel2];
         
-        /*CCMenuItemFont *story = [CCMenuItemFont itemWithString:@"Our Story"
+        CCMenuItemFont *shopNow = [CCMenuItemFont itemWithString:@"Shop Now"
                                                           target:self
-                                                        selector:@selector(storyLine:)];
-        [story setColor:ccBLUE];
+                                                        selector:@selector(shopNow:)];
+        [shopNow setColor:ccBLUE];
         CCMenuItemFont *bulletLabel3 = [CCMenuItemFont itemWithString:labelString];
         //CCLabelTTF *bulletLabel = [CCLabelTTF labelWithString:labelString];
         bulletLabel3.color=ccBLUE;
         //[bulletLabel setString:labelString];
-        //[self addChild:bulletLabel3];*/
+        //[self addChild:bulletLabel3];
         
-        CCMenu *menu1 = [CCMenu menuWithItems: bulletLabel,bulletLabel2, nil];
+        CCMenu *menu1 = [CCMenu menuWithItems: bulletLabel,bulletLabel2,bulletLabel3, nil];
         //CCMenu *menu = [CCMenu menuWithItems: newGame, nil];
         menu1.position=ccp(520,120);
         [menu1 alignItemsVerticallyWithPadding:15];
         [self addChild:menu1];
         
-        CCMenu *menu = [CCMenu menuWithItems: newGame,instructions, nil];
+        CCMenu *menu = [CCMenu menuWithItems: newGame,instructions,shopNow, nil];
         //CCMenu *menu = [CCMenu menuWithItems: newGame, nil];
         menu.position=ccp(680,120);
         [menu alignItemsVerticallyWithPadding:15];

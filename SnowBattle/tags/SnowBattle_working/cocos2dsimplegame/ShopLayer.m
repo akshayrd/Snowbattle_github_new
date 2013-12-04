@@ -46,7 +46,7 @@
         player2=false;
         player3=false;
         int powerup1Cost=10;
-        int powerup2Cost=20;
+        int powerup2Cost=100;
         int powerup3Cost=30;
         int player2cost=100;
         //int player3cost=700;

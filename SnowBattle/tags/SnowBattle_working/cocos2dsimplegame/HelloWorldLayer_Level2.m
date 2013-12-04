@@ -763,7 +763,7 @@ CCSprite* PowerLabel;
                 [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"HyperPlayer_40x40.png"]];
                 //bubble.visible = TRUE;
                 
-               // [self schedule:@selector(MakeBubbleInvisible ) interval:3 repeat:1 delay:7];
+                // [self schedule:@selector(MakeBubbleInvisible ) interval:3 repeat:1 delay:7];
                 //[self newLocalScore];
             }
         }
@@ -799,9 +799,9 @@ CCSprite* PowerLabel;
                 powerGrenade = 1;
                 [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
                 //[player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"HyperPlayer_40x40.png"]];
-                //bubble.visible = TRUE;
+                bubble6.visible = TRUE;
                 
-                //[self schedule:@selector(MakeBubbleInvisible ) interval:3 repeat:1 delay:7];
+                [self schedule:@selector(removeBubble6_WallBlow) interval:3 repeat:1 delay:7];
                 //[self newLocalScore];
             }
         }
@@ -900,11 +900,18 @@ CCSprite* PowerLabel;
         if (properties) {
             
             NSString *collision = properties[@"Collidable"];
-            if (collision && [collision isEqualToString:@"True"] && powerGrenade!=1) {
+            /* if (collision && [collision isEqualToString:@"True"] && powerGrenade!=1) {
+             return;
+             }*/
+            
+            if(collision && [collision isEqualToString:@"True"]  && powerGrenade!=1)
+            {
+                bubble5.visible=TRUE;
+                [self schedule:@selector(removeBubble5_GrenadeBubble) interval:3 repeat:1 delay:5];
                 return;
             }
             
-            if (powerGrenade == 1) {
+            if (collision && [collision isEqualToString:@"True"] &&  powerGrenade == 1) {
                 //NSLog(@"Inside grenade %f %f",tileCoord.x,tileCoord.y);
                 CCParticleFire * p = [[CCParticleFire alloc]initWithTotalParticles:500];
                 [p autorelease];
@@ -930,6 +937,16 @@ CCSprite* PowerLabel;
     player.position = position;
     
     //player.position = position;
+}
+
+-(void)removeBubble6_WallBlow
+{
+    bubble6.visible=false;
+}
+
+-(void) removeBubble5_GrenadeBubble
+{
+    bubble5.visible=false;
 }
 
 - (void) checkBonusStageIsReturned
@@ -1072,7 +1089,7 @@ CCSprite* PowerLabel;
         else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
             player = [CCSprite spriteWithFile:@"Player2_TopView_Version1_45x45.png"] ;
         }
-
+        
         [self spawnPlayer];
         if(player == nil)
         {
@@ -1124,22 +1141,26 @@ CCSprite* PowerLabel;
         
         /* Ghost Immune PowerUp */
         /*if(powerupArray[1]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp2"] >=1))
-        {
-            
-            shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png" target:self selector:Nil];
-            shopPowerUp2.position = ccp(22, 600-9*40);
-            shopPowerUp2.visible = true;
-            [self addChild:shopPowerUp2];
-        }*/
+         {
+         
+         shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png" target:self selector:Nil];
+         shopPowerUp2.position = ccp(22, 600-9*40);
+         shopPowerUp2.visible = true;
+         [self addChild:shopPowerUp2];
+         }*/
         /* Ghost Pit Close PowerUp */
         if(powerupArray[2]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp3"] >=1))
         {
             shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"NoMoreGhostPowerUp_45x45.png" selectedImage:@"NoMoreGhostPowerUp_45x45.png" target:self selector:@selector(Closepit:)];
             shopPowerUp2.visible = true;
+            
             CCMenu *menu8 = [CCMenu menuWithItems: shopPowerUp2, nil];
             menu8.position=ccp(22, 600-10*40);
             [menu8 alignItemsVerticallyWithPadding:15];
             [self addChild:menu8];
+            
+            bubble4.visible=TRUE;
+            [self schedule:@selector(removeBubble4_GhostPitClose) interval:0 repeat:1 delay:0];
         }
         
         /*for (int i=0; i<5; i++) {
@@ -1195,29 +1216,52 @@ CCSprite* PowerLabel;
         [self addChild:PowerLabel];
         
         /*bubble = [CCSprite spriteWithFile:@"bubble4.png"];
-        bubble.position = ccp(winSize.width - 420 , winSize.height - 340);
-        [self addChild:bubble];
-        bubble.visible = FALSE;*/
+         bubble.position = ccp(winSize.width - 420 , winSize.height - 340);
+         [self addChild:bubble];
+         bubble.visible = FALSE;*/
         
         bubble2 = [CCSprite spriteWithFile:@"bubble_BonusStage.png"];
         bubble2.position = ccp(winSize.width/2 , winSize.height/2);
         [self addChild:bubble2];
-        //bubble.visible = FALSE;
+        
+        bubble4 = [CCSprite spriteWithFile:@"bubble_ghostPitClose.png"];
+        bubble4.position = ccp(180, 270);
+        [self addChild:bubble4];
+        bubble4.visible = FALSE;
+        
+        bubble5 = [CCSprite spriteWithFile:@"bubble_grenadeTake.png"];
+        bubble5.position = ccp(170,550);
+        [self addChild:bubble5];
+        bubble5.visible = FALSE;
+        
+        bubble6 = [CCSprite spriteWithFile:@"bubble_blowWall.png"];
+        bubble6.position = ccp(630,390);
+        [self addChild:bubble6];
+        bubble6.visible = FALSE;
         
         [self schedule:@selector(removeBubble2) interval:3 repeat:1 delay:5];
         
         bubble3 = [CCSprite spriteWithFile:@"bubble6.png"];
-        bubble3.position = ccp(winSize.width - 550 , winSize.height - 530);
+        //bubble3.position = ccp(winSize.width - 550 , winSize.height - 530);
+        bubble3.position = ccp(winSize.width - 350 , winSize.height - 330);
         [self addChild:bubble3];
         bubble3.visible = FALSE;
-
+        
         [self addChild:timeLabelBlue];
         
         [self schedule:@selector(LevelTimer:)];
-        
-        
     }
     return self;
+}
+
+-(void)removeBubble4_GhostPitClose
+{
+    [self schedule:@selector(removeBubble4) interval:3 repeat:1 delay:2];
+}
+
+-(void) removeBubble4
+{
+    bubble4.visible=false;
 }
 
 -(void)shopPowerUpIncreaseLife
@@ -1252,9 +1296,9 @@ CCSprite* PowerLabel;
     }
 }
 /*-(void) MakeBubbleInvisible
-{
-    bubble.visible = FALSE;
-}*/
+ {
+ bubble.visible = FALSE;
+ }*/
 
 int livePowerEnabled1 = 0;
 
