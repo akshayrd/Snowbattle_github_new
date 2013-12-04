@@ -39,7 +39,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "2105"
          endingLineNumber = "2105"
-         landmarkName = "-movePlaneShadow"
+         landmarkName = "-spawnPlayer"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -52,7 +52,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1506"
          endingLineNumber = "1506"
-         landmarkName = "-setPlayerPosition:"
+         landmarkName = "-checkCollisionWithMonster"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -65,7 +65,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "2043"
          endingLineNumber = "2043"
-         landmarkName = "-moveBoat2"
+         landmarkName = "-GhostImmunePowerTimer:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -117,7 +117,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1505"
          endingLineNumber = "1505"
-         landmarkName = "-setPlayerPosition:"
+         landmarkName = "-checkCollisionWithMonster"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -130,7 +130,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1816"
          endingLineNumber = "1816"
-         landmarkName = "-initWithPlayer:timeBonus:powerups:playerSelected:"
+         landmarkName = "-shopPowerUpIncreaseLife"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -208,7 +208,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1983"
          endingLineNumber = "1983"
-         landmarkName = "-planeGetContPosition"
+         landmarkName = "-movePlaneShadow"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -221,7 +221,33 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "1990"
          endingLineNumber = "1990"
-         landmarkName = "-planeGetContPosition"
+         landmarkName = "-GhostImmunePower:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "cocos2dsimplegame/HelloWorldLayer_Level2.m"
+         timestampString = "407835056.161116"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1223"
+         endingLineNumber = "1223"
+         landmarkName = "-initWithPlayer:timeBonus:powerups:playerSelected:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "cocos2dsimplegame/LevelSelectLayer.m"
+         timestampString = "407836261.498518"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "92"
+         endingLineNumber = "92"
+         landmarkName = "-initW:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

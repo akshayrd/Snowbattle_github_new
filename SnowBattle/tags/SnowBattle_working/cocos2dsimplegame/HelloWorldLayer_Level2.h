@@ -33,6 +33,9 @@
     CCSprite* bubble;
     CCSprite* bubble2;
     CCSprite* bubble3;
+    CCSprite* bubble4;
+    CCSprite* bubble5;
+    CCSprite* bubble6;
     CCMenu *pauseResumeMenu;
     CCMenu *Powerupmenu2;
     CCMenuItem *starMenuItem;
