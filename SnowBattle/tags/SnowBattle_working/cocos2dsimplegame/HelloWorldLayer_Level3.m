@@ -1273,6 +1273,54 @@ CCSprite* PowerLabel;
         }
     }
     
+    if (currentPlayerIsPlayer2) {
+        
+        
+        for (int i = -1; i < 2; i++)
+        {
+            for (int j = -1; j < 2; j++)
+            {
+                CGPoint tempPoint;
+                tempPoint.x = tileCoord.x + i;
+                tempPoint.y = tileCoord.y + j;
+                
+                tileGid = [snow tileGIDAt:tempPoint];
+                if (tileGid) {
+                    NSDictionary *properties = [_tileMap propertiesForGID:tileGid];
+                    if (properties) {
+                        NSString *collectible = properties[@"Collectable"];
+                        if (collectible && [collectible isEqualToString:@"True"] && [snow tileAt:tempPoint].visible == YES) {
+                            //[snow removeTileAt:tileCoord];
+                            
+                            [snow tileAt:tempPoint].visible = NO;
+                            currentLevelScore++;
+                            [hud numCollectedChanged:currentLevelScore+totalScore];
+                            [b_hud numCollectedChanged:currentLevelScore+totalScore];
+                            //[[SimpleAudioEngine sharedEngine] playEffect:@"shoveling.mp3"];
+                            
+                            //NSLog(@"Current Score:%d",currentLevelScore);
+                            //NSLog(@"winscore Score:%d",winScore);
+                            
+                            if (currentLevelScore >= winScore) {
+                                
+                                [[NSUserDefaults standardUserDefaults] setInteger:currentLevelScore+totalScore forKey:@"Score"];
+                                
+                                CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES
+                                                                      withscoreValue:currentLevelScore timeBonus:levelTimeLimit-myTime playerImage:_playerimage];
+                                [[CCDirector sharedDirector] replaceScene:gameOverScene];
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+        
+    }
+    
+    
     tileGid = [riverLayer tileGIDAt:tileCoord];
     if (tileGid) {
         NSLog(@"Heree000 (%f,%f)",tileCoord.x,tileCoord.y);
@@ -1551,6 +1599,11 @@ CCSprite* PowerLabel;
         isBonusDisplayed =  NO;
         _tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"tileMap4-Level3.tmx"];
         
+         //[[NSUserDefaults standardUserDefaults] integerForKey:@"Score"];
+        
+        //currentPlayerIsPlayer2 = YES;
+        
+        
         snow = [_tileMap layerNamed:@"Snow"];
         _playerimage = player1;
         bonusStageRunning = NO;
@@ -1723,9 +1776,11 @@ CCSprite* PowerLabel;
         if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 1)
         {
             player = [CCSprite spriteWithFile:@"NormalPlayer_40x40.png"] ;
+            currentPlayerIsPlayer2 = NO;
         }
         else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
             player = [CCSprite spriteWithFile:@"Player2_TopView_Version1_45x45.png"] ;
+            currentPlayerIsPlayer2  = YES;
         }
         
         [self spawnPlayer];
@@ -2013,9 +2068,11 @@ CCSprite* PowerLabel;
     if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 1)
     {
         [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"NormalPlayer_40x40.png"]];
+        currentPlayerIsPlayer2 = NO;
     }
     else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PlayerImage"] == 2){
         [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"Player2_TopView_Version1_45x45.png"]];
+        currentPlayerIsPlayer2 = YES;
     }
     
     if( (CGRectIntersectsRect([monster5 boundingBox], [player boundingBox]) && totalTime - collideTime >= immuneDuration ))

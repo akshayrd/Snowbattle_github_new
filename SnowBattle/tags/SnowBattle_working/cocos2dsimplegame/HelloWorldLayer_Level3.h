@@ -52,6 +52,7 @@
     HudLayer *hud;
     Pause_HudLayer *b_hud;
     BOOL bonusStageRunning;
+    BOOL currentPlayerIsPlayer2;
     
     
     // Level timer
