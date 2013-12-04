@@ -40,11 +40,14 @@
         [CCMenuItemFont setFontName:@"chalkduster"];
         
         [CCMenuItemFont setFontSize:40];
-            
-        CCMenuItemFont *newGame = [CCMenuItemFont itemWithString:@"New Game"
+        
+        CCMenuItemImage *newGame = [CCMenuItemImage itemWithNormalImage:@"PLAY1.png"
+                                           selectedImage:@"PLAY1.png" target:self
+                                                selector:@selector(startGame:)];
+        /*CCMenuItemFont *newGame = [CCMenuItemFont itemWithString:@"New Game"
                                                           target:self
-                                                        selector:@selector(startGame:)];
-        [newGame setColor:ccBLUE];
+                                                        selector:@selector(startGame:)];*/
+        //[newGame setColor:ccBLUE];
         
         NSString *labelString = @"•";
         CCMenuItemFont *bulletLabel = [CCMenuItemFont itemWithString:labelString];
@@ -53,36 +56,43 @@
         //[bulletLabel setString:labelString];
         //[self addChild:bulletLabel];
         
-        CCMenuItemFont *instructions = [CCMenuItemFont itemWithString:@"Instructions"
+        CCMenuItemImage *instructions = [CCMenuItemImage itemWithNormalImage:@"Instructions.png"
+                                                               selectedImage:@"Instructions.png" target:self
+                                                                    selector:@selector(instructions:)];
+        /*CCMenuItemFont *instructions = [CCMenuItemFont itemWithString:@"Instructions"
                                                           target:self
-                                                        selector:@selector(instructions:)];
-        [instructions setColor:ccBLUE];
+                                                        selector:@selector(instructions:)];*/
+        //[instructions setColor:ccBLUE];
         CCMenuItemFont *bulletLabel2 = [CCMenuItemFont itemWithString:labelString];
         //CCLabelTTF *bulletLabel = [CCLabelTTF labelWithString:labelString];
         bulletLabel2.color=ccBLUE;
         //[bulletLabel setString:labelString];
         //[self addChild:bulletLabel2];
         
-        CCMenuItemFont *shopNow = [CCMenuItemFont itemWithString:@"Shop Now"
+        CCMenuItemImage *shopNow = [CCMenuItemImage itemWithNormalImage:@"Shop.png"
+                                                               selectedImage:@"Shop.png" target:self
+                                                                    selector:@selector(shopNow:)];
+        
+        /*CCMenuItemFont *shopNow = [CCMenuItemFont itemWithString:@"Shop Now"
                                                           target:self
-                                                        selector:@selector(shopNow:)];
-        [shopNow setColor:ccBLUE];
+                                                        selector:@selector(shopNow:)];*/
+        //[shopNow setColor:ccBLUE];
         CCMenuItemFont *bulletLabel3 = [CCMenuItemFont itemWithString:labelString];
         //CCLabelTTF *bulletLabel = [CCLabelTTF labelWithString:labelString];
         bulletLabel3.color=ccBLUE;
         //[bulletLabel setString:labelString];
         //[self addChild:bulletLabel3];
         
-        CCMenu *menu1 = [CCMenu menuWithItems: bulletLabel,bulletLabel2,bulletLabel3, nil];
+        /*CCMenu *menu1 = [CCMenu menuWithItems: bulletLabel,bulletLabel2,bulletLabel3, nil];
         //CCMenu *menu = [CCMenu menuWithItems: newGame, nil];
         menu1.position=ccp(520,120);
         [menu1 alignItemsVerticallyWithPadding:15];
-        [self addChild:menu1];
+        [self addChild:menu1];*/
         
         CCMenu *menu = [CCMenu menuWithItems: newGame,instructions,shopNow, nil];
         //CCMenu *menu = [CCMenu menuWithItems: newGame, nil];
-        menu.position=ccp(680,120);
-        [menu alignItemsVerticallyWithPadding:15];
+        menu.position=ccp(680,100);
+        [menu alignItemsVerticallyWithPadding:-20];
         [self addChild:menu];
         [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"Score"];
     }

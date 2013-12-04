@@ -13,6 +13,7 @@
     BOOL player1Select;
     NSMutableArray *powerupList;
     CCMenuItemFont *selectLevel ;
+    CCMenuItemImage *selectLevel1;
 }
 
 +(id) firstScene:(BOOL)start;
