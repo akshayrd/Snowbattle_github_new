@@ -58,8 +58,8 @@
             
         }
         
-        CCMenuItemImage *label12 = [CCMenuItemImage itemWithNormalImage:@"Shop.png"
-                                                          selectedImage:@"Shop.png" target:self
+        CCMenuItemImage *label12 = [CCMenuItemImage itemWithNormalImage:@"Shop_clipped_rev_1.png"
+                                                          selectedImage:@"Shop_clipped_rev_1.png" target:self
                                                                selector:@selector(shopNow:)];
         /*label4 = [CCLabelTTF labelWithString:@"Shop Now" fontName:@"Marker Felt" fontSize:32];
         label4.color = ccBLUE;

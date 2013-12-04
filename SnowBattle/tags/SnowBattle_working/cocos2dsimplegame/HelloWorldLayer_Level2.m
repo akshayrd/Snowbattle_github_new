@@ -1023,7 +1023,7 @@ CCSprite* PowerLabel;
         darkBlueCount = 0;
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"AwesomeGamePlaySound.mp3"];
         totalScore = [[NSUserDefaults standardUserDefaults] integerForKey:@"Score"];
-        
+        [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"Level_Selected"];
         border = [_tileMap layerNamed:@"Border"];
         building = [_tileMap layerNamed:@"Building"];
         darkBlue = [_tileMap layerNamed:@"DarkBlueTiles"];
