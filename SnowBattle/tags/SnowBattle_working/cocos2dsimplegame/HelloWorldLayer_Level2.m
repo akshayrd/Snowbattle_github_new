@@ -1229,7 +1229,10 @@ CCSprite* PowerLabel;
         bubble4 = [CCSprite spriteWithFile:@"bubble_ghostPitClose.png"];
         bubble4.position = ccp(180, 270);
         [self addChild:bubble4];
-        //bubble4.visible = FALSE;
+        if( ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp3"] < 1) )
+        {
+            bubble4.visible = FALSE;
+        }
         
         bubble5 = [CCSprite spriteWithFile:@"bubble_grenadeTake.png"];
         bubble5.position = ccp(170,550);
