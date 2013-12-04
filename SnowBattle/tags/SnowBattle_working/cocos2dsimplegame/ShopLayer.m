@@ -15,6 +15,9 @@
 
 +(id) scene3:(int)timeBonus{
     CCScene *scene3 = [CCScene node];
+    if (timeBonus == 0) {
+        timeBonus = 60;
+    }
     ShopLayer *layer =[[[ShopLayer alloc] initW:timeBonus] autorelease];
     [scene3 addChild: layer];
     return scene3;
