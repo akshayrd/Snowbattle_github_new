@@ -34,6 +34,7 @@
 		BA1B1E4B184DEE5F00AD8C82 /* GameLstSound_Clipped.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E4A184DEE5F00AD8C82 /* GameLstSound_Clipped.mp3 */; };
 		BA1B1E4D184DF30E00AD8C82 /* AwesomeGamePlaySound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E4C184DF30E00AD8C82 /* AwesomeGamePlaySound.mp3 */; };
 		BA1B1E4F184DF37700AD8C82 /* CoolWinningSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E4E184DF37700AD8C82 /* CoolWinningSound.mp3 */; };
+		BA1B1E51184DFFC200AD8C82 /* StoryBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1B1E50184DFFC200AD8C82 /* StoryBackground.png */; };
 		BA3949D617F2EC450072E0C9 /* hit.caf in Resources */ = {isa = PBXBuildFile; fileRef = BA3949D217F2EC450072E0C9 /* hit.caf */; };
 		BA3FEDD617FE893800DD2E17 /* Raycast.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDD517FE893800DD2E17 /* Raycast.m4a */; };
 		BA3FEDDC17FE986800DD2E17 /* grey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA3FEDDB17FE986800DD2E17 /* grey.jpg */; };
@@ -321,6 +322,7 @@
 		BA1B1E4A184DEE5F00AD8C82 /* GameLstSound_Clipped.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GameLstSound_Clipped.mp3; sourceTree = "<group>"; };
 		BA1B1E4C184DF30E00AD8C82 /* AwesomeGamePlaySound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AwesomeGamePlaySound.mp3; sourceTree = "<group>"; };
 		BA1B1E4E184DF37700AD8C82 /* CoolWinningSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CoolWinningSound.mp3; sourceTree = "<group>"; };
+		BA1B1E50184DFFC200AD8C82 /* StoryBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StoryBackground.png; sourceTree = "<group>"; };
 		BA3949CE17F2B6430072E0C9 /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "pew-pew-lei.caf"; path = "Resources/Sounds/pew-pew-lei.caf"; sourceTree = "<group>"; };
 		BA3949D217F2EC450072E0C9 /* hit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = hit.caf; path = Resources/Sounds/hit.caf; sourceTree = "<group>"; };
 		BA3949D317F2EC450072E0C9 /* move.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = move.caf; path = Resources/Sounds/move.caf; sourceTree = "<group>"; };
@@ -1516,6 +1518,7 @@
 		F55302D617E646CD00D1FD31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA1B1E50184DFFC200AD8C82 /* StoryBackground.png */,
 				BA1B1E4E184DF37700AD8C82 /* CoolWinningSound.mp3 */,
 				BA1B1E4C184DF30E00AD8C82 /* AwesomeGamePlaySound.mp3 */,
 				BA1B1E4A184DEE5F00AD8C82 /* GameLstSound_Clipped.mp3 */,
@@ -2134,6 +2137,7 @@
 				BA991222180F0DD1001C5562 /* README.md in Resources */,
 				BAB655EC180116C50062BE70 /* FinalTwo_51x51x.png in Resources */,
 				BAD926211849E2D900C1017A /* boat2.png in Resources */,
+				BA1B1E51184DFFC200AD8C82 /* StoryBackground.png in Resources */,
 				BA1B1E29184DAE5700AD8C82 /* LevelSelectPNG_100x100.png in Resources */,
 				BA68E5401814AFC700F3F937 /* PowerUpMusic.mp3 in Resources */,
 				BA3FEE5E17FEA3D400DD2E17 /* wall2.jpg in Resources */,

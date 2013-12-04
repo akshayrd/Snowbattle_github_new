@@ -41,6 +41,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[HelloWorldLayer_Level2 checkCollisionWithMonster]:HelloWorldLayer_Level2.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "c">
+            </PersistentString>
+            <PersistentString
+               value = "[player boundingBox]">
+            </PersistentString>
+            <PersistentString
+               value = "[monster13 boundingBox]">
+            </PersistentString>
+            <PersistentString
+               value = "[monster8 boundingBox]">
+            </PersistentString>
+            <PersistentString
+               value = "[monster7 boundingBox]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[HelloWorldLayer checkCollisionWithMonster]:HelloWorldLayer.m">
          <PersistentStrings>
             <PersistentString

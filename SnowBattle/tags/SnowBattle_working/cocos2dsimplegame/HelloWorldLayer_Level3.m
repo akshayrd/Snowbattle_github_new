@@ -1564,13 +1564,13 @@ CCSprite* PowerLabel;
         
         border = [_tileMap layerNamed:@"Border"];
         building = [_tileMap layerNamed:@"Building"];
-        darkBlue = [_tileMap layerNamed:@"DarkBlueTiles"];
-        powerBlueLayer = [_tileMap layerNamed:@"power_blue"];
-        powerGrenadeLayer = [_tileMap layerNamed:@"Grenade"];
-        powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
-        grenadeLayer = [_tileMap layerNamed:@"GrenadeWall"];
-        bonusLayer = [_tileMap layerNamed:@"Bonus"];
-        ghostpitLayer = [_tileMap layerNamed:@"ghostPit"];
+        //darkBlue = [_tileMap layerNamed:@"DarkBlueTiles"];
+        //powerBlueLayer = [_tileMap layerNamed:@"power_blue"];
+        //powerGrenadeLayer = [_tileMap layerNamed:@"Grenade"];
+        //powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
+        //grenadeLayer = [_tileMap layerNamed:@"GrenadeWall"];
+        //bonusLayer = [_tileMap layerNamed:@"Bonus"];
+        //ghostpitLayer = [_tileMap layerNamed:@"ghostPit"];
         riverLayer = [_tileMap layerNamed:@"River"];
         powerLivesLayer.visible = FALSE;
         

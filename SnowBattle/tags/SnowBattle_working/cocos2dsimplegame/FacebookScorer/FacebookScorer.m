@@ -29,7 +29,7 @@
 static NSString* kAppId = @"652584168125428"; // Your Facebook app ID here
 
 #define kAppName        @"Snow Battle"
-#define kCustomMessage  @"I just got a score of %d in %@, a fun filled IPad game for in USC CS526 Gamepipe"
+#define kCustomMessage  @"I just got a score of %d in %@, a fun filled I-Pad game in USC CS-526 Gamepipe !!!"
 #define kServerLink     @"http://indiedevstories.com"
 #define kImageSrc       @"http://indiedevstories.files.wordpress.com/2011/08/newsokoban_icon.png"
 
