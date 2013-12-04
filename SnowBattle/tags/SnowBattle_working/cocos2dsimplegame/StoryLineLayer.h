@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface StoryLineLayer : CCLabelBMFont
+@interface StoryLineLayer : CCLayer
 {
    // NSObject <StoryLineLayerDelegate> *delegate;
     NSMutableArray *arrayOfCharacters;

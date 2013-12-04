@@ -11,6 +11,7 @@
 #import "IntroLayer.h"
 #import "HelloWorldLayer.h"
 #import "GameStartLayer.h"
+#import "StoryLineLayer.h"
 
 
 #pragma mark - IntroLayer
@@ -62,6 +63,6 @@
 -(void) onEnter
 {
 	[super onEnter];
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameStartLayer firstScene:YES] ]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[StoryLineLayer scene] ]];
 }
 @end

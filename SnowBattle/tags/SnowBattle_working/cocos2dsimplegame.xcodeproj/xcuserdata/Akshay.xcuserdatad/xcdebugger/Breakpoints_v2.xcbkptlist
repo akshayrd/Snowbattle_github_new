@@ -344,11 +344,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "cocos2dsimplegame/HelloWorldLayer_Level2.m"
-            timestampString = "407754139.620217"
+            timestampString = "407830803.39695"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1226"
-            endingLineNumber = "1226"
+            startingLineNumber = "1229"
+            endingLineNumber = "1229"
             landmarkName = "-ShowBonuStageImage"
             landmarkType = "5">
          </BreakpointContent>
@@ -676,7 +676,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "cocos2dsimplegame/HelloWorldLayer_Level3.m"
@@ -839,13 +839,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "cocos2dsimplegame/StoryLineLayer.m"
-            timestampString = "407762113.913189"
+            filePath = "cocos2dsimplegame/HelloWorldLayer_Level2.m"
+            timestampString = "407830803.39695"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "-init"
+            startingLineNumber = "966"
+            endingLineNumber = "966"
+            landmarkName = "-checkCollisionWithMonster"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -84,5 +84,5 @@
 }
 
 +(CCScene *) scene2:(BOOL)playerImage1 timeBonus:(int)timeRemaining powerups:(int [])powerupArray playerSelected:(int [])playerSelectArray;
-
+- (void) Ghost1move:(ccTime)dt;
 @end

@@ -761,9 +761,9 @@ CCSprite* PowerLabel;
                 powerBlue = 1;
                 [[SimpleAudioEngine sharedEngine] playEffect:@"PowerUpMusic.mp3"];
                 [player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"HyperPlayer_40x40.png"]];
-                bubble.visible = TRUE;
+                //bubble.visible = TRUE;
                 
-                [self schedule:@selector(MakeBubbleInvisible ) interval:3 repeat:1 delay:7];
+               // [self schedule:@selector(MakeBubbleInvisible ) interval:3 repeat:1 delay:7];
                 //[self newLocalScore];
             }
         }
@@ -801,7 +801,7 @@ CCSprite* PowerLabel;
                 //[player setTexture:[[CCTextureCache sharedTextureCache] addImage:@"HyperPlayer_40x40.png"]];
                 //bubble.visible = TRUE;
                 
-                [self schedule:@selector(MakeBubbleInvisible ) interval:3 repeat:1 delay:7];
+                //[self schedule:@selector(MakeBubbleInvisible ) interval:3 repeat:1 delay:7];
                 //[self newLocalScore];
             }
         }
@@ -959,8 +959,11 @@ CCSprite* PowerLabel;
 - (void) checkCollisionWithMonster
 {
     //NSLog(@"Time %d",myTime - collideTime );
+    if (CGRectIntersectsRect([monster13 boundingBox], [player boundingBox])) {
+        NSLog(@"hi");
+    }
     
-    if(((CGRectIntersectsRect([monster13 boundingBox], [player boundingBox]) && c==0) ||  CGRectIntersectsRect([monster7 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster8 boundingBox], [player boundingBox])) && totalTime - collideTime >= immuneDuration && bonusStageRunning == NO)
+    if((( c==0 && CGRectIntersectsRect([monster13 boundingBox], [player boundingBox])) ||  CGRectIntersectsRect([monster7 boundingBox], [player boundingBox])||CGRectIntersectsRect([monster8 boundingBox], [player boundingBox])) && totalTime - collideTime >= immuneDuration && bonusStageRunning == NO)
         
     {
         collideTime = totalTime;
@@ -1004,13 +1007,13 @@ CCSprite* PowerLabel;
         
         border = [_tileMap layerNamed:@"Border"];
         building = [_tileMap layerNamed:@"Building"];
-        //darkBlue = [_tileMap layerNamed:@"DarkBlueTiles"];
-        //powerBlueLayer = [_tileMap layerNamed:@"power_blue"];
-        //powerGrenadeLayer = [_tileMap layerNamed:@"Grenade"];
-        //powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
-        //grenadeLayer = [_tileMap layerNamed:@"GrenadeWall"];
+        darkBlue = [_tileMap layerNamed:@"DarkBlueTiles"];
+        powerBlueLayer = [_tileMap layerNamed:@"power_blue"];
+        powerGrenadeLayer = [_tileMap layerNamed:@"Grenade"];
+        powerLivesLayer = [_tileMap layerNamed:@"Power_lives"];
+        grenadeLayer = [_tileMap layerNamed:@"GrenadeWall"];
         bonusLayer = [_tileMap layerNamed:@"Bonus"];
-        //ghostpitLayer = [_tileMap layerNamed:@"ghostPit"];
+        ghostpitLayer = [_tileMap layerNamed:@"ghostPit"];
         
         powerLivesLayer.visible = FALSE;
         
@@ -1120,14 +1123,14 @@ CCSprite* PowerLabel;
          [self addChild:starMenu];*/
         
         /* Ghost Immune PowerUp */
-        if(powerupArray[1]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp2"] >=1))
+        /*if(powerupArray[1]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp2"] >=1))
         {
             
             shopPowerUp2 = [CCMenuItemImage itemWithNormalImage:@"powerUp_immuneGhost.png" selectedImage:@"powerUp_immuneGhost.png" target:self selector:Nil];
             shopPowerUp2.position = ccp(22, 600-9*40);
             shopPowerUp2.visible = true;
             [self addChild:shopPowerUp2];
-        }
+        }*/
         /* Ghost Pit Close PowerUp */
         if(powerupArray[2]>=1 || ([[NSUserDefaults standardUserDefaults] integerForKey:@"Shop_PowerUp3"] >=1))
         {
@@ -1191,10 +1194,10 @@ CCSprite* PowerLabel;
         PowerLabel.visible = FALSE;
         [self addChild:PowerLabel];
         
-        bubble = [CCSprite spriteWithFile:@"bubble4.png"];
+        /*bubble = [CCSprite spriteWithFile:@"bubble4.png"];
         bubble.position = ccp(winSize.width - 420 , winSize.height - 340);
         [self addChild:bubble];
-        bubble.visible = FALSE;
+        bubble.visible = FALSE;*/
         
         bubble2 = [CCSprite spriteWithFile:@"bubble_BonusStage.png"];
         bubble2.position = ccp(winSize.width/2 , winSize.height/2);
@@ -1248,10 +1251,10 @@ CCSprite* PowerLabel;
         
     }
 }
--(void) MakeBubbleInvisible
+/*-(void) MakeBubbleInvisible
 {
     bubble.visible = FALSE;
-}
+}*/
 
 int livePowerEnabled1 = 0;
 
