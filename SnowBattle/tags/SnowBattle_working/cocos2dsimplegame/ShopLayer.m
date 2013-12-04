@@ -18,6 +18,12 @@
     if (timeBonus == 0) {
         timeBonus = 60;
     }
+   /* if([[NSUserDefaults standardUserDefaults] integerForKey:@"Score"] > 0)
+    {
+        NSLog(@"score %d",[[NSUserDefaults standardUserDefaults] integerForKey:@"Score"]);
+        timeBonus = [[NSUserDefaults standardUserDefaults] integerForKey:@"Score"];
+    }*/
+    
     ShopLayer *layer =[[[ShopLayer alloc] initW:timeBonus] autorelease];
     [scene3 addChild: layer];
     return scene3;
@@ -51,7 +57,7 @@
         int powerup1Cost=10;
         int powerup2Cost=100;
         int powerup3Cost=30;
-        int player2cost=100;
+        int player2cost=70;
         //int player3cost=700;
         
         remainingTimeBonus=timeBonus;
