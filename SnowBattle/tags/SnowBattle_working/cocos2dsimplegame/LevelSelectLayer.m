@@ -47,13 +47,16 @@
         //p.startColor = [ccColor4F colorWithRed:0 green:0 blue:255];
         [self addChild:p z:1];
         
-        selectLevel = [CCMenuItemFont itemWithString:@"Select Level"
+        selectLevel1 = [CCMenuItemImage itemWithNormalImage:@"SelectLevel_clipped_rev_1.png"
+                                                           selectedImage:@"SelectLevel_clipped_rev_1.png" target:self
+                                                                selector:@selector(nextLevelStart:)];
+        /*selectLevel = [CCMenuItemFont itemWithString:@"Select Level"
                                               target:self
-                                            selector:@selector(nextLevelStart:)];
-        selectLevel.tag=0;
-        selectLevel.color=ccBLACK;
-        selectLevel.visible=false;
-        CCMenu *menu2 = [CCMenu menuWithItems: selectLevel, nil];
+                                            selector:@selector(nextLevelStart:)];*/
+        selectLevel1.tag=0;
+        //selectLevel.color=ccBLACK;
+        selectLevel1.visible=false;
+        CCMenu *menu2 = [CCMenu menuWithItems: selectLevel1, nil];
         menu2.position=ccp(550,50);
         [menu2 alignItemsVerticallyWithPadding:15];
         [self addChild:menu2];
@@ -62,32 +65,42 @@
         [CCMenuItemFont setFontName:@"Chalkduster"];
         [CCMenuItemFont setFontSize:38];
         
-        CCMenuItemFont *newGame = [CCMenuItemFont itemWithString:@"Level 1"
+        CCMenuItemImage *newGame = [CCMenuItemImage itemWithNormalImage:@"Level1.png"
+                                                          selectedImage:@"Level1.png" target:self
+                                                               selector:@selector(showMap:)];
+        /*CCMenuItemFont *newGame = [CCMenuItemFont itemWithString:@"Level 1"
                                                           target:self
-                                                        selector:@selector(showMap:)];
+                                                        selector:@selector(showMap:)];*/
         powerupList=[[NSMutableArray alloc] initWithCapacity:2];
         powerupList[0]=[NSString stringWithFormat:@"1"];
         newGame.userData=powerupList;
         
-        CCMenuItemFont *newGame1 = [CCMenuItemFont itemWithString:@"Level 2"
+        CCMenuItemImage *newGame1 = [CCMenuItemImage itemWithNormalImage:@"Level2.png"
+                                                          selectedImage:@"Level2.png" target:self
+                                                               selector:@selector(showMap:)];
+
+       /* CCMenuItemFont *newGame1 = [CCMenuItemFont itemWithString:@"Level 2"
                                                            target:self
-                                                         selector:@selector(showMap:)];
+                                                         selector:@selector(showMap:)];*/
         powerupList=[[NSMutableArray alloc] initWithCapacity:2];
         powerupList[0]=[NSString stringWithFormat:@"2"];
         newGame1.userData=powerupList;
         
-        CCMenuItemFont *newGame2 = [CCMenuItemFont itemWithString:@"Level 3"
+        CCMenuItemImage *newGame2 = [CCMenuItemImage itemWithNormalImage:@"Level3.png"
+                                                           selectedImage:@"Level3.png" target:self
+                                                                selector:@selector(showMap:)];
+        /*CCMenuItemFont *newGame2 = [CCMenuItemFont itemWithString:@"Level 3"
                                                            target:self
-                                                         selector:@selector(showMap:)];
+                                                         selector:@selector(showMap:)];*/
         powerupList=[[NSMutableArray alloc] initWithCapacity:2];
         powerupList[0]=[NSString stringWithFormat:@"3"];
         newGame2.userData=powerupList;
 //        CCMenuItemFont *newGame3 = [CCMenuItemFont itemWithString:@"Level 4"
 //                                                           target:self
 //                                                         selector:@selector(showMap:)];
-        [newGame setColor:ccBLUE];
-        [newGame1 setColor:ccBLUE];
-        [newGame2 setColor:ccBLUE];
+       // [newGame setColor:ccBLUE];
+       // [newGame1 setColor:ccBLUE];
+       // [newGame2 setColor:ccBLUE];
         //[newGame3 setColor:ccRED];
         
         CCMenu *menu = [CCMenu menuWithItems: newGame, newGame1, newGame2, nil];
@@ -102,7 +115,7 @@
         //selectLevel.color=ccBLUE;
         //selectLevel.visible=false;
         CCMenu *menu12 = [CCMenu menuWithItems: selectLevel1, nil];
-        menu12.position=ccp(160,50);
+        menu12.position=ccp(120,50);
         [menu12 alignItemsVerticallyWithPadding:15];
         [self addChild:menu12 z:1];
     }
@@ -154,8 +167,8 @@
     [self addChild:menu8];
     menu8.visible=true;
     
-    selectLevel.tag=levelSelected;
-    selectLevel.visible=true;
+    selectLevel1.tag=levelSelected;
+    selectLevel1.visible=true;
 }
 
 -(void) nextLevelStart:(CCMenuItemFont *) sender{

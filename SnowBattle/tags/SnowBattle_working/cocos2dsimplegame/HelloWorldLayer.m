@@ -795,7 +795,7 @@ int playerDirection = 1;
         powerLiveTimeLimit = 45;
         currentLevelScore = 0;
         
-        //[[NSUserDefaults standardUserDefaults] setInteger:10 forKey:@"Score"];
+        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"Level_Selected"];
         
         totalScore = [[NSUserDefaults standardUserDefaults] integerForKey:@"Score"];
         

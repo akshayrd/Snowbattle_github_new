@@ -1627,6 +1627,7 @@ CCSprite* PowerLabel;
         riverLayer = [_tileMap layerNamed:@"River"];
         powerLivesLayer.visible = FALSE;
         
+        [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"Level_Selected"];
         
         //        CCWaves3D *try=[CCWaves3D actionWithWaves:5 amplitude:25.0
         //                                              grid:ccg(15,10) duration:5];

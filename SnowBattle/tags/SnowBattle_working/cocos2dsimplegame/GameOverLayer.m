@@ -57,10 +57,14 @@
             [self addChild:bg z:0];
             
         }
-        label4 = [CCLabelTTF labelWithString:@"Shop Now" fontName:@"Marker Felt" fontSize:32];
+        
+        CCMenuItemImage *label12 = [CCMenuItemImage itemWithNormalImage:@"Shop.png"
+                                                          selectedImage:@"Shop.png" target:self
+                                                               selector:@selector(shopNow:)];
+        /*label4 = [CCLabelTTF labelWithString:@"Shop Now" fontName:@"Marker Felt" fontSize:32];
         label4.color = ccBLUE;
-        CCMenuItemLabel *next_level = [CCMenuItemLabel itemWithLabel:label4  target:self selector:@selector(shopNow)];
-        CCMenu *menu2= [CCMenu menuWithItems:next_level, nil];
+        CCMenuItemLabel *next_level = [CCMenuItemLabel itemWithLabel:label4  target:self selector:@selector(shopNow)];*/
+        CCMenu *menu2= [CCMenu menuWithItems:label12, nil];
         menu2.position = ccp(winSize.width/2-200 , winSize.height/2-250);
         [self addChild: menu2];
         
@@ -68,10 +72,11 @@
 
 
         //[self setColor:ccRED];
-        CCLabelTTF * label = [CCLabelTTF labelWithString:message fontName:@"Chalkduster" fontSize:40];
+        CCLabelTTF * label = [CCLabelTTF labelWithString:message fontName:@"Chalkduster" fontSize:50];
         label.color = ccRED;
         //label.color = ccc3(0,0,0);
-        label.position = ccp(winSize.width/2-200, winSize.height/2 + 140);
+        //label.position = ccp(winSize.width/2-200, winSize.height/2 + 140);
+        label.position = ccp(winSize.width/2-200, winSize.height/2 + 240);
         [self addChild:label];
         
         CCLabelTTF * labelScore = [CCLabelTTF labelWithString:yourScore fontName:@"Arial" fontSize:32];
@@ -82,19 +87,22 @@
         
         CCLabelTTF * labelTimeBonus = [CCLabelTTF labelWithString:timeBonus fontName:@"Arial" fontSize:32];
         labelTimeBonus.color = ccc3(0,0,0);
-        labelTimeBonus.position = ccp(winSize.width/2-200, winSize.height/2 + 70);
+        labelTimeBonus.position = ccp(winSize.width/2-200, winSize.height/2 + 50);
         [self addChild:labelTimeBonus];
         
         
         CCLabelTTF * labelTotal = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Total Score: %d", timeRemaining+scoreValue] fontName:@"Arial" fontSize:32];
         labelTotal.color = ccc3(0,0,0);
-        labelTotal.position = ccp(winSize.width/2-200, winSize.height/2-70);
+        labelTotal.position = ccp(winSize.width/2-200, winSize.height/2-50);
         [self addChild:labelTotal];
         
+        CCMenuItemImage *label10 = [CCMenuItemImage itemWithNormalImage:@"SelectLevel_clipped_rev_1.png"
+                                                              selectedImage:@"SelectLevel_clipped_rev_1.png" target:self
+                                                                   selector:@selector(LevelSelector:)];
         
-        label2 = [CCLabelTTF labelWithString:@"Select Level" fontName:@"Marker Felt" fontSize:32];
-        label2.color = ccc3(0,0,0);
-        CCMenuItemLabel *back = [CCMenuItemLabel itemWithLabel:label2  target:self selector:@selector(LevelSelector)];
+        /*label2 = [CCLabelTTF labelWithString:@"Select Level" fontName:@"Marker Felt" fontSize:32];
+        //label2.color = ccc3(0,0,0);
+        CCMenuItemLabel *back = [CCMenuItemLabel itemWithLabel:label2  target:self selector:@selector(LevelSelector)];*/
         
         if (won){
             //label3 = [CCLabelTTF labelWithString:@"Go to Next Level" fontName:@"Marker Felt" fontSize:32];
@@ -104,7 +112,7 @@
             //menu1.position = ccp(winSize.width/2-200 , winSize.height/2-250);
             //[self addChild: menu1];
         }
-        CCMenu *menu= [CCMenu menuWithItems:back, nil];
+        CCMenu *menu= [CCMenu menuWithItems:label10, nil];
         menu.position = ccp(winSize.width/2-200 , winSize.height/2-180);
         [self addChild: menu];
         timeBonus1=timeRemaining+scoreValue;
@@ -121,7 +129,7 @@
     
 }
 
--(void) LevelSelector {
+-(void) LevelSelector:(id)sender {
     
     //[[CCDirector sharedDirector] replaceScene:[HelloWorldLayer scene:_playerimage]];
     [[CCDirector sharedDirector] replaceScene:[LevelSelectLayer firstScene:_playerimage ]];
@@ -141,7 +149,7 @@
      replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HelloWorldLayer_Level2 scene2:_playerimage timeBonus:0 powerups:powerupArray playerSelected:playerSelectArray]]];
 }
 
--(void) shopNow {
+-(void) shopNow:(id)sender {
     [[CCDirector sharedDirector]
      replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[ShopLayer scene3:timeBonus1]]];
 }
